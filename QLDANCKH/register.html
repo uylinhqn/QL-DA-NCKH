@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Đăng nhập</title>
+    <link rel="shortcut icon" href="images/logopt.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/blue.css" rel="stylesheet" />
+    <link href="css/jquery.toast.css" rel="stylesheet">
+</head>
+<body>  <div id="updatematkhau" class="modal fade"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button> <h4 class="modal-title">Đổi mật khẩu</h4> </div> <div class="modal-body"> <div id="form-layouts" class="row"> <div class="col-lg-12"> <div class="panel panel-blue"> <div class="panel-body pan"> <div class="form-horizontal"> <div class="form-body"> <label id="lbidpass" style="display:none"></label> <input type="text" id="txtid" style="display:none;" runat="server" class="form-control" /> <div class="form-group"> <label for="inputEmail" class="col-md-3 control-label">Mật khẩu cũ <span class="require">*</span></label> <div class="col-md-9"> <input type="password" class="form-control" id="txtmatkhaucu" /> </div> </div> <div class="form-group"> <label for="inputEmail" class="col-md-3 control-label">Mật khẩu mới <span class="require">*</span></label> <div class="col-md-9"> <input type="password" class="form-control" id="txtmatkhaumoi" /> </div> </div> <div class="form-group"> <label for="inputEmail" class="col-md-3 control-label">Xác nhận khẩu mới <span class="require">*</span></label> <div class="col-md-9"> <input type="password" class="form-control" id="txtxacnhanmatkhau" /> </div> </div> </div> <div class="form-actions text-right pal"><button type="button" onclick="updatematkhau();" data-dismiss="modal" class="btn btn-primary">Lưu</button> <button type="button" data-dismiss="modal" class="btn btn-default">Đóng</button></div> </div> </div> </div> </div> </div> </div> </div> </div> </div>
+    <section id="wrapper" class="login-register">
+        <div class="login-box">
+            <div class="white-box">
+                <div class="form-horizontal form-material" id="loginform">
+                    <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
+                    <p>Vui lòng nhập thông tin đầy đủ!</p>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="txthoten" placeholder="Họ và tên">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="txtemail" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" id="txtmatkhau" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" id="txtmatkhau" placeholder="Xác nhận mật khẩu">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <a class="btn btn-success btn-lg btn-block text-uppercase waves-effect waves-light" id="btndn" onclick="checkdangnhap();">Đồng ý</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sidebar-nav.min.js"></script>
+    <script src="js/jquery.slimscroll.js"></script>
+    <script src="js/waves.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/jquery.toast.js"></script>
+</html>
