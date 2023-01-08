@@ -35756,7 +35756,7 @@ a.list-group-item {
     font-size: 16px;
     display: inline-block;
     vertical-align: middle;
-    color: #787f91;
+    color: #000;
 }
 .sidebar-nav > ul > li > a .badge {
     float: right;
