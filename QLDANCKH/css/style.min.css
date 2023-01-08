@@ -35656,7 +35656,7 @@ a.list-group-item {
 }
 .left-sidebar {
     position: absolute;
-    width: auto;
+    width: 295px;
     height: 100%;
     top: 0;
     z-index: 20;
@@ -37961,7 +37961,7 @@ html body .navbar-dark .mailbox .message-center a .mail-contnet .time {
 @media (min-width: 1024px) {
     .footer,
     .page-wrapper {
-        margin-left: 220px;
+        margin-left: 295px;
     }
 }
 @media (max-width: 1023px) {
@@ -37977,7 +37977,7 @@ html body .navbar-dark .mailbox .message-center a .mail-contnet .time {
 }
 @media (min-width: 768px) {
     .navbar-header {
-        width: 220px;
+        width: 295px;
         flex-shrink: 0;
     }
     .navbar-header .navbar-brand {
