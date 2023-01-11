@@ -14,8 +14,7 @@ namespace loginauth.Models
         {
             using (UserMasterRepository _repo = new UserMasterRepository())
             {
-                AppPhucVinhTuanKiet.Models.encrypts enc = new AppPhucVinhTuanKiet.Models.encrypts();
-                var user = _repo.ValidateUser(context.UserName, enc.Encrypt(context.Password));
+                var user = _repo.ValidateUser(context.UserName, context.Password);
                 if (user == null)
                 {
                     context.SetError("invalid_grant", "Provided username and password is incorrect");

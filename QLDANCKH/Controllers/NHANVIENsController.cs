@@ -27,19 +27,29 @@ namespace QLDANCKH.Controllers
             public string token_type { get; set; }
             public int expires_in { get; set; }
         }
-        public Tokens Getkey(string email, string pass)
+        public class users
         {
-            var client = new RestClient("https://localhost:44387/token");
+            public users() { }
+            public string email { get; set; }
+            public string pass { get; set; }
+        }
+        public Tokens Postkey(users acc)
+        {
+            var client = new RestClient("https://localhost:44338/token");
             var request = new RestRequest(Method.POST);
             request.AddHeader("postman-token", "079524ee-6d2c-33c7-ff89-ef4e71b4cc12");
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
-            request.AddParameter("application/x-www-form-urlencoded", "username=" + email + "&password=" + pass + "&grant_type=password", ParameterType.RequestBody);
+            request.AddParameter("application/x-www-form-urlencoded", "username=" + acc.email + "&password=" +acc.pass + "&grant_type=password", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<Tokens>(response.Content);
+            if (response.StatusCode.ToString() == "BadRequest") { return null; }
+            else
+            {
+                return JsonConvert.DeserializeObject<Tokens>(response.Content);
+            }
         }
         [Authorize(Roles = "SuperAdmin, Admin")]
-        [HttpGet]
+        [HttpPost]
         [Route("api/resource")]
         public IHttpActionResult GetResource1()
         {
@@ -105,7 +115,7 @@ namespace QLDANCKH.Controllers
 
         // POST: api/NHANVIENs
         [ResponseType(typeof(NHANVIEN))]
-        public IHttpActionResult PostNHANVIEN(NHANVIEN nHANVIEN)
+        public IHttpActionResult PostNHANVIEN(int ck,NHANVIEN nHANVIEN)
         {
             if (!ModelState.IsValid)
             {

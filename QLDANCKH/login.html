@@ -102,6 +102,7 @@
     <!-- Bootstrap tether Core JavaScript -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.toast.js"></script>
+    <script src="js/md5.js"></script>
     <!--Custom JavaScript -->
     <script type="text/javascript">
         $(function () {
@@ -136,10 +137,15 @@
         }
         var uri = '/api/nhanviens';
         function checkdangnhap() {
+            var datas = {
+                email: document.getElementById("txttdn").value,
+                pass: CryptoJS.MD5(document.getElementById("txtpass").value).toString()
+            };
             $.ajax({
-                url: uri + '?email=' + $("#txttdn").val() + '&pass=' + $("#txtpass").val(),
-                method: 'GET',
+                url: uri,
+                method: 'POST',
                 contentType: 'application/json',
+                data: JSON.stringify(datas),
                 success: function (data) {
                     if (data != null) {
                         window.open("index.html", "_self");

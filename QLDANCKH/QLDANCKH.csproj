@@ -175,6 +175,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.sparkline.min.js" />
     <Content Include="js\jquery.toast.js" />
+    <Content Include="js\md5.js" />
     <Content Include="js\morris.min.js" />
     <Content Include="js\perfect-scrollbar.jquery.min.js" />
     <Content Include="js\raphael-min.js" />
