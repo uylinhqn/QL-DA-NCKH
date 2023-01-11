@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_NCKHQBModelStoreContainer" CdmEntityContainer="QL_NCKHQBEntities">
+    <EntitySetMapping Name="ChiTietQuyenHTs">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.ChiTietQuyenHT">
+        <MappingFragment StoreEntitySet="ChiTietQuyenHT">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="IdQuyenHeThong" ColumnName="IdQuyenHeThong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuyenHeThongs">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.QuyenHeThong">
+        <MappingFragment StoreEntitySet="QuyenHeThong">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

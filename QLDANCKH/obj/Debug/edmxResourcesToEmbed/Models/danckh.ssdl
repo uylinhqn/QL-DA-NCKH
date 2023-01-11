@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_NCKHQBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietQuyenHT">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="IdQuyenHeThong" />
+    </Key>
+    <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="IDNHANVIEN" />
+    </Key>
+    <Property Name="IDNHANVIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDangNhap" Type="varchar" MaxLength="500" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="500" />
+    <Property Name="TenNhanVien" Type="nvarchar" MaxLength="200" />
+    <Property Name="Trinhdo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Trangthai" Type="bit" />
+    <Property Name="quyen" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="QuyenHeThong">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenQuyen" Type="nvarchar" MaxLength="500" />
+    <Property Name="quyen" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="QL_NCKHQBModelStoreContainer">
+    <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

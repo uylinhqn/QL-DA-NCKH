@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,22 +9,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/khcnqb.jpg">
     <title>Đăng nhập</title>
 
     <!-- page css -->
     <link href="css/login-register-lock.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/jquery.toast.css" rel="stylesheet">
 </head>
 
 <body class="skin-default card-no-border">
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(../images/login-register.jpg);">
-            <div class="login-box card">
+        <div class="login-register" style="background-image:url(../images/trangchu.jpg);">
+            <div class="login-box card" style="text-align:center">
                 <div class="card-body">
                     <div class="form-horizontal form-material" id="loginform">
-                        <h3 class="text-center m-b-20">QUẢN LÝ HOẠT ĐỘNG KH&CN</h3>
+                        <img src="images/khcnqb.jpg" style="width:150px;height:150px;" />
+                        <!--<h3 class="text-center m-b-20">QUẢN LÝ HOẠT ĐỘNG KH&CN 222</h3>-->
+                        <div style="font-weight: 900;margin-bottom:32px; color: #1e4394; font-size: 25px; font-family: 'Times New Roman', Times, serif; line-height: 1.4 !important; letter-spacing: -.1px !important;">HỆ THỐNG QUẢN LÝ NHIỆM VỤ KHOA HỌC VÀ CÔNG NGHỆ </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <input class="form-control" type="text" required="" id="txttdn" placeholder="Tên đăng nhập">
@@ -43,24 +45,27 @@
                                         <input type="checkbox" class="form-check-input" id="customCheck1">
                                         <label class="form-check-label" for="customCheck1">Ghi nhớ đăng nhập</label>
                                     </div>
-                                    <div class="ms-auto">
+                                    <!--<div class="ms-auto">
                                         <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Quên mật khẩu?</a>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
                         <div class="form-group text-center">
                             <div class="col-xs-12 p-b-20">
-                                <a class="btn w-100 btn-lg btn-info btn-rounded text-white" >Đăng nhập</a>
+                                <a class="btn w-100 btn-lg btn-info btn-rounded text-white" id="btndn" onclick="checkdangnhap()">Đăng nhập</a>
                             </div>
                         </div>
                         <div class="form-group m-b-0">
-                            <div class="col-sm-12 text-center">
+                            <!--<div class="col-sm-12 text-center">
                                 Bạn chưa có tài khoản? <a href="register.html" class="text-info m-l-5"><b>Đăng ký</b></a>
+                            </div>-->
+                            <div class="col-sm-12 text-center" style="font-weight: bold;color:#2d468f;">
+                                Phiên bản 1.0
                             </div>
                         </div>
                     </div>
-                    <div class="form-horizontal" id="recoverform" >
+                    <!--<div class="form-horizontal" id="recoverform">
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <h3>Khôi phục mật khẩu</h3>
@@ -74,7 +79,7 @@
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <a class="btn btn-primary btn-lg w-100 text-uppercase waves-effect waves-light" >Lấy lại mật khẩu</a>
+                                <a class="btn btn-primary btn-lg w-100 text-uppercase waves-effect waves-light">Lấy lại mật khẩu</a>
                             </div>
                         </div>
                         <div class="form-group m-b-0">
@@ -82,12 +87,11 @@
                                 Bạn muốn quay lại <a href="login.html" class="text-info m-l-5"><b>đăng nhập</b>?</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
     </section>
-
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -97,6 +101,7 @@
     <script src="js/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.toast.js"></script>
     <!--Custom JavaScript -->
     <script type="text/javascript">
         $(function () {
@@ -112,6 +117,58 @@
             $("#loginform").slideUp();
             $("#recoverform").fadeIn();
         });
+        document.getElementById('txttdn').onkeypress = function (e) {
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13') {
+                $('#btndn').click();
+            }
+        }
+        document.getElementById('txtpass').onkeypress = function (e) {
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13') {
+                $('#btndn').click();
+            }
+        }
+        window.onload = function () {
+            document.getElementById('txttdn').focus();
+        }
+        var uri = '/api/nhanviens';
+        function checkdangnhap() {
+            $.ajax({
+                url: uri + '?email=' + $("#txttdn").val() + '&pass=' + $("#txtpass").val(),
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data != null) {
+                        window.open("index.html", "_self");
+                    }
+                    else {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Đăng nhập không thành công. Vui lòng kiểm tra lại tài khoản!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Đăng nhập không thành công. Vui lòng kiểm tra lại tài khoản!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
     </script>
 
 </body>
