@@ -48,17 +48,6 @@ namespace QLDANCKH.Controllers
                 return JsonConvert.DeserializeObject<Tokens>(response.Content);
             }
         }
-        [Authorize(Roles = "SuperAdmin, Admin")]
-        [HttpPost]
-        [Route("api/resource")]
-        public IHttpActionResult GetResource1()
-        {
-            var identity = (ClaimsIdentity)User.Identity;
-            var roles = identity.Claims
-                        .Where(c => c.Type == ClaimTypes.Role)
-                        .Select(c => c.Value);
-            return Ok("Hello " + identity.Name + ", your Role(s) are: " + string.Join(",", roles.ToList()));
-        }
         // GET: api/NHANVIENs
         public IQueryable<NHANVIEN> GetNHANVIENs()
         {

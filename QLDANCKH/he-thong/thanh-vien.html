@@ -1,10 +1,1036 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
+    <title>DANH SÁCH THÀNH VIÊN </title>
+    <!-- This page CSS -->
+    <!--Toaster Popup message CSS -->
+    <link href="../css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.min.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="skin-green-dark fixed-layout mini-sidebar">
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../images/khcnqb.jpg" alt="homepage" class="dark-logo" style="width:30px;height:30px" />
+                            <!-- Light Logo icon -->
+                            <img src="../images/khcn.png" alt="homepage" class="light-logo" style="width:30px;height:30px" />
+                            <span class="logo-text secondary-text">KHOA HỌC & CÔNG NGHỆ</span>
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                            <!-- dark Logo text -->
+                            <!--<img src="../images/logo-text.png" alt="homepage" class="dark-logo" />-->
+                            <!-- Light Logo text -->
+                            <!--<img src="../images/logo-light-text.png" class="light-logo" alt="homepage" />-->
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-user"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-end animated bounceInDown" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Steave Gection</div>
+                                    </li>
+                                    <li>
+                                        <!-- text-->
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i class="ti-user"></i> Thông tin cá nhân
+                                        </a>
+                                        <a href="../login.html" class="dropdown-item">
+                                            <i class="fa fa-power-off"></i> Thoát
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-list" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Đề xuất đặt hàng
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../de-xuat-dat-hang/danh-sach-de-xuat.html" style="color:white !important">Danh sách đề xuất </a>
+                                </li>
+                                <li>
+                                    <a href="../de-xuat-dat-hang/de-xuat-theo-nam.html" style="color:white !important">Đề xuất theo năm</a>
+                                </li>
+                                <li>
+                                    <a href="../de-xuat-dat-hang/de-xuat-cap-tinh.html" style="color:white !important">Đề xuất cấp Tỉnh</a>
+                                </li>
+                                <li>
+                                    <a href="../de-xuat-dat-hang/de-xuat-cap-nha-nuoc.html" style="color:white !important">Đề xuất cấp Nhà nước</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-grid2" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white">Nhiệm vụ phê duyệt</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../nhiem-vu-phe-duyet/danh-sach-nhiem-vu.html" style="color:white !important">DS nhiệm vụ phê duyệt</a>
+                                </li>
+                                <li>
+                                    <a href="../nhiem-vu-phe-duyet/nhiem-vu-phe-duyet-theo-nam.html" style="color:white !important">Nhiệm vụ p.duyệt theo năm</a>
+                                </li>
+                                <li>
+                                    <a href="../nhiem-vu-phe-duyet/nhiem-vu-phe-duyet-theo-linh-vuc.html" style="color:white !important">Nhiệm vụ p.duyệt theo lĩnh vực</a>
+                                </li>
+                                <li>
+                                    <a href="../nhiem-vu-phe-duyet/nhiem-vu-phe-duyet-theo-cap.html" style="color:white !important">Nhiệm vụ phê duyệt theo cấp</a>
+                                </li>
+                                <li>
+                                    <a href="../nhiem-vu-phe-duyet/thong-tin-quyet-dinh-phe-duyet.html" style="color:white !important">Thông tin quyết định p.duyệt</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check-box" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tuyển chọn, giao trực tiếp</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../tuyen-chon-giao-truc-tiep/danh-sach-nhiem-vu.html" style="color:white !important">Danh sách nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../tuyen-chon-giao-truc-tiep/danh-sach-chuyen-gia.html" style="color:white !important">Danh sách chuyên gia</a>
+                                </li>
+                                <li>
+                                    <a href="../tuyen-chon-giao-truc-tiep/thong-tin-khach-moi.html" style="color:white !important">Thông tin khách mời</a>
+                                </li>
+                                <li>
+                                    <a href="../tuyen-chon-giao-truc-tiep/phieu-nhan-xet-danh-gia.html" style="color:white !important">Phiếu nhận xét đánh giá</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-bookmark-alt" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hợp đồng, kinh phí
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../hop-dong-kinh-phi/danh-sach-nhiem-vu.html" style="color:white !important">Danh sách nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../hop-dong-kinh-phi/kinh-phi-phe-duyet.html" style="color:white !important">Kinh phí phê duyệt</a>
+                                </li>
+                                <li>
+                                    <a href="../hop-dong-kinh-phi/thong-tin-hop-dong.html" style="color:white !important">Thông tin hợp đồng</a>
+                                </li>
+                                <li>
+                                    <a href="../hop-dong-kinh-phi/kinh-phi-da-cap-theo-dot.html" style="color:white !important">Kinh phí đã cấp theo đợt</a>
+                                </li>
+                                <li>
+                                    <a href="../hop-dong-kinh-phi/thong-tin-ho-so-thanh-ly.html" style="color:white !important">Thông tin hồ sơ thanh lý</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-briefcase" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tổ chức chủ trì</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../to-chuc-chu-tri/thong-tin-to-chuc.html" style="color:white !important">Thông tin tổ chức chủ trì</a>
+                                </li>
+                                <li>
+                                    <a href="../to-chuc-chu-tri/thong-tin-chu-nhiem-thanh-vien.html" style="color:white !important">Thông tin chủ nhiệm,t.viên</a>
+                                </li>
+                                <li>
+                                    <a href="../to-chuc-chu-tri/nang-luc-nghien-cuu.html" style="color:white !important">Năng lực nghiên cứu</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-accordion-merged" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Thực hiện nhiệm vụ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../thuc-hien-nhiem-vu/danh-sach-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../thuc-hien-nhiem-vu/tien-do-thuc-hien.html" style="color:white !important">Tiến độ t.gian t.hiện nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../thuc-hien-nhiem-vu/ket-qua-thuc-hien.html" style="color:white !important">Kết quả theo thời gian</a>
+                                </li>
+                                <li>
+                                    <a href="../thuc-hien-nhiem-vu/thong-tin-thuc-hien.html" style="color:white !important">Thông tin chung,n.dung t.hiện</a>
+                                </li>
+                                <li>
+                                    <a href="../thuc-hien-nhiem-vu/san-pham-nhiem-vu.html" style="color:white !important">Sản phẩm nhiệm vụ</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Kiểm tra tiến độ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../kiem-tra-tien-do/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../kiem-tra-tien-do/ke-hoach-kiem-tra.html" style="color:white !important">Kế hoạch kiểm tra</a>
+                                </li>
+                                <li>
+                                    <a href="../kiem-tra-tien-do/thanh-phan-kiem-tra.html" style="color:white !important">Thành phần kiểm tra</a>
+                                </li>
+                                <li>
+                                    <a href="../kiem-tra-tien-do/bao-cao-tien-do-kiem-tra.html" style="color:white !important">Báo cáo tiến độ</a>
+                                </li>
+                                <li>
+                                    <a href="../kiem-tra-tien-do/noi-dung-da-thuc-hien.html" style="color:white !important">Nội dung đã thực hiện</a>
+                                </li>
+                                <li>
+                                    <a href="../kiem-tra-tien-do/thong-tin-hinh-anh-san-pham.html" style="color:white !important">Thông tin, hình ảnh, sản phẩm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-gallery" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hội nghị, hội thảo</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/ke-hoach-hoi-thao.html" style="color:white !important">Kế hoạch Hội thảo</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/thong-tin-hoi-thao.html" style="color:white !important">Thông tin Hội thảo</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/thanh-phan-tham-gia.html" style="color:white !important">Thành phần tham gia</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/noi-dung-tham-luan.html" style="color:white !important">Nội dung, tham luận</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-nghi-hoi-thao/bien-ban-hoi-thao.html" style="color:white !important">Biên bản Hội thảo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hội đồng nghiệm thu cơ sở
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-co-so/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-co-so/quyet-dinh-hoi-dong.html" style="color:white !important">Quyết định Hội đồng</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-co-so/bao-cao-tong-hop-ket-qua.html" style="color:white !important">Báo cáo tổng hợp kết quả</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-co-so/bao-cao-tom-tat.html" style="color:white !important">Báo cáo tóm tắt</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-co-so/bien-ban-nghiem-thu-ket-qua.html" style="color:white !important">Biên bản nghiệm thu,kết quả</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hợp đồng nghiệm thu cấp tỉnh</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/quyet-dinh-hoi-dong.html" style="color:white !important">Quyết định hội đồng</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/bao-cao-hoan-thien-thong-ke.html" style="color:white !important">Báo cáo Hoàn thiện, thống kê</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/bao-cao-tong-hop-ket-qua.html" style="color:white !important">Báo cáo tổng hợp kết quả</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/bao-cao-tom-tat.html" style="color:white !important">Báo cáo tóm tắt</a>
+                                </li>
+                                <li>
+                                    <a href="../hoi-dong-nghiem-thu-cap-tinh/bien-ban-nghiem-thu-ket-qua.html" style="color:white !important">Biên bản nghiệm thu, kết quả</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-light-bulb" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Đăng ký lưu trữ, công nhận</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ</a></li>
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/quyet-dinh-cong-nhan.html" style="color:white !important">Quyết định công nhận</a></li>
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/bao-cao-tong-hop.html" style="color:white !important">Báo cáo tổng hợp Kết quả</a></li>
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/bao-cao-tom-tat.html" style="color:white !important">Báo cáo tóm tắt</a></li>
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/danh-sach-tac-gia.html" style="color:white !important">Danh sách tác giả tham gia</a></li>
+                                <li><a href="../dang-ky-luu-tru-cong-nhan/giay-chung-nhan.html" style="color:white !important">Giấy chứng nhận đăng ký kết quả</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-archive" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý chuyển giao ứng dụng</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../quan-ly-chuyen-gia-ung-dung/danh-muc-nhiem-vu.html" style="color:white !important">DM nhiệm vụ chuyển giao</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-chuyen-gia-ung-dung/thong-tin-chuyen-gia.html" style="color:white !important">Thông tin chuyển giao</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-chuyen-gia-ung-dung/lanh-dao-tiep-nhan.html" style="color:white !important">Tên lãnh đạo tiếp nhận</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-chuyen-gia-ung-dung/bien-ban-chuyen-giao.html" style="color:white !important">Biên bản chuyển giao</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-chuyen-gia-ung-dung/bao-cao-tinh-hinh-ung-dung.html" style="color:white !important">Báo cáo tình hình ứng dụng</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-align-left" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý gia hạn</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../quan-ly-gia-han/danh-muc-nhiem-vu.html" style="color:white !important">Danh mục nhiệm vụ gia hạn</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-gia-han/don-gia-han.html" style="color:white !important">Đơn gia hạn</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-gia-han/quyet-dinh-gia-han.html" style="color:white !important">Quyết định gia hạn</a>
+                                </li>
+                                <li>
+                                    <a href="../quan-ly-gia-han/thoi-gian-gia-han.html" style="color:white !important">Thời gian gia hạn, kết thúc</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fa fa-cogs" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hệ thống</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="../he-thong/thanh-vien.html" style="color:white !important">Thành viên</a>
+                                </li>
+                                <li>
+                                    <a href="../he-thong/phan-quyen.html" style="color:white !important">Phân quyền</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Danh sách thành viên</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb justify-content-end">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Thành viên</li>
+                            </ol>
+                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="myTable" class="table table-striped border">
+                                        <thead>
+                                            <tr>
+                                                <th>Thao tác</th>
+                                                <th>Tên đăng nhập</th>
+                                                <th>Họ tên</th>
+                                                <th>Trình độ</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Điện thoại</th>
+                                                <th>Trạng thái</th>
+                                                <th>Quyền truy cập</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="danhsach"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <label id="lbtenfile" style="display:none"></label>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer" style="background-color:#1565c0;color:white">
+            <!--© 2023 QUẢN LÝ HOẠT ĐỘNG KH&CN.-->
+            <h3 style="text-align: center;font-weight: bolder;">SỞ KHOA HỌC VÀ CÔNG NGHỆ QUẢNG BÌNH</h3>
+            <h3 style="text-align: center;font-weight: bolder;">HỆ THỐNG QUẢN LÝ NHIỆM VỤ KHOA HỌC VÀ CÔNG NGHỆ</h3>
+            <h4 style="text-align: center;">Địa chỉ: 17A Quang Trung - TP.Đồng Hới - Quảng Bình</h4>
+            <h4 style="text-align: center;">Điện thoại: 0232.3824347, FAX: 0232.3822808 Email: skhcn@quangbinh.gov.vn</h4>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="themdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thông tin thành viên</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Tên đăng nhập</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtemail" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Mật khẩu</label>
+                                            <div class="col-md-12">
+                                                <input type="password" class="form-control" id="txtmatkhau" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải chứa ít nhất một số và một chữ hoa và chữ thường và ít nhất 8 ký tự trở lên" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Họ tên</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txthoten" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Trình độ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttrinhdo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Địa chỉ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtdiachi" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Điện thoại</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtdienthoai" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Quyền hệ thống</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtquyen">
+                                                    <option value="">Chọn quyền</option>
+                                                    <option value="admin">Quản trị</option>
+                                                    <option value="member">Thành viên</option>
+                                                    <option value="client">Người dùng</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbtt" value="">
+                                                    <label for="chbtt">Trạng thái</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" onclick="themdmmoi();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capnhatdanhmuc" class="modal fade">
+        <div class="modal-dialog modal-lg" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cập nhật thông tin thành viên</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="form-layouts" class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label id="lbid" style="display:none"></label>
+                                            <label class="col-md-12 control-label">Họ tên</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txthotencn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Trình độ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttrinhdocn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Địa chỉ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtdiachicn" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Điện thoại</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtdienthoaicn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Quyền hệ thống</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtquyencn">
+                                                    <option value="">Chọn quyền</option>
+                                                    <option value="admin">Quản trị</option>
+                                                    <option value="member">Thành viên</option>
+                                                    <option value="client">Người dùng</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbttcn" value="">
+                                                    <label for="chbttcn">Trạng thái</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" data-bs-dismiss="modal" onclick="capnhattt();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="capnhatmatkhau" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="bootbox-close-button close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Đổi mật khẩu</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-12">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-body">
+                                            <label id="idpas" style="display:none"></label>
+                                            <div class="form-group">
+                                                <label for="inputEmail" class="col-md-12 control-label">Mật khẩu mới <span class="require">*</span></label>
+                                                <div class="col-md-12">
+                                                    <input type="password" class="form-control" id="txtmatkhaumoiad" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải chứa ít nhất một số và một chữ hoa và chữ thường và ít nhất 8 ký tự trở lên" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-success waves-effect text-start text-white"  onclick="doimatkhau();" data-bs-dismiss="modal">Lưu</button> 
+                                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal" >Đóng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="../js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Popup message jquery -->
+    <script src="../js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.buttons.min.js"></script>
+    <script src="../js/buttons.flash.min.js"></script>
+    <script src="../js/jszip.min.js"></script>
+    <script src="../js/pdfmake.min.js"></script>
+    <script src="../js/vfs_fonts.js"></script>
+    <script src="../js/buttons.html5.min.js"></script>
+    <script src="../js/buttons.print.min.js"></script>
+    <script>
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+
+            ], "pageLength": 20
+        });
+        window.onload = function () {
+            loaddanhsach();
+        }
+        var uri = '/api/nhanviens';
+        function loaddanhsach() {
+            $.ajax({
+                url: uri,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
+                    // On success, 'data' contains a list of products.
+                    var stt = 1;
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + "<div class='dropdown'>" +
+                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDNHANVIEN + ")'>Cập nhật thông tin</a></li><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatmatkhau' onclick='loaddanhsachls(" + item.IDNHANVIEN + ")'>Đổi mật khẩu</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDNHANVIEN + ")'>Xóa thành viên</a></li></ul></div></td>" +
+                            "<td>" + item.TenDangNhap + "</td>" + "<td>" + item.TenNhanVien + "</td>" +
+                            "<td>" + item.Trinhdo + "</td>" +
+                            "<td>" + item.Diachi + "</td>" +
+                            "<td>" + item.Phone + "</td>" +
+                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
+                            "<td>" + item.quyen + "</td></tr> ";
+                        $("#danhsach").append(strhtml); stt++;
+                    });
+                    $('#myTable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+
+                        ]
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function loaddanhsachls(id) {
+            document.getElementById("lbidpas").innerHTML = id; }
+        function xemdanhmuc(id) {
+            $.ajax({
+                url: uri + '?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                        document.getElementById("lbid").innerHTML = data.IDNHANVIEN;
+                        document.getElementById("txthotencn").value = data.TenNhanVien;
+                        document.getElementById("txtdiachicn").value = data.Diachi;
+                        document.getElementById("txttrinhdocn").value = data.Trinhdo;
+                        document.getElementById("txtdienthoaicn").value = data.Phone;
+                        document.getElementById("txtquyencn").value = data.quyen;
+                        document.getElementById("chbttcn").checked = data.Trangthai;
+                    
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function themdmmoi() {
+            var datas = {
+                TenDangNhap: document.getElementById("txtemail").value,
+                Matkhau: document.getElementById("txtmatkhau").value,
+                TenNhanVien: document.getElementById("txthoten").value,
+                Trinhdo: document.getElementById("txttrinhdo").value,
+                Diachi: document.getElementById("txtdiachi").value,
+                Phone: document.getElementById("txtdienthoai").value,
+                Trangthai: document.getElementById("chbtt").checked,
+                quyen: document.getElementById("txtquyen").value
+            };
+            $.ajax({
+                url: uri + '?ck=1',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    201: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Thêm thông tin thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                        document.getElementById("txtdienthoai").value = "";
+                        document.getElementById("txtmatkhau").value = "";
+                        document.getElementById("txthoten").value = "";
+                        document.getElementById("txtdiachi").value = "";
+                        document.getElementById("txtemail").value = "";
+                        document.getElementById("txtquyen").value = "";
+                        document.getElementById("txttrinhdo").value = "";
+                        document.getElementById("chbtt").checked = false;
+
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Thêm thông tin thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'warning',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function capnhattt() {
+            var datas = {
+                IDNHANVIEN: document.getElementById("lbid").innerHTML,
+                Matkhau: document.getElementById("txtmatkhaumoiad").value,
+                Trinhdo: document.getElementById("txttrinhdocn").value,
+                Diachi: document.getElementById("txtdiachicn").value,
+                Phone: document.getElementById("txtdienthoaicn").value,
+                Trangthai: document.getElementById("chbttcn").checked,
+                quyen: document.getElementById("txtquyencn").value
+            };
+            $.ajax({
+                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                        document.getElementById("lbid").innerHTML = "";
+                        document.getElementById("txthotencn").value = "";
+                        document.getElementById("txttrinhdocn").value = "";
+                        document.getElementById("txtdiachicn").value = "";
+                        document.getElementById("txtdienthoaicn").value = "";
+                        document.getElementById("txtquyencn").value = "";        
+                        document.getElementById("chbttcn").checked = false;                    
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function doimatkhau() {
+            var datas = {
+                IDNHANVIEN: document.getElementById("idpas").innerHTML,
+                Matkhau: document.getElementById("txtmatkhaumoiad").value
+            };
+            $.ajax({
+                url: uri + '?idpas=' + document.getElementById("idpas").innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Đối mật khẩu thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                        document.getElementById("idpas").innerHTML = "";
+                        document.getElementById("txtmatkhaumoiad").value = "";
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Đối mật khẩu thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function capnhattrangthai(strtx) {
+            $.ajax({
+                url: uri + '?email=' + strtx.innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data == true) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                    }
+                    else {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin thành viên không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function xoadanhmuc(id) {
+            $.ajax({
+                url: uri + '?email=' + document.getElementById("lbiddanhmucxoa").innerHTML,
+                method: 'DELETE',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data > 0) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach(); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                    }
+                    else {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin thành viên không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Xóa thông tin thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                }
+            });
+        }
+    </script>
 </body>
+
 </html>

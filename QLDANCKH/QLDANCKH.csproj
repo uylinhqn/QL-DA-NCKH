@@ -112,10 +112,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\buttons.dataTables.min.css" />
     <Content Include="css\dashboard1.css" />
+    <Content Include="css\dataTables.bootstrap4.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
     <Content Include="css\jquery.toast.css" />
     <Content Include="css\login-register-lock.css" />
     <Content Include="css\morris.css" />
+    <Content Include="css\responsive.dataTables.min.css" />
     <Content Include="css\style.min.css" />
     <Content Include="dang-ky-luu-tru-cong-nhan\bao-cao-tom-tat.html" />
     <Content Include="dang-ky-luu-tru-cong-nhan\bao-cao-tong-hop.html" />
@@ -134,6 +138,7 @@
     <Content Include="fonts\themify.svg" />
     <Content Include="fonts\weathericons-regular-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="he-thong\cau-hinh.html" />
     <Content Include="he-thong\phan-quyen.html" />
     <Content Include="he-thong\thanh-vien.html" />
     <Content Include="hoi-dong-nghiem-thu-cap-tinh\bao-cao-hoan-thien-thong-ke.html" />
@@ -170,16 +175,25 @@
     <Content Include="index.html" />
     <Content Include="js\2jquery.toast.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\buttons.flash.min.js" />
+    <Content Include="js\buttons.html5.min.js" />
+    <Content Include="js\buttons.print.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\dashboard1.js" />
+    <Content Include="js\dataTables.buttons.min.js" />
+    <Content Include="js\dataTables.responsive.min.js" />
+    <Content Include="js\jquery.dataTables.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.sparkline.min.js" />
     <Content Include="js\jquery.toast.js" />
+    <Content Include="js\jszip.min.js" />
     <Content Include="js\md5.js" />
     <Content Include="js\morris.min.js" />
+    <Content Include="js\pdfmake.min.js" />
     <Content Include="js\perfect-scrollbar.jquery.min.js" />
     <Content Include="js\raphael-min.js" />
     <Content Include="js\sidebarmenu.js" />
+    <Content Include="js\vfs_fonts.js" />
     <Content Include="js\waves.js" />
     <Content Include="kiem-tra-tien-do\bao-cao-tien-do-kiem-tra.html" />
     <Content Include="kiem-tra-tien-do\danh-muc-nhiem-vu.html" />
