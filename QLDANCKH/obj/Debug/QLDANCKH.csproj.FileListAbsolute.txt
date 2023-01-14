@@ -149,7 +149,6 @@ D:\web\templatetvct\QL-DA-NCKH\QLDANCKH\bin\EntityFramework.dll
 D:\web\templatetvct\QL-DA-NCKH\QLDANCKH\bin\EntityFramework.SqlServer.dll
 D:\web\templatetvct\QL-DA-NCKH\QLDANCKH\bin\EntityFramework.xml
 D:\web\templatetvct\QL-DA-NCKH\QLDANCKH\bin\EntityFramework.SqlServer.xml
-D:\web\templatetvct\QL-DA-NCKH\QLDANCKH\obj\Debug\QLDANCKH.csprojAssemblyReference.cache
 E:\QTPCWORKING\2022\DEMO\QL-DA-NCKH\QLDANCKH\bin\QLDANCKH.dll.config
 E:\QTPCWORKING\2022\DEMO\QL-DA-NCKH\QLDANCKH\bin\QLDANCKH.dll
 E:\QTPCWORKING\2022\DEMO\QL-DA-NCKH\QLDANCKH\bin\QLDANCKH.pdb

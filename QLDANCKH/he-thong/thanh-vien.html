@@ -662,11 +662,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="bootbox-close-button close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Đổi mật khẩu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-layouts" class="row" onsubmit="return false">
+                    <div id="form-layouts" class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-blue">
                                 <div class="panel-body pan">
@@ -688,7 +688,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -780,7 +780,7 @@
             });
         }
         function loaddanhsachls(id) {
-            document.getElementById("lbidpas").innerHTML = id; }
+            document.getElementById("idpas").innerHTML = id; }
         function xemdanhmuc(id) {
             $.ajax({
                 url: uri + '?id=' + id,
@@ -989,12 +989,12 @@
             });
         }
         function xoadanhmuc(id) {
-            $.ajax({
-                url: uri + '?email=' + document.getElementById("lbiddanhmucxoa").innerHTML,
-                method: 'DELETE',
-                contentType: 'application/json',
-                success: function (data) {
-                    if (data > 0) {
+            if (confirm('Bạn chắc chắn muốn xóa thành viên đã chọn?')) {
+                $.ajax({
+                    url: uri + '/' + id,
+                    method: 'DELETE',
+                    contentType: 'application/json',
+                    success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
                             text: 'Xóa thông tin thành viên thành công!',
@@ -1003,9 +1003,9 @@
                             icon: 'info',
                             hideAfter: 3500,
                             stack: 6
-                        }); loaddanhsach(); document.getElementById("lbiddanhmucxoa").innerHTML = "";
-                    }
-                    else {
+                        }); loaddanhsach();
+                    },
+                    error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
                             text: 'Xóa thông tin thành viên không thành công!',
@@ -1016,19 +1016,8 @@
                             stack: 6
                         }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
                     }
-                },
-                error: function (request, msg, error) {
-                    $.toast({
-                        heading: 'Thông báo',
-                        text: 'Xóa thông tin thành viên không thành công!',
-                        position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'info',
-                        hideAfter: 3500,
-                        stack: 6
-                    }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
-                }
-            });
+                });
+            }
         }
     </script>
 </body>
