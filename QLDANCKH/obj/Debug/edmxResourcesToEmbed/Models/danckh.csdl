@@ -34,5 +34,25 @@
     <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
     <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
     <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
+    <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
+    <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
   </EntityContainer>
+  <EntityType Name="DM_DONVI">
+    <Key>
+      <PropertyRef Name="IDDonvi" />
+    </Key>
+    <Property Name="IDDonvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDonvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_HOCVI">
+    <Key>
+      <PropertyRef Name="IDHocvi" />
+    </Key>
+    <Property Name="IDHocvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
 </Schema>

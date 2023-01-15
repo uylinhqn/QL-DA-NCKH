@@ -8,6 +8,24 @@
     <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="DM_DONVI">
+    <Key>
+      <PropertyRef Name="IDDonvi" />
+    </Key>
+    <Property Name="IDDonvi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDonvi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
+  <EntityType Name="DM_HOCVI">
+    <Key>
+      <PropertyRef Name="IDHocvi" />
+    </Key>
+    <Property Name="IDHocvi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHocvi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
       <PropertyRef Name="IDNHANVIEN" />
@@ -32,6 +50,8 @@
   </EntityType>
   <EntityContainer Name="QL_NCKHQBModelStoreContainer">
     <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

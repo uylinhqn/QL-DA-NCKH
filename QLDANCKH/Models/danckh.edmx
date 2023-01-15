@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QL_NCKHQBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QL_NCKHQBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietQuyenHT">
           <Key>
             <PropertyRef Name="TenDangNhap" />
@@ -12,6 +12,24 @@
           </Key>
           <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_DONVI">
+          <Key>
+            <PropertyRef Name="IDDonvi" />
+          </Key>
+          <Property Name="IDDonvi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDonvi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
+        <EntityType Name="DM_HOCVI">
+          <Key>
+            <PropertyRef Name="IDHocvi" />
+          </Key>
+          <Property Name="IDHocvi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHocvi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Trangthai" Type="bit" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -37,11 +55,12 @@
         </EntityType>
         <EntityContainer Name="QL_NCKHQBModelStoreContainer">
           <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QL_NCKHQBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -79,7 +98,27 @@
           <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
+          <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
+          <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
         </EntityContainer>
+        <EntityType Name="DM_DONVI">
+          <Key>
+            <PropertyRef Name="IDDonvi" />
+          </Key>
+          <Property Name="IDDonvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDonvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DM_HOCVI">
+          <Key>
+            <PropertyRef Name="IDHocvi" />
+          </Key>
+          <Property Name="IDHocvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -115,6 +154,26 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
                 <ScalarProperty Name="quyen" ColumnName="quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_DONVI">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_DONVI">
+              <MappingFragment StoreEntitySet="DM_DONVI">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="TenDonvi" ColumnName="TenDonvi" />
+                <ScalarProperty Name="IDDonvi" ColumnName="IDDonvi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_HOCVI">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_HOCVI">
+              <MappingFragment StoreEntitySet="DM_HOCVI">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="TenHocvi" ColumnName="TenHocvi" />
+                <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

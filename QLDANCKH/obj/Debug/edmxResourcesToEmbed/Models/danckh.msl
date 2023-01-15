@@ -33,5 +33,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DM_DONVI">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_DONVI">
+        <MappingFragment StoreEntitySet="DM_DONVI">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="TenDonvi" ColumnName="TenDonvi" />
+          <ScalarProperty Name="IDDonvi" ColumnName="IDDonvi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_HOCVI">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_HOCVI">
+        <MappingFragment StoreEntitySet="DM_HOCVI">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenHocvi" ColumnName="TenHocvi" />
+          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -139,7 +139,9 @@
     <Content Include="fonts\weathericons-regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="he-thong\cau-hinh.html" />
+    <Content Include="he-thong\hoc-vi.html" />
     <Content Include="he-thong\phan-quyen.html" />
+    <Content Include="he-thong\don-vi.html" />
     <Content Include="he-thong\thanh-vien.html" />
     <Content Include="hoi-dong-nghiem-thu-cap-tinh\bao-cao-hoan-thien-thong-ke.html" />
     <Content Include="hoi-dong-nghiem-thu-cap-tinh\bao-cao-tom-tat.html" />
@@ -243,6 +245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DM_DONVIController.cs" />
+    <Compile Include="Controllers\DM_HOCVIController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +268,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>danckh.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_DONVI.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_HOCVI.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\encrypts.cs" />
     <Compile Include="Models\MyAuthorizationServerProvider.cs" />

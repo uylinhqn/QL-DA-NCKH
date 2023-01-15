@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>DANH SÁCH THÀNH VIÊN </title>
+    <title>DANH MỤC ĐƠN VỊ </title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -431,13 +431,13 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Danh sách thành viên</h4>
+                        <h4 class="text-themecolor">Danh mục đơn vị</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Thành viên</li>
+                                <li class="breadcrumb-item active">Đơn vị</li>
                             </ol>
                             <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
@@ -453,13 +453,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên đăng nhập</th>
-                                                <th>Họ tên</th>
-                                                <th>Trình độ</th>
+                                                <th>Tên đơn vị</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Điện thoại</th>
                                                 <th>Trạng thái</th>
-                                                <th>Quyền truy cập</th>
+
                                             </tr>
                                         </thead>
                                         <tbody id="danhsach"></tbody>
@@ -497,7 +495,7 @@
         <div class="modal-dialog modal-xl" style="z-index:9999">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Thông tin thành viên</h4>
+                    <h4 class="modal-title">Danh mục đơn vị</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
@@ -507,29 +505,23 @@
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label">Tên đăng nhập</label>
+                                            <label class="col-md-12 control-label">Tên đơn vị</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txtemail" />
+                                                <input type="text" class="form-control" id="txttendonvi" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Mật khẩu</label>
+                                           <div class="form-group">
+                                            <label class="col-md-12 control-label">Địa chỉ</label>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control" id="txtmatkhau" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải chứa ít nhất một số và một chữ hoa và chữ thường và ít nhất 8 ký tự trở lên" required />
+                                                <input type="text" class="form-control" id="txtdiachi" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Họ tên</label>
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txthoten" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-md-12 control-label">Trình độ</label>
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" id="txttrinhdo" />
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -538,19 +530,19 @@
                             <div class="panel panel-blue">
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-md-12 control-label">Địa chỉ</label>
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" id="txtdiachi" />
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">Điện thoại</label>
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" id="txtdienthoai" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-md-12 control-label">Quyền hệ thống</label>
                                             <div class="col-md-12">
                                                 <select class="form-control form-select" id="txtquyen">
@@ -560,7 +552,7 @@
                                                     <option value="client">Người dùng</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <div class="col-md-12">
                                             </div>
@@ -588,7 +580,7 @@
         <div class="modal-dialog modal-lg" style="z-index:9999">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cập nhật thông tin thành viên</h4>
+                    <h4 class="modal-title">Cập nhật thông tin Đơn vị</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
@@ -599,17 +591,12 @@
                                     <div class="form-horizontal">
                                         <div class="form-group">
                                             <label id="lbid" style="display:none"></label>
-                                            <label class="col-md-12 control-label">Họ tên</label>
+                                            <label class="col-md-12 control-label">Tên đơn vị</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txthotencn" />
+                                                <input type="text" class="form-control" id="txttendonvicn" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Trình độ</label>
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txttrinhdocn" />
-                                            </div>
-                                        </div>
+                                     
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">Địa chỉ</label>
                                             <div class="col-md-12">
@@ -630,17 +617,7 @@
                                                 <input type="text" class="form-control" id="txtdienthoaicn" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Quyền hệ thống</label>
-                                            <div class="col-md-12">
-                                                <select class="form-control form-select" id="txtquyencn">
-                                                    <option value="">Chọn quyền</option>
-                                                    <option value="admin">Quản trị</option>
-                                                    <option value="member">Thành viên</option>
-                                                    <option value="client">Người dùng</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <div class="col-md-12">
                                             </div>
@@ -740,7 +717,7 @@
         window.onload = function () {
             loaddanhsach();
         }
-        var uri = '/api/nhanviens';
+        var uri = '/api/DM_DONVI';
         function loaddanhsach() {
             $.ajax({
                 url: uri,
@@ -755,14 +732,13 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDNHANVIEN + ")'>Cập nhật thông tin</a></li><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatmatkhau' onclick='loaddanhsachls(" + item.IDNHANVIEN + ")'>Đổi mật khẩu</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDNHANVIEN + ")'>Xóa thành viên</a></li></ul></div></td>" +
-                            "<td>" + item.TenDangNhap + "</td>" + "<td>" + item.TenNhanVien + "</td>" +
-                            "<td>" + item.Trinhdo + "</td>" +
-                            "<td>" + item.Diachi + "</td>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDDonvi + ")'>Cập nhật thông tin</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDonvi + ")'>Xóa đơn vị</a></li></ul></div></td>" +
+                            "<td>" + item.TenDonvi + "</td>" + "<td>" + item.Diachi + "</td>" +
+                            
                             "<td>" + item.Phone + "</td>" +
                             "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
-                            "<td>" + item.quyen + "</td></tr> ";
+                             "</tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
                     $('#myTable').DataTable({
@@ -793,12 +769,12 @@
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                        document.getElementById("lbid").innerHTML = data.IDNHANVIEN;
-                        document.getElementById("txthotencn").value = data.TenNhanVien;
+                    document.getElementById("lbid").innerHTML = data.IDDonvi;
+                    document.getElementById("txttendonvicn").value = data.TenDonvi;
                         document.getElementById("txtdiachicn").value = data.Diachi;
-                        document.getElementById("txttrinhdocn").value = data.Trinhdo;
+                       
                         document.getElementById("txtdienthoaicn").value = data.Phone;
-                        document.getElementById("txtquyencn").value = data.quyen;
+                       
                         document.getElementById("chbttcn").checked = data.Trangthai;
                     
                 },
@@ -817,17 +793,14 @@
         }
         function themdmmoi() {
             var datas = {
-                TenDangNhap: document.getElementById("txtemail").value,
-                Matkhau: document.getElementById("txtmatkhau").value,
-                TenNhanVien: document.getElementById("txthoten").value,
-                Trinhdo: document.getElementById("txttrinhdo").value,
+                TenDonvi: document.getElementById("txttendonvi").value,
                 Diachi: document.getElementById("txtdiachi").value,
                 Phone: document.getElementById("txtdienthoai").value,
                 Trangthai: document.getElementById("chbtt").checked,
-                quyen: document.getElementById("txtquyen").value
+              
             };
             $.ajax({
-                url: uri + '?ck=1',
+                url: uri ,
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(datas),
@@ -835,20 +808,17 @@
                     201: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Thêm thông tin thành viên thành công!',
+                            text: 'Thêm thông tin Đơn vị thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         });
-                        document.getElementById("txtdienthoai").value = "";
-                        document.getElementById("txtmatkhau").value = "";
-                        document.getElementById("txthoten").value = "";
+                        document.getElementById("txttendonvi").value = "";
                         document.getElementById("txtdiachi").value = "";
-                        document.getElementById("txtemail").value = "";
-                        document.getElementById("txtquyen").value = "";
-                        document.getElementById("txttrinhdo").value = "";
+                      
+                        document.getElementById("txtdienthoai").value = "";
                         document.getElementById("chbtt").checked = false;
 
                     }
@@ -856,7 +826,7 @@
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin thành viên không thành công!',
+                        text: 'Thêm thông tin Đơn vị không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -868,13 +838,17 @@
         }
         function capnhattt() {
             var datas = {
-                IDNHANVIEN: document.getElementById("lbid").innerHTML,
-                Matkhau: document.getElementById("txtmatkhaumoiad").value,
-                Trinhdo: document.getElementById("txttrinhdocn").value,
+                //IDDonvi: document.getElementById("lbid").innerHTML,
+                //TenDonvi: document.getElementById("txttendonvicn").value,
+                //Diachi: document.getElementById("txtdiachicn").value,
+                //Phone: document.getElementById("txtdienthoaicn").value,
+                //Trangthai: document.getElementById("chbttcn").checked,
+                IDDonvi: document.getElementById("lbid").innerHTML,
+                TenDonvi: document.getElementById("txttendonvicn").value,
                 Diachi: document.getElementById("txtdiachicn").value,
                 Phone: document.getElementById("txtdienthoaicn").value,
                 Trangthai: document.getElementById("chbttcn").checked,
-                quyen: document.getElementById("txtquyencn").value
+               
             };
             $.ajax({
                 url: uri + '?id=' + document.getElementById("lbid").innerHTML,
@@ -885,26 +859,24 @@
                     204: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Cập nhật thông tin thành viên thành công!',
+                            text: 'Cập nhật thông tin Đơn vị thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("lbid").innerHTML = "";
-                        document.getElementById("txthotencn").value = "";
-                        document.getElementById("txttrinhdocn").value = "";
+                        document.getElementById("txttendonvicn").value = "";
                         document.getElementById("txtdiachicn").value = "";
+
                         document.getElementById("txtdienthoaicn").value = "";
-                        document.getElementById("txtquyencn").value = "";        
-                        document.getElementById("chbttcn").checked = false;                    
+                        document.getElementById("chbttcn").checked = false;
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Cập nhật thông tin thành viên không thành công!',
+                        text: 'Cập nhật thông tin Đơn vị không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'info',
