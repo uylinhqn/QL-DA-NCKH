@@ -73,7 +73,43 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="TenQuyen" Type="nvarchar" MaxLength="500" />
     <Property Name="quyen" Type="varchar" MaxLength="500" />
+    <Property Name="link" Type="ntext" />
+    <Property Name="nhom" Type="int" />
   </EntityType>
+  <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ChiTietQuyenHT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+    <Parameter Name="IdQuyenHeThong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_ChiTietQuyenHT_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ChiTietQuyenHT_Select_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_QuyenHeThong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_ThanhVien_CheckLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+    <Parameter Name="MatKhau" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Proc_ThanhVien_UpdateInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+    <Parameter Name="TenNhanVien" Type="nvarchar" Mode="In" />
+    <Parameter Name="Trinhdo" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="Trangthai" Type="bit" Mode="In" />
+    <Parameter Name="quyen" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ThanhVien_UpdatePass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+    <Parameter Name="Matkhau" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ThanhVien_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="QL_NCKHQBModelStoreContainer">
     <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />

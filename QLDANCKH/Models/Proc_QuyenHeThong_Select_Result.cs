@@ -10,14 +10,11 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class QuyenHeThong
+    public partial class Proc_QuyenHeThong_Select_Result
     {
         public int Id { get; set; }
         public string TenQuyen { get; set; }
         public string quyen { get; set; }
-        public string link { get; set; }
-        public Nullable<int> nhom { get; set; }
     }
 }

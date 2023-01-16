@@ -148,6 +148,7 @@
                 data: JSON.stringify(datas),
                 success: function (data) {
                     if (data != null) {
+                        localStorage.setItem("name", data.access_token);
                         window.open("index.html", "_self");
                     }
                     else {
