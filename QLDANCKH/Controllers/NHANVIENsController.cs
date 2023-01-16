@@ -49,12 +49,16 @@ namespace QLDANCKH.Controllers
             }
         }
         // GET: api/NHANVIENs
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         public IQueryable<NHANVIEN> GetNHANVIENs()
         {
             return db.NHANVIENs;
         }
 
         // GET: api/NHANVIENs/5
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         [ResponseType(typeof(NHANVIEN))]
         public IHttpActionResult GetNHANVIEN(int id)
         {
@@ -68,6 +72,8 @@ namespace QLDANCKH.Controllers
         }
 
         // PUT: api/NHANVIENs/5
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNHANVIEN(int id, NHANVIEN nHANVIEN)
         {
@@ -85,7 +91,7 @@ namespace QLDANCKH.Controllers
 
             try
             {
-                db.SaveChanges();
+                db.Proc_ThanhVien_UpdateInfo(id,nHANVIEN.TenNhanVien, nHANVIEN.Trinhdo, nHANVIEN.Diachi, nHANVIEN.Phone, nHANVIEN.Trangthai, nHANVIEN.quyen);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -101,7 +107,71 @@ namespace QLDANCKH.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [Authorize(Roles = "admin")]
+        [HttpGet]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutNHANVIENPass(int idpas, NHANVIEN nHANVIEN)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            if (idpas != nHANVIEN.IDNHANVIEN)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(nHANVIEN).State = EntityState.Modified;
+
+            try
+            {
+                db.Proc_ThanhVien_UpdatePass(idpas, nHANVIEN.Matkhau);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!NHANVIENExists(idpas))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        [Authorize(Roles = "admin")]
+        [HttpGet]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutNHANVIENStatus(int idsta)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                db.Proc_ThanhVien_UpdateStatus(idsta);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!NHANVIENExists(idsta))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         // POST: api/NHANVIENs
         [ResponseType(typeof(NHANVIEN))]
         public IHttpActionResult PostNHANVIEN(int ck,NHANVIEN nHANVIEN)
@@ -118,6 +188,8 @@ namespace QLDANCKH.Controllers
         }
 
         // DELETE: api/NHANVIENs/5
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         [ResponseType(typeof(NHANVIEN))]
         public IHttpActionResult DeleteNHANVIEN(int id)
         {

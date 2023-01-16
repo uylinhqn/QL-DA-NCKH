@@ -245,9 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ChiTietQuyenHTsController.cs" />
     <Compile Include="Controllers\DM_DONVIController.cs" />
     <Compile Include="Controllers\DM_HOCVIController.cs" />
+    <Compile Include="Controllers\menuController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
+    <Compile Include="Controllers\QuyenHeThongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -278,6 +281,18 @@
     <Compile Include="Models\encrypts.cs" />
     <Compile Include="Models\MyAuthorizationServerProvider.cs" />
     <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_ChiTietQuyenHT_Select_Menu_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_ChiTietQuyenHT_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_QuyenHeThong_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_ThanhVien_CheckLogIn_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuyenHeThong.cs">

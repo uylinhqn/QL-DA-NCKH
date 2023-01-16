@@ -29,6 +29,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TenQuyen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="quyen" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nhom" Type="Int32" />
   </EntityType>
   <EntityContainer Name="QL_NCKHQBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
@@ -36,6 +38,40 @@
     <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
     <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
     <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
+    <FunctionImport Name="Proc_ChiTietQuyenHT_Delete">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ChiTietQuyenHT_Insert">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="IdQuyenHeThong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ChiTietQuyenHT_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Result)">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_QuyenHeThong_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_QuyenHeThong_Select_Result)" />
+    <FunctionImport Name="Proc_ThanhVien_UpdateInfo">
+      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+      <Parameter Name="TenNhanVien" Mode="In" Type="String" />
+      <Parameter Name="Trinhdo" Mode="In" Type="String" />
+      <Parameter Name="DiaChi" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="Trangthai" Mode="In" Type="Boolean" />
+      <Parameter Name="quyen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ThanhVien_UpdatePass">
+      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+      <Parameter Name="Matkhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ThanhVien_UpdateStatus">
+      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ThanhVien_CheckLogIn" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_Result)">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="MatKhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ChiTietQuyenHT_Select_Menu" ReturnType="Collection(QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Menu_Result)">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -55,4 +91,33 @@
     <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
+  <ComplexType Name="Proc_ChiTietQuyenHT_Select_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="IdQuyenHeThong" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_QuyenHeThong_Select_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="TenQuyen" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Proc_ThanhVien_CheckLogIn_Result">
+    <Property Type="Int32" Name="IDNHANVIEN" Nullable="false" />
+    <Property Type="String" Name="TenDangNhap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Proc_ChiTietQuyenHT_Select_Menu_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="IdQuyenHeThong" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="TenQuyen" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="nhom" Nullable="true" />
+  </ComplexType>
 </Schema>

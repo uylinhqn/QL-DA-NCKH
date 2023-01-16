@@ -12,10 +12,23 @@ namespace loginauth.Models
         QL_NCKHQBEntities context = new QL_NCKHQBEntities();
         //This method is used to check and validate the user credentials
         public NHANVIEN ValidateUser(string username, string password)
-        {
-            return context.NHANVIENs.FirstOrDefault(user =>
-            user.TenDangNhap.Equals(username, StringComparison.OrdinalIgnoreCase)
-            && user.Matkhau == password);
+        {            
+            var users= context.Proc_ThanhVien_CheckLogIn(username,password).ToList();
+            if (users.Count > 0)
+            {
+                NHANVIEN nv = new NHANVIEN();
+                nv.IDNHANVIEN = users.ToList()[0].IDNHANVIEN;
+                nv.TenDangNhap = users.ToList()[0].TenDangNhap;
+                nv.Matkhau = users.ToList()[0].Matkhau;
+                nv.TenNhanVien = users.ToList()[0].TenNhanVien;
+                nv.Trinhdo = users.ToList()[0].Trinhdo;
+                nv.Diachi = users.ToList()[0].Diachi;
+                nv.Phone = users.ToList()[0].Phone;
+                nv.Trangthai = users.ToList()[0].Trangthai;
+                nv.quyen = users.ToList()[0].quyen;
+                return nv;
+            }
+            else return null;
         }
         public void Dispose()
         {

@@ -52,7 +52,43 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="TenQuyen" Type="nvarchar" MaxLength="500" />
           <Property Name="quyen" Type="varchar" MaxLength="500" />
+          <Property Name="link" Type="ntext" />
+          <Property Name="nhom" Type="int" />
         </EntityType>
+        <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_ChiTietQuyenHT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+          <Parameter Name="IdQuyenHeThong" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_ChiTietQuyenHT_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_ChiTietQuyenHT_Select_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_QuyenHeThong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Proc_ThanhVien_CheckLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Proc_ThanhVien_UpdateInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+          <Parameter Name="TenNhanVien" Type="nvarchar" Mode="In" />
+          <Parameter Name="Trinhdo" Type="nvarchar" Mode="In" />
+          <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="int" Mode="In" />
+          <Parameter Name="Trangthai" Type="bit" Mode="In" />
+          <Parameter Name="quyen" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_ThanhVien_UpdatePass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+          <Parameter Name="Matkhau" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_ThanhVien_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNHANVIEN" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="QL_NCKHQBModelStoreContainer">
           <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
@@ -93,6 +129,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TenQuyen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="quyen" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nhom" Type="Int32" />
         </EntityType>
         <EntityContainer Name="QL_NCKHQBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
@@ -100,6 +138,40 @@
           <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
           <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
           <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
+          <FunctionImport Name="Proc_ChiTietQuyenHT_Delete">
+          <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ChiTietQuyenHT_Insert">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="IdQuyenHeThong" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ChiTietQuyenHT_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Result)">
+          <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_QuyenHeThong_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_QuyenHeThong_Select_Result)" />
+          <FunctionImport Name="Proc_ThanhVien_UpdateInfo">
+            <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+            <Parameter Name="TenNhanVien" Mode="In" Type="String" />
+            <Parameter Name="Trinhdo" Mode="In" Type="String" />
+            <Parameter Name="DiaChi" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="Int32" />
+            <Parameter Name="Trangthai" Mode="In" Type="Boolean" />
+            <Parameter Name="quyen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ThanhVien_UpdatePass">
+            <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+            <Parameter Name="Matkhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ThanhVien_UpdateStatus">
+          <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ThanhVien_CheckLogIn" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_Result)">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ChiTietQuyenHT_Select_Menu" ReturnType="Collection(QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Menu_Result)">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="DM_DONVI">
           <Key>
@@ -119,6 +191,35 @@
           <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Trangthai" Type="Boolean" />
         </EntityType>
+        <ComplexType Name="Proc_ChiTietQuyenHT_Select_Result">
+          <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="IdQuyenHeThong" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Proc_QuyenHeThong_Select_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="TenQuyen" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Proc_ThanhVien_CheckLogIn_Result">
+          <Property Type="Int32" Name="IDNHANVIEN" Nullable="false" />
+          <Property Type="String" Name="TenDangNhap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Phone" Nullable="true" />
+          <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+          <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Proc_ChiTietQuyenHT_Select_Menu_Result">
+          <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="IdQuyenHeThong" Nullable="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="TenQuyen" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="nhom" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -151,6 +252,8 @@
           <EntitySetMapping Name="QuyenHeThongs">
             <EntityTypeMapping TypeName="QL_NCKHQBModel.QuyenHeThong">
               <MappingFragment StoreEntitySet="QuyenHeThong">
+                <ScalarProperty Name="nhom" ColumnName="nhom" />
+                <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
                 <ScalarProperty Name="quyen" ColumnName="quyen" />
@@ -177,6 +280,56 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Delete" />
+          <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Insert" />
+          <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Select" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Result">
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="IdQuyenHeThong" ColumnName="IdQuyenHeThong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_QuyenHeThong_Select" FunctionName="QL_NCKHQBModel.Store.Proc_QuyenHeThong_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_QuyenHeThong_Select_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+                <ScalarProperty Name="quyen" ColumnName="quyen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_ThanhVien_UpdateInfo" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_UpdateInfo" />
+          <FunctionImportMapping FunctionImportName="Proc_ThanhVien_UpdatePass" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_UpdatePass" />
+          <FunctionImportMapping FunctionImportName="Proc_ThanhVien_UpdateStatus" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="Proc_ThanhVien_CheckLogIn" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_CheckLogIn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_Result">
+                <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="quyen" ColumnName="quyen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Select_Menu" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Select_Menu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Menu_Result">
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="IdQuyenHeThong" ColumnName="IdQuyenHeThong" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+                <ScalarProperty Name="quyen" ColumnName="quyen" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="nhom" ColumnName="nhom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

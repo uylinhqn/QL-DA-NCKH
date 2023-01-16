@@ -10,14 +10,17 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class QuyenHeThong
+    public partial class Proc_ThanhVien_CheckLogIn_Result
     {
-        public int Id { get; set; }
-        public string TenQuyen { get; set; }
+        public int IDNHANVIEN { get; set; }
+        public string TenDangNhap { get; set; }
+        public string Matkhau { get; set; }
+        public string TenNhanVien { get; set; }
+        public string Trinhdo { get; set; }
+        public string Diachi { get; set; }
+        public Nullable<int> Phone { get; set; }
+        public Nullable<bool> Trangthai { get; set; }
         public string quyen { get; set; }
-        public string link { get; set; }
-        public Nullable<int> nhom { get; set; }
     }
 }

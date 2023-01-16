@@ -10,10 +10,11 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class QuyenHeThong
+    public partial class Proc_ChiTietQuyenHT_Select_Menu_Result
     {
+        public string TenDangNhap { get; set; }
+        public int IdQuyenHeThong { get; set; }
         public int Id { get; set; }
         public string TenQuyen { get; set; }
         public string quyen { get; set; }
