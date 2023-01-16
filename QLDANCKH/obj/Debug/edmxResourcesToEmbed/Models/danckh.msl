@@ -55,37 +55,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-<<<<<<< HEAD
-    <EntitySetMapping Name="DM_LINHVUC_NGHIENCUU">
-      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU">
-        <MappingFragment StoreEntitySet="DM_LINHVUC_NGHIENCUU">
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
-          <ScalarProperty Name="IDLinhvuc" ColumnName="IDLinhvuc" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DM_LINHVUC_NHIEMVU">
-      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU">
-        <MappingFragment StoreEntitySet="DM_LINHVUC_NHIEMVU">
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
-          <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DM_NHIEMVU_NGHIEMTHU">
-      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_NHIEMVU_NGHIEMTHU">
-        <MappingFragment StoreEntitySet="DM_NHIEMVU_NGHIEMTHU">
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-          <ScalarProperty Name="Duyetnhiemvu" ColumnName="Duyetnhiemvu" />
-          <ScalarProperty Name="Filenhiemvu" ColumnName="Filenhiemvu" />
-          <ScalarProperty Name="Danhmuc" ColumnName="Danhmuc" />
-          <ScalarProperty Name="IDDMnhiemvu" ColumnName="IDDMnhiemvu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-=======
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Delete" />
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Insert" />
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Select" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Select">
@@ -136,6 +105,23 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
->>>>>>> 28ec9c4d8ba3245f96dce4ed252c79bb5a875ae2
+    <EntitySetMapping Name="DM_LINHVUC_NGHIENCUU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU">
+        <MappingFragment StoreEntitySet="DM_LINHVUC_NGHIENCUU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+          <ScalarProperty Name="IDLinhvuc" ColumnName="IDLinhvuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_LINHVUC_NHIEMVU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU">
+        <MappingFragment StoreEntitySet="DM_LINHVUC_NHIEMVU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+          <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

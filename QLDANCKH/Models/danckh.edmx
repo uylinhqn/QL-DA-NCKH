@@ -47,16 +47,6 @@
           <Property Name="TenLinhvuc" Type="nvarchar" MaxLength="100" />
           <Property Name="Trangthai" Type="bit" />
         </EntityType>
-        <EntityType Name="DM_NHIEMVU_NGHIEMTHU">
-          <Key>
-            <PropertyRef Name="IDDMnhiemvu" />
-          </Key>
-          <Property Name="IDDMnhiemvu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Danhmuc" Type="nvarchar" MaxLength="200" />
-          <Property Name="Filenhiemvu" Type="nchar" MaxLength="200" />
-          <Property Name="Duyetnhiemvu" Type="bit" />
-          <Property Name="Trangthai" Type="bit" />
-        </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
             <PropertyRef Name="IDNHANVIEN" />
@@ -121,7 +111,6 @@
           <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NHIEMVU_NGHIEMTHU" EntityType="Self.DM_NHIEMVU_NGHIEMTHU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -167,11 +156,6 @@
           <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
           <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
           <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
-<<<<<<< HEAD
-          <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
-          <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
-          <EntitySet Name="DM_NHIEMVU_NGHIEMTHU" EntityType="QL_NCKHQBModel.DM_NHIEMVU_NGHIEMTHU" />
-=======
           <FunctionImport Name="Proc_ChiTietQuyenHT_Delete">
           <Parameter Name="TenDangNhap" Mode="In" Type="String" />
           </FunctionImport>
@@ -204,9 +188,10 @@
             <Parameter Name="MatKhau" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_ChiTietQuyenHT_Select_Menu" ReturnType="Collection(QL_NCKHQBModel.Proc_ChiTietQuyenHT_Select_Menu_Result)">
-            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+          <Parameter Name="TenDangNhap" Mode="In" Type="String" />
           </FunctionImport>
->>>>>>> 28ec9c4d8ba3245f96dce4ed252c79bb5a875ae2
+          <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
+          <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
         </EntityContainer>
         <EntityType Name="DM_DONVI">
           <Key>
@@ -226,34 +211,6 @@
           <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Trangthai" Type="Boolean" />
         </EntityType>
-<<<<<<< HEAD
-        <EntityType Name="DM_LINHVUC_NGHIENCUU">
-          <Key>
-            <PropertyRef Name="IDLinhvuc" />
-          </Key>
-          <Property Name="IDLinhvuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Trangthai" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="DM_LINHVUC_NHIEMVU">
-          <Key>
-            <PropertyRef Name="IDLinhvucNhiemvu" />
-          </Key>
-          <Property Name="IDLinhvucNhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Trangthai" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="DM_NHIEMVU_NGHIEMTHU">
-          <Key>
-            <PropertyRef Name="IDDMnhiemvu" />
-          </Key>
-          <Property Name="IDDMnhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Danhmuc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Filenhiemvu" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
-          <Property Name="Duyetnhiemvu" Type="Boolean" />
-          <Property Name="Trangthai" Type="Boolean" />
-        </EntityType>
-=======
         <ComplexType Name="Proc_ChiTietQuyenHT_Select_Result">
           <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="IdQuyenHeThong" Nullable="false" />
@@ -283,7 +240,22 @@
           <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
           <Property Type="Int32" Name="nhom" Nullable="true" />
         </ComplexType>
->>>>>>> 28ec9c4d8ba3245f96dce4ed252c79bb5a875ae2
+        <EntityType Name="DM_LINHVUC_NGHIENCUU">
+          <Key>
+            <PropertyRef Name="IDLinhvuc" />
+          </Key>
+          <Property Name="IDLinhvuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DM_LINHVUC_NHIEMVU">
+          <Key>
+            <PropertyRef Name="IDLinhvucNhiemvu" />
+          </Key>
+          <Property Name="IDLinhvucNhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -344,37 +316,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-<<<<<<< HEAD
-          <EntitySetMapping Name="DM_LINHVUC_NGHIENCUU">
-            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU">
-              <MappingFragment StoreEntitySet="DM_LINHVUC_NGHIENCUU">
-                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-                <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
-                <ScalarProperty Name="IDLinhvuc" ColumnName="IDLinhvuc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_LINHVUC_NHIEMVU">
-            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU">
-              <MappingFragment StoreEntitySet="DM_LINHVUC_NHIEMVU">
-                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-                <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
-                <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_NHIEMVU_NGHIEMTHU">
-            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_NHIEMVU_NGHIEMTHU">
-              <MappingFragment StoreEntitySet="DM_NHIEMVU_NGHIEMTHU">
-                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-                <ScalarProperty Name="Duyetnhiemvu" ColumnName="Duyetnhiemvu" />
-                <ScalarProperty Name="Filenhiemvu" ColumnName="Filenhiemvu" />
-                <ScalarProperty Name="Danhmuc" ColumnName="Danhmuc" />
-                <ScalarProperty Name="IDDMnhiemvu" ColumnName="IDDMnhiemvu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-=======
           <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Delete" />
           <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Insert" />
           <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Select" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Select">
@@ -425,7 +366,24 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
->>>>>>> 28ec9c4d8ba3245f96dce4ed252c79bb5a875ae2
+          <EntitySetMapping Name="DM_LINHVUC_NGHIENCUU">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU">
+              <MappingFragment StoreEntitySet="DM_LINHVUC_NGHIENCUU">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+                <ScalarProperty Name="IDLinhvuc" ColumnName="IDLinhvuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_LINHVUC_NHIEMVU">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU">
+              <MappingFragment StoreEntitySet="DM_LINHVUC_NHIEMVU">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+                <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
