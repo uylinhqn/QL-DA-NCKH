@@ -36,6 +36,9 @@
     <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
     <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
     <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
+    <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
+    <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
+    <EntitySet Name="DM_NHIEMVU_NGHIEMTHU" EntityType="QL_NCKHQBModel.DM_NHIEMVU_NGHIEMTHU" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -53,6 +56,32 @@
     </Key>
     <Property Name="IDHocvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_LINHVUC_NGHIENCUU">
+    <Key>
+      <PropertyRef Name="IDLinhvuc" />
+    </Key>
+    <Property Name="IDLinhvuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_LINHVUC_NHIEMVU">
+    <Key>
+      <PropertyRef Name="IDLinhvucNhiemvu" />
+    </Key>
+    <Property Name="IDLinhvucNhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_NHIEMVU_NGHIEMTHU">
+    <Key>
+      <PropertyRef Name="IDDMnhiemvu" />
+    </Key>
+    <Property Name="IDDMnhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Danhmuc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Filenhiemvu" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="Duyetnhiemvu" Type="Boolean" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
 </Schema>

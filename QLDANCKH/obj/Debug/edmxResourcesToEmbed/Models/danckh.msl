@@ -53,5 +53,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DM_LINHVUC_NGHIENCUU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU">
+        <MappingFragment StoreEntitySet="DM_LINHVUC_NGHIENCUU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+          <ScalarProperty Name="IDLinhvuc" ColumnName="IDLinhvuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_LINHVUC_NHIEMVU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU">
+        <MappingFragment StoreEntitySet="DM_LINHVUC_NHIEMVU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
+          <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_NHIEMVU_NGHIEMTHU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_NHIEMVU_NGHIEMTHU">
+        <MappingFragment StoreEntitySet="DM_NHIEMVU_NGHIEMTHU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Duyetnhiemvu" ColumnName="Duyetnhiemvu" />
+          <ScalarProperty Name="Filenhiemvu" ColumnName="Filenhiemvu" />
+          <ScalarProperty Name="Danhmuc" ColumnName="Danhmuc" />
+          <ScalarProperty Name="IDDMnhiemvu" ColumnName="IDDMnhiemvu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>DANH MỤC HỌC VỊ </title>
+    <title>DANH MỤC LĨNH VỰC NHIỆM VỤ </title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -437,13 +437,13 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Danh mục học vị</h4>
+                        <h4 class="text-themecolor">Danh mục lĩnh vực nhiệm vụ</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Học vị</li>
+                                <li class="breadcrumb-item active">Lĩnh vực nhiệm vụ</li>
                             </ol>
                             <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
@@ -459,7 +459,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên học vị</th>
+                                                <th>Tên lĩnh vực nhiệm vụ</th>
                                                
                                                 <th>Trạng thái</th>
 
@@ -500,7 +500,7 @@
         <div class="modal-dialog modal-xl" style="z-index:9999">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Danh mục học vị</h4>
+                    <h4 class="modal-title">Danh mục lĩnh vực nhiệm vụ</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
@@ -510,9 +510,9 @@
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label">Tên học vị</label>
+                                            <label class="col-md-12 control-label">Tên lĩnh vực nhiệm vụ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txttenhocvi" />
+                                                <input type="text" class="form-control" id="txttenlinhvuc" />
                                             </div>
                                         </div>
                                          
@@ -574,7 +574,7 @@
         <div class="modal-dialog modal-lg" style="z-index:9999">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Cập nhật thông tin học vị</h4>
+                    <h4 class="modal-title">Cập nhật thông tin lĩnh vực nhiệm vụ</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
@@ -585,9 +585,9 @@
                                     <div class="form-horizontal">
                                         <div class="form-group">
                                             <label id="lbid" style="display:none"></label>
-                                            <label class="col-md-12 control-label">Tên học vị</label>
+                                            <label class="col-md-12 control-label">Tên lĩnh vực nhiệm vụ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txttenhocvicn" />
+                                                <input type="text" class="form-control" id="txttenlinhvuccn" />
                                             </div>
                                         </div>
                                      
@@ -711,7 +711,7 @@
         window.onload = function () {
             loaddanhsach();
         }
-        var uri = '/api/DM_HOCVI';
+        var uri = '/api/DM_LINHVUC_NHIEMVU';
         function loaddanhsach() {
             $.ajax({
                 url: uri,
@@ -726,10 +726,10 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
-                            "<td>" + item.TenHocvi + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDLinhvucNhiemvu + ")'>Cập nhật thông tin</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDLinhvucNhiemvu + ")'>Xóa lĩnh vực</a></li></ul></div></td>" +
+                            "<td>" + item.TenLinhvuc + "</td>" +
+                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.IDLinhvuc + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.IDLinhvuc + ")'>Khóa</a>") + "</td>" +
                              "</tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
@@ -761,8 +761,8 @@
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDHocvi;
-                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
+                    document.getElementById("lbid").innerHTML = data.IDLinhvucNhiemvu;
+                    document.getElementById("txttenlinhvuccn").value = data.TenLinhvuc;
                        
                         document.getElementById("chbttcn").checked = data.Trangthai;
                     
@@ -782,7 +782,7 @@
         }
         function themdmmoi() {
             var datas = {
-                TenHocvi: document.getElementById("txttenhocvi").value,
+                TenLinhvuc: document.getElementById("txttenlinhvuc").value,
 
                 Trangthai: document.getElementById("chbtt").checked,
               
@@ -796,14 +796,14 @@
                     201: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Thêm thông tin Học vị thành công!',
+                            text: 'Thêm thông tin Lĩnh vực nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvi").value = "";
+                        document.getElementById("txttenlinhvuc").value = "";
                     
                         document.getElementById("chbtt").checked = false;
 
@@ -812,7 +812,7 @@
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin Học vị không thành công!',
+                        text: 'Thêm thông tin Lĩnh vực nhiệm vụ không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -829,8 +829,8 @@
                 //Diachi: document.getElementById("txtdiachicn").value,
                 //Phone: document.getElementById("txtdienthoaicn").value,
                 //Trangthai: document.getElementById("chbttcn").checked,
-                IDHocvi: document.getElementById("lbid").innerHTML,
-                TenHocvi: document.getElementById("txttenhocvicn").value,
+                IDLinhvucNhiemvu: document.getElementById("lbid").innerHTML,
+                TenLinhvuc: document.getElementById("txttenlinhvuccn").value,
                 
                 Trangthai: document.getElementById("chbttcn").checked,
                
@@ -844,14 +844,14 @@
                     204: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Cập nhật thông tin Học vị thành công!',
+                            text: 'Cập nhật thông tin Lĩnh vực nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvicn").value = "";
+                        document.getElementById("txttenlinhvuccn").value = "";
                        
                         document.getElementById("chbttcn").checked = false;
                     }
@@ -859,10 +859,10 @@
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Cập nhật thông tin Học vị không thành công!',
+                        text: 'Cập nhật thông tin Lĩnh vực nhiệm vụ không thành công!',
                         position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'info',
+                        loaderBg: '#red',
+                        icon: 'warning',
                         hideAfter: 3500,
                         stack: 6
                     });
@@ -916,7 +916,7 @@
                     if (data == true) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Cập nhật thông tin thành viên thành công!',
+                            text: 'Cập nhật thông tin nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'info',
@@ -950,7 +950,7 @@
             });
         }
         function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
+            if (confirm('Bạn chắc chắn muốn xóa Lĩnh vực nhiệm vụ đã chọn?')) {
                 $.ajax({
                     url: uri + '/' + id,
                     method: 'DELETE',
@@ -958,10 +958,10 @@
                     success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin Học vị thành công!',
+                            text: 'Xóa thông tin Lĩnh vực nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
@@ -969,10 +969,10 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
+                            text: 'Xóa thông tin Lĩnh vực nhiệm vụ không thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
                         }); document.getElementById("lbiddanhmucxoa").innerHTML = "";

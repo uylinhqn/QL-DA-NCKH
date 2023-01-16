@@ -30,5 +30,8 @@ namespace QLDANCKH.Models
         public virtual DbSet<QuyenHeThong> QuyenHeThongs { get; set; }
         public virtual DbSet<DM_DONVI> DM_DONVI { get; set; }
         public virtual DbSet<DM_HOCVI> DM_HOCVI { get; set; }
+        public virtual DbSet<DM_LINHVUC_NGHIENCUU> DM_LINHVUC_NGHIENCUU { get; set; }
+        public virtual DbSet<DM_LINHVUC_NHIEMVU> DM_LINHVUC_NHIEMVU { get; set; }
+        public virtual DbSet<DM_NHIEMVU_NGHIEMTHU> DM_NHIEMVU_NGHIEMTHU { get; set; }
     }
 }

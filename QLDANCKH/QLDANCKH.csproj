@@ -139,6 +139,8 @@
     <Content Include="fonts\weathericons-regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="he-thong\cau-hinh.html" />
+    <Content Include="he-thong\linhvuc-nhiemvu.html" />
+    <Content Include="he-thong\linhvuc-nghiencuu.html" />
     <Content Include="he-thong\hoc-vi.html" />
     <Content Include="he-thong\phan-quyen.html" />
     <Content Include="he-thong\don-vi.html" />
@@ -247,6 +249,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DM_DONVIController.cs" />
     <Compile Include="Controllers\DM_HOCVIController.cs" />
+    <Compile Include="Controllers\DM_LINHVUC_NGHIENCUUController.cs" />
+    <Compile Include="Controllers\DM_LINHVUC_NHIEMVUController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,6 +277,15 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_HOCVI.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_LINHVUC_NGHIENCUU.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_LINHVUC_NHIEMVU.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NHIEMVU_NGHIEMTHU.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\encrypts.cs" />
