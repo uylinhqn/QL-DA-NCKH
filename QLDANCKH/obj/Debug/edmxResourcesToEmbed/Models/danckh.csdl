@@ -74,6 +74,7 @@
     </FunctionImport>
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
+    <EntitySet Name="TIEUCHI_DANHGIA" EntityType="QL_NCKHQBModel.TIEUCHI_DANHGIA" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -136,6 +137,15 @@
     </Key>
     <Property Name="IDLinhvucNhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TIEUCHI_DANHGIA">
+    <Key>
+      <PropertyRef Name="IDTieuchi" />
+    </Key>
+    <Property Name="IDTieuchi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTieuchi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Diemdanhgia" Type="Int32" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
 </Schema>

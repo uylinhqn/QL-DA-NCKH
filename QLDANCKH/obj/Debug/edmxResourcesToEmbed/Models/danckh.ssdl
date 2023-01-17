@@ -66,6 +66,15 @@
     <Property Name="link" Type="ntext" />
     <Property Name="nhom" Type="int" />
   </EntityType>
+  <EntityType Name="TIEUCHI_DANHGIA">
+    <Key>
+      <PropertyRef Name="IDTieuchi" />
+    </Key>
+    <Property Name="IDTieuchi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTieuchi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diemdanhgia" Type="int" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
   <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
   </Function>
@@ -108,5 +117,6 @@
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

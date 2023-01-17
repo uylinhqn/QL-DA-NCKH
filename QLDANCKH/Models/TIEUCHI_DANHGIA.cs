@@ -13,15 +13,18 @@ namespace QLDANCKH.Models
 {
 
 using System;
+    using System.Collections.Generic;
     
-public partial class Proc_QuyenHeThong_Select_Result
+public partial class TIEUCHI_DANHGIA
 {
 
-    public int Id { get; set; }
+    public int IDTieuchi { get; set; }
 
-    public string TenQuyen { get; set; }
+    public string TenTieuchi { get; set; }
 
-    public string quyen { get; set; }
+    public Nullable<int> Diemdanhgia { get; set; }
+
+    public Nullable<bool> Trangthai { get; set; }
 
 }
 

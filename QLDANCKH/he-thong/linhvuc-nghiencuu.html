@@ -709,8 +709,83 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loaddanhsach();
+            loadmenu(); loaddanhsach();
         }
+
+        function loadmenu() {
+            $.ajax({
+                url: '/api/menu',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data.length > 1) {
+                        $('#nhom1').html(""); $('#nhom2').html(""); $('#nhom3').html(""); $('#nhom4').html(""); $('#nhom5').html(""); $('#nhom6').html(""); $('#nhom7').html("");
+                        $('#nhom8').html(""); $('#nhom9').html(""); $('#nhom10').html(""); $('#nhom11').html(""); $('#nhom12').html(""); $('#nhom13').html(""); $('#nhom14').html("");
+                        $.each(data, function (key, item) {
+                            switch (item.nhom) {
+                                case 1:
+                                    $('#nhom1').html(item.link);
+                                    break;
+                                case 2:
+                                    $('#nhom2').html(item.link);
+                                    break;
+                                case 3:
+                                    $('#nhom3').html(item.link);
+                                    break;
+                                case 4:
+                                    $('#nhom4').html(item.link);
+                                    break;
+                                case 5:
+                                    $('#nhom5').html(item.link);
+                                    break;
+                                case 6:
+                                    $('#nhom6').html(item.link);
+                                    break;
+                                case 7:
+                                    $('#nhom7').html(item.link);
+                                    break;
+                                case 8:
+                                    $('#nhom8').html(item.link);
+                                    break;
+                                case 9:
+                                    $('#nhom9').html(item.link);
+                                    break;
+                                case 10:
+                                    $('#nhom10').html(item.link);
+                                    break;
+                                case 11:
+                                    $('#nhom11').html(item.link);
+                                    break;
+                                case 12:
+                                    $('#nhom12').html(item.link);
+                                    break;
+                                case 13:
+                                    $('#nhom13').html(item.link);
+                                    break;
+                                case 14:
+                                    $('#nhom14').html(item.link);
+                                    break;
+                            }
+                        });
+                    }
+                    else { window.open("index.html", "_self"); }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+
+
         var uri = '/api/DM_LINHVUC_NGHIENCUU';
         function loaddanhsach() {
             $.ajax({

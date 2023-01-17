@@ -71,6 +71,15 @@
           <Property Name="link" Type="ntext" />
           <Property Name="nhom" Type="int" />
         </EntityType>
+        <EntityType Name="TIEUCHI_DANHGIA">
+          <Key>
+            <PropertyRef Name="IDTieuchi" />
+          </Key>
+          <Property Name="IDTieuchi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTieuchi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Diemdanhgia" Type="int" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
         <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
         </Function>
@@ -113,6 +122,7 @@
           <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -192,6 +202,7 @@
           </FunctionImport>
           <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
           <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
+          <EntitySet Name="TIEUCHI_DANHGIA" EntityType="QL_NCKHQBModel.TIEUCHI_DANHGIA" />
         </EntityContainer>
         <EntityType Name="DM_DONVI">
           <Key>
@@ -254,6 +265,15 @@
           </Key>
           <Property Name="IDLinhvucNhiemvu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLinhvuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TIEUCHI_DANHGIA">
+          <Key>
+            <PropertyRef Name="IDTieuchi" />
+          </Key>
+          <Property Name="IDTieuchi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTieuchi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Diemdanhgia" Type="Int32" />
           <Property Name="Trangthai" Type="Boolean" />
         </EntityType>
       </Schema>
@@ -381,6 +401,16 @@
                 <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
                 <ScalarProperty Name="TenLinhvuc" ColumnName="TenLinhvuc" />
                 <ScalarProperty Name="IDLinhvucNhiemvu" ColumnName="IDLinhvucNhiemvu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIEUCHI_DANHGIA">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.TIEUCHI_DANHGIA">
+              <MappingFragment StoreEntitySet="TIEUCHI_DANHGIA">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="Diemdanhgia" ColumnName="Diemdanhgia" />
+                <ScalarProperty Name="TenTieuchi" ColumnName="TenTieuchi" />
+                <ScalarProperty Name="IDTieuchi" ColumnName="IDTieuchi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

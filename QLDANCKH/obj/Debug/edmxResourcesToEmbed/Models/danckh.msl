@@ -123,5 +123,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TIEUCHI_DANHGIA">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.TIEUCHI_DANHGIA">
+        <MappingFragment StoreEntitySet="TIEUCHI_DANHGIA">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Diemdanhgia" ColumnName="Diemdanhgia" />
+          <ScalarProperty Name="TenTieuchi" ColumnName="TenTieuchi" />
+          <ScalarProperty Name="IDTieuchi" ColumnName="IDTieuchi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
