@@ -18,6 +18,8 @@ namespace QLDANCKH.Controllers
         private QL_NCKHQBEntities db = new QL_NCKHQBEntities();
 
         // GET: api/QuyenHeThongs
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         public ObjectResult<Proc_QuyenHeThong_Select_Result> GetQuyenHeThongs()
         {
             return db.Proc_QuyenHeThong_Select();

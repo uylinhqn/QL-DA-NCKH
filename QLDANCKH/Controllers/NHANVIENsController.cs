@@ -60,9 +60,9 @@ namespace QLDANCKH.Controllers
         [Authorize(Roles = "admin")]
         [HttpGet]
         [ResponseType(typeof(NHANVIEN))]
-        public IHttpActionResult GetNHANVIEN(int id)
+        public IHttpActionResult GetNHANVIEN(int idnv)
         {
-            NHANVIEN nHANVIEN = db.NHANVIENs.Find(id);
+            NHANVIEN nHANVIEN = db.NHANVIENs.Find(idnv);
             if (nHANVIEN == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace QLDANCKH.Controllers
 
         // PUT: api/NHANVIENs/5
         [Authorize(Roles = "admin")]
-        [HttpGet]
+        [HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNHANVIEN(int id, NHANVIEN nHANVIEN)
         {
@@ -108,7 +108,7 @@ namespace QLDANCKH.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
         [Authorize(Roles = "admin")]
-        [HttpGet]
+        [HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNHANVIENPass(int idpas, NHANVIEN nHANVIEN)
         {
@@ -143,7 +143,7 @@ namespace QLDANCKH.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
         [Authorize(Roles = "admin")]
-        [HttpGet]
+        [HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNHANVIENStatus(int idsta)
         {
@@ -171,7 +171,7 @@ namespace QLDANCKH.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
         [Authorize(Roles = "admin")]
-        [HttpGet]
+        [HttpPost]
         // POST: api/NHANVIENs
         [ResponseType(typeof(NHANVIEN))]
         public IHttpActionResult PostNHANVIEN(int ck,NHANVIEN nHANVIEN)
@@ -189,7 +189,7 @@ namespace QLDANCKH.Controllers
 
         // DELETE: api/NHANVIENs/5
         [Authorize(Roles = "admin")]
-        [HttpGet]
+        [HttpDelete]
         [ResponseType(typeof(NHANVIEN))]
         public IHttpActionResult DeleteNHANVIEN(int id)
         {

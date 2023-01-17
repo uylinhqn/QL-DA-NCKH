@@ -18,10 +18,14 @@ namespace QLDANCKH.Controllers
         private QL_NCKHQBEntities db = new QL_NCKHQBEntities();
 
         // GET: api/ChiTietQuyenHTs
+        [Authorize(Roles = "admin")]
+        [HttpGet]
         public ObjectResult<Proc_ChiTietQuyenHT_Select_Result> GetChiTietQuyenHTs(string tdn)
         {
             return db.Proc_ChiTietQuyenHT_Select(tdn);
         }
+        [Authorize(Roles = "admin")]
+        [HttpPost]
         [ResponseType(typeof(ChiTietQuyenHT))]
         public bool PostChiTietQuyenHT(string email, string idquyen)
         {
