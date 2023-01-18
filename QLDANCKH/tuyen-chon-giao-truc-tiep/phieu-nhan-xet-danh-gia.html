@@ -1,10 +1,607 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
+    <title>PHIẾU NHẬN XÉT ĐÁNH GIÁ</title>
+    <!-- This page CSS -->
+    <!--Toaster Popup message CSS -->
+    <link href="../css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.min.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="skin-green-dark fixed-layout mini-sidebar">
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../images/khcnqb.jpg" alt="homepage" class="dark-logo" style="width:30px;height:30px" />
+                            <!-- Light Logo icon -->
+                            <img src="../images/khcn.png" alt="homepage" class="light-logo" style="width:30px;height:30px" />
+                            <span class="logo-text secondary-text">KHOA HỌC & CÔNG NGHỆ</span>
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                            <!-- dark Logo text -->
+                            <!--<img src="../images/logo-text.png" alt="homepage" class="dark-logo" />-->
+                            <!-- Light Logo text -->
+                            <!--<img src="../images/logo-light-text.png" class="light-logo" alt="homepage" />-->
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-user"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-end animated bounceInDown" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Steave Gection</div>
+                                    </li>
+                                    <li>
+                                        <!-- text-->
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i class="ti-user"></i> Thông tin cá nhân
+                                        </a>
+                                        <a href="../login.html" class="dropdown-item">
+                                            <i class="fa fa-power-off"></i> Thoát
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-list" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Đề xuất đặt hàng
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom1">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-grid2" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white">Nhiệm vụ phê duyệt</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom2">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check-box" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tuyển chọn, giao trực tiếp</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom3">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-bookmark-alt" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hợp đồng, kinh phí
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom4">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-briefcase" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tổ chức chủ trì</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom5">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-accordion-merged" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Thực hiện nhiệm vụ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom6">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Kiểm tra tiến độ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom7">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-gallery" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hội nghị, hội thảo</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom8">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hội đồng nghiệm thu cơ sở
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom9">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hợp đồng nghiệm thu cấp tỉnh</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom10">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-light-bulb" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Đăng ký lưu trữ, công nhận</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom11"></ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-archive" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý chuyển giao ứng dụng</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom12">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-align-left" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý gia hạn</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom13">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fa fa-cogs" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hệ thống</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom14">
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Phiếu nhận xét đánh giá</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb justify-content-end">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Phiếu nhận xét đánh giá</li>
+                            </ol>
+                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+                <!-- <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="myTable" class="table table-striped border">
+                                        <thead>
+                                            <tr>
+                                                <th>Thao tác</th>
+                                                <th>Tên học vị</th>
+                                               
+                                                <th>Trạng thái</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="danhsach"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- /.row -->
+                <label id="lbtenfile" style="display:none"></label>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer" style="background-color:#1565c0;color:white">
+            <!--© 2023 QUẢN LÝ HOẠT ĐỘNG KH&CN.-->
+            <h3 style="text-align: center;font-weight: bolder;">SỞ KHOA HỌC VÀ CÔNG NGHỆ QUẢNG BÌNH</h3>
+            <h3 style="text-align: center;font-weight: bolder;">HỆ THỐNG QUẢN LÝ NHIỆM VỤ KHOA HỌC VÀ CÔNG NGHỆ</h3>
+            <h4 style="text-align: center;">Địa chỉ: 17A Quang Trung - TP.Đồng Hới - Quảng Bình</h4>
+            <h4 style="text-align: center;">Điện thoại: 0232.3824347, FAX: 0232.3822808 Email: skhcn@quangbinh.gov.vn</h4>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+
+    
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="../js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Popup message jquery -->
+    <script src="../js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.buttons.min.js"></script>
+    <script src="../js/buttons.flash.min.js"></script>
+    <script src="../js/jszip.min.js"></script>
+    <script src="../js/pdfmake.min.js"></script>
+    <script src="../js/vfs_fonts.js"></script>
+    <script src="../js/buttons.html5.min.js"></script>
+    <script src="../js/buttons.print.min.js"></script>
+    <script>
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+
+            ], "pageLength": 20
+        });
+        window.onload = function () {
+            loadmenu();loaddanhsach();
+        }
+        function loadmenu() {
+            $.ajax({
+                url: '/api/menu',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data.length > 1) {
+                        $('#nhom1').html(""); $('#nhom2').html(""); $('#nhom3').html(""); $('#nhom4').html(""); $('#nhom5').html(""); $('#nhom6').html(""); $('#nhom7').html("");
+                        $('#nhom8').html(""); $('#nhom9').html(""); $('#nhom10').html(""); $('#nhom11').html(""); $('#nhom12').html(""); $('#nhom13').html(""); $('#nhom14').html("");
+                        $.each(data, function (key, item) {
+                            switch (item.nhom) {
+                                case 1:
+                                    $('#nhom1').html(item.link);
+                                    break;
+                                case 2:
+                                    $('#nhom2').html(item.link);
+                                    break;
+                                case 3:
+                                    $('#nhom3').html(item.link);
+                                    break;
+                                case 4:
+                                    $('#nhom4').html(item.link);
+                                    break;
+                                case 5:
+                                    $('#nhom5').html(item.link);
+                                    break;
+                                case 6:
+                                    $('#nhom6').html(item.link);
+                                    break;
+                                case 7:
+                                    $('#nhom7').html(item.link);
+                                    break;
+                                case 8:
+                                    $('#nhom8').html(item.link);
+                                    break;
+                                case 9:
+                                    $('#nhom9').html(item.link);
+                                    break;
+                                case 10:
+                                    $('#nhom10').html(item.link);
+                                    break;
+                                case 11:
+                                    $('#nhom11').html(item.link);
+                                    break;
+                                case 12:
+                                    $('#nhom12').html(item.link);
+                                    break;
+                                case 13:
+                                    $('#nhom13').html(item.link);
+                                    break;
+                                case 14:
+                                    $('#nhom14').html(item.link);
+                                    break;
+                            }
+                        });
+                    }
+                    else { window.open("index.html", "_self"); }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        var uri = '';
+        function loaddanhsach() {
+            $.ajax({
+                url: uri,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
+                    // On success, 'data' contains a list of products.
+                    var stt = 1;
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + "<div class='dropdown'>" +
+                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
+                            "<td>" + item.TenHocvi + "</td>" +
+                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
+                             "</tr> ";
+                        $("#danhsach").append(strhtml); stt++;
+                    });
+                    $('#myTable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+
+                        ]
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function loaddanhsachls(id) {
+            document.getElementById("idpas").innerHTML = id; }
+        function xemdanhmuc(id) {
+            $.ajax({
+                url: uri + '?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbid").innerHTML = data.IDHocvi;
+                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
+                       
+                        document.getElementById("chbttcn").checked = data.Trangthai;
+                    
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function themdmmoi() {
+            var datas = {
+                TenHocvi: document.getElementById("txttenhocvi").value,
+
+                Trangthai: document.getElementById("chbtt").checked,
+              
+            };
+            $.ajax({
+                url: uri ,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    201: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Thêm thông tin Học vị thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                        document.getElementById("txttenhocvi").value = "";
+                    
+                        document.getElementById("chbtt").checked = false;
+
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Thêm thông tin Học vị không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'warning',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function capnhattt() {
+            var datas = {
+               
+                IDHocvi: document.getElementById("lbid").innerHTML,
+                TenHocvi: document.getElementById("txttenhocvicn").value,
+                
+                Trangthai: document.getElementById("chbttcn").checked,
+               
+            };
+            $.ajax({
+                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin Học vị thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                        document.getElementById("txttenhocvicn").value = "";
+                       
+                        document.getElementById("chbttcn").checked = false;
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin Học vị không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+      
+
+
+       
+        function xoadanhmuc(id) {
+            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
+                $.ajax({
+                    url: uri + '/' + id,
+                    method: 'DELETE',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin Học vị thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                    },
+                    error: function (request, msg, error) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin học vị không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                    }
+                });
+            }
+        }
+    </script>
 </body>
+
 </html>
