@@ -133,5 +133,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TINTUC_THONGBAO">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.TINTUC_THONGBAO">
+        <MappingFragment StoreEntitySet="TINTUC_THONGBAO">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Noidungtintuc" ColumnName="Noidungtintuc" />
+          <ScalarProperty Name="TenTintuc" ColumnName="TenTintuc" />
+          <ScalarProperty Name="IDTintuc" ColumnName="IDTintuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEXUAT_DATHANG">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DEXUAT_DATHANG">
+        <MappingFragment StoreEntitySet="DEXUAT_DATHANG">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

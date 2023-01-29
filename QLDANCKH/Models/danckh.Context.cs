@@ -51,6 +51,10 @@ public partial class QL_NCKHQBEntities : DbContext
 
     public virtual DbSet<TIEUCHI_DANHGIA> TIEUCHI_DANHGIA { get; set; }
 
+    public virtual DbSet<TINTUC_THONGBAO> TINTUC_THONGBAO { get; set; }
+
+    public virtual DbSet<DEXUAT_DATHANG> DEXUAT_DATHANG { get; set; }
+
 
     public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
     {

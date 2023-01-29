@@ -139,6 +139,7 @@
     <Content Include="fonts\weathericons-regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="he-thong\cau-hinh.html" />
+    <Content Include="he-thong\tintuc-thongbao.html" />
     <Content Include="he-thong\tieuchi-danhgia.html" />
     <Content Include="he-thong\hoc-vi.html" />
     <Content Include="he-thong\phan-quyen.html" />
@@ -247,6 +248,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChiTietQuyenHTsController.cs" />
+    <Compile Include="Controllers\DEXUAT_DATHANGController.cs" />
     <Compile Include="Controllers\DM_DONVIController.cs" />
     <Compile Include="Controllers\DM_HOCVIController.cs" />
     <Compile Include="Controllers\DM_LINHVUC_NGHIENCUUController.cs" />
@@ -255,6 +257,7 @@
     <Compile Include="Controllers\NHANVIENsController.cs" />
     <Compile Include="Controllers\QuyenHeThongsController.cs" />
     <Compile Include="Controllers\TIEUCHI_DANHGIAController.cs" />
+    <Compile Include="Controllers\TINTUC_THONGBAOController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -275,6 +278,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>danckh.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEXUAT_DATHANG.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_DONVI.cs">
       <DependentUpon>danckh.tt</DependentUpon>
@@ -309,6 +315,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TIEUCHI_DANHGIA.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TINTUC_THONGBAO.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserMasterRepository.cs" />

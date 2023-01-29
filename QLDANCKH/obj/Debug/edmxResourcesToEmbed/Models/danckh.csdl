@@ -75,6 +75,8 @@
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" />
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="QL_NCKHQBModel.TIEUCHI_DANHGIA" />
+    <EntitySet Name="TINTUC_THONGBAO" EntityType="QL_NCKHQBModel.TINTUC_THONGBAO" />
+    <EntitySet Name="DEXUAT_DATHANG" EntityType="QL_NCKHQBModel.DEXUAT_DATHANG" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -146,6 +148,26 @@
     <Property Name="IDTieuchi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenTieuchi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Diemdanhgia" Type="Int32" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TINTUC_THONGBAO">
+    <Key>
+      <PropertyRef Name="IDTintuc" />
+    </Key>
+    <Property Name="IDTintuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTintuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Noidungtintuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DEXUAT_DATHANG">
+    <Key>
+      <PropertyRef Name="IDDexuat" />
+    </Key>
+    <Property Name="IDDexuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tendexuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Noidungdexuat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NamDeXuat" Type="Int32" />
+    <Property Name="CapDeXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
 </Schema>

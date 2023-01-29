@@ -8,6 +8,17 @@
     <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="DEXUAT_DATHANG">
+    <Key>
+      <PropertyRef Name="IDDexuat" />
+    </Key>
+    <Property Name="IDDexuat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tendexuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="Noidungdexuat" Type="nvarchar(max)" />
+    <Property Name="NamDeXuat" Type="int" />
+    <Property Name="CapDeXuat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
   <EntityType Name="DM_DONVI">
     <Key>
       <PropertyRef Name="IDDonvi" />
@@ -75,6 +86,15 @@
     <Property Name="Diemdanhgia" Type="int" />
     <Property Name="Trangthai" Type="bit" />
   </EntityType>
+  <EntityType Name="TINTUC_THONGBAO">
+    <Key>
+      <PropertyRef Name="IDTintuc" />
+    </Key>
+    <Property Name="IDTintuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTintuc" Type="nvarchar" MaxLength="100" />
+    <Property Name="Noidungtintuc" Type="nvarchar(max)" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
   <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
   </Function>
@@ -111,6 +131,7 @@
   </Function>
   <EntityContainer Name="QL_NCKHQBModelStoreContainer">
     <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
@@ -118,5 +139,6 @@
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
