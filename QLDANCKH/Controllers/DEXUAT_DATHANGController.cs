@@ -19,7 +19,40 @@ namespace QLDANCKH.Controllers
         // GET: api/DEXUAT_DATHANG
         public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANG()
         {
-            return db.DEXUAT_DATHANG;
+            return db.DEXUAT_DATHANG.OrderByDescending(p=>p.NamDeXuat);
+        }
+
+
+        // GET: api/DEXUAT_DATHANG
+        [HttpGet]
+        [Route("api/DATHANGBYNHANUOC")]
+        public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYNHANUOC()
+        {
+          
+                return db.DEXUAT_DATHANG.Where(p=>p.CapDeXuat =="Nhà nước");
+            
+               
+        }
+
+        // GET: api/DEXUAT_DATHANG
+        [HttpGet]
+        [Route("api/DATHANGBYNAM")]
+        public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYNAM()
+        {
+
+            return db.DEXUAT_DATHANG.OrderByDescending(P=> P.NamDeXuat);
+
+
+        }
+
+        [HttpGet]
+        [Route("api/DATHANGBYTINH")]
+        public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYTINH()
+        {
+
+            return db.DEXUAT_DATHANG.Where(p => p.CapDeXuat == "Tỉnh");
+
+
         }
 
         // GET: api/DEXUAT_DATHANG/5
