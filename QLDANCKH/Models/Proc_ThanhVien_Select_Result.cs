@@ -10,9 +10,8 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class NHANVIEN
+    public partial class Proc_ThanhVien_Select_Result
     {
         public string TenDangNhap { get; set; }
         public string Matkhau { get; set; }
@@ -24,5 +23,13 @@ namespace QLDANCKH.Models
         public string quyen { get; set; }
         public Nullable<int> IDDonvi { get; set; }
         public Nullable<int> IDHocvi { get; set; }
+        public int IDDonvi1 { get; set; }
+        public string TenDonvi { get; set; }
+        public string Diachi1 { get; set; }
+        public Nullable<int> Phone1 { get; set; }
+        public Nullable<bool> Trangthai1 { get; set; }
+        public int IDHocvi1 { get; set; }
+        public string TenHocvi { get; set; }
+        public Nullable<bool> Trangthai2 { get; set; }
     }
 }

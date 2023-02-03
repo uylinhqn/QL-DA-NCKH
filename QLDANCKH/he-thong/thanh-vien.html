@@ -265,6 +265,7 @@
                                                 <th>Trình độ</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Điện thoại</th>
+                                                <th>Đơn vị</th>
                                                 <th>Trạng thái</th>
                                                 <th>Quyền truy cập</th>
                                             </tr>
@@ -334,7 +335,7 @@
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">Trình độ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txttrinhdo" />
+                                                <select class="form-control form-select" id="txttrinhdo"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -358,6 +359,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-md-12 control-label">Đơn vị</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtdonvi"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-12 control-label">Quyền hệ thống</label>
                                             <div class="col-md-12">
                                                 <select class="form-control form-select" id="txtquyen">
@@ -369,8 +376,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-12">
-                                            </div>
                                             <div class="col-md-12">
                                                 <div class="checkbox">
                                                     <input type="checkbox" id="chbtt" value="">
@@ -414,7 +419,7 @@
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">Trình độ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txttrinhdocn" />
+                                                <select class="form-control form-select" id="txttrinhdocn"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -435,6 +440,12 @@
                                             <label class="col-md-12 control-label">Điện thoại</label>
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" id="txtdienthoaicn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Đơn vị</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtdonvicn"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -546,7 +557,7 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loadmenu();
+            loadmenu(); loaddonvi(); loadhocvi()
             loaddanhsach();
         }
         var uri = '/api/nhanviens';
@@ -621,6 +632,60 @@
                 }
             });
         }
+        function loaddonvi() {
+            $.ajax({
+                url: '/api/dm_donvi',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#txtdonvi').html(""); $('#txtdonvicn').html("");
+                    $('#txtdonvi').append("<option value=''>Chọn</option>"); $('#txtdonvicn').append("<option value=''>Chọn</option>");
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        $('#txtdonvi').append("<option value='" + item.IDDonvi + "'>" + item.TenDonvi + "</option>");
+                        $('#txtdonvicn').append("<option value='" + item.IDDonvi + "'>" + item.TenDonvi + "</option>");
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function loadhocvi() {
+            $.ajax({
+                url: '/api/dm_hocvi',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {                    
+                    $('#txttrinhdo').html("");$('#txttrinhdocn').html("");
+                    $('#txttrinhdo').append("<option value=''>Chọn</option>");$('#txttrinhdocn').append("<option value=''>Chọn</option>");
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        $('#txttrinhdo').append("<option value='" + item.IDHocvi + "'>" + item.TenHocvi + "</option>");
+                        $('#txttrinhdocn').append("<option value='" + item.IDHocvi + "'>" + item.TenHocvi+"</option>");
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
         function loaddanhsach() {
             $.ajax({
                 url: uri,
@@ -635,13 +700,14 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDNHANVIEN + ")'>Cập nhật thông tin</a></li><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatmatkhau' onclick='loaddanhsachls(" + item.IDNHANVIEN + ")'>Đổi mật khẩu</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDNHANVIEN + ")'>Xóa thành viên</a></li></ul></div></td>" +
-                            "<td>" + item.TenDangNhap + "</td>" + "<td>" + item.TenNhanVien + "</td>" +
-                            "<td>" + item.Trinhdo + "</td>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(lbus" + stt + ")'>Cập nhật thông tin</a></li><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatmatkhau' onclick='loaddanhsachls(lbus" + stt +")'>Đổi mật khẩu</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(lbus" + stt +")'>Xóa thành viên</a></li></ul></div></td>" +
+                            "<td><label id='lbus"+stt+"'>" + item.TenDangNhap + "</label></td>" + "<td>" + item.TenNhanVien + "</td>" +
+                            "<td>" + item.TenHocVi + "</td>" +
                             "<td>" + item.Diachi + "</td>" +
                             "<td>" + item.Phone + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.IDNHANVIEN + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.IDNHANVIEN + ")'>Khóa</a>") + "</td>" +
+                            "<td>" + item.TenDonVi + "</td>" +
+                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(lbus" + stt + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(lbus" + stt +")'>Khóa</a>") + "</td>" +
                             "<td>" + item.quyen + "</td></tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
@@ -666,18 +732,19 @@
             });
         }
         function loaddanhsachls(id) {
-            document.getElementById("idpas").innerHTML = id;
+            document.getElementById("idpas").innerHTML = id.innerHTML;
         }
         function xemdanhmuc(id) {
             $.ajax({
-                url: uri + '?idnv=' + id,
+                url: uri + '?idnv=' + id.innerHTML,
                 method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDNHANVIEN;
+                    document.getElementById("lbid").innerHTML = data.TenDangNhap;
                     document.getElementById("txthotencn").value = data.TenNhanVien;
                     document.getElementById("txtdiachicn").value = data.Diachi;
-                    document.getElementById("txttrinhdocn").value = data.Trinhdo;
+                    document.getElementById("txttrinhdocn").value = data.IDHocvi;
+                    document.getElementById("txtdonvicn").value = data.IDDonvi;
                     document.getElementById("txtdienthoaicn").value = data.Phone;
                     document.getElementById("txtquyencn").value = data.quyen;
                     document.getElementById("chbttcn").checked = data.Trangthai;
@@ -701,11 +768,13 @@
                 TenDangNhap: document.getElementById("txtemail").value,
                 Matkhau: CryptoJS.MD5(document.getElementById("txtmatkhau").value).toString(),
                 TenNhanVien: document.getElementById("txthoten").value,
-                Trinhdo: document.getElementById("txttrinhdo").value,
+                Trinhdo: '',
                 Diachi: document.getElementById("txtdiachi").value,
                 Phone: document.getElementById("txtdienthoai").value,
                 Trangthai: document.getElementById("chbtt").checked,
-                quyen: document.getElementById("txtquyen").value
+                quyen: document.getElementById("txtquyen").value,
+                IDDonvi: document.getElementById("txtdonvi").value,
+                IDHocvi: document.getElementById("txttrinhdo").value
             };
             $.ajax({
                 url: uri + '?ck=1',
@@ -730,6 +799,7 @@
                         document.getElementById("txtemail").value = "";
                         document.getElementById("txtquyen").value = "";
                         document.getElementById("txttrinhdo").value = "";
+                        document.getElementById("txtdonvi").value = "";
                         document.getElementById("chbtt").checked = false;
                         loaddanhsach();
                     }
@@ -749,7 +819,7 @@
         }
         function capnhattrangthai(id) {
             $.ajax({
-                url: uri + '?idsta=' + id,
+                url: uri + '?idsta=' + id.innerHTML,
                 method: 'PUT', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 statusCode: {
@@ -780,13 +850,15 @@
         }
         function capnhattt() {
             var datas = {
-                IDNHANVIEN: document.getElementById("lbid").innerHTML,
+                TenDangNhap: document.getElementById("lbid").innerHTML,
                 TenNhanVien: document.getElementById("txthotencn").value,
                 Trinhdo: document.getElementById("txttrinhdocn").value,
                 Diachi: document.getElementById("txtdiachicn").value,
                 Phone: document.getElementById("txtdienthoaicn").value,
                 Trangthai: document.getElementById("chbttcn").checked,
-                quyen: document.getElementById("txtquyencn").value
+                quyen: document.getElementById("txtquyencn").value,
+                IDDonvi: document.getElementById("txtdonvicn").value,
+                IDHocvi: document.getElementById("txttrinhdocn").value
             };
             $.ajax({
                 url: uri + '?id=' + document.getElementById("lbid").innerHTML,
@@ -807,6 +879,7 @@
                         document.getElementById("lbid").innerHTML = "";
                         document.getElementById("txthotencn").value = "";
                         document.getElementById("txttrinhdocn").value = "";
+                        document.getElementById("txtdonvicn").value = "";
                         document.getElementById("txtdiachicn").value = "";
                         document.getElementById("txtdienthoaicn").value = "";
                         document.getElementById("txtquyencn").value = "";
@@ -828,7 +901,7 @@
         }
         function doimatkhau() {
             var datas = {
-                IDNHANVIEN: document.getElementById("idpas").innerHTML,
+                TenDangNhap: document.getElementById("idpas").innerHTML,
                 Matkhau: CryptoJS.MD5(document.getElementById("txtmatkhaumoiad").value).toString()
             };
             $.ajax({
@@ -867,7 +940,7 @@
         function xoadanhmuc(id) {
             if (confirm('Bạn chắc chắn muốn xóa thành viên đã chọn?')) {
                 $.ajax({
-                    url: uri + '/' + id,
+                    url: uri + '/' + id.innerHTML,
                     method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                     contentType: 'application/json',
                     success: function (data) {
@@ -890,7 +963,7 @@
                             icon: 'info',
                             hideAfter: 3500,
                             stack: 6
-                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                        }); 
                     }
                 });
             }

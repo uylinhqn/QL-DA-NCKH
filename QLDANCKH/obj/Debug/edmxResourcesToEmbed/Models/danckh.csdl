@@ -8,20 +8,6 @@
     <Property Name="TenDangNhap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IdQuyenHeThong" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="NHANVIEN">
-    <Key>
-      <PropertyRef Name="IDNHANVIEN" />
-    </Key>
-    <Property Name="IDNHANVIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenDangNhap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Matkhau" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="TenNhanVien" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Trinhdo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="Int32" />
-    <Property Name="Trangthai" Type="Boolean" />
-    <Property Name="quyen" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="QuyenHeThong">
     <Key>
       <PropertyRef Name="Id" />
@@ -34,7 +20,6 @@
   </EntityType>
   <EntityContainer Name="QL_NCKHQBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
-    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
     <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
     <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
     <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
@@ -50,20 +35,22 @@
     </FunctionImport>
     <FunctionImport Name="Proc_QuyenHeThong_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_QuyenHeThong_Select_Result)" />
     <FunctionImport Name="Proc_ThanhVien_UpdateInfo">
-      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
       <Parameter Name="TenNhanVien" Mode="In" Type="String" />
       <Parameter Name="Trinhdo" Mode="In" Type="String" />
       <Parameter Name="DiaChi" Mode="In" Type="String" />
       <Parameter Name="Phone" Mode="In" Type="Int32" />
       <Parameter Name="Trangthai" Mode="In" Type="Boolean" />
       <Parameter Name="quyen" Mode="In" Type="String" />
+      <Parameter Name="IDDonvi" Mode="In" Type="Int32" />
+      <Parameter Name="IDHocvi" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Proc_ThanhVien_UpdatePass">
-      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
       <Parameter Name="Matkhau" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_ThanhVien_UpdateStatus">
-      <Parameter Name="IDNHANVIEN" Mode="In" Type="Int32" />
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_ThanhVien_CheckLogIn" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_Result)">
       <Parameter Name="TenDangNhap" Mode="In" Type="String" />
@@ -76,7 +63,17 @@
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="QL_NCKHQBModel.TIEUCHI_DANHGIA" />
     <EntitySet Name="TINTUC_THONGBAO" EntityType="QL_NCKHQBModel.TINTUC_THONGBAO" />
+    <FunctionImport Name="Proc_ThanhVien_SelectPK2" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_SelectPK2_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="DEXUAT_DATHANG" EntityType="QL_NCKHQBModel.DEXUAT_DATHANG" />
+    <EntitySet Name="NHANVIENs" EntityType="QL_NCKHQBModel.NHANVIEN" />
+    <FunctionImport Name="Proc_ThanhVien_CheckLogIn_2" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_2_Result)">
+      <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+      <Parameter Name="MatKhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ThanhVien_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_Select_Result)" />
+    <FunctionImport Name="Proc_ThanhVien_Select2" ReturnType="Collection(QL_NCKHQBModel.Proc_ThanhVien_Select2_Result)" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -159,15 +156,92 @@
     <Property Name="Noidungtintuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
+  <ComplexType Name="Proc_ThanhVien_SelectPK2_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+  </ComplexType>
   <EntityType Name="DEXUAT_DATHANG">
     <Key>
       <PropertyRef Name="IDDexuat" />
     </Key>
     <Property Name="IDDexuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Tendexuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Tendexuat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Noidungdexuat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="NamDeXuat" Type="Int32" />
     <Property Name="CapDeXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Trangthai" Type="Boolean" />
+    <Property Name="TrangthaiPD" Type="Boolean" />
+    <Property Name="LinkTaiLieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiDeXuat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NguoiPheDuyet" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IdLinhVucNC" Type="Int32" />
+    <Property Name="IdLinhVucNV" Type="Int32" />
+    <Property Name="DonViThucHien" Type="Int32" />
+    <Property Name="ChuyenGiao" Type="Boolean" />
+    <Property Name="NghiemThu" Type="Boolean" />
   </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Matkhau" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Trinhdo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Trangthai" Type="Boolean" />
+    <Property Name="quyen" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IDDonvi" Type="Int32" />
+    <Property Name="IDHocvi" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="Proc_ThanhVien_CheckLogIn_2_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="IDDonvi" Nullable="true" />
+    <Property Type="Int32" Name="IDHocvi" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_ThanhVien_Select_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="IDDonvi" Nullable="true" />
+    <Property Type="Int32" Name="IDHocvi" Nullable="true" />
+    <Property Type="Int32" Name="IDDonvi1" Nullable="false" />
+    <Property Type="String" Name="TenDonvi" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi1" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone1" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai1" Nullable="true" />
+    <Property Type="Int32" Name="IDHocvi1" Nullable="false" />
+    <Property Type="String" Name="TenHocvi" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Trangthai2" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_ThanhVien_Select2_Result">
+    <Property Type="String" Name="TenDangNhap" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Matkhau" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Trinhdo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Diachi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="quyen" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenDonVi" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenHocVi" Nullable="true" MaxLength="100" />
+  </ComplexType>
 </Schema>

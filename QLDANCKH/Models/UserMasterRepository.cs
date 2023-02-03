@@ -12,12 +12,11 @@ namespace loginauth.Models
         QL_NCKHQBEntities context = new QL_NCKHQBEntities();
         //This method is used to check and validate the user credentials
         public NHANVIEN ValidateUser(string username, string password)
-        {            
-            var users= context.Proc_ThanhVien_CheckLogIn(username,password).ToList();
+        {
+            var users = context.Proc_ThanhVien_CheckLogIn_2(username, password).ToList();
             if (users.Count > 0)
             {
                 NHANVIEN nv = new NHANVIEN();
-                nv.IDNHANVIEN = users.ToList()[0].IDNHANVIEN;
                 nv.TenDangNhap = users.ToList()[0].TenDangNhap;
                 nv.Matkhau = users.ToList()[0].Matkhau;
                 nv.TenNhanVien = users.ToList()[0].TenNhanVien;

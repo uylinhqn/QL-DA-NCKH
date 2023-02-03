@@ -9,21 +9,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NHANVIENs">
-      <EntityTypeMapping TypeName="QL_NCKHQBModel.NHANVIEN">
-        <MappingFragment StoreEntitySet="NHANVIEN">
-          <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
-          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
-          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
-          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
-          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
-          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-          <ScalarProperty Name="quyen" ColumnName="quyen" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="QuyenHeThongs">
       <EntityTypeMapping TypeName="QL_NCKHQBModel.QuyenHeThong">
         <MappingFragment StoreEntitySet="QuyenHeThong">
@@ -143,10 +128,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ThanhVien_SelectPK2" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_SelectPK2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ThanhVien_SelectPK2_Result">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <EntitySetMapping Name="DEXUAT_DATHANG">
       <EntityTypeMapping TypeName="QL_NCKHQBModel.DEXUAT_DATHANG">
         <MappingFragment StoreEntitySet="DEXUAT_DATHANG">
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="IdLinhVucNV" ColumnName="IdLinhVucNV" />
+          <ScalarProperty Name="IdLinhVucNC" ColumnName="IdLinhVucNC" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
           <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
           <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
           <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
@@ -155,5 +162,77 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
+          <ScalarProperty Name="IDDonvi" ColumnName="IDDonvi" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ThanhVien_CheckLogIn_2" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_CheckLogIn_2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ThanhVien_CheckLogIn_2_Result">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+          <ScalarProperty Name="IDDonvi" ColumnName="IDDonvi" />
+          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ThanhVien_Select" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ThanhVien_Select_Result">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+          <ScalarProperty Name="IDDonvi" ColumnName="IDDonvi" />
+          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
+          <ScalarProperty Name="IDDonvi1" ColumnName="IDDonvi1" />
+          <ScalarProperty Name="TenDonvi" ColumnName="TenDonvi" />
+          <ScalarProperty Name="Diachi1" ColumnName="Diachi1" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Trangthai1" ColumnName="Trangthai1" />
+          <ScalarProperty Name="IDHocvi1" ColumnName="IDHocvi1" />
+          <ScalarProperty Name="TenHocvi" ColumnName="TenHocvi" />
+          <ScalarProperty Name="Trangthai2" ColumnName="Trangthai2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ThanhVien_Select2" FunctionName="QL_NCKHQBModel.Store.Proc_ThanhVien_Select2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_ThanhVien_Select2_Result">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="Trinhdo" ColumnName="Trinhdo" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+          <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
+          <ScalarProperty Name="TenHocVi" ColumnName="TenHocVi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

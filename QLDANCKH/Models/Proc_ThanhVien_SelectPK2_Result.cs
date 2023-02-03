@@ -10,12 +10,16 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class DM_LINHVUC_NHIEMVU
+    public partial class Proc_ThanhVien_SelectPK2_Result
     {
-        public int IDLinhvucNhiemvu { get; set; }
-        public string TenLinhvuc { get; set; }
+        public string TenDangNhap { get; set; }
+        public string Matkhau { get; set; }
+        public string TenNhanVien { get; set; }
+        public string Trinhdo { get; set; }
+        public string Diachi { get; set; }
+        public Nullable<int> Phone { get; set; }
         public Nullable<bool> Trangthai { get; set; }
+        public string quyen { get; set; }
     }
 }

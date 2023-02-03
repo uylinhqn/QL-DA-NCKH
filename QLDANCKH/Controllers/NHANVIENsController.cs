@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
 using QLDANCKH.Models;
 using RestSharp;
@@ -40,7 +39,7 @@ namespace QLDANCKH.Controllers
             request.AddHeader("postman-token", "079524ee-6d2c-33c7-ff89-ef4e71b4cc12");
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
-            request.AddParameter("application/x-www-form-urlencoded", "username=" + acc.email + "&password=" +acc.pass + "&grant_type=password", ParameterType.RequestBody);
+            request.AddParameter("application/x-www-form-urlencoded", "username=" + acc.email + "&password=" + acc.pass + "&grant_type=password", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode.ToString() == "BadRequest") { return null; }
             else
@@ -48,19 +47,20 @@ namespace QLDANCKH.Controllers
                 return JsonConvert.DeserializeObject<Tokens>(response.Content);
             }
         }
+
         // GET: api/NHANVIENs
         [Authorize(Roles = "admin")]
         [HttpGet]
-        public IQueryable<NHANVIEN> GetNHANVIENs()
+        public ObjectResult<Proc_ThanhVien_Select2_Result> GetNHANVIENs()
         {
-            return db.NHANVIENs;
+            return db.Proc_ThanhVien_Select2();
         }
 
         // GET: api/NHANVIENs/5
         [Authorize(Roles = "admin")]
         [HttpGet]
         [ResponseType(typeof(NHANVIEN))]
-        public IHttpActionResult GetNHANVIEN(int idnv)
+        public IHttpActionResult GetNHANVIEN(string idnv)
         {
             NHANVIEN nHANVIEN = db.NHANVIENs.Find(idnv);
             if (nHANVIEN == null)
@@ -75,14 +75,14 @@ namespace QLDANCKH.Controllers
         [Authorize(Roles = "admin")]
         [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNHANVIEN(int id, NHANVIEN nHANVIEN)
+        public IHttpActionResult PutNHANVIEN(string id, NHANVIEN nHANVIEN)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != nHANVIEN.IDNHANVIEN)
+            if (id != nHANVIEN.TenDangNhap)
             {
                 return BadRequest();
             }
@@ -91,7 +91,7 @@ namespace QLDANCKH.Controllers
 
             try
             {
-                db.Proc_ThanhVien_UpdateInfo(id,nHANVIEN.TenNhanVien, nHANVIEN.Trinhdo, nHANVIEN.Diachi, nHANVIEN.Phone, nHANVIEN.Trangthai, nHANVIEN.quyen);
+                db.Proc_ThanhVien_UpdateInfo(id, nHANVIEN.TenNhanVien, nHANVIEN.Trinhdo, nHANVIEN.Diachi, nHANVIEN.Phone, nHANVIEN.Trangthai, nHANVIEN.quyen, nHANVIEN.IDDonvi, nHANVIEN.IDHocvi);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -107,17 +107,18 @@ namespace QLDANCKH.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+
         [Authorize(Roles = "admin")]
         [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNHANVIENPass(int idpas, NHANVIEN nHANVIEN)
+        public IHttpActionResult PutNHANVIENPass(string idpas, NHANVIEN nHANVIEN)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (idpas != nHANVIEN.IDNHANVIEN)
+            if (idpas != nHANVIEN.TenDangNhap)
             {
                 return BadRequest();
             }
@@ -145,7 +146,7 @@ namespace QLDANCKH.Controllers
         [Authorize(Roles = "admin")]
         [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNHANVIENStatus(int idsta)
+        public IHttpActionResult PutNHANVIENStatus(string idsta)
         {
             if (!ModelState.IsValid)
             {
@@ -174,7 +175,7 @@ namespace QLDANCKH.Controllers
         [HttpPost]
         // POST: api/NHANVIENs
         [ResponseType(typeof(NHANVIEN))]
-        public IHttpActionResult PostNHANVIEN(int ck,NHANVIEN nHANVIEN)
+        public IHttpActionResult PostNHANVIEN(int ck, NHANVIEN nHANVIEN)
         {
             if (!ModelState.IsValid)
             {
@@ -184,14 +185,14 @@ namespace QLDANCKH.Controllers
             db.NHANVIENs.Add(nHANVIEN);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = nHANVIEN.IDNHANVIEN }, nHANVIEN);
+            return CreatedAtRoute("DefaultApi", new { id = nHANVIEN.TenDangNhap }, nHANVIEN);
         }
 
         // DELETE: api/NHANVIENs/5
         [Authorize(Roles = "admin")]
         [HttpDelete]
         [ResponseType(typeof(NHANVIEN))]
-        public IHttpActionResult DeleteNHANVIEN(int id)
+        public IHttpActionResult DeleteNHANVIEN(string id)
         {
             NHANVIEN nHANVIEN = db.NHANVIENs.Find(id);
             if (nHANVIEN == null)
@@ -214,9 +215,9 @@ namespace QLDANCKH.Controllers
             base.Dispose(disposing);
         }
 
-        private bool NHANVIENExists(int id)
+        private bool NHANVIENExists(string id)
         {
-            return db.NHANVIENs.Count(e => e.IDNHANVIEN == id) > 0;
+            return db.NHANVIENs.Count(e => e.TenDangNhap == id) > 0;
         }
     }
 }
