@@ -251,7 +251,7 @@
                     </div>
                 </div>
                 <!-- /row -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -260,8 +260,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên học vị</th>
-                                               
+                                                <th>Tên đề xuất</th>
+                                                <th>Nội dung đề xuất</th>
+                                                <th>Năm đề xuất</th>
+                                                <th>Cấp đề xuất</th>
+
                                                 <th>Trạng thái</th>
 
                                             </tr>
@@ -272,7 +275,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- /.row -->
                 <label id="lbtenfile" style="display:none"></label>
             </div>
@@ -298,7 +301,166 @@
         <!-- ============================================================== -->
     </div>
 
-    
+
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="themdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Đề xuất cấp tỉnh</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Tên đề xuất</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttendexuat" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Nội dung đề xuất</label>
+                                            <div class="col-md-12">
+                                                <textarea rows="4" cols="50" class="form-control" id="txtnoidungdexuat" autofocus>
+                                                </textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Năm đề xuất</label>
+                                            <div class="col-md-12">
+                                                <input type="number" class="form-control" id="txtnamdexuat" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cấp đề xuất</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtcapdexuat">
+                                                    <!--<option value="">Chọn cấp</option>
+                                                    <option value="Nhà nước">Nhà nước</option>-->
+                                                    <option value="Tỉnh">Tỉnh</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbtt" value="">
+                                                    <label for="chbtt">Trạng thái</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" onclick="themdmmoi();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capnhatdanhmuc" class="modal fade">
+        <div class="modal-dialog modal-lg" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cập nhật Đề xuất cấp tỉnh</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="form-layouts" class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label id="lbid" style="display:none"></label>
+                                            <label class="col-md-12 control-label">Tên đề xuất</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttendexuatcn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Nội dung đề xuất</label>
+                                            <div class="col-md-12">
+                                                <textarea type="text" class="form-control" id="txtnoidungdexuatcn">
+                                                </textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Năm đề xuất</label>
+                                            <div class="col-md-12">
+                                                <input type="number" class="form-control" id="txtnamdexuatcn" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cấp đề xuất</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control form-select" id="txtcapdexuatcn">
+                                                    <!--<option value="">Chọn cấp</option>
+                                                    <option value="Nhà nước">Nhà nước</option>-->
+                                                    <option value="Tỉnh">Tỉnh</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbttcn" value="">
+                                                    <label for="chbtt">Trạng thái</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" data-bs-dismiss="modal" onclick="capnhattt();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -338,7 +500,7 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loadmenu();loaddanhsach();
+            loadmenu(); loaddanhsach();
         }
         function loadmenu() {
             $.ajax({
@@ -411,10 +573,11 @@
                 }
             });
         }
-        var uri = '';
+        var uri1 = '/api/DATHANGBYTINH';
+        var uri = '/api/DEXUAT_DATHANG';
         function loaddanhsach() {
             $.ajax({
-                url: uri,
+                url: uri1,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -426,11 +589,14 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
-                            "<td>" + item.TenHocvi + "</td>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDDexuat + ")'>Cập nhật thông tin</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDexuat + ")'>Xóa danh sách đề xuất</a></li></ul></div></td>" +
+                            "<td>" + item.Tendexuat + "</td>" +
+                            "<td>" + item.Noidungdexuat + "</td>" +
+                            "<td>" + item.NamDeXuat + "</td>" +
+                            "<td>" + item.CapDeXuat + "</td>" +
                             "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
-                             "</tr> ";
+                            "</tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
                     $('#myTable').DataTable({
@@ -454,18 +620,21 @@
             });
         }
         function loaddanhsachls(id) {
-            document.getElementById("idpas").innerHTML = id; }
+            document.getElementById("idpas").innerHTML = id;
+        }
         function xemdanhmuc(id) {
             $.ajax({
                 url: uri + '?id=' + id,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDHocvi;
-                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
-                       
-                        document.getElementById("chbttcn").checked = data.Trangthai;
-                    
+                    document.getElementById("lbid").innerHTML = data.IDDexuat;
+                    document.getElementById("txttendexuatcn").value = data.Tendexuat;
+                    document.getElementById("txtnoidungdexuatcn").value = data.Noidungdexuat;
+                    document.getElementById("txtnamdexuatcn").value = data.NamDeXuat;
+                    document.getElementById("txtcapdexuatcn").value = data.CapDeXuat;
+                    document.getElementById("chbttcn").checked = data.Trangthai;
+
                 },
                 error: function (request, msg, error) {
                     $.toast({
@@ -482,13 +651,15 @@
         }
         function themdmmoi() {
             var datas = {
-                TenHocvi: document.getElementById("txttenhocvi").value,
-
+                Tendexuat: document.getElementById("txttendexuat").value,
+                Noidungdexuat: document.getElementById("txtnoidungdexuat").value,
+                NamDeXuat: document.getElementById("txtnamdexuat").value,
+                CapDeXuat: document.getElementById("txtcapdexuat").value,
                 Trangthai: document.getElementById("chbtt").checked,
-              
+
             };
             $.ajax({
-                url: uri ,
+                url: uri,
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(datas),
@@ -496,15 +667,18 @@
                     201: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Thêm thông tin Học vị thành công!',
+                            text: 'Thêm Đề xuất cấp tỉnh thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvi").value = "";
-                    
+                        document.getElementById("txttendexuat").value = "";
+                        document.getElementById("txtnoidungdexuat").value = "";
+                        document.getElementById("txtnamdexuat").value = "";
+                        document.getElementById("txtcapdexuat").value = "";
+
                         document.getElementById("chbtt").checked = false;
 
                     }
@@ -512,7 +686,7 @@
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin Học vị không thành công!',
+                        text: 'Thêm Đề xuất cấp tỉnh không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -524,12 +698,15 @@
         }
         function capnhattt() {
             var datas = {
-               
-                IDHocvi: document.getElementById("lbid").innerHTML,
-                TenHocvi: document.getElementById("txttenhocvicn").value,
-                
+
+                IDDexuat: document.getElementById("lbid").innerHTML,
+                Tendexuat: document.getElementById("txttendexuatcn").value,
+                Noidungdexuat: document.getElementById("txtnoidungdexuatcn").value,
+                NamDeXuat: document.getElementById("txtnamdexuatcn").value,
+                CapDeXuat: document.getElementById("txtcapdexuatcn").value,
+
                 Trangthai: document.getElementById("chbttcn").checked,
-               
+
             };
             $.ajax({
                 url: uri + '?id=' + document.getElementById("lbid").innerHTML,
@@ -540,25 +717,28 @@
                     204: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Cập nhật thông tin Học vị thành công!',
+                            text: 'Cập Đề xuất cấp tỉnh thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvicn").value = "";
-                       
+                        document.getElementById("txttendexuatcn").value = "";
+                        document.getElementById("txtnoidungdexuatcn").value = "";
+                        document.getElementById("txtnamdexuatcn").value = "";
+                        document.getElementById("txtcapdexuatcn").value = "";
+
                         document.getElementById("chbttcn").checked = false;
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Cập nhật thông tin Học vị không thành công!',
+                        text: 'Cập nhật Đề xuất cấp tỉnh không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
-                        icon: 'info',
+                        icon: 'warning',
                         hideAfter: 3500,
                         stack: 6
                     });
@@ -566,12 +746,12 @@
             });
         }
 
-      
 
 
-       
+
+
         function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
+            if (confirm('Bạn chắc chắn muốn xóa Đề xuất cấp tỉnh đã chọn?')) {
                 $.ajax({
                     url: uri + '/' + id,
                     method: 'DELETE',
@@ -579,10 +759,10 @@
                     success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin Học vị thành công!',
+                            text: 'Xóa thông tin Đề xuất cấp tỉnh thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
@@ -590,10 +770,10 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
+                            text: 'Xóa thông tin Đề xuất cấp tỉnh không thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
                         }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
