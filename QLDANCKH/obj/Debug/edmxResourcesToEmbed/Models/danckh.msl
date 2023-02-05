@@ -234,5 +234,27 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_Result">
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+          <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Update" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Insert" />
   </EntityContainerMapping>
 </Mapping>

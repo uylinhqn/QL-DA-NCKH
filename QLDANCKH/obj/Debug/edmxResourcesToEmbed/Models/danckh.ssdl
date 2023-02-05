@@ -117,6 +117,30 @@
   <Function Name="Proc_ChiTietQuyenHT_Select_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tendexuat" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Noidungdexuat" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NamDeXuat" Type="int" Mode="In" />
+    <Parameter Name="CapDeXuat" Type="nvarchar" Mode="In" />
+    <Parameter Name="TrangthaiPD" Type="bit" Mode="In" />
+    <Parameter Name="LinkTaiLieu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+    <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
+    <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDexuat" Type="int" Mode="In" />
+    <Parameter Name="Tendexuat" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Noidungdexuat" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NamDeXuat" Type="int" Mode="In" />
+    <Parameter Name="CapDeXuat" Type="nvarchar" Mode="In" />
+    <Parameter Name="LinkTaiLieu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
+    <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
+  </Function>
   <Function Name="Proc_QuyenHeThong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_ThanhVien_CheckLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />

@@ -557,7 +557,7 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loadmenu(); loaddonvi(); loadhocvi()
+            loadmenu(); loaddonvi(); loadhocvi();
             loaddanhsach();
         }
         var uri = '/api/nhanviens';
@@ -714,7 +714,7 @@
                     $('#myTable').DataTable({
                         dom: 'Bfrtip',
                         buttons: [
-
+                            'excel'
                         ]
                     });
                 },

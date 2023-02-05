@@ -190,5 +190,92 @@ namespace QLDANCKH.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_ThanhVien_Select2_Result>("Proc_ThanhVien_Select2");
         }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_Result> Proc_DEXUAT_DATHANG_Select(string nguoiDeXuat)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_Result>("Proc_DEXUAT_DATHANG_Select", nguoiDeXuatParameter);
+        }
+    
+        public virtual int Proc_DEXUAT_DATHANG_Update(Nullable<int> iDDexuat, string tendexuat, string noidungdexuat, Nullable<int> namDeXuat, string capDeXuat, string linkTaiLieu, Nullable<int> idLinhVucNC, Nullable<int> idLinhVucNV)
+        {
+            var iDDexuatParameter = iDDexuat.HasValue ?
+                new ObjectParameter("IDDexuat", iDDexuat) :
+                new ObjectParameter("IDDexuat", typeof(int));
+    
+            var tendexuatParameter = tendexuat != null ?
+                new ObjectParameter("Tendexuat", tendexuat) :
+                new ObjectParameter("Tendexuat", typeof(string));
+    
+            var noidungdexuatParameter = noidungdexuat != null ?
+                new ObjectParameter("Noidungdexuat", noidungdexuat) :
+                new ObjectParameter("Noidungdexuat", typeof(string));
+    
+            var namDeXuatParameter = namDeXuat.HasValue ?
+                new ObjectParameter("NamDeXuat", namDeXuat) :
+                new ObjectParameter("NamDeXuat", typeof(int));
+    
+            var capDeXuatParameter = capDeXuat != null ?
+                new ObjectParameter("CapDeXuat", capDeXuat) :
+                new ObjectParameter("CapDeXuat", typeof(string));
+    
+            var linkTaiLieuParameter = linkTaiLieu != null ?
+                new ObjectParameter("LinkTaiLieu", linkTaiLieu) :
+                new ObjectParameter("LinkTaiLieu", typeof(string));
+    
+            var idLinhVucNCParameter = idLinhVucNC.HasValue ?
+                new ObjectParameter("IdLinhVucNC", idLinhVucNC) :
+                new ObjectParameter("IdLinhVucNC", typeof(int));
+    
+            var idLinhVucNVParameter = idLinhVucNV.HasValue ?
+                new ObjectParameter("IdLinhVucNV", idLinhVucNV) :
+                new ObjectParameter("IdLinhVucNV", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DEXUAT_DATHANG_Update", iDDexuatParameter, tendexuatParameter, noidungdexuatParameter, namDeXuatParameter, capDeXuatParameter, linkTaiLieuParameter, idLinhVucNCParameter, idLinhVucNVParameter);
+        }
+    
+        public virtual int Proc_DEXUAT_DATHANG_Insert(string tendexuat, string noidungdexuat, Nullable<int> namDeXuat, string capDeXuat, Nullable<bool> trangthaiPD, string linkTaiLieu, string nguoiDeXuat, Nullable<int> idLinhVucNC, Nullable<int> idLinhVucNV)
+        {
+            var tendexuatParameter = tendexuat != null ?
+                new ObjectParameter("Tendexuat", tendexuat) :
+                new ObjectParameter("Tendexuat", typeof(string));
+    
+            var noidungdexuatParameter = noidungdexuat != null ?
+                new ObjectParameter("Noidungdexuat", noidungdexuat) :
+                new ObjectParameter("Noidungdexuat", typeof(string));
+    
+            var namDeXuatParameter = namDeXuat.HasValue ?
+                new ObjectParameter("NamDeXuat", namDeXuat) :
+                new ObjectParameter("NamDeXuat", typeof(int));
+    
+            var capDeXuatParameter = capDeXuat != null ?
+                new ObjectParameter("CapDeXuat", capDeXuat) :
+                new ObjectParameter("CapDeXuat", typeof(string));
+    
+            var trangthaiPDParameter = trangthaiPD.HasValue ?
+                new ObjectParameter("TrangthaiPD", trangthaiPD) :
+                new ObjectParameter("TrangthaiPD", typeof(bool));
+    
+            var linkTaiLieuParameter = linkTaiLieu != null ?
+                new ObjectParameter("LinkTaiLieu", linkTaiLieu) :
+                new ObjectParameter("LinkTaiLieu", typeof(string));
+    
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var idLinhVucNCParameter = idLinhVucNC.HasValue ?
+                new ObjectParameter("IdLinhVucNC", idLinhVucNC) :
+                new ObjectParameter("IdLinhVucNC", typeof(int));
+    
+            var idLinhVucNVParameter = idLinhVucNV.HasValue ?
+                new ObjectParameter("IdLinhVucNV", idLinhVucNV) :
+                new ObjectParameter("IdLinhVucNV", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DEXUAT_DATHANG_Insert", tendexuatParameter, noidungdexuatParameter, namDeXuatParameter, capDeXuatParameter, trangthaiPDParameter, linkTaiLieuParameter, nguoiDeXuatParameter, idLinhVucNCParameter, idLinhVucNVParameter);
+        }
     }
 }

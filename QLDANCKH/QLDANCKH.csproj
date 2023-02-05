@@ -308,6 +308,9 @@
     <Compile Include="Models\Proc_ChiTietQuyenHT_Select_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_QuyenHeThong_Select_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
