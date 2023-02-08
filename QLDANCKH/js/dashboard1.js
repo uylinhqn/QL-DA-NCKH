@@ -2,11 +2,11 @@ $(function () {
     "use strict";
     //This is for the Notification top right
     $.toast({
-            heading: 'Welcome to Elite admin'
-            , text: 'Use the predefined ones, or specify a custom position object.'
+            heading: 'CHÀO MỪNG ĐẾN VỚI HỆ THỐNG QUẢN LÝ NHIỆM VỤ KHOA HỌC VÀ CÔNG NGHỆ '
+            , text: ''
             , position: 'top-right'
             , loaderBg: '#ff6849'
-            , icon: 'info'
+            , icon: 'success'
             , hideAfter: 3500
             , stack: 6
         })
