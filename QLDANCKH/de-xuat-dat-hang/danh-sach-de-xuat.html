@@ -62,13 +62,13 @@
                 margin-bottom: 0
             }
 
-                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label,
+                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
                 .input-group > .custom-select:focus,
                 .input-group > .form-control:focus {
                     z-index: 3
                 }
 
-                .input-group > .custom-file .custom-file-input:focus {
+                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
                     z-index: 4
                 }
 
@@ -112,7 +112,8 @@
 
         .custom-file,
         .custom-file-input,
-        .custom-file-label {
+        .custom-file-input2,
+        .custom-file-label, .custom-file-label2 {
             height: calc(1.5em + .75rem + 2px)
         }
 
@@ -131,7 +132,8 @@
         }
 
         .custom-file-label,
-        .custom-file-label::after {
+        .custom-file-label::after, .custom-file-label2,
+        .custom-file-label2::after {
             position: absolute;
             padding: .375rem .75rem;
             line-height: 1.5;
@@ -140,15 +142,15 @@
             right: 0
         }
 
-        .custom-file-input:lang(en) ~ .custom-file-label::after {
+        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
             content: ""
         }
 
-        .custom-file-input ~ .custom-file-label[data-browse]::after {
+        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
             content: attr(data-browse)
         }
 
-        .custom-file-label {
+        .custom-file-label, .custom-file-label2 {
             left: 0;
             z-index: 1;
             font-weight: 400;
@@ -157,7 +159,7 @@
             border-radius: .25rem
         }
 
-            .custom-file-label::after {
+            .custom-file-label::after, .custom-file-label2::after {
                 bottom: 0;
                 z-index: 3;
                 display: block;
@@ -889,7 +891,7 @@
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
                             "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDDexuat + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDexuat + ")'>Xóa danh sách đề xuất</a></li></ul></div></td>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDexuat + ")'>Xóa đề xuất</a></li></ul></div></td>" +
                             "<td>" + item.Tendexuat + "</td>" +
                             "<td>" + item.TenLinhVucNC + "</td><td>" + item.TenLinhVucNV + "</td>" +
                             "<td>" + item.NamDeXuat + "</td>" +
@@ -1052,7 +1054,7 @@
             });
         }
         function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Danh sách đề xuất đã chọn?')) {
+            if (confirm('Bạn chắc chắn muốn Xóa đề xuất đã chọn?')) {
                 $.ajax({
                     url: uri + '/' + id,
                     method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
@@ -1077,7 +1079,7 @@
                             icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
-                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                        });
                     }
                 });
             }

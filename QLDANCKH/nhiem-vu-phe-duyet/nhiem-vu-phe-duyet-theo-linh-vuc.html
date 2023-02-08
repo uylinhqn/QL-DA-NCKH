@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>NHIỆM VỤ PHÊ DUYỆT THEO LĨNH VỰC</title>
+    <title>DANH SÁCH NHIỆM VỤ PHÊ DUYỆT THEO LĨNH VỰC</title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -19,6 +19,157 @@
     <!-- Dashboard 1 Page CSS -->
     <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
     <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .input-group-append,
+        .input-group-append .btn + .btn,
+        .input-group-append .btn + .input-group-text,
+        .input-group-append .input-group-text + .btn,
+        .input-group-append .input-group-text + .input-group-text,
+        .input-group-prepend .btn + .btn,
+        .input-group-prepend .btn + .input-group-text,
+        .input-group-prepend .input-group-text + .btn,
+        .input-group-prepend .input-group-text + .input-group-text,
+        .input-group > .custom-file + .custom-file,
+        .input-group > .custom-file + .custom-select,
+        .input-group > .custom-file + .form-control,
+        .input-group > .custom-select + .custom-file,
+        .input-group > .custom-select + .custom-select,
+        .input-group > .custom-select + .form-control,
+        .input-group > .form-control + .custom-file,
+        .input-group > .form-control + .custom-select,
+        .input-group > .form-control + .form-control,
+        .input-group > .form-control-plaintext + .custom-file,
+        .input-group > .form-control-plaintext + .custom-select,
+        .input-group > .form-control-plaintext + .form-control {
+            margin-left: -1px
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%
+        }
+
+            .input-group > .custom-file,
+            .input-group > .custom-select,
+            .input-group > .form-control,
+            .input-group > .form-control-plaintext {
+                position: relative;
+                flex: 1 1 auto;
+                width: 1%;
+                margin-bottom: 0
+            }
+
+                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
+                .input-group > .custom-select:focus,
+                .input-group > .form-control:focus {
+                    z-index: 3
+                }
+
+                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
+                    z-index: 4
+                }
+
+            .input-group > .custom-file {
+                display: flex;
+                align-items: center
+            }
+
+        .input-group-append,
+        .input-group-prepend {
+            display: flex
+        }
+
+            .input-group-append .btn,
+            .input-group-prepend .btn {
+                position: relative;
+                z-index: 2
+            }
+
+                .input-group-append .btn:focus,
+                .input-group-prepend .btn:focus {
+                    z-index: 3
+                }
+
+        .input-group-prepend {
+            margin-right: -1px
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: .375rem .75rem;
+            font-size: .875rem;
+            line-height: 1.5;
+            color: #4F5467;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+        .custom-file,
+        .custom-file-input,
+        .custom-file-input2,
+        .custom-file-label, .custom-file-label2 {
+            height: calc(1.5em + .75rem + 2px)
+        }
+
+        .custom-file {
+            position: relative;
+            display: inline-block;
+            width: 100%
+        }
+
+        .custom-file-input {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0;
+            opacity: 0
+        }
+
+        .custom-file-label,
+        .custom-file-label::after, .custom-file-label2,
+        .custom-file-label2::after {
+            position: absolute;
+            padding: .375rem .75rem;
+            line-height: 1.5;
+            color: #4F5467;
+            top: 0;
+            right: 0
+        }
+
+        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
+            content: ""
+        }
+
+        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
+            content: attr(data-browse)
+        }
+
+        .custom-file-label, .custom-file-label2 {
+            left: 0;
+            z-index: 1;
+            font-weight: 400;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+            .custom-file-label::after, .custom-file-label2::after {
+                bottom: 0;
+                z-index: 3;
+                display: block;
+                height: calc(1.5em + .75rem);
+                content: "Browse";
+                background-color: #f8f9fa;
+                border-left: inherit;
+                border-radius: 0 .25rem .25rem 0
+            }
+    </style>
 </head>
 
 <body class="skin-green-dark fixed-layout mini-sidebar">
@@ -238,20 +389,23 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Nhiệm vụ phê duyệt theo lĩnh vực</h4>
+                        <h4 class="text-themecolor">
+                            Danh sách nhiệm vụ chờ phê duyệt theo lĩnh vực
+                            <select class="form-control form-select w-25" id="txtlinhvuc" onchange="loaddanhsach(this.value)">
+                            </select>
+                        </h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Nhiệm vụ phê duyệt theo lĩnh vực</li>
+                                <li class="breadcrumb-item active">Danh sách nhiệm vụ chờ phê duyệt theo lĩnh vực</li>
                             </ol>
-                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
                     </div>
                 </div>
                 <!-- /row -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -260,10 +414,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên học vị</th>
-                                               
+                                                <th>Tên đề xuất</th>
+                                                <th>Lĩnh vực nghiên cứu</th>
+                                                <th>Nhiệm vụ</th>
+                                                <th>Năm đề xuất</th>
+                                                <th>Cấp đề xuất</th>
                                                 <th>Trạng thái</th>
-
                                             </tr>
                                         </thead>
                                         <tbody id="danhsach"></tbody>
@@ -272,7 +428,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- /.row -->
                 <label id="lbtenfile" style="display:none"></label>
             </div>
@@ -297,8 +453,79 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
-
-    
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capnhatdanhmuc" class="modal fade">
+        <div class="modal-dialog modal-lg" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Phê duyệt nhiệm vụ</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="form-layouts" class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="txtnamdexuatcn">Năm đề xuất</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="txtcapdexuatcn">Cấp đề xuất</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="lbid" style="display:none"></label>
+                                            <label class="col-md-12 control-label" id="txttendexuatcn">Tên đề xuất</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="txtnoidungdexuatcn">Nội dung đề xuất</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file đề án:</label>
+                                            <div class="col-md-12" id="dsfilecn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="txtlvnghiencuucn">Lĩnh vực nghiên cứu</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="txtlvnhiemvucn">Lĩnh vực nhiệm vụ</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file phê duyệt:</label>
+                                            <div class="col-md-12" id="dsfilecnpd">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File phê duyệt đính kèm</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile01" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile01">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile2" data-bs-dismiss="modal" onclick="sua();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label id="lbtenfile" style="display:none"></label>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -337,8 +564,74 @@
 
             ], "pageLength": 20
         });
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () { var e = $(this).val(); $(this).next(".custom-file-label").html(e) })
+        });
+        function them() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                localStorage.setItem("newfiles", responseData.Value);
+                                themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else {
+                themdmmoi();
+            }
+        }
+
         window.onload = function () {
-            loadmenu();loaddanhsach();
+            loadmenu();
+            loadnghiencuu();
+        }
+
+        function loadnghiencuu() {
+            $.ajax({
+                url: '/api/dm_linhvuc_nghiencuu',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#txtlinhvuc').html(""); 
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        $('#txtlinhvuc').append("<option value='" + item.IDLinhvuc + "'>" + item.TenLinhvuc + "</option>");
+                    }); loaddanhsach(document.getElementById("txtlinhvuc").value);
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); 
         }
         function loadmenu() {
             $.ajax({
@@ -411,11 +704,11 @@
                 }
             });
         }
-        var uri = '';
-        function loaddanhsach() {
+        var uri = '/api/DEXUAT_DATHANG';
+        function loaddanhsach(id) {
             $.ajax({
-                url: uri,
-                method: 'GET',
+                url: '/api/opt?op=' + id,
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 success: function (data) {
                     $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
@@ -426,12 +719,15 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
-                            "<td>" + item.TenHocvi + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
-                             "</tr> ";
-                        $("#danhsach").append(strhtml); stt++;
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDDexuat + ")'>Phê duyệt đề xuất</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDexuat + ")'>Xóa đề xuất</a></li></ul></div></td>" +
+                            "<td>" + item.Tendexuat + "</td>" +
+                            "<td>" + item.TenLinhVucNC + "</td><td>" + item.TenLinhVucNV + "</td>" +
+                            "<td>" + item.NamDeXuat + "</td>" +
+                            "<td>" + item.CapDeXuat + "</td>" +
+                            "<td style='text-align:center;'>" + (item.TrangthaiPD == true ? "<a class='btn btn-success btn-xs'>Đã phê duyệt</a>" : "<a class='btn btn-danger btn-xs'>Chờ duyệt</a>") + "</td>" +
+                            "</tr> ";
+                        $("#danhsach").append(strhtml);
                     });
                     $('#myTable').DataTable({
                         dom: 'Bfrtip',
@@ -454,18 +750,31 @@
             });
         }
         function loaddanhsachls(id) {
-            document.getElementById("idpas").innerHTML = id; }
+            document.getElementById("idpas").innerHTML = id;
+        }
         function xemdanhmuc(id) {
             $.ajax({
-                url: uri + '?id=' + id,
+                url: '/api/pheduyet?idv=' + id,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDHocvi;
-                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
-                       
-                        document.getElementById("chbttcn").checked = data.Trangthai;
-                    
+                    $("#dsfilecn").html("");
+                    $("#dsfilecnpd").html("");
+                    document.getElementById("lbid").innerHTML = data[0].IDDexuat;
+                    document.getElementById("txttendexuatcn").innerHTML = "Tên đề xuất: <b>" + data[0].Tendexuat + "</b>";
+                    document.getElementById("txtnoidungdexuatcn").innerHTML = "Nội dung đề xuất: <b>" + data[0].Noidungdexuat + "</b>";
+                    document.getElementById("txtnamdexuatcn").innerHTML = "Năm đề xuất: <b>" + data[0].NamDeXuat + "</b>";
+                    document.getElementById("txtcapdexuatcn").innerHTML = "Cấp đề xuất: <b>" + data[0].CapDeXuat + "</b>";
+                    document.getElementById("txtlvnghiencuucn").innerHTML = "Lĩnh vực nghiên cứu: <b>" + data[0].TenLinhVucNC + "</b>";
+                    document.getElementById("txtlvnhiemvucn").innerHTML = "Lĩnh vực nhiệm vụ: <b>" + data[0].TenLinhVucNV + "</b>";
+                    localStorage.setItem("files", data[0].LinkTaiLieu);
+                    localStorage.setItem("filespd", data[0].Quyetdinhpduyet);
+                    for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                        $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+                    }
+                    for (var i = 0; i < localStorage.getItem("filespd").split(';').length - 1; i++) {
+                        $("#dsfilecnpd").append("<a href='../uploads/" + localStorage.getItem("filespd").split(';')[i] + "' target='_blank'>" + localStorage.getItem("filespd").split(';')[i] + "</a><hr />");
+                    }
                 },
                 error: function (request, msg, error) {
                     $.toast({
@@ -480,39 +789,68 @@
                 }
             });
         }
+        function sua() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                //filehd = responseData.Value;
+                                localStorage.setItem("newfiles", responseData.Value); themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else { themdmmoi(); }
+        }
         function themdmmoi() {
             var datas = {
-                TenHocvi: document.getElementById("txttenhocvi").value,
-
-                Trangthai: document.getElementById("chbtt").checked,
-              
+                IDDexuat: document.getElementById("lbid").innerHTML,
+                Quyetdinhpduyet: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("filespd"))
             };
             $.ajax({
-                url: uri ,
-                method: 'POST',
+                url: '/api/pheduyetda',
+                method: 'POST', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 data: JSON.stringify(datas),
                 statusCode: {
-                    201: function () {
+                    204: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Thêm thông tin Học vị thành công!',
+                            text: 'Phê duyệt đề xuất thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvi").value = "";
-                    
-                        document.getElementById("chbtt").checked = false;
-
+                        document.getElementById("lbid").innerHTML = "";
+                        localStorage.removeItem("newfiles");
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin Học vị không thành công!',
+                        text: 'Phê duyệt đề xuất không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -522,67 +860,19 @@
                 }
             });
         }
-        function capnhattt() {
-            var datas = {
-               
-                IDHocvi: document.getElementById("lbid").innerHTML,
-                TenHocvi: document.getElementById("txttenhocvicn").value,
-                
-                Trangthai: document.getElementById("chbttcn").checked,
-               
-            };
-            $.ajax({
-                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(datas),
-                statusCode: {
-                    204: function () {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Cập nhật thông tin Học vị thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'success',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); loaddanhsach();
-                        document.getElementById("txttenhocvicn").value = "";
-                       
-                        document.getElementById("chbttcn").checked = false;
-                    }
-                },
-                error: function (request, msg, error) {
-                    $.toast({
-                        heading: 'Thông báo',
-                        text: 'Cập nhật thông tin Học vị không thành công!',
-                        position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'info',
-                        hideAfter: 3500,
-                        stack: 6
-                    });
-                }
-            });
-        }
-
-      
-
-
-       
         function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
+            if (confirm('Bạn chắc chắn muốn xóa đề xuất đã chọn?')) {
                 $.ajax({
                     url: uri + '/' + id,
-                    method: 'DELETE',
+                    method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                     contentType: 'application/json',
                     success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin Học vị thành công!',
+                            text: 'Xóa thông tin danh sách đề xuất thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
@@ -590,13 +880,13 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
+                            text: 'Xóa thông tin danh sách đề xuất không thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
-                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                        });
                     }
                 });
             }

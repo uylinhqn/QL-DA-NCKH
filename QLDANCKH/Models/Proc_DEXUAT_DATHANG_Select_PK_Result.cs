@@ -10,9 +10,8 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class DEXUAT_DATHANG
+    public partial class Proc_DEXUAT_DATHANG_Select_PK_Result
     {
         public int IDDexuat { get; set; }
         public string Tendexuat { get; set; }
@@ -23,11 +22,10 @@ namespace QLDANCKH.Models
         public string LinkTaiLieu { get; set; }
         public string NguoiDeXuat { get; set; }
         public string NguoiPheDuyet { get; set; }
-        public Nullable<int> IdLinhVucNC { get; set; }
-        public Nullable<int> IdLinhVucNV { get; set; }
+        public string TenLinhVucNC { get; set; }
+        public string TenLinhVucNV { get; set; }
         public Nullable<int> DonViThucHien { get; set; }
         public Nullable<bool> ChuyenGiao { get; set; }
         public Nullable<bool> NghiemThu { get; set; }
-        public Nullable<System.DateTime> NgayDang { get; set; }
     }
 }

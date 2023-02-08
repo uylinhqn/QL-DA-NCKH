@@ -37,6 +37,7 @@ namespace QLDANCKH.Models
         public virtual DbSet<TINTUC_THONGBAO> TINTUC_THONGBAO { get; set; }
         public virtual DbSet<DEXUAT_DATHANG> DEXUAT_DATHANG { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
+        public virtual DbSet<PHEDUYET_DEXUAT> PHEDUYET_DEXUAT { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -276,6 +277,67 @@ namespace QLDANCKH.Models
                 new ObjectParameter("IdLinhVucNV", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DEXUAT_DATHANG_Insert", tendexuatParameter, noidungdexuatParameter, namDeXuatParameter, capDeXuatParameter, trangthaiPDParameter, linkTaiLieuParameter, nguoiDeXuatParameter, idLinhVucNCParameter, idLinhVucNVParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_Nam_Result> Proc_DEXUAT_DATHANG_Select_Nam(string nguoiDeXuat, Nullable<int> nam)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("Nam", nam) :
+                new ObjectParameter("Nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_Nam_Result>("Proc_DEXUAT_DATHANG_Select_Nam", nguoiDeXuatParameter, namParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_Option_Result> Proc_DEXUAT_DATHANG_Select_Option(string nguoiDeXuat, Nullable<int> chon)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var chonParameter = chon.HasValue ?
+                new ObjectParameter("Chon", chon) :
+                new ObjectParameter("Chon", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_Option_Result>("Proc_DEXUAT_DATHANG_Select_Option", nguoiDeXuatParameter, chonParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_PK_Result> Proc_DEXUAT_DATHANG_Select_PK(Nullable<int> iDDexuat)
+        {
+            var iDDexuatParameter = iDDexuat.HasValue ?
+                new ObjectParameter("IDDexuat", iDDexuat) :
+                new ObjectParameter("IDDexuat", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_PK_Result>("Proc_DEXUAT_DATHANG_Select_PK", iDDexuatParameter);
+        }
+    
+        public virtual int Proc_PHEDUYET_DEXUAT_Insert(Nullable<int> iDDexuat, string quyetdinhpduyet, string nguoiPheDuyet)
+        {
+            var iDDexuatParameter = iDDexuat.HasValue ?
+                new ObjectParameter("IDDexuat", iDDexuat) :
+                new ObjectParameter("IDDexuat", typeof(int));
+    
+            var quyetdinhpduyetParameter = quyetdinhpduyet != null ?
+                new ObjectParameter("Quyetdinhpduyet", quyetdinhpduyet) :
+                new ObjectParameter("Quyetdinhpduyet", typeof(string));
+    
+            var nguoiPheDuyetParameter = nguoiPheDuyet != null ?
+                new ObjectParameter("NguoiPheDuyet", nguoiPheDuyet) :
+                new ObjectParameter("NguoiPheDuyet", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHEDUYET_DEXUAT_Insert", iDDexuatParameter, quyetdinhpduyetParameter, nguoiPheDuyetParameter);
+        }
+    
+        public virtual ObjectResult<Proc_PHEDUYET_DEXUAT_Select_DX_Result> Proc_PHEDUYET_DEXUAT_Select_DX(Nullable<int> iDDexuat)
+        {
+            var iDDexuatParameter = iDDexuat.HasValue ?
+                new ObjectParameter("IDDexuat", iDDexuat) :
+                new ObjectParameter("IDDexuat", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHEDUYET_DEXUAT_Select_DX_Result>("Proc_PHEDUYET_DEXUAT_Select_DX", iDDexuatParameter);
         }
     }
 }

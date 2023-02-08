@@ -26,6 +26,7 @@
     <Property Name="DonViThucHien" Type="int" />
     <Property Name="ChuyenGiao" Type="bit" />
     <Property Name="NghiemThu" Type="bit" />
+    <Property Name="NgayDang" Type="datetime" />
   </EntityType>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -75,6 +76,15 @@
     <Property Name="quyen" Type="varchar" MaxLength="500" />
     <Property Name="IDDonvi" Type="int" />
     <Property Name="IDHocvi" Type="int" />
+  </EntityType>
+  <EntityType Name="PHEDUYET_DEXUAT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDexuat" Type="int" />
+    <Property Name="Quyetdinhpduyet" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="datetime" />
   </EntityType>
   <EntityType Name="QuyenHeThong">
     <Key>
@@ -131,6 +141,17 @@
   <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select_Nam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+    <Parameter Name="Nam" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select_Option" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+    <Parameter Name="Chon" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select_PK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDexuat" Type="int" Mode="In" />
+  </Function>
   <Function Name="Proc_DEXUAT_DATHANG_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
     <Parameter Name="Tendexuat" Type="nvarchar(max)" Mode="In" />
@@ -140,6 +161,14 @@
     <Parameter Name="LinkTaiLieu" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
     <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHEDUYET_DEXUAT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDexuat" Type="int" Mode="In" />
+    <Parameter Name="Quyetdinhpduyet" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NguoiPheDuyet" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHEDUYET_DEXUAT_Select_DX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDexuat" Type="int" Mode="In" />
   </Function>
   <Function Name="Proc_QuyenHeThong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_ThanhVien_CheckLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -181,6 +210,7 @@
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHEDUYET_DEXUAT" EntityType="Self.PHEDUYET_DEXUAT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />

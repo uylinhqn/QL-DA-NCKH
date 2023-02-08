@@ -258,6 +258,7 @@
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\menuController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
+    <Compile Include="Controllers\PHEDUYET_DEXUATController.cs" />
     <Compile Include="Controllers\QuyenHeThongsController.cs" />
     <Compile Include="Controllers\TIEUCHI_DANHGIAController.cs" />
     <Compile Include="Controllers\TINTUC_THONGBAOController.cs" />
@@ -302,13 +303,28 @@
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PHEDUYET_DEXUAT.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_ChiTietQuyenHT_Select_Menu_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_ChiTietQuyenHT_Select_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_Nam_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_Option_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_PK_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_PHEDUYET_DEXUAT_Select_DX_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_QuyenHeThong_Select_Result.cs">

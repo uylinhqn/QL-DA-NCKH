@@ -29,30 +29,28 @@ namespace QLDANCKH.Controllers
         }
         public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANG()
         {
-            return db.DEXUAT_DATHANG.OrderByDescending(p=>p.NamDeXuat);
+            return db.DEXUAT_DATHANG.OrderByDescending(p => p.NamDeXuat);
         }
 
 
         // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
         [HttpGet]
-        [Route("api/DATHANGBYNHANUOC")]
-        public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYNHANUOC()
+        [Route("api/opt")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_Option_Result> GetDEXUAT_DATHANGBYNHANUOC(int op)
         {
-          
-                return db.DEXUAT_DATHANG.Where(p=>p.CapDeXuat =="Nhà nước");
-            
-               
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_Option(identity.Name, op);
         }
 
         // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
         [HttpGet]
-        [Route("api/DATHANGBYNAM")]
-        public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYNAM()
+        [Route("api/nam")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_Nam_Result> GetDEXUAT_DATHANGBYNAM(int nam)
         {
-
-            return db.DEXUAT_DATHANG.OrderByDescending(P=> P.NamDeXuat);
-
-
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_Nam(identity.Name, nam);
         }
 
         [HttpGet]
@@ -76,6 +74,74 @@ namespace QLDANCKH.Controllers
             }
 
             return Ok(dEXUAT_DATHANG);
+        }
+        public class dspd
+        {
+            public int IDDexuat { get; set; }
+            public string Tendexuat { get; set; }
+            public string Noidungdexuat { get; set; }
+            public Nullable<int> NamDeXuat { get; set; }
+            public string CapDeXuat { get; set; }
+            public Nullable<bool> TrangthaiPD { get; set; }
+            public string LinkTaiLieu { get; set; }
+            public string NguoiDeXuat { get; set; }
+            public string NguoiPheDuyet { get; set; }
+            public string TenLinhVucNC { get; set; }
+            public string TenLinhVucNV { get; set; }
+            public Nullable<int> DonViThucHien { get; set; }
+            public Nullable<bool> ChuyenGiao { get; set; }
+            public Nullable<bool> NghiemThu { get; set; }
+            public string Quyetdinhpduyet { get; set; }
+        }
+        [HttpGet]
+        [Route("api/pheduyet")]
+        public List<dspd> GetDEXUAT_DATHANG_PD(int idv)
+        {
+            List<dspd> ds = new List<dspd>();
+            var dx = db.Proc_DEXUAT_DATHANG_Select_PK(idv).ToList();
+            var pd= db.Proc_PHEDUYET_DEXUAT_Select_DX(idv).ToList();
+            if (pd.Count > 0)
+            {
+                ds.Add(new dspd
+                {
+                    IDDexuat = dx[0].IDDexuat,
+                    Tendexuat = dx[0].Tendexuat,
+                    Noidungdexuat = dx[0].Noidungdexuat,
+                    NamDeXuat = dx[0].NamDeXuat,
+                    CapDeXuat = dx[0].CapDeXuat,
+                    TrangthaiPD = dx[0].TrangthaiPD,
+                    LinkTaiLieu = dx[0].LinkTaiLieu,
+                    NguoiDeXuat = dx[0].NguoiDeXuat,
+                    NguoiPheDuyet = dx[0].NguoiPheDuyet,
+                    TenLinhVucNC = dx[0].TenLinhVucNC,
+                    TenLinhVucNV = dx[0].TenLinhVucNV,
+                    DonViThucHien = dx[0].DonViThucHien,
+                    ChuyenGiao = dx[0].ChuyenGiao,
+                    NghiemThu = dx[0].NghiemThu,
+                    Quyetdinhpduyet = pd[0].Quyetdinhpduyet
+                });
+            }
+            else {
+                ds.Add(new dspd
+                {
+                    IDDexuat = dx[0].IDDexuat,
+                    Tendexuat = dx[0].Tendexuat,
+                    Noidungdexuat = dx[0].Noidungdexuat,
+                    NamDeXuat = dx[0].NamDeXuat,
+                    CapDeXuat = dx[0].CapDeXuat,
+                    TrangthaiPD = dx[0].TrangthaiPD,
+                    LinkTaiLieu = dx[0].LinkTaiLieu,
+                    NguoiDeXuat = dx[0].NguoiDeXuat,
+                    NguoiPheDuyet = dx[0].NguoiPheDuyet,
+                    TenLinhVucNC = dx[0].TenLinhVucNC,
+                    TenLinhVucNV = dx[0].TenLinhVucNV,
+                    DonViThucHien = dx[0].DonViThucHien,
+                    ChuyenGiao = dx[0].ChuyenGiao,
+                    NghiemThu = dx[0].NghiemThu,
+                    Quyetdinhpduyet = ""
+                });
+            }
+            return ds;
         }
 
         // PUT: api/DEXUAT_DATHANG/5
