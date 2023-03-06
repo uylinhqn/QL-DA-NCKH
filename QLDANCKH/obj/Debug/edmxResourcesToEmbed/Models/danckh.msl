@@ -338,5 +338,106 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="HOSODANGKies">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.HOSODANGKY">
+        <MappingFragment StoreEntitySet="HOSODANGKY">
+          <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+          <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEU_DANHGIA_CHAMDIEM_HS">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.PHIEU_DANHGIA_CHAMDIEM_HS">
+        <MappingFragment StoreEntitySet="PHIEU_DANHGIA_CHAMDIEM_HS">
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+          <ScalarProperty Name="IDTV" ColumnName="IDTV" />
+          <ScalarProperty Name="IDHS" ColumnName="IDHS" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_Select" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOSODANGKY_Select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+          <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="IdLinhVucNC" ColumnName="IdLinhVucNC" />
+          <ScalarProperty Name="IdLinhVucNV" ColumnName="IdLinhVucNV" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_SelectPK" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_SelectPK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOSODANGKY_SelectPK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+          <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_Update" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDHS" ColumnName="IDHS" />
+          <ScalarProperty Name="IDTV" ColumnName="IDTV" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+          <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDHS" ColumnName="IDHS" />
+          <ScalarProperty Name="IDTV" ColumnName="IDTV" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update" />
   </EntityContainerMapping>
 </Mapping>

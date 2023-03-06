@@ -38,6 +38,8 @@ namespace QLDANCKH.Models
         public virtual DbSet<DEXUAT_DATHANG> DEXUAT_DATHANG { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<PHEDUYET_DEXUAT> PHEDUYET_DEXUAT { get; set; }
+        public virtual DbSet<HOSODANGKY> HOSODANGKies { get; set; }
+        public virtual DbSet<PHIEU_DANHGIA_CHAMDIEM_HS> PHIEU_DANHGIA_CHAMDIEM_HS { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -338,6 +340,160 @@ namespace QLDANCKH.Models
                 new ObjectParameter("IDDexuat", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHEDUYET_DEXUAT_Select_DX_Result>("Proc_PHEDUYET_DEXUAT_Select_DX", iDDexuatParameter);
+        }
+    
+        public virtual int Proc_HOSODANGKY_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Delete", iDParameter);
+        }
+    
+        public virtual int Proc_HOSODANGKY_Insert(Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo)
+        {
+            var idNVParameter = idNV.HasValue ?
+                new ObjectParameter("IdNV", idNV) :
+                new ObjectParameter("IdNV", typeof(int));
+    
+            var donViParameter = donVi != null ?
+                new ObjectParameter("DonVi", donVi) :
+                new ObjectParameter("DonVi", typeof(string));
+    
+            var diaChiParameter = diaChi != null ?
+                new ObjectParameter("DiaChi", diaChi) :
+                new ObjectParameter("DiaChi", typeof(string));
+    
+            var danhMucTaiLieuParameter = danhMucTaiLieu != null ?
+                new ObjectParameter("DanhMucTaiLieu", danhMucTaiLieu) :
+                new ObjectParameter("DanhMucTaiLieu", typeof(string));
+    
+            var fileHSParameter = fileHS != null ?
+                new ObjectParameter("FileHS", fileHS) :
+                new ObjectParameter("FileHS", typeof(string));
+    
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("Trangthai", trangthai) :
+                new ObjectParameter("Trangthai", typeof(bool));
+    
+            var tenHoSoParameter = tenHoSo != null ?
+                new ObjectParameter("TenHoSo", tenHoSo) :
+                new ObjectParameter("TenHoSo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Insert", idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_Select_Result> Proc_HOSODANGKY_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_Select_Result>("Proc_HOSODANGKY_Select");
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_SelectPK_Result> Proc_HOSODANGKY_SelectPK(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK_Result>("Proc_HOSODANGKY_SelectPK", iDParameter);
+        }
+    
+        public virtual int Proc_HOSODANGKY_Update(Nullable<int> iD, Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idNVParameter = idNV.HasValue ?
+                new ObjectParameter("IdNV", idNV) :
+                new ObjectParameter("IdNV", typeof(int));
+    
+            var donViParameter = donVi != null ?
+                new ObjectParameter("DonVi", donVi) :
+                new ObjectParameter("DonVi", typeof(string));
+    
+            var diaChiParameter = diaChi != null ?
+                new ObjectParameter("DiaChi", diaChi) :
+                new ObjectParameter("DiaChi", typeof(string));
+    
+            var danhMucTaiLieuParameter = danhMucTaiLieu != null ?
+                new ObjectParameter("DanhMucTaiLieu", danhMucTaiLieu) :
+                new ObjectParameter("DanhMucTaiLieu", typeof(string));
+    
+            var fileHSParameter = fileHS != null ?
+                new ObjectParameter("FileHS", fileHS) :
+                new ObjectParameter("FileHS", typeof(string));
+    
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("Trangthai", trangthai) :
+                new ObjectParameter("Trangthai", typeof(bool));
+    
+            var tenHoSoParameter = tenHoSo != null ?
+                new ObjectParameter("TenHoSo", tenHoSo) :
+                new ObjectParameter("TenHoSo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update", iDParameter, idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter);
+        }
+    
+        public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete", iDParameter);
+        }
+    
+        public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert(Nullable<int> iDHS, Nullable<int> iDTV, Nullable<double> diem)
+        {
+            var iDHSParameter = iDHS.HasValue ?
+                new ObjectParameter("IDHS", iDHS) :
+                new ObjectParameter("IDHS", typeof(int));
+    
+            var iDTVParameter = iDTV.HasValue ?
+                new ObjectParameter("IDTV", iDTV) :
+                new ObjectParameter("IDTV", typeof(int));
+    
+            var diemParameter = diem.HasValue ?
+                new ObjectParameter("Diem", diem) :
+                new ObjectParameter("Diem", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert", iDHSParameter, iDTVParameter, diemParameter);
+        }
+    
+        public virtual ObjectResult<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_Result> Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_Result>("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select");
+        }
+    
+        public virtual ObjectResult<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK_Result> Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK_Result>("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK", iDParameter);
+        }
+    
+        public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update(Nullable<int> iD, Nullable<int> iDHS, Nullable<int> iDTV, Nullable<double> diem)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var iDHSParameter = iDHS.HasValue ?
+                new ObjectParameter("IDHS", iDHS) :
+                new ObjectParameter("IDHS", typeof(int));
+    
+            var iDTVParameter = iDTV.HasValue ?
+                new ObjectParameter("IDTV", iDTV) :
+                new ObjectParameter("IDTV", typeof(int));
+    
+            var diemParameter = diem.HasValue ?
+                new ObjectParameter("Diem", diem) :
+                new ObjectParameter("Diem", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update", iDParameter, iDHSParameter, iDTVParameter, diemParameter);
         }
     }
 }

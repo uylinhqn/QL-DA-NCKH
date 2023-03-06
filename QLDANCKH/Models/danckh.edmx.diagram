@@ -16,6 +16,8 @@
         <EntityTypeShape EntityType="QL_NCKHQBModel.DEXUAT_DATHANG" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.NHANVIEN" Width="1.5" PointX="7.375" PointY="6.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.PHEDUYET_DEXUAT" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.HOSODANGKY" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.PHIEU_DANHGIA_CHAMDIEM_HS" Width="1.5" PointX="3.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

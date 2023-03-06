@@ -62,6 +62,19 @@
     <Property Name="TenLinhvuc" Type="nvarchar" MaxLength="100" />
     <Property Name="Trangthai" Type="bit" />
   </EntityType>
+  <EntityType Name="HOSODANGKY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNV" Type="int" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="500" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+    <Property Name="DanhMucTaiLieu" Type="nvarchar(max)" />
+    <Property Name="FileHS" Type="varchar(max)" />
+    <Property Name="Trangthai" Type="bit" />
+    <Property Name="TenHoSo" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
       <PropertyRef Name="TenDangNhap" />
@@ -85,6 +98,15 @@
     <Property Name="IDDexuat" Type="int" />
     <Property Name="Quyetdinhpduyet" Type="nvarchar(max)" />
     <Property Name="NgayDang" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PHIEU_DANHGIA_CHAMDIEM_HS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDHS" Type="int" />
+    <Property Name="IDTV" Type="int" />
+    <Property Name="Diem" Type="float" />
   </EntityType>
   <EntityType Name="QuyenHeThong">
     <Key>
@@ -162,6 +184,32 @@
     <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
     <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
   </Function>
+  <Function Name="Proc_HOSODANGKY_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_HOSODANGKY_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNV" Type="int" Mode="In" />
+    <Parameter Name="DonVi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DanhMucTaiLieu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FileHS" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Trangthai" Type="bit" Mode="In" />
+    <Parameter Name="TenHoSo" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Proc_HOSODANGKY_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_HOSODANGKY_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_HOSODANGKY_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IdNV" Type="int" Mode="In" />
+    <Parameter Name="DonVi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
+    <Parameter Name="DanhMucTaiLieu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FileHS" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Trangthai" Type="bit" Mode="In" />
+    <Parameter Name="TenHoSo" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="Proc_PHEDUYET_DEXUAT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
     <Parameter Name="Quyetdinhpduyet" Type="nvarchar(max)" Mode="In" />
@@ -169,6 +217,24 @@
   </Function>
   <Function Name="Proc_PHEDUYET_DEXUAT_Select_DX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHS" Type="int" Mode="In" />
+    <Parameter Name="IDTV" Type="int" Mode="In" />
+    <Parameter Name="Diem" Type="float" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDHS" Type="int" Mode="In" />
+    <Parameter Name="IDTV" Type="int" Mode="In" />
+    <Parameter Name="Diem" Type="float" Mode="In" />
   </Function>
   <Function Name="Proc_QuyenHeThong_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_ThanhVien_CheckLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -209,8 +275,10 @@
     <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOSODANGKY" EntityType="Self.HOSODANGKY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHEDUYET_DEXUAT" EntityType="Self.PHEDUYET_DEXUAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEU_DANHGIA_CHAMDIEM_HS" EntityType="Self.PHIEU_DANHGIA_CHAMDIEM_HS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />
