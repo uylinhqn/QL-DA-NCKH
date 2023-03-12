@@ -22,6 +22,10 @@ namespace QLDANCKH.Controllers
         {
             return db.Proc_HOSODANGKY_Select();
         }
+         public ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> GetHOSODANGKieChons(int ldk)
+        {
+            return db.Proc_DEXUAT_DATHANG_SelectForHSDK();
+        }
 
         // GET: api/HOSODANGKies/5
         [ResponseType(typeof(HOSODANGKY))]

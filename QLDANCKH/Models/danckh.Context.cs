@@ -40,6 +40,11 @@ namespace QLDANCKH.Models
         public virtual DbSet<PHEDUYET_DEXUAT> PHEDUYET_DEXUAT { get; set; }
         public virtual DbSet<HOSODANGKY> HOSODANGKies { get; set; }
         public virtual DbSet<PHIEU_DANHGIA_CHAMDIEM_HS> PHIEU_DANHGIA_CHAMDIEM_HS { get; set; }
+        public virtual DbSet<CONGNHANKETQUA_HOPDONG_KHCN> CONGNHANKETQUA_HOPDONG_KHCN { get; set; }
+        public virtual DbSet<DANHGIA_HOPDONG_KHCN> DANHGIA_HOPDONG_KHCN { get; set; }
+        public virtual DbSet<HOPDONG_KHCN> HOPDONG_KHCN { get; set; }
+        public virtual DbSet<TAMUNGKINHPHI_HOPDONG_KHCN> TAMUNGKINHPHI_HOPDONG_KHCN { get; set; }
+        public virtual DbSet<THANHLY_HOPDONG_KHCN> THANHLY_HOPDONG_KHCN { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -494,6 +499,508 @@ namespace QLDANCKH.Models
                 new ObjectParameter("Diem", typeof(double));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update", iDParameter, iDHSParameter, iDTVParameter, diemParameter);
+        }
+    
+        public virtual int Proc_CONGNHANKETQUA_HOPDONG_KHCN_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_CONGNHANKETQUA_HOPDONG_KHCN_Delete", idParameter);
+        }
+    
+        public virtual int Proc_CONGNHANKETQUA_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string tieuDeCNKQ, string noiDung, string fileHSCNKQ, Nullable<System.DateTime> ngayLap, string nguoiLap, string tieuDeGiayCNKQ, string fileGiayCNKQ)
+        {
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeCNKQParameter = tieuDeCNKQ != null ?
+                new ObjectParameter("TieuDeCNKQ", tieuDeCNKQ) :
+                new ObjectParameter("TieuDeCNKQ", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var fileHSCNKQParameter = fileHSCNKQ != null ?
+                new ObjectParameter("FileHSCNKQ", fileHSCNKQ) :
+                new ObjectParameter("FileHSCNKQ", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            var tieuDeGiayCNKQParameter = tieuDeGiayCNKQ != null ?
+                new ObjectParameter("TieuDeGiayCNKQ", tieuDeGiayCNKQ) :
+                new ObjectParameter("TieuDeGiayCNKQ", typeof(string));
+    
+            var fileGiayCNKQParameter = fileGiayCNKQ != null ?
+                new ObjectParameter("FileGiayCNKQ", fileGiayCNKQ) :
+                new ObjectParameter("FileGiayCNKQ", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_CONGNHANKETQUA_HOPDONG_KHCN_Insert", idHDKHCNParameter, tieuDeCNKQParameter, noiDungParameter, fileHSCNKQParameter, ngayLapParameter, nguoiLapParameter, tieuDeGiayCNKQParameter, fileGiayCNKQParameter);
+        }
+    
+        public virtual ObjectResult<Proc_CONGNHANKETQUA_HOPDONG_KHCN_select_Result> Proc_CONGNHANKETQUA_HOPDONG_KHCN_select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_CONGNHANKETQUA_HOPDONG_KHCN_select_Result>("Proc_CONGNHANKETQUA_HOPDONG_KHCN_select");
+        }
+    
+        public virtual ObjectResult<Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK_Result> Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK_Result>("Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK", idParameter);
+        }
+    
+        public virtual int Proc_CONGNHANKETQUA_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string tieuDeCNKQ, string noiDung, string fileHSCNKQ, Nullable<System.DateTime> ngayLap, string nguoiLap, string tieuDeGiayCNKQ, string fileGiayCNKQ)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeCNKQParameter = tieuDeCNKQ != null ?
+                new ObjectParameter("TieuDeCNKQ", tieuDeCNKQ) :
+                new ObjectParameter("TieuDeCNKQ", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var fileHSCNKQParameter = fileHSCNKQ != null ?
+                new ObjectParameter("FileHSCNKQ", fileHSCNKQ) :
+                new ObjectParameter("FileHSCNKQ", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            var tieuDeGiayCNKQParameter = tieuDeGiayCNKQ != null ?
+                new ObjectParameter("TieuDeGiayCNKQ", tieuDeGiayCNKQ) :
+                new ObjectParameter("TieuDeGiayCNKQ", typeof(string));
+    
+            var fileGiayCNKQParameter = fileGiayCNKQ != null ?
+                new ObjectParameter("FileGiayCNKQ", fileGiayCNKQ) :
+                new ObjectParameter("FileGiayCNKQ", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_CONGNHANKETQUA_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, tieuDeCNKQParameter, noiDungParameter, fileHSCNKQParameter, ngayLapParameter, nguoiLapParameter, tieuDeGiayCNKQParameter, fileGiayCNKQParameter);
+        }
+    
+        public virtual int Proc_DANHGIA_HOPDONG_KHCN_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DANHGIA_HOPDONG_KHCN_Delete", idParameter);
+        }
+    
+        public virtual int Proc_DANHGIA_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string tieuDeDanhGia, string noiDung, string fileDanhGia, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        {
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeDanhGiaParameter = tieuDeDanhGia != null ?
+                new ObjectParameter("TieuDeDanhGia", tieuDeDanhGia) :
+                new ObjectParameter("TieuDeDanhGia", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var fileDanhGiaParameter = fileDanhGia != null ?
+                new ObjectParameter("FileDanhGia", fileDanhGia) :
+                new ObjectParameter("FileDanhGia", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DANHGIA_HOPDONG_KHCN_Insert", idHDKHCNParameter, tieuDeDanhGiaParameter, noiDungParameter, fileDanhGiaParameter, ngayLapParameter, nguoiLapParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DANHGIA_HOPDONG_KHCN_Select_Result> Proc_DANHGIA_HOPDONG_KHCN_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DANHGIA_HOPDONG_KHCN_Select_Result>("Proc_DANHGIA_HOPDONG_KHCN_Select");
+        }
+    
+        public virtual ObjectResult<Proc_DANHGIA_HOPDONG_KHCN_SelectPK_Result> Proc_DANHGIA_HOPDONG_KHCN_SelectPK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DANHGIA_HOPDONG_KHCN_SelectPK_Result>("Proc_DANHGIA_HOPDONG_KHCN_SelectPK", idParameter);
+        }
+    
+        public virtual int Proc_DANHGIA_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string tieuDeDanhGia, string noiDung, string fileDanhGia, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeDanhGiaParameter = tieuDeDanhGia != null ?
+                new ObjectParameter("TieuDeDanhGia", tieuDeDanhGia) :
+                new ObjectParameter("TieuDeDanhGia", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var fileDanhGiaParameter = fileDanhGia != null ?
+                new ObjectParameter("FileDanhGia", fileDanhGia) :
+                new ObjectParameter("FileDanhGia", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_DANHGIA_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, tieuDeDanhGiaParameter, noiDungParameter, fileDanhGiaParameter, ngayLapParameter, nguoiLapParameter);
+        }
+    
+        public virtual int Proc_HOPDONG_KHCN_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Delete", idParameter);
+        }
+    
+        public virtual int Proc_HOPDONG_KHCN_Insert(Nullable<int> idHoSoDK, string donVi, string diaChi, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, Nullable<bool> trangThai, string nguoiLap)
+        {
+            var idHoSoDKParameter = idHoSoDK.HasValue ?
+                new ObjectParameter("IdHoSoDK", idHoSoDK) :
+                new ObjectParameter("IdHoSoDK", typeof(int));
+    
+            var donViParameter = donVi != null ?
+                new ObjectParameter("DonVi", donVi) :
+                new ObjectParameter("DonVi", typeof(string));
+    
+            var diaChiParameter = diaChi != null ?
+                new ObjectParameter("DiaChi", diaChi) :
+                new ObjectParameter("DiaChi", typeof(string));
+    
+            var tenHDParameter = tenHD != null ?
+                new ObjectParameter("TenHD", tenHD) :
+                new ObjectParameter("TenHD", typeof(string));
+    
+            var fileHDParameter = fileHD != null ?
+                new ObjectParameter("FileHD", fileHD) :
+                new ObjectParameter("FileHD", typeof(string));
+    
+            var tongKinhPhiParameter = tongKinhPhi.HasValue ?
+                new ObjectParameter("TongKinhPhi", tongKinhPhi) :
+                new ObjectParameter("TongKinhPhi", typeof(decimal));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var ngayKetThucParameter = ngayKetThuc.HasValue ?
+                new ObjectParameter("NgayKetThuc", ngayKetThuc) :
+                new ObjectParameter("NgayKetThuc", typeof(System.DateTime));
+    
+            var trangThaiParameter = trangThai.HasValue ?
+                new ObjectParameter("TrangThai", trangThai) :
+                new ObjectParameter("TrangThai", typeof(bool));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Insert", idHoSoDKParameter, donViParameter, diaChiParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, trangThaiParameter, nguoiLapParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_Select_Result> Proc_HOPDONG_KHCN_Select()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_Select_Result>("Proc_HOPDONG_KHCN_Select");
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_SelectPK_Result> Proc_HOPDONG_KHCN_SelectPK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK_Result>("Proc_HOPDONG_KHCN_SelectPK", idParameter);
+        }
+    
+        public virtual int Proc_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHoSoDK, string donVi, string diaChi, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, Nullable<bool> trangThai, string nguoiLap)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idHoSoDKParameter = idHoSoDK.HasValue ?
+                new ObjectParameter("IdHoSoDK", idHoSoDK) :
+                new ObjectParameter("IdHoSoDK", typeof(int));
+    
+            var donViParameter = donVi != null ?
+                new ObjectParameter("DonVi", donVi) :
+                new ObjectParameter("DonVi", typeof(string));
+    
+            var diaChiParameter = diaChi != null ?
+                new ObjectParameter("DiaChi", diaChi) :
+                new ObjectParameter("DiaChi", typeof(string));
+    
+            var tenHDParameter = tenHD != null ?
+                new ObjectParameter("TenHD", tenHD) :
+                new ObjectParameter("TenHD", typeof(string));
+    
+            var fileHDParameter = fileHD != null ?
+                new ObjectParameter("FileHD", fileHD) :
+                new ObjectParameter("FileHD", typeof(string));
+    
+            var tongKinhPhiParameter = tongKinhPhi.HasValue ?
+                new ObjectParameter("TongKinhPhi", tongKinhPhi) :
+                new ObjectParameter("TongKinhPhi", typeof(decimal));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var ngayKetThucParameter = ngayKetThuc.HasValue ?
+                new ObjectParameter("NgayKetThuc", ngayKetThuc) :
+                new ObjectParameter("NgayKetThuc", typeof(System.DateTime));
+    
+            var trangThaiParameter = trangThai.HasValue ?
+                new ObjectParameter("TrangThai", trangThai) :
+                new ObjectParameter("TrangThai", typeof(bool));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Update", idParameter, idHoSoDKParameter, donViParameter, diaChiParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, trangThaiParameter, nguoiLapParameter);
+        }
+    
+        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete", idParameter);
+        }
+    
+        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        {
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var fileHDParameter = fileHD != null ?
+                new ObjectParameter("FileHD", fileHD) :
+                new ObjectParameter("FileHD", typeof(string));
+    
+            var soTienParameter = soTien.HasValue ?
+                new ObjectParameter("SoTien", soTien) :
+                new ObjectParameter("SoTien", typeof(decimal));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert", idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter);
+        }
+    
+        public virtual ObjectResult<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete");
+        }
+    
+        public virtual ObjectResult<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK", idParameter);
+        }
+    
+        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var fileHDParameter = fileHD != null ?
+                new ObjectParameter("FileHD", fileHD) :
+                new ObjectParameter("FileHD", typeof(string));
+    
+            var soTienParameter = soTien.HasValue ?
+                new ObjectParameter("SoTien", soTien) :
+                new ObjectParameter("SoTien", typeof(decimal));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter);
+        }
+    
+        public virtual int Proc_THANHLY_HOPDONG_KHCN_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THANHLY_HOPDONG_KHCN_Delete", idParameter);
+        }
+    
+        public virtual int Proc_THANHLY_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string tieuDeThanhLy, string noiDung, Nullable<decimal> soTienDaTU, Nullable<decimal> soTienCanTT, Nullable<decimal> soTienCanThuHoi, string fileHSTLHD, Nullable<System.DateTime> ngayLap, string nguoiLap, Nullable<System.DateTime> thoiHanThanhLy)
+        {
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeThanhLyParameter = tieuDeThanhLy != null ?
+                new ObjectParameter("TieuDeThanhLy", tieuDeThanhLy) :
+                new ObjectParameter("TieuDeThanhLy", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var soTienDaTUParameter = soTienDaTU.HasValue ?
+                new ObjectParameter("SoTienDaTU", soTienDaTU) :
+                new ObjectParameter("SoTienDaTU", typeof(decimal));
+    
+            var soTienCanTTParameter = soTienCanTT.HasValue ?
+                new ObjectParameter("SoTienCanTT", soTienCanTT) :
+                new ObjectParameter("SoTienCanTT", typeof(decimal));
+    
+            var soTienCanThuHoiParameter = soTienCanThuHoi.HasValue ?
+                new ObjectParameter("SoTienCanThuHoi", soTienCanThuHoi) :
+                new ObjectParameter("SoTienCanThuHoi", typeof(decimal));
+    
+            var fileHSTLHDParameter = fileHSTLHD != null ?
+                new ObjectParameter("FileHSTLHD", fileHSTLHD) :
+                new ObjectParameter("FileHSTLHD", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            var thoiHanThanhLyParameter = thoiHanThanhLy.HasValue ?
+                new ObjectParameter("ThoiHanThanhLy", thoiHanThanhLy) :
+                new ObjectParameter("ThoiHanThanhLy", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THANHLY_HOPDONG_KHCN_Insert", idHDKHCNParameter, tieuDeThanhLyParameter, noiDungParameter, soTienDaTUParameter, soTienCanTTParameter, soTienCanThuHoiParameter, fileHSTLHDParameter, ngayLapParameter, nguoiLapParameter, thoiHanThanhLyParameter);
+        }
+    
+        public virtual ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_Result> Proc_THANHLY_HOPDONG_KHCN_Selete()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THANHLY_HOPDONG_KHCN_Selete_Result>("Proc_THANHLY_HOPDONG_KHCN_Selete");
+        }
+    
+        public virtual ObjectResult<Proc_THANHLY_HOPDONG_KHCN_SeletePK_Result> Proc_THANHLY_HOPDONG_KHCN_SeletePK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THANHLY_HOPDONG_KHCN_SeletePK_Result>("Proc_THANHLY_HOPDONG_KHCN_SeletePK", idParameter);
+        }
+    
+        public virtual int Proc_THANHLY_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string tieuDeThanhLy, string noiDung, Nullable<decimal> soTienDaTU, Nullable<decimal> soTienCanTT, Nullable<decimal> soTienCanThuHoi, string fileHSTLHD, Nullable<System.DateTime> ngayLap, string nguoiLap, Nullable<System.DateTime> thoiHanThanhLy)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idHDKHCNParameter = idHDKHCN.HasValue ?
+                new ObjectParameter("IdHDKHCN", idHDKHCN) :
+                new ObjectParameter("IdHDKHCN", typeof(int));
+    
+            var tieuDeThanhLyParameter = tieuDeThanhLy != null ?
+                new ObjectParameter("TieuDeThanhLy", tieuDeThanhLy) :
+                new ObjectParameter("TieuDeThanhLy", typeof(string));
+    
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            var soTienDaTUParameter = soTienDaTU.HasValue ?
+                new ObjectParameter("SoTienDaTU", soTienDaTU) :
+                new ObjectParameter("SoTienDaTU", typeof(decimal));
+    
+            var soTienCanTTParameter = soTienCanTT.HasValue ?
+                new ObjectParameter("SoTienCanTT", soTienCanTT) :
+                new ObjectParameter("SoTienCanTT", typeof(decimal));
+    
+            var soTienCanThuHoiParameter = soTienCanThuHoi.HasValue ?
+                new ObjectParameter("SoTienCanThuHoi", soTienCanThuHoi) :
+                new ObjectParameter("SoTienCanThuHoi", typeof(decimal));
+    
+            var fileHSTLHDParameter = fileHSTLHD != null ?
+                new ObjectParameter("FileHSTLHD", fileHSTLHD) :
+                new ObjectParameter("FileHSTLHD", typeof(string));
+    
+            var ngayLapParameter = ngayLap.HasValue ?
+                new ObjectParameter("NgayLap", ngayLap) :
+                new ObjectParameter("NgayLap", typeof(System.DateTime));
+    
+            var nguoiLapParameter = nguoiLap != null ?
+                new ObjectParameter("NguoiLap", nguoiLap) :
+                new ObjectParameter("NguoiLap", typeof(string));
+    
+            var thoiHanThanhLyParameter = thoiHanThanhLy.HasValue ?
+                new ObjectParameter("ThoiHanThanhLy", thoiHanThanhLy) :
+                new ObjectParameter("ThoiHanThanhLy", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THANHLY_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, tieuDeThanhLyParameter, noiDungParameter, soTienDaTUParameter, soTienCanTTParameter, soTienCanThuHoiParameter, fileHSTLHDParameter, ngayLapParameter, nguoiLapParameter, thoiHanThanhLyParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> Proc_DEXUAT_DATHANG_SelectForHSDK()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_SelectForHSDK_Result>("Proc_DEXUAT_DATHANG_SelectForHSDK");
         }
     }
 }

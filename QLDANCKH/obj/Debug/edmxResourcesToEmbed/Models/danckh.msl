@@ -439,5 +439,250 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update" FunctionName="QL_NCKHQBModel.Store.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Update" />
+    <EntitySetMapping Name="CONGNHANKETQUA_HOPDONG_KHCN">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.CONGNHANKETQUA_HOPDONG_KHCN">
+        <MappingFragment StoreEntitySet="CONGNHANKETQUA_HOPDONG_KHCN">
+          <ScalarProperty Name="FileGiayCNKQ" ColumnName="FileGiayCNKQ" />
+          <ScalarProperty Name="TieuDeGiayCNKQ" ColumnName="TieuDeGiayCNKQ" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="FileHSCNKQ" ColumnName="FileHSCNKQ" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDeCNKQ" ColumnName="TieuDeCNKQ" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DANHGIA_HOPDONG_KHCN">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DANHGIA_HOPDONG_KHCN">
+        <MappingFragment StoreEntitySet="DANHGIA_HOPDONG_KHCN">
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="FileDanhGia" ColumnName="FileDanhGia" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDeDanhGia" ColumnName="TieuDeDanhGia" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOPDONG_KHCN">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.HOPDONG_KHCN">
+        <MappingFragment StoreEntitySet="HOPDONG_KHCN">
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAMUNGKINHPHI_HOPDONG_KHCN">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.TAMUNGKINHPHI_HOPDONG_KHCN">
+        <MappingFragment StoreEntitySet="TAMUNGKINHPHI_HOPDONG_KHCN">
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THANHLY_HOPDONG_KHCN">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.THANHLY_HOPDONG_KHCN">
+        <MappingFragment StoreEntitySet="THANHLY_HOPDONG_KHCN">
+          <ScalarProperty Name="ThoiHanThanhLy" ColumnName="ThoiHanThanhLy" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="FileHSTLHD" ColumnName="FileHSTLHD" />
+          <ScalarProperty Name="SoTienCanThuHoi" ColumnName="SoTienCanThuHoi" />
+          <ScalarProperty Name="SoTienCanTT" ColumnName="SoTienCanTT" />
+          <ScalarProperty Name="SoTienDaTU" ColumnName="SoTienDaTU" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDeThanhLy" ColumnName="TieuDeThanhLy" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_HOPDONG_KHCN_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_HOPDONG_KHCN_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_HOPDONG_KHCN_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_HOPDONG_KHCN_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_HOPDONG_KHCN_select" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_HOPDONG_KHCN_select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_CONGNHANKETQUA_HOPDONG_KHCN_select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeCNKQ" ColumnName="TieuDeCNKQ" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="FileHSCNKQ" ColumnName="FileHSCNKQ" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="TieuDeGiayCNKQ" ColumnName="TieuDeGiayCNKQ" />
+          <ScalarProperty Name="FileGiayCNKQ" ColumnName="FileGiayCNKQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_CONGNHANKETQUA_HOPDONG_KHCN_selectPK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeCNKQ" ColumnName="TieuDeCNKQ" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="FileHSCNKQ" ColumnName="FileHSCNKQ" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="TieuDeGiayCNKQ" ColumnName="TieuDeGiayCNKQ" />
+          <ScalarProperty Name="FileGiayCNKQ" ColumnName="FileGiayCNKQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_HOPDONG_KHCN_Update" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_HOPDONG_KHCN_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_DANHGIA_HOPDONG_KHCN_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_DANHGIA_HOPDONG_KHCN_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_DANHGIA_HOPDONG_KHCN_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_DANHGIA_HOPDONG_KHCN_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_DANHGIA_HOPDONG_KHCN_Select" FunctionName="QL_NCKHQBModel.Store.Proc_DANHGIA_HOPDONG_KHCN_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DANHGIA_HOPDONG_KHCN_Select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeDanhGia" ColumnName="TieuDeDanhGia" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="FileDanhGia" ColumnName="FileDanhGia" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DANHGIA_HOPDONG_KHCN_SelectPK" FunctionName="QL_NCKHQBModel.Store.Proc_DANHGIA_HOPDONG_KHCN_SelectPK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DANHGIA_HOPDONG_KHCN_SelectPK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeDanhGia" ColumnName="TieuDeDanhGia" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="FileDanhGia" ColumnName="FileDanhGia" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DANHGIA_HOPDONG_KHCN_Update" FunctionName="QL_NCKHQBModel.Store.Proc_DANHGIA_HOPDONG_KHCN_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_Select" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONG_KHCN_Select_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_SelectPK" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_SelectPK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_Update" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Delete" />
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Selete" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Selete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeThanhLy" ColumnName="TieuDeThanhLy" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="SoTienDaTU" ColumnName="SoTienDaTU" />
+          <ScalarProperty Name="SoTienCanTT" ColumnName="SoTienCanTT" />
+          <ScalarProperty Name="SoTienCanThuHoi" ColumnName="SoTienCanThuHoi" />
+          <ScalarProperty Name="FileHSTLHD" ColumnName="FileHSTLHD" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="ThoiHanThanhLy" ColumnName="ThoiHanThanhLy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_SeletePK" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_SeletePK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_SeletePK_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+          <ScalarProperty Name="TieuDeThanhLy" ColumnName="TieuDeThanhLy" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="SoTienDaTU" ColumnName="SoTienDaTU" />
+          <ScalarProperty Name="SoTienCanTT" ColumnName="SoTienCanTT" />
+          <ScalarProperty Name="SoTienCanThuHoi" ColumnName="SoTienCanThuHoi" />
+          <ScalarProperty Name="FileHSTLHD" ColumnName="FileHSTLHD" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+          <ScalarProperty Name="ThoiHanThanhLy" ColumnName="ThoiHanThanhLy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Update" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Update" />
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_SelectForHSDK" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_SelectForHSDK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_SelectForHSDK_Result">
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

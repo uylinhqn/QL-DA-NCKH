@@ -18,6 +18,11 @@
         <EntityTypeShape EntityType="QL_NCKHQBModel.PHEDUYET_DEXUAT" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.HOSODANGKY" Width="1.5" PointX="9.375" PointY="3.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.PHIEU_DANHGIA_CHAMDIEM_HS" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.CONGNHANKETQUA_HOPDONG_KHCN" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.DANHGIA_HOPDONG_KHCN" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.TAMUNGKINHPHI_HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.THANHLY_HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
