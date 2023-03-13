@@ -116,6 +116,7 @@
     <Property Name="FileHS" Type="varchar(max)" />
     <Property Name="Trangthai" Type="bit" />
     <Property Name="TenHoSo" Type="nvarchar(max)" />
+    <Property Name="SoHoSo" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
@@ -149,6 +150,7 @@
     <Property Name="IDHS" Type="int" />
     <Property Name="IDTV" Type="int" />
     <Property Name="Diem" Type="float" />
+    <Property Name="NguoiCham" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="QuyenHeThong">
     <Key>
@@ -349,9 +351,17 @@
     <Parameter Name="FileHS" Type="varchar(max)" Mode="In" />
     <Parameter Name="Trangthai" Type="bit" Mode="In" />
     <Parameter Name="TenHoSo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="SoHoSo" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Proc_HOSODANGKY_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_HOSODANGKY_Select2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_HOSODANGKY_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_HOSODANGKY_SelectPK_ChamDiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_HOSODANGKY_SelectPK2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="Proc_HOSODANGKY_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -363,6 +373,7 @@
     <Parameter Name="FileHS" Type="varchar(max)" Mode="In" />
     <Parameter Name="Trangthai" Type="bit" Mode="In" />
     <Parameter Name="TenHoSo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="SoHoSo" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Proc_PHEDUYET_DEXUAT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
@@ -379,8 +390,12 @@
     <Parameter Name="IDHS" Type="int" Mode="In" />
     <Parameter Name="IDTV" Type="int" Mode="In" />
     <Parameter Name="Diem" Type="float" Mode="In" />
+    <Parameter Name="NguoiCham" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDHS" Type="int" Mode="In" />
+  </Function>
   <Function Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>

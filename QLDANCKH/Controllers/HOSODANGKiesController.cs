@@ -18,9 +18,9 @@ namespace QLDANCKH.Controllers
         private QL_NCKHQBEntities db = new QL_NCKHQBEntities();
 
         // GET: api/HOSODANGKies
-        public ObjectResult<Proc_HOSODANGKY_Select_Result> GetHOSODANGKies()
+        public ObjectResult<Proc_HOSODANGKY_Select2_Result> GetHOSODANGKies()
         {
-            return db.Proc_HOSODANGKY_Select();
+            return db.Proc_HOSODANGKY_Select2();
         }
          public ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> GetHOSODANGKieChons(int ldk)
         {
@@ -29,16 +29,20 @@ namespace QLDANCKH.Controllers
 
         // GET: api/HOSODANGKies/5
         [ResponseType(typeof(HOSODANGKY))]
-        public ObjectResult<Proc_HOSODANGKY_SelectPK_Result> GetHOSODANGKY(int id)
+        public ObjectResult<Proc_HOSODANGKY_SelectPK2_Result> GetHOSODANGKY(int id)
         {
-            return db.Proc_HOSODANGKY_SelectPK(id);
+            return db.Proc_HOSODANGKY_SelectPK2(id);
+        }
+        public ObjectResult<Proc_HOSODANGKY_SelectPK_ChamDiem_Result> GetHOSODANGKYcd(int idcd)
+        {
+            return db.Proc_HOSODANGKY_SelectPK_ChamDiem(idcd);
         }
 
         // PUT: api/HOSODANGKies/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutHOSODANGKY(int id, HOSODANGKY hOSODANGKY)
         {
-            db.Proc_HOSODANGKY_Update(id, hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo);
+            db.Proc_HOSODANGKY_Update(id, hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo, hOSODANGKY.SoHoSo);
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -46,7 +50,7 @@ namespace QLDANCKH.Controllers
         [ResponseType(typeof(HOSODANGKY))]
         public IHttpActionResult PostHOSODANGKY(HOSODANGKY hOSODANGKY)
         {
-            db.Proc_HOSODANGKY_Insert(hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo);
+            db.Proc_HOSODANGKY_Insert(hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo, hOSODANGKY.SoHoSo);
             return StatusCode(HttpStatusCode.NoContent);
         }
 

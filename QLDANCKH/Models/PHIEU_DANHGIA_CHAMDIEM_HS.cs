@@ -18,5 +18,6 @@ namespace QLDANCKH.Models
         public Nullable<int> IDHS { get; set; }
         public Nullable<int> IDTV { get; set; }
         public Nullable<double> Diem { get; set; }
+        public string NguoiCham { get; set; }
     }
 }

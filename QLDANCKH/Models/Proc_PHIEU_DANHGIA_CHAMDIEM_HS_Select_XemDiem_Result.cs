@@ -10,18 +10,17 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class HOSODANGKY
+    public partial class Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result
     {
-        public int ID { get; set; }
-        public Nullable<int> IdNV { get; set; }
-        public string DonVi { get; set; }
-        public string DiaChi { get; set; }
-        public string DanhMucTaiLieu { get; set; }
-        public string FileHS { get; set; }
-        public Nullable<bool> Trangthai { get; set; }
-        public string TenHoSo { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> IDHS { get; set; }
+        public Nullable<int> IDTV { get; set; }
+        public Nullable<double> Diem { get; set; }
+        public string NguoiCham { get; set; }
         public string SoHoSo { get; set; }
+        public string TenHoSo { get; set; }
+        public string TenTieuChi { get; set; }
+        public Nullable<int> Diemdanhgia { get; set; }
     }
 }

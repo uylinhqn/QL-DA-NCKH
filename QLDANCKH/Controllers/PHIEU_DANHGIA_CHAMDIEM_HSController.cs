@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Description;
 using QLDANCKH.Models;
@@ -42,7 +43,8 @@ namespace QLDANCKH.Controllers
         [ResponseType(typeof(PHIEU_DANHGIA_CHAMDIEM_HS))]
         public IHttpActionResult PostPHIEU_DANHGIA_CHAMDIEM_HS(PHIEU_DANHGIA_CHAMDIEM_HS PHIEU_DANHGIA_CHAMDIEM_HS)
         {
-            db.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert(PHIEU_DANHGIA_CHAMDIEM_HS.IDHS, PHIEU_DANHGIA_CHAMDIEM_HS.IDTV, PHIEU_DANHGIA_CHAMDIEM_HS.Diem);
+            var identity = (ClaimsIdentity)User.Identity;
+            db.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert(PHIEU_DANHGIA_CHAMDIEM_HS.IDHS, PHIEU_DANHGIA_CHAMDIEM_HS.IDTV, PHIEU_DANHGIA_CHAMDIEM_HS.Diem, identity.Name);
             return StatusCode(HttpStatusCode.NoContent);
         }
 

@@ -412,6 +412,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
+                                                <th>Số hồ sơ</th>
                                                 <th>Tên hồ sơ</th>
                                                 <th>Tên nhiệm vụ</th>
                                                 <th>Cấp đề xuất</th>
@@ -469,6 +470,12 @@
                                             <div class="col-md-12">
                                                 <select class="form-control" style="width:100%" id="txtnhiemvu">
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Số hồ sơ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtsohoso" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -549,6 +556,12 @@
                                             <div class="col-md-12">
                                                 <select class="form-control" style="width:100%" id="txtnhiemvucn">
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Số hồ sơ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtsohosocn" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -735,6 +748,7 @@
                 FileHS: localStorage.getItem("newfiles"),
                 TrangthaiPD: false,
                 TenHoSo: document.getElementById("txttenhoso").value,
+                SoHoSo: document.getElementById("txtsohoso").value,
             };
             $.ajax({
                 url: uri,
@@ -757,6 +771,7 @@
                         document.getElementById("txtdiachi").value = "";
                         document.getElementById("txtnoidungdexuat").value = "";
                         document.getElementById("txttenhoso").value = "";
+                        document.getElementById("txtsohoso").value = "";
                         $("#txtnhiemvu").select2();
                         localStorage.removeItem("newfiles");
                     }
@@ -783,6 +798,7 @@
                 FileHS: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("files")),
                 TrangthaiPD: false,
                 TenHoSo: document.getElementById("txttenhosocn").value,
+                SoHoSo: document.getElementById("txtsohosocn").value,
             };
             $.ajax({
                 url: uri + '?id=' + document.getElementById("lbid").innerHTML,
@@ -805,6 +821,7 @@
                         document.getElementById("txtdiachicn").value = "";
                         document.getElementById("txtnoidungdexuatcn").value = "";
                         document.getElementById("txttenhosocn").value = "";
+                        document.getElementById("txtsohosocn").value = "";
                         $("#txtnhiemvucn").select2();
                         localStorage.removeItem("newfiles");
                     }
@@ -836,6 +853,7 @@
                     document.getElementById("txtdiachicn").value = data[0].DiaChi;
                     document.getElementById("txtnoidungdexuatcn").value = data[0].DanhMucTaiLieu;
                     document.getElementById("txttenhosocn").value = data[0].TenHoSo;
+                    document.getElementById("txtsohosocn").value = data[0].SoHoSo;
                     document.getElementById("txtnhiemvucn").value = data[0].IdNV; $("#txtnhiemvucn").select2();
                     localStorage.setItem("files", data[0].FileHS);
                     for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
@@ -1001,7 +1019,7 @@
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
                             "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.ID + ")'>Cập nhật thông tin</a></li>" +
                             "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.ID + ")'>Xóa hồ sơ</a></li></ul></div></td>" +
-                            "<td>" + item.TenHoSo + "</td>" +
+                            "<td>" + item.SoHoSo + "</td>" +"<td>" + item.TenHoSo + "</td>" +
                             "<td>" + item.Tendexuat + "</td>" +
                             "<td>" + item.CapDeXuat + "</td>" +
                             "<td>" + item.DonVi + "</td>" +

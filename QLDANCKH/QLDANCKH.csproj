@@ -247,7 +247,7 @@
     <Content Include="to-chuc-chu-tri\thong-tin-to-chuc.html" />
     <Content Include="tuyen-chon-giao-truc-tiep\danh-sach-chuyen-gia.html" />
     <Content Include="tuyen-chon-giao-truc-tiep\danh-sach-nhiem-vu.html" />
-    <Content Include="tuyen-chon-giao-truc-tiep\phieu-nhan-xet-danh-gia.html" />
+    <Content Include="nhiem-vu-phe-duyet\phieu-nhan-xet-danh-gia.html" />
     <Content Include="tuyen-chon-giao-truc-tiep\thong-tin-khach-moi.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -371,6 +371,15 @@
     <Compile Include="Models\Proc_HOPDONG_KHCN_Select_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_Select2_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_SelectPK2_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_SelectPK_ChamDiem_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_SelectPK_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -384,6 +393,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_QuyenHeThong_Select_Result.cs">

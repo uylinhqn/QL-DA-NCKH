@@ -356,7 +356,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Delete", iDParameter);
         }
     
-        public virtual int Proc_HOSODANGKY_Insert(Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo)
+        public virtual int Proc_HOSODANGKY_Insert(Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo, string soHoSo)
         {
             var idNVParameter = idNV.HasValue ?
                 new ObjectParameter("IdNV", idNV) :
@@ -386,7 +386,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("TenHoSo", tenHoSo) :
                 new ObjectParameter("TenHoSo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Insert", idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter);
+            var soHoSoParameter = soHoSo != null ?
+                new ObjectParameter("SoHoSo", soHoSo) :
+                new ObjectParameter("SoHoSo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Insert", idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter, soHoSoParameter);
         }
     
         public virtual ObjectResult<Proc_HOSODANGKY_Select_Result> Proc_HOSODANGKY_Select()
@@ -403,7 +407,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK_Result>("Proc_HOSODANGKY_SelectPK", iDParameter);
         }
     
-        public virtual int Proc_HOSODANGKY_Update(Nullable<int> iD, Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo)
+        public virtual int Proc_HOSODANGKY_Update(Nullable<int> iD, Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo, string soHoSo)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -437,7 +441,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("TenHoSo", tenHoSo) :
                 new ObjectParameter("TenHoSo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update", iDParameter, idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter);
+            var soHoSoParameter = soHoSo != null ?
+                new ObjectParameter("SoHoSo", soHoSo) :
+                new ObjectParameter("SoHoSo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update", iDParameter, idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter, soHoSoParameter);
         }
     
         public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete(Nullable<int> iD)
@@ -449,7 +457,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete", iDParameter);
         }
     
-        public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert(Nullable<int> iDHS, Nullable<int> iDTV, Nullable<double> diem)
+        public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert(Nullable<int> iDHS, Nullable<int> iDTV, Nullable<double> diem, string nguoiCham)
         {
             var iDHSParameter = iDHS.HasValue ?
                 new ObjectParameter("IDHS", iDHS) :
@@ -463,7 +471,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("Diem", diem) :
                 new ObjectParameter("Diem", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert", iDHSParameter, iDTVParameter, diemParameter);
+            var nguoiChamParameter = nguoiCham != null ?
+                new ObjectParameter("NguoiCham", nguoiCham) :
+                new ObjectParameter("NguoiCham", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Insert", iDHSParameter, iDTVParameter, diemParameter, nguoiChamParameter);
         }
     
         public virtual ObjectResult<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_Result> Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select()
@@ -1001,6 +1013,38 @@ namespace QLDANCKH.Models
         public virtual ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> Proc_DEXUAT_DATHANG_SelectForHSDK()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_SelectForHSDK_Result>("Proc_DEXUAT_DATHANG_SelectForHSDK");
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_Select2_Result> Proc_HOSODANGKY_Select2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_Select2_Result>("Proc_HOSODANGKY_Select2");
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_SelectPK2_Result> Proc_HOSODANGKY_SelectPK2(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK2_Result>("Proc_HOSODANGKY_SelectPK2", iDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_SelectPK_ChamDiem_Result> Proc_HOSODANGKY_SelectPK_ChamDiem(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK_ChamDiem_Result>("Proc_HOSODANGKY_SelectPK_ChamDiem", iDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result> Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem(Nullable<int> iDHS)
+        {
+            var iDHSParameter = iDHS.HasValue ?
+                new ObjectParameter("IDHS", iDHS) :
+                new ObjectParameter("IDHS", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result>("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem", iDHSParameter);
         }
     }
 }

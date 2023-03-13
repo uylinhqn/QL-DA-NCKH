@@ -10,9 +10,8 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class HOSODANGKY
+    public partial class Proc_HOSODANGKY_SelectPK2_Result
     {
         public int ID { get; set; }
         public Nullable<int> IdNV { get; set; }
