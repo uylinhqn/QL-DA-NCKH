@@ -31,15 +31,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DM_HOCVI">
-      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_HOCVI">
-        <MappingFragment StoreEntitySet="DM_HOCVI">
-          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-          <ScalarProperty Name="TenHocvi" ColumnName="TenHocvi" />
-          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Delete" />
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Insert" />
     <FunctionImportMapping FunctionImportName="Proc_ChiTietQuyenHT_Select" FunctionName="QL_NCKHQBModel.Store.Proc_ChiTietQuyenHT_Select">
@@ -776,5 +767,45 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="DM_HOCVI">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_HOCVI">
+        <MappingFragment StoreEntitySet="DM_HOCVI">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenVietTat" ColumnName="TenVietTat" />
+          <ScalarProperty Name="TenHocvi" ColumnName="TenHocvi" />
+          <ScalarProperty Name="IDHocvi" ColumnName="IDHocvi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_HOCHAM">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_HOCHAM">
+        <MappingFragment StoreEntitySet="DM_HOCHAM">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenVietTat" ColumnName="TenVietTat" />
+          <ScalarProperty Name="TenHocHam" ColumnName="TenHocHam" />
+          <ScalarProperty Name="IDHocHam" ColumnName="IDHocHam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_CHUCDANH">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_CHUCDANH">
+        <MappingFragment StoreEntitySet="DM_CHUCDANH">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="KyHieuCD" ColumnName="KyHieuCD" />
+          <ScalarProperty Name="TenChucDanh" ColumnName="TenChucDanh" />
+          <ScalarProperty Name="IDChucDanh" ColumnName="IDChucDanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DM_CHUCVU">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_CHUCVU">
+        <MappingFragment StoreEntitySet="DM_CHUCVU">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="KyhieuCV" ColumnName="KyhieuCV" />
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="IDChucVu" ColumnName="IDChucVu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -261,7 +261,7 @@
                                             <tr>
                                                 <th>Thao tác</th>
                                                 <th>Tên học vị</th>
-                                               
+                                                <th>Tên viết tắt</th>
                                                 <th>Trạng thái</th>
 
                                             </tr>
@@ -316,7 +316,15 @@
                                                 <input type="text" class="form-control" id="txttenhocvi" />
                                             </div>
                                         </div>
-                                         
+
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Tên viết tắt</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttenviettat" />
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -391,13 +399,19 @@
                                                 <input type="text" class="form-control" id="txttenhocvicn" />
                                             </div>
                                         </div>
-                                     
-                                        <!--<div class="form-group">
-                                            <label class="col-md-12 control-label">Địa chỉ</label>
+                                        <div class="form-group">
+                                          
+                                            <label class="col-md-12 control-label">Tên viết tắt</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txtdiachicn" />
+                                                <input type="text" class="form-control" id="txttenviettatcn" />
                                             </div>
-                                        </div>-->
+                                        </div>
+                                        <!--<div class="form-group">
+        <label class="col-md-12 control-label">Địa chỉ</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control" id="txtdiachicn" />
+        </div>
+    </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -601,6 +615,7 @@
                             "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
                             "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
                             "<td>" + item.TenHocvi + "</td>" +
+                            "<td>" + item.TenVietTat + "</td>" +
                             "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
                              "</tr> ";
                         $("#danhsach").append(strhtml); stt++;
@@ -635,6 +650,7 @@
                 success: function (data) {
                     document.getElementById("lbid").innerHTML = data.IDHocvi;
                     document.getElementById("txttenhocvicn").value = data.TenHocvi;
+                    document.getElementById("txttenviettatcn").value = data.TenVietTat;
                        
                         document.getElementById("chbttcn").checked = data.Trangthai;
                     
@@ -655,6 +671,7 @@
         function themdmmoi() {
             var datas = {
                 TenHocvi: document.getElementById("txttenhocvi").value,
+                TenVietTat: document.getElementById("txttenviettat").value,
 
                 Trangthai: document.getElementById("chbtt").checked,
               
@@ -676,6 +693,7 @@
                             stack: 6
                         }); loaddanhsach();
                         document.getElementById("txttenhocvi").value = "";
+                        document.getElementById("txttenviettat").value = "";
                     
                         document.getElementById("chbtt").checked = false;
 
@@ -696,14 +714,10 @@
         }
         function capnhattt() {
             var datas = {
-                //IDDonvi: document.getElementById("lbid").innerHTML,
-                //TenDonvi: document.getElementById("txttendonvicn").value,
-                //Diachi: document.getElementById("txtdiachicn").value,
-                //Phone: document.getElementById("txtdienthoaicn").value,
-                //Trangthai: document.getElementById("chbttcn").checked,
+             
                 IDHocvi: document.getElementById("lbid").innerHTML,
                 TenHocvi: document.getElementById("txttenhocvicn").value,
-                
+                TenVietTat: document.getElementById("txttenviettatcn").value,
                 Trangthai: document.getElementById("chbttcn").checked,
                
             };
@@ -724,7 +738,7 @@
                             stack: 6
                         }); loaddanhsach();
                         document.getElementById("txttenhocvicn").value = "";
-                       
+                        document.getElementById("txttenviettatcn").value = "";
                         document.getElementById("chbttcn").checked = false;
                     }
                 },
@@ -734,7 +748,7 @@
                         text: 'Cập nhật thông tin Học vị không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
-                        icon: 'info',
+                        icon: 'warning',
                         hideAfter: 3500,
                         stack: 6
                     });
@@ -833,7 +847,7 @@
                             text: 'Xóa thông tin Học vị thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
@@ -841,10 +855,10 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
+                            text: 'Xóa thông tin Học vị không thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
                         }); document.getElementById("lbiddanhmucxoa").innerHTML = "";

@@ -22,7 +22,6 @@
     <EntitySet Name="ChiTietQuyenHTs" EntityType="Self.ChiTietQuyenHT" />
     <EntitySet Name="QuyenHeThongs" EntityType="Self.QuyenHeThong" />
     <EntitySet Name="DM_DONVI" EntityType="QL_NCKHQBModel.DM_DONVI" />
-    <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
     <FunctionImport Name="Proc_ChiTietQuyenHT_Delete">
       <Parameter Name="TenDangNhap" Mode="In" Type="String" />
     </FunctionImport>
@@ -321,6 +320,10 @@
     <FunctionImport Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem" ReturnType="Collection(QL_NCKHQBModel.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result)">
       <Parameter Name="IDHS" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="DM_HOCVI" EntityType="QL_NCKHQBModel.DM_HOCVI" />
+    <EntitySet Name="DM_HOCHAM" EntityType="QL_NCKHQBModel.DM_HOCHAM" />
+    <EntitySet Name="DM_CHUCDANH" EntityType="QL_NCKHQBModel.DM_CHUCDANH" />
+    <EntitySet Name="DM_CHUCVU" EntityType="QL_NCKHQBModel.DM_CHUCVU" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -330,14 +333,6 @@
     <Property Name="TenDonvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="Int32" />
-    <Property Name="Trangthai" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="DM_HOCVI">
-    <Key>
-      <PropertyRef Name="IDHocvi" />
-    </Key>
-    <Property Name="IDHocvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
   <ComplexType Name="Proc_ChiTietQuyenHT_Select_Result">
@@ -905,4 +900,40 @@
     <Property Type="String" Name="TenTieuChi" Nullable="true" MaxLength="100" />
     <Property Type="Int32" Name="Diemdanhgia" Nullable="true" />
   </ComplexType>
+  <EntityType Name="DM_HOCVI">
+    <Key>
+      <PropertyRef Name="IDHocvi" />
+    </Key>
+    <Property Name="IDHocvi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHocvi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenVietTat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DM_HOCHAM">
+    <Key>
+      <PropertyRef Name="IDHocHam" />
+    </Key>
+    <Property Name="IDHocHam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHocHam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenVietTat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_CHUCDANH">
+    <Key>
+      <PropertyRef Name="IDChucDanh" />
+    </Key>
+    <Property Name="IDChucDanh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChucDanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KyHieuCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_CHUCVU">
+    <Key>
+      <PropertyRef Name="IDChucVu" />
+    </Key>
+    <Property Name="IDChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KyhieuCV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
 </Schema>

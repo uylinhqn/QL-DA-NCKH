@@ -12,11 +12,11 @@ namespace QLDANCKH.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DM_HOCVI
+    public partial class DM_HOCHAM
     {
-        public int IDHocvi { get; set; }
-        public string TenHocvi { get; set; }
+        public int IDHocHam { get; set; }
+        public string TenHocHam { get; set; }
         public string TenVietTat { get; set; }
-        public bool Trangthai { get; set; }
+        public Nullable<bool> Trangthai { get; set; }
     }
 }

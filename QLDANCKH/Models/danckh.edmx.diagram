@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="QL_NCKHQBModel.ChiTietQuyenHT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.QuyenHeThong" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.DM_DONVI" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="QL_NCKHQBModel.DM_HOCVI" Width="1.5" PointX="2.75" PointY="4.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.DM_LINHVUC_NGHIENCUU" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.DM_LINHVUC_NHIEMVU" Width="1.5" PointX="7.375" PointY="3.875" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.TIEUCHI_DANHGIA" Width="1.5" PointX="5.375" PointY="6.75" />
@@ -23,6 +22,10 @@
         <EntityTypeShape EntityType="QL_NCKHQBModel.HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.TAMUNGKINHPHI_HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="4.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.THANHLY_HOPDONG_KHCN" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.DM_HOCVI" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.DM_HOCHAM" Width="1.5" PointX="9.375" PointY="11.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.DM_CHUCDANH" Width="1.5" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.DM_CHUCVU" Width="1.5" PointX="0.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -30,7 +30,6 @@ namespace QLDANCKH.Models
         public virtual DbSet<ChiTietQuyenHT> ChiTietQuyenHTs { get; set; }
         public virtual DbSet<QuyenHeThong> QuyenHeThongs { get; set; }
         public virtual DbSet<DM_DONVI> DM_DONVI { get; set; }
-        public virtual DbSet<DM_HOCVI> DM_HOCVI { get; set; }
         public virtual DbSet<DM_LINHVUC_NGHIENCUU> DM_LINHVUC_NGHIENCUU { get; set; }
         public virtual DbSet<DM_LINHVUC_NHIEMVU> DM_LINHVUC_NHIEMVU { get; set; }
         public virtual DbSet<TIEUCHI_DANHGIA> TIEUCHI_DANHGIA { get; set; }
@@ -45,6 +44,10 @@ namespace QLDANCKH.Models
         public virtual DbSet<HOPDONG_KHCN> HOPDONG_KHCN { get; set; }
         public virtual DbSet<TAMUNGKINHPHI_HOPDONG_KHCN> TAMUNGKINHPHI_HOPDONG_KHCN { get; set; }
         public virtual DbSet<THANHLY_HOPDONG_KHCN> THANHLY_HOPDONG_KHCN { get; set; }
+        public virtual DbSet<DM_HOCVI> DM_HOCVI { get; set; }
+        public virtual DbSet<DM_HOCHAM> DM_HOCHAM { get; set; }
+        public virtual DbSet<DM_CHUCDANH> DM_CHUCDANH { get; set; }
+        public virtual DbSet<DM_CHUCVU> DM_CHUCVU { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
