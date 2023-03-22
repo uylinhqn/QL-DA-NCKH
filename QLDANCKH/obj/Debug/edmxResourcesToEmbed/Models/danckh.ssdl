@@ -72,6 +72,16 @@
     <Property Name="KyhieuCV" Type="nvarchar" MaxLength="20" />
     <Property Name="Trangthai" Type="bit" />
   </EntityType>
+  <EntityType Name="DM_CHUNHIEM">
+    <Key>
+      <PropertyRef Name="ChuNhiemID" />
+    </Key>
+    <Property Name="ChuNhiemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoDienThoai" Type="char" MaxLength="11" />
+    <Property Name="Trangthai" Type="bit" />
+  </EntityType>
   <EntityType Name="DM_DONVI">
     <Key>
       <PropertyRef Name="IDDonvi" />
@@ -526,6 +536,7 @@
     <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_CHUCDANH" EntityType="Self.DM_CHUCDANH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_CHUCVU" EntityType="Self.DM_CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DM_CHUNHIEM" EntityType="Self.DM_CHUNHIEM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_HOCHAM" EntityType="Self.DM_HOCHAM" Schema="dbo" store:Type="Tables" />

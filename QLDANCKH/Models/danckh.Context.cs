@@ -48,6 +48,7 @@ namespace QLDANCKH.Models
         public virtual DbSet<DM_HOCHAM> DM_HOCHAM { get; set; }
         public virtual DbSet<DM_CHUCDANH> DM_CHUCDANH { get; set; }
         public virtual DbSet<DM_CHUCVU> DM_CHUCVU { get; set; }
+        public virtual DbSet<DM_CHUNHIEM> DM_CHUNHIEM { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {

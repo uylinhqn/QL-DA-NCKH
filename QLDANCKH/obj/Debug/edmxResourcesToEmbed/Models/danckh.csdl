@@ -324,6 +324,7 @@
     <EntitySet Name="DM_HOCHAM" EntityType="QL_NCKHQBModel.DM_HOCHAM" />
     <EntitySet Name="DM_CHUCDANH" EntityType="QL_NCKHQBModel.DM_CHUCDANH" />
     <EntitySet Name="DM_CHUCVU" EntityType="QL_NCKHQBModel.DM_CHUCVU" />
+    <EntitySet Name="DM_CHUNHIEM" EntityType="QL_NCKHQBModel.DM_CHUNHIEM" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -934,6 +935,16 @@
     <Property Name="IDChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="KyhieuCV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DM_CHUNHIEM">
+    <Key>
+      <PropertyRef Name="ChuNhiemID" />
+    </Key>
+    <Property Name="ChuNhiemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
     <Property Name="Trangthai" Type="Boolean" />
   </EntityType>
 </Schema>

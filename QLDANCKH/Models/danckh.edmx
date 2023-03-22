@@ -77,6 +77,16 @@
           <Property Name="KyhieuCV" Type="nvarchar" MaxLength="20" />
           <Property Name="Trangthai" Type="bit" />
         </EntityType>
+        <EntityType Name="DM_CHUNHIEM">
+          <Key>
+            <PropertyRef Name="ChuNhiemID" />
+          </Key>
+          <Property Name="ChuNhiemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="char" MaxLength="11" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
         <EntityType Name="DM_DONVI">
           <Key>
             <PropertyRef Name="IDDonvi" />
@@ -531,6 +541,7 @@
           <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCDANH" EntityType="Self.DM_CHUCDANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCVU" EntityType="Self.DM_CHUCVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_CHUNHIEM" EntityType="Self.DM_CHUNHIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HOCHAM" EntityType="Self.DM_HOCHAM" Schema="dbo" store:Type="Tables" />
@@ -875,6 +886,7 @@
           <EntitySet Name="DM_HOCHAM" EntityType="QL_NCKHQBModel.DM_HOCHAM" />
           <EntitySet Name="DM_CHUCDANH" EntityType="QL_NCKHQBModel.DM_CHUCDANH" />
           <EntitySet Name="DM_CHUCVU" EntityType="QL_NCKHQBModel.DM_CHUCVU" />
+          <EntitySet Name="DM_CHUNHIEM" EntityType="QL_NCKHQBModel.DM_CHUNHIEM" />
         </EntityContainer>
         <EntityType Name="DM_DONVI">
           <Key>
@@ -1485,6 +1497,16 @@
           <Property Name="IDChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="KyhieuCV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DM_CHUNHIEM">
+          <Key>
+            <PropertyRef Name="ChuNhiemID" />
+          </Key>
+          <Property Name="ChuNhiemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="Trangthai" Type="Boolean" />
         </EntityType>
       </Schema>
@@ -2296,6 +2318,17 @@
                 <ScalarProperty Name="KyhieuCV" ColumnName="KyhieuCV" />
                 <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
                 <ScalarProperty Name="IDChucVu" ColumnName="IDChucVu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CHUNHIEM">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_CHUNHIEM">
+              <MappingFragment StoreEntitySet="DM_CHUNHIEM">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="ChuNhiemID" ColumnName="ChuNhiemID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

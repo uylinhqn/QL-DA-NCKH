@@ -204,6 +204,7 @@
     <Content Include="js\sidebarmenu.js" />
     <Content Include="js\summernote.min.js" />
     <Content Include="js\vfs_fonts.js" />
+    <Content Include="js\viethoa.js" />
     <Content Include="js\waves.js" />
     <Content Include="kiem-tra-tien-do\bao-cao-tien-do-kiem-tra.html" />
     <Content Include="kiem-tra-tien-do\danh-muc-nhiem-vu.html" />
@@ -259,6 +260,7 @@
     <Compile Include="Controllers\DEXUAT_DATHANGController.cs" />
     <Compile Include="Controllers\DM_CHUCDANHController.cs" />
     <Compile Include="Controllers\DM_CHUCVUController.cs" />
+    <Compile Include="Controllers\DM_CHUNHIEMController.cs" />
     <Compile Include="Controllers\DM_DONVIController.cs" />
     <Compile Include="Controllers\DM_HOCHAMController.cs" />
     <Compile Include="Controllers\DM_HOCVIController.cs" />
@@ -310,6 +312,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_CHUCVU.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_CHUNHIEM.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_DONVI.cs">

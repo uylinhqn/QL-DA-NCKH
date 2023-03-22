@@ -807,5 +807,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DM_CHUNHIEM">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_CHUNHIEM">
+        <MappingFragment StoreEntitySet="DM_CHUNHIEM">
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="ChuNhiemID" ColumnName="ChuNhiemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
