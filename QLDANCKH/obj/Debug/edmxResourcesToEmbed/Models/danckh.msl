@@ -818,5 +818,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_LvucNC" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_LvucNC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_LvucNC_Result">
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+          <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_theonam" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_theonam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_theonam_Result">
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+          <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

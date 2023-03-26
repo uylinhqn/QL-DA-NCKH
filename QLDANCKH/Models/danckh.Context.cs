@@ -1050,5 +1050,27 @@ namespace QLDANCKH.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result>("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem", iDHSParameter);
         }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_LvucNC_Result> Proc_DEXUAT_DATHANG_Select_LvucNC(string nguoiDeXuat, Nullable<int> chon)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var chonParameter = chon.HasValue ?
+                new ObjectParameter("Chon", chon) :
+                new ObjectParameter("Chon", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_LvucNC_Result>("Proc_DEXUAT_DATHANG_Select_LvucNC", nguoiDeXuatParameter, chonParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_theonam_Result> Proc_DEXUAT_DATHANG_Select_theonam(string nguoiDeXuat)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_theonam_Result>("Proc_DEXUAT_DATHANG_Select_theonam", nguoiDeXuatParameter);
+        }
     }
 }

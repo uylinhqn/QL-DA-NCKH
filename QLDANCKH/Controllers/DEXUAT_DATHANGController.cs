@@ -46,6 +46,17 @@ namespace QLDANCKH.Controllers
         // GET: api/DEXUAT_DATHANG
         [Authorize(Roles = "admin, member, client")]
         [HttpGet]
+        [Route("api/lv")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_LvucNC_Result> GetDEXUAT_DATHANGBYLINHVUC(int lv)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_LvucNC(identity.Name, lv);
+        }
+
+
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
         [Route("api/nam")]
         public ObjectResult<Proc_DEXUAT_DATHANG_Select_Nam_Result> GetDEXUAT_DATHANGBYNAM(int nam)
         {

@@ -324,6 +324,10 @@
   <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select_LvucNC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+    <Parameter Name="Chon" Type="int" Mode="In" />
+  </Function>
   <Function Name="Proc_DEXUAT_DATHANG_Select_Nam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
     <Parameter Name="Nam" Type="int" Mode="In" />
@@ -334,6 +338,9 @@
   </Function>
   <Function Name="Proc_DEXUAT_DATHANG_Select_PK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_DEXUAT_DATHANG_Select_theonam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Proc_DEXUAT_DATHANG_SelectForHSDK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_DEXUAT_DATHANG_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
