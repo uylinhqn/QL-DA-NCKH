@@ -18,11 +18,15 @@ namespace QLDANCKH.Controllers
         private QL_NCKHQBEntities db = new QL_NCKHQBEntities();
 
         // GET: api/HOSODANGKies
-        public ObjectResult<Proc_HOSODANGKY_Select2_Result> GetHOSODANGKies()
+        public ObjectResult<Proc_HOSODANGKY_Select3_Result> GetHOSODANGKies()
         {
-            return db.Proc_HOSODANGKY_Select2();
+            return db.Proc_HOSODANGKY_Select3();
         }
-         public ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> GetHOSODANGKieChons(int ldk)
+        public ObjectResult<Proc_HOSODANGKY_Select_HSDat_Result> GetHOSODANGKiesDat(int loai)
+        {
+            return db.Proc_HOSODANGKY_Select_HSDat();
+        }
+        public ObjectResult<Proc_DEXUAT_DATHANG_SelectForHSDK_Result> GetHOSODANGKieChons(int ldk)
         {
             return db.Proc_DEXUAT_DATHANG_SelectForHSDK();
         }
@@ -45,7 +49,11 @@ namespace QLDANCKH.Controllers
             db.Proc_HOSODANGKY_Update(id, hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo, hOSODANGKY.SoHoSo);
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        public IHttpActionResult PutHOSODANGKYpheduyet(int hscd, int pdhs)
+        {
+            db.Proc_HOSODANGKY_Update_PheDuyet(hscd, pdhs);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
         // POST: api/HOSODANGKies
         [ResponseType(typeof(HOSODANGKY))]
         public IHttpActionResult PostHOSODANGKY(HOSODANGKY hOSODANGKY)

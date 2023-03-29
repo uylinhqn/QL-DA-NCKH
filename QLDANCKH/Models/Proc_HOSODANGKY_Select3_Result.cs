@@ -10,9 +10,8 @@
 namespace QLDANCKH.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class HOSODANGKY
+    public partial class Proc_HOSODANGKY_Select3_Result
     {
         public int ID { get; set; }
         public Nullable<int> IdNV { get; set; }
@@ -24,5 +23,20 @@ namespace QLDANCKH.Models
         public string TenHoSo { get; set; }
         public string SoHoSo { get; set; }
         public Nullable<int> PDHoSo { get; set; }
+        public int IDDexuat { get; set; }
+        public string Tendexuat { get; set; }
+        public string Noidungdexuat { get; set; }
+        public Nullable<int> NamDeXuat { get; set; }
+        public string CapDeXuat { get; set; }
+        public Nullable<bool> TrangthaiPD { get; set; }
+        public string LinkTaiLieu { get; set; }
+        public string NguoiDeXuat { get; set; }
+        public string NguoiPheDuyet { get; set; }
+        public Nullable<int> IdLinhVucNC { get; set; }
+        public Nullable<int> IdLinhVucNV { get; set; }
+        public Nullable<int> DonViThucHien { get; set; }
+        public Nullable<bool> ChuyenGiao { get; set; }
+        public Nullable<bool> NghiemThu { get; set; }
+        public Nullable<System.DateTime> NgayDang { get; set; }
     }
 }

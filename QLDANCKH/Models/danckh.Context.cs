@@ -711,7 +711,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Delete", idParameter);
         }
     
-        public virtual int Proc_HOPDONG_KHCN_Insert(Nullable<int> idHoSoDK, string donVi, string diaChi, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, Nullable<bool> trangThai, string nguoiLap)
+        public virtual int Proc_HOPDONG_KHCN_Insert(Nullable<int> idHoSoDK, string donVi, string diaChi, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, Nullable<bool> trangThai, string nguoiLap, string soHD)
         {
             var idHoSoDKParameter = idHoSoDK.HasValue ?
                 new ObjectParameter("IdHoSoDK", idHoSoDK) :
@@ -753,7 +753,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("NguoiLap", nguoiLap) :
                 new ObjectParameter("NguoiLap", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Insert", idHoSoDKParameter, donViParameter, diaChiParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, trangThaiParameter, nguoiLapParameter);
+            var soHDParameter = soHD != null ?
+                new ObjectParameter("SoHD", soHD) :
+                new ObjectParameter("SoHD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Insert", idHoSoDKParameter, donViParameter, diaChiParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, trangThaiParameter, nguoiLapParameter, soHDParameter);
         }
     
         public virtual ObjectResult<Proc_HOPDONG_KHCN_Select_Result> Proc_HOPDONG_KHCN_Select()
@@ -1048,6 +1052,43 @@ namespace QLDANCKH.Models
                 new ObjectParameter("IDHS", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result>("Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem", iDHSParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_Select3_Result> Proc_HOSODANGKY_Select3()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_Select3_Result>("Proc_HOSODANGKY_Select3");
+        }
+    
+        public virtual int Proc_HOSODANGKY_Update_PheDuyet(Nullable<int> iD, Nullable<int> pDHoSo)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var pDHoSoParameter = pDHoSo.HasValue ?
+                new ObjectParameter("PDHoSo", pDHoSo) :
+                new ObjectParameter("PDHoSo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update_PheDuyet", iDParameter, pDHoSoParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_Select_HSDat_Result> Proc_HOSODANGKY_Select_HSDat()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_Select_HSDat_Result>("Proc_HOSODANGKY_Select_HSDat");
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_Select_2_Result> Proc_HOPDONG_KHCN_Select_2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_Select_2_Result>("Proc_HOPDONG_KHCN_Select_2");
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_SelectPK2_Result> Proc_HOPDONG_KHCN_SelectPK2(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK2_Result>("Proc_HOPDONG_KHCN_SelectPK2", idParameter);
         }
     }
 }

@@ -516,6 +516,72 @@
             </div>
         </div>
     </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="xemdiemcham" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Xem điểm hồ sơ</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-12">
+                            <label class="col-md-12 control-label" id="lbidhsx" style="display:none"></label>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" id="lbtennvx">Tên nhiệm vụ:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohosox">Số hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdonvix">Tên đơn vị / cá nhân:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhosox">Tên hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdiachix">Địa chỉ:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-b-20"></div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>TT</th>
+                                    <th>Tên tiêu chí</th>
+                                    <th>Điểm chấm/Điểm max</th>
+                                    <th>Tỉ lệ</th>
+                                    <th>Người chấm</th>
+                                </tr>
+                            </thead>
+                            <tbody id="danhsachdiem">
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" data-bs-dismiss="modal" onclick="pheduyet(1);">Đạt yêu cầu</button>
+                            <button class="btn btn-danger waves-effect text-start text-white" data-bs-dismiss="modal" onclick="pheduyet(2);">Không đạt yêu cầu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -725,6 +791,61 @@
                 }
             });
         }
+        function xemchitiet(id) {
+            $.ajax({
+                url: '/api/PHIEU_DANHGIA_CHAMDIEM_HS' + '?idhs=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $("#danhsachdiem").html(""); var stt = 1;
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + stt + "</td>" + "<td>" + item.TenTieuChi + "</td>" +
+                            "<td>" + item.Diem +"/" +  item.Diemdanhgia+ "</td>" +
+                            "<td>" + parseFloat(item.Diem / item.Diemdanhgia * 100).toFixed(2)+ "%</td>" +
+                            "<td>" + item.NguoiCham + "</td></tr> ";
+                        $("#danhsachdiem").append(strhtml); stt++;
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });}
+        function xemdiem(id) {
+            $.ajax({
+                url: uri + '?idcd=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhsx").innerHTML = data[0].ID;
+                    document.getElementById("lbtennvx").innerHTML = "Tên nhiệm vụ: <b>"+data[0].Tendexuat+"</b>";
+                    document.getElementById("lbsohosox").innerHTML = "Số hồ sơ: <b>" + data[0].SoHoSo + "</b>";
+                    document.getElementById("lbtenhosox").innerHTML = "Tên hồ sơ: <b>" + data[0].TenHoSo + "</b>";
+                    document.getElementById("lbdonvix").innerHTML = "Đơn vị/Cá nhân: <b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachix").innerHTML = "Địa chỉ: <b>" + data[0].DiaChi + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemchitiet(id);
+        }
         function loaddanhsach() {
             $.ajax({
                 url: uri,
@@ -739,14 +860,14 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#themdanhmuc' onclick='xemdanhmuc(" + item.ID + ")'>Xem thông tin hồ sơ</a></li>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#xemdiemcham' onclick='xemdiem(" + item.ID + ")'>Xem thông tin hồ sơ</a></li>" +
                             "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-target='#themdanhmuc' data-bs-toggle='modal' onclick='xemdanhmuc(" + item.ID + ")'>Chấm điểm hồ sơ</a></li></ul></div></td>" +
                             "<td>" + item.SoHoSo + "</td>" + "<td>" + item.TenHoSo + "</td>" +
                             "<td>" + item.Tendexuat + "</td>" +
                             "<td>" + item.CapDeXuat + "</td>" +
                             "<td>" + item.DonVi + "</td>" +
                             "<td>" + item.DiaChi + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs'>Có kết quả chấm điểm</a>" : "<a class='btn btn-danger btn-xs'>Chờ chấm điểm</a>") + "</td>" +
+                            "<td style='text-align:center;'>" + (item.PDHoSo == 1 ? "<a class='btn btn-success btn-xs'>Đạt yêu cầu</a>" : (item.PDHoSo == 0 ? "<a class='btn btn-warning btn-xs'>Chờ chấm điểm</a>" :"<a class='btn btn-danger btn-xs'>Không đạt</a>")) + "</td>" +
                             "</tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
@@ -756,6 +877,50 @@
 
                         ]
                     });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function pheduyet(id) {
+            $.ajax({
+                url: uri + '?hscd=' + lbidhsx.innerHTML+'&pdhs='+id,
+                method: 'PUT',
+                contentType: 'application/json',
+                statusCode: {
+                    204: function () {
+                        if (id == 1) {
+                            $.toast({
+                                heading: 'Thông báo',
+                                text: 'Hồ sơ đã được phê duyệt!',
+                                position: 'top-right',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3500,
+                                stack: 6
+                            });
+                        } else {
+                            $.toast({
+                                heading: 'Thông báo',
+                                text: 'Hồ sơ không được phê duyệt!',
+                                position: 'top-right',
+                                loaderBg: '#ff6849',
+                                icon: 'info',
+                                hideAfter: 3500,
+                                stack: 6
+                            });
+                        } loaddanhsach();
+
+                    }
                 },
                 error: function (request, msg, error) {
                     $.toast({

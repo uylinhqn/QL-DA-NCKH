@@ -18,16 +18,16 @@ namespace QLDANCKH.Controllers
         private QL_NCKHQBEntities db = new QL_NCKHQBEntities();
 
         // GET: api/HOPDONG_KHCN
-        public ObjectResult<Proc_HOPDONG_KHCN_Select_Result> GetHOPDONG_KHCN()
+        public ObjectResult<Proc_HOPDONG_KHCN_Select_2_Result> GetHOPDONG_KHCN()
         {
-            return db.Proc_HOPDONG_KHCN_Select();
+            return db.Proc_HOPDONG_KHCN_Select_2();
         }
 
         // GET: api/HOPDONG_KHCN/5
         [ResponseType(typeof(HOPDONG_KHCN))]
-        public ObjectResult<Proc_HOPDONG_KHCN_SelectPK_Result> GetHOPDONG_KHCN(int id)
+        public ObjectResult<Proc_HOPDONG_KHCN_SelectPK2_Result> GetHOPDONG_KHCN(int id)
         {
-            return db.Proc_HOPDONG_KHCN_SelectPK(id);
+            return db.Proc_HOPDONG_KHCN_SelectPK2(id);
         }
 
         // PUT: api/HOPDONG_KHCN/5
@@ -42,7 +42,7 @@ namespace QLDANCKH.Controllers
         [ResponseType(typeof(HOPDONG_KHCN))]
         public IHttpActionResult PostHOPDONG_KHCN(HOPDONG_KHCN HOPDONG_KHCN)
         {
-            db.Proc_HOPDONG_KHCN_Insert(HOPDONG_KHCN.IdHoSoDK, HOPDONG_KHCN.DonVi, HOPDONG_KHCN.DiaChi, HOPDONG_KHCN.TenHD, HOPDONG_KHCN.FileHD, HOPDONG_KHCN.TongKinhPhi, HOPDONG_KHCN.NgayLap, HOPDONG_KHCN.NgayKetThuc, HOPDONG_KHCN.TrangThai, HOPDONG_KHCN.NguoiLap);
+            db.Proc_HOPDONG_KHCN_Insert(HOPDONG_KHCN.IdHoSoDK, HOPDONG_KHCN.DonVi, HOPDONG_KHCN.DiaChi, HOPDONG_KHCN.TenHD, HOPDONG_KHCN.FileHD, HOPDONG_KHCN.TongKinhPhi, HOPDONG_KHCN.NgayLap, HOPDONG_KHCN.NgayKetThuc, HOPDONG_KHCN.TrangThai, HOPDONG_KHCN.NguoiLap, HOPDONG_KHCN.SoHD);
             return StatusCode(HttpStatusCode.NoContent);
         }
 

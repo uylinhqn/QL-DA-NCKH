@@ -166,7 +166,7 @@
     <Content Include="hoi-nghi-hoi-thao\noi-dung-tham-luan.html" />
     <Content Include="hoi-nghi-hoi-thao\thanh-phan-tham-gia.html" />
     <Content Include="hoi-nghi-hoi-thao\thong-tin-hoi-thao.html" />
-    <Content Include="hop-dong-kinh-phi\danh-sach-nhiem-vu.html" />
+    <Content Include="hop-dong-kinh-phi\danh-sach-ho-so.html" />
     <Content Include="hop-dong-kinh-phi\kinh-phi-da-cap-theo-dot.html" />
     <Content Include="hop-dong-kinh-phi\kinh-phi-phe-duyet.html" />
     <Content Include="hop-dong-kinh-phi\thong-tin-ho-so-thanh-ly.html" />
@@ -386,6 +386,9 @@
     <Compile Include="Models\Proc_HOSODANGKY_Select2_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_Select3_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_SelectPK2_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -393,6 +396,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_SelectPK_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_Select_HSDat_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_Select_Result.cs">

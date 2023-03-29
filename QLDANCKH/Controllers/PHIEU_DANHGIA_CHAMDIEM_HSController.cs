@@ -30,6 +30,12 @@ namespace QLDANCKH.Controllers
         {
             return db.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_SelectPK(id);
         }
+        // GET: api/HOSODANGKies/5
+        [ResponseType(typeof(PHIEU_DANHGIA_CHAMDIEM_HS))]
+        public ObjectResult<Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem_Result> GetPHIEU_DANHGIA_CHAMDIEM_HS_XD(int idhs)
+        {
+            return db.Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Select_XemDiem(idhs);
+        }
 
         // PUT: api/HOSODANGKies/5
         [ResponseType(typeof(void))]
