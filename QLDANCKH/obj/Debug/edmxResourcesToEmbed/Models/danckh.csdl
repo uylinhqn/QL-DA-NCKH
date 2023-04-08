@@ -237,6 +237,7 @@
       <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
       <Parameter Name="TrangThai" Mode="In" Type="Boolean" />
       <Parameter Name="NguoiLap" Mode="In" Type="String" />
+      <Parameter Name="SoHD" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_HOPDONG_KHCN_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_Select_Result)" />
     <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK_Result)">
@@ -244,16 +245,12 @@
     </FunctionImport>
     <FunctionImport Name="Proc_HOPDONG_KHCN_Update">
       <Parameter Name="Id" Mode="In" Type="Int32" />
-      <Parameter Name="IdHoSoDK" Mode="In" Type="Int32" />
-      <Parameter Name="DonVi" Mode="In" Type="String" />
-      <Parameter Name="DiaChi" Mode="In" Type="String" />
       <Parameter Name="TenHD" Mode="In" Type="String" />
       <Parameter Name="FileHD" Mode="In" Type="String" />
       <Parameter Name="TongKinhPhi" Mode="In" Type="Decimal" />
       <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
       <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
-      <Parameter Name="TrangThai" Mode="In" Type="Boolean" />
-      <Parameter Name="NguoiLap" Mode="In" Type="String" />
+      <Parameter Name="SoHD" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete">
       <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -264,6 +261,7 @@
       <Parameter Name="SoTien" Mode="In" Type="Decimal" />
       <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
       <Parameter Name="NguoiLap" Mode="In" Type="String" />
+      <Parameter Name="NoiDung" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result)" />
     <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result)">
@@ -276,6 +274,7 @@
       <Parameter Name="SoTien" Mode="In" Type="Decimal" />
       <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
       <Parameter Name="NguoiLap" Mode="In" Type="String" />
+      <Parameter Name="NoiDung" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="Proc_THANHLY_HOPDONG_KHCN_Delete">
       <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -330,6 +329,32 @@
       <Parameter Name="PDHoSo" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Proc_HOSODANGKY_Select_HSDat" ReturnType="Collection(QL_NCKHQBModel.Proc_HOSODANGKY_Select_HSDat_Result)" />
+    <FunctionImport Name="Proc_HOPDONG_KHCN_Select_2" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_Select_2_Result)" />
+    <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK2" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK2_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_LvucNC" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_LvucNC_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Chon" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK_HD" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK_HD_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_HOSODANGKY_SelectPK3" ReturnType="Collection(QL_NCKHQBModel.Proc_HOSODANGKY_SelectPK3_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK3" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK3_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD" ReturnType="Collection(Decimal)">
+      <Parameter Name="IdHD" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -693,6 +718,7 @@
     <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
     <Property Name="TrangThai" Type="Boolean" />
     <Property Name="NguoiLap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SoHD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TAMUNGKINHPHI_HOPDONG_KHCN">
     <Key>
@@ -704,6 +730,7 @@
     <Property Name="SoTien" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="NgayLap" Type="DateTime" Precision="0" />
     <Property Name="NguoiLap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="THANHLY_HOPDONG_KHCN">
     <Key>
@@ -996,5 +1023,123 @@
     <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
     <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
     <Property Type="DateTime" Name="NgayDang" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOPDONG_KHCN_Select_2_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOPDONG_KHCN_SelectPK2_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_DEXUAT_DATHANG_Select_LvucNC_Result">
+    <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+    <Property Type="String" Name="Tendexuat" Nullable="true" />
+    <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+    <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+    <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+    <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+    <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+    <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+    <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOPDONG_KHCN_SelectPK_HD_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOSODANGKY_SelectPK3_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdNV" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DanhMucTaiLieu" Nullable="true" />
+    <Property Type="String" Name="FileHS" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="TenHoSo" Nullable="true" />
+    <Property Type="String" Name="SoHoSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="PDHoSo" Nullable="true" />
+    <Property Type="Int32" Name="IDHD" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOPDONG_KHCN_SelectPK3_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdNV" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DanhMucTaiLieu" Nullable="true" />
+    <Property Type="String" Name="FileHS" Nullable="true" />
+    <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+    <Property Type="String" Name="TenHoSo" Nullable="true" />
+    <Property Type="String" Name="SoHoSo" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="PDHoSo" Nullable="true" />
+    <Property Type="Int32" Name="IDHD" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHDKHCN" Nullable="true" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="SoTien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NoiDung" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHDKHCN" Nullable="true" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="SoTien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NoiDung" Nullable="true" />
   </ComplexType>
 </Schema>

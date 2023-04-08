@@ -774,23 +774,11 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK_Result>("Proc_HOPDONG_KHCN_SelectPK", idParameter);
         }
     
-        public virtual int Proc_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHoSoDK, string donVi, string diaChi, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, Nullable<bool> trangThai, string nguoiLap)
+        public virtual int Proc_HOPDONG_KHCN_Update(Nullable<int> id, string tenHD, string fileHD, Nullable<decimal> tongKinhPhi, Nullable<System.DateTime> ngayLap, Nullable<System.DateTime> ngayKetThuc, string soHD)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
-    
-            var idHoSoDKParameter = idHoSoDK.HasValue ?
-                new ObjectParameter("IdHoSoDK", idHoSoDK) :
-                new ObjectParameter("IdHoSoDK", typeof(int));
-    
-            var donViParameter = donVi != null ?
-                new ObjectParameter("DonVi", donVi) :
-                new ObjectParameter("DonVi", typeof(string));
-    
-            var diaChiParameter = diaChi != null ?
-                new ObjectParameter("DiaChi", diaChi) :
-                new ObjectParameter("DiaChi", typeof(string));
     
             var tenHDParameter = tenHD != null ?
                 new ObjectParameter("TenHD", tenHD) :
@@ -812,15 +800,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("NgayKetThuc", ngayKetThuc) :
                 new ObjectParameter("NgayKetThuc", typeof(System.DateTime));
     
-            var trangThaiParameter = trangThai.HasValue ?
-                new ObjectParameter("TrangThai", trangThai) :
-                new ObjectParameter("TrangThai", typeof(bool));
+            var soHDParameter = soHD != null ?
+                new ObjectParameter("SoHD", soHD) :
+                new ObjectParameter("SoHD", typeof(string));
     
-            var nguoiLapParameter = nguoiLap != null ?
-                new ObjectParameter("NguoiLap", nguoiLap) :
-                new ObjectParameter("NguoiLap", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Update", idParameter, idHoSoDKParameter, donViParameter, diaChiParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, trangThaiParameter, nguoiLapParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOPDONG_KHCN_Update", idParameter, tenHDParameter, fileHDParameter, tongKinhPhiParameter, ngayLapParameter, ngayKetThucParameter, soHDParameter);
         }
     
         public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete(Nullable<int> id)
@@ -832,7 +816,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete", idParameter);
         }
     
-        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert(Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap, string noiDung)
         {
             var idHDKHCNParameter = idHDKHCN.HasValue ?
                 new ObjectParameter("IdHDKHCN", idHDKHCN) :
@@ -854,7 +838,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("NguoiLap", nguoiLap) :
                 new ObjectParameter("NguoiLap", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert", idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter);
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Insert", idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter, noiDungParameter);
         }
     
         public virtual ObjectResult<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete()
@@ -871,7 +859,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK", idParameter);
         }
     
-        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap)
+        public virtual int Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update(Nullable<int> id, Nullable<int> idHDKHCN, string fileHD, Nullable<decimal> soTien, Nullable<System.DateTime> ngayLap, string nguoiLap, string noiDung)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
@@ -897,7 +885,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("NguoiLap", nguoiLap) :
                 new ObjectParameter("NguoiLap", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter);
+            var noiDungParameter = noiDung != null ?
+                new ObjectParameter("NoiDung", noiDung) :
+                new ObjectParameter("NoiDung", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update", idParameter, idHDKHCNParameter, fileHDParameter, soTienParameter, ngayLapParameter, nguoiLapParameter, noiDungParameter);
         }
     
         public virtual int Proc_THANHLY_HOPDONG_KHCN_Delete(Nullable<int> id)
@@ -1089,6 +1081,73 @@ namespace QLDANCKH.Models
                 new ObjectParameter("Id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK2_Result>("Proc_HOPDONG_KHCN_SelectPK2", idParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_LvucNC_Result> Proc_DEXUAT_DATHANG_Select_LvucNC(string nguoiDeXuat, Nullable<int> chon)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var chonParameter = chon.HasValue ?
+                new ObjectParameter("Chon", chon) :
+                new ObjectParameter("Chon", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_LvucNC_Result>("Proc_DEXUAT_DATHANG_Select_LvucNC", nguoiDeXuatParameter, chonParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_SelectPK_HD_Result> Proc_HOPDONG_KHCN_SelectPK_HD(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK_HD_Result>("Proc_HOPDONG_KHCN_SelectPK_HD", idParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_SelectPK3_Result> Proc_HOSODANGKY_SelectPK3(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK3_Result>("Proc_HOSODANGKY_SelectPK3", iDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONG_KHCN_SelectPK3_Result> Proc_HOPDONG_KHCN_SelectPK3(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONG_KHCN_SelectPK3_Result>("Proc_HOPDONG_KHCN_SelectPK3", idParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD(Nullable<int> idHD)
+        {
+            var idHDParameter = idHD.HasValue ?
+                new ObjectParameter("IdHD", idHD) :
+                new ObjectParameter("IdHD", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD", idHDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2", idParameter);
+        }
+    
+        public virtual ObjectResult<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result> Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD", idParameter);
         }
     }
 }

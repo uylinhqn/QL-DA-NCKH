@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>DANH SÁCH NHIỆM VỤ PHÊ DUYỆT THEO LĨNH VỰC</title>
+    <title>DANH MỤC CHỦ NHIỆM </title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -19,157 +19,7 @@
     <!-- Dashboard 1 Page CSS -->
     <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
     <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <style>
-        .input-group-append,
-        .input-group-append .btn + .btn,
-        .input-group-append .btn + .input-group-text,
-        .input-group-append .input-group-text + .btn,
-        .input-group-append .input-group-text + .input-group-text,
-        .input-group-prepend .btn + .btn,
-        .input-group-prepend .btn + .input-group-text,
-        .input-group-prepend .input-group-text + .btn,
-        .input-group-prepend .input-group-text + .input-group-text,
-        .input-group > .custom-file + .custom-file,
-        .input-group > .custom-file + .custom-select,
-        .input-group > .custom-file + .form-control,
-        .input-group > .custom-select + .custom-file,
-        .input-group > .custom-select + .custom-select,
-        .input-group > .custom-select + .form-control,
-        .input-group > .form-control + .custom-file,
-        .input-group > .form-control + .custom-select,
-        .input-group > .form-control + .form-control,
-        .input-group > .form-control-plaintext + .custom-file,
-        .input-group > .form-control-plaintext + .custom-select,
-        .input-group > .form-control-plaintext + .form-control {
-            margin-left: -1px
-        }
-
-        .input-group {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            width: 100%
-        }
-
-            .input-group > .custom-file,
-            .input-group > .custom-select,
-            .input-group > .form-control,
-            .input-group > .form-control-plaintext {
-                position: relative;
-                flex: 1 1 auto;
-                width: 1%;
-                margin-bottom: 0
-            }
-
-                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
-                .input-group > .custom-select:focus,
-                .input-group > .form-control:focus {
-                    z-index: 3
-                }
-
-                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
-                    z-index: 4
-                }
-
-            .input-group > .custom-file {
-                display: flex;
-                align-items: center
-            }
-
-        .input-group-append,
-        .input-group-prepend {
-            display: flex
-        }
-
-            .input-group-append .btn,
-            .input-group-prepend .btn {
-                position: relative;
-                z-index: 2
-            }
-
-                .input-group-append .btn:focus,
-                .input-group-prepend .btn:focus {
-                    z-index: 3
-                }
-
-        .input-group-prepend {
-            margin-right: -1px
-        }
-
-        .input-group-text {
-            display: flex;
-            align-items: center;
-            padding: .375rem .75rem;
-            font-size: .875rem;
-            line-height: 1.5;
-            color: #4F5467;
-            text-align: center;
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: .25rem
-        }
-
-        .custom-file,
-        .custom-file-input,
-        .custom-file-input2,
-        .custom-file-label, .custom-file-label2 {
-            height: calc(1.5em + .75rem + 2px)
-        }
-
-        .custom-file {
-            position: relative;
-            display: inline-block;
-            width: 100%
-        }
-
-        .custom-file-input {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            margin: 0;
-            opacity: 0
-        }
-
-        .custom-file-label,
-        .custom-file-label::after, .custom-file-label2,
-        .custom-file-label2::after {
-            position: absolute;
-            padding: .375rem .75rem;
-            line-height: 1.5;
-            color: #4F5467;
-            top: 0;
-            right: 0
-        }
-
-        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
-            content: ""
-        }
-
-        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
-            content: attr(data-browse)
-        }
-
-        .custom-file-label, .custom-file-label2 {
-            left: 0;
-            z-index: 1;
-            font-weight: 400;
-            background-color: #fff;
-            border: 1px solid #e9ecef;
-            border-radius: .25rem
-        }
-
-            .custom-file-label::after, .custom-file-label2::after {
-                bottom: 0;
-                z-index: 3;
-                display: block;
-                height: calc(1.5em + .75rem);
-                content: "Browse";
-                background-color: #f8f9fa;
-                border-left: inherit;
-                border-radius: 0 .25rem .25rem 0
-            }
-    </style>
+  
 </head>
 
 <body class="skin-green-dark fixed-layout mini-sidebar">
@@ -389,23 +239,15 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">
-                            Danh sách nhiệm vụ chờ phê duyệt theo lĩnh vực
-                            <select class="form-control form-select w-25" id="txtlinhvuc" onchange="loaddanhsach(this.value)">
-                                <option value="1">Tự nhiên</option>
-                                <option value="3">Nông lâm ngư nghiệp</option>
-                                <option value="4">Kỹ thuật và công nghệ</option>
-                                <option value="5">Y dược</option>
-                            
-                            </select>
-                        </h4>
+                        <h4 class="text-themecolor">Danh mục Chủ nhiệm</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Danh sách nhiệm vụ chờ phê duyệt theo lĩnh vực</li>
+                                <li class="breadcrumb-item active">Chủ nhiệm</li>
                             </ol>
+                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
                     </div>
                 </div>
@@ -419,12 +261,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên đề xuất</th>
-                                                <th>Lĩnh vực nghiên cứu</th>
-                                                <th>Nhiệm vụ</th>
-                                                <th>Năm đề xuất</th>
-                                                <th>Cấp đề xuất</th>
+                                                <th>Họ tên</th>
+                                                <th>chủ nhiệm</th>
+                                                <th>Số điện thoại</th>
                                                 <th>Trạng thái</th>
+
                                             </tr>
                                         </thead>
                                         <tbody id="danhsach"></tbody>
@@ -458,11 +299,75 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="themdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Danh mục chủ nhiệm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Họ và tên</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txthovaten" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Chức vụ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtchucvu" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Số điện thoại</label>
+                                            <div class="col-md-12">
+                                                <input type="number" class="form-control" id="txtsdt" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbtt" value="">
+                                                    <label for="chbtt">Trạng thái</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" onclick="themdmmoi();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capnhatdanhmuc" class="modal fade">
         <div class="modal-dialog modal-lg" style="z-index:9999">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Phê duyệt nhiệm vụ</h4>
+                    <h4 class="modal-title">Cập nhật thông tin chủ nhiệm</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
@@ -472,23 +377,20 @@
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="txtnamdexuatcn">Năm đề xuất</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" id="txtcapdexuatcn">Cấp đề xuất</label>
-                                        </div>
-                                        <div class="form-group">
                                             <label id="lbid" style="display:none"></label>
-                                            <label class="col-md-12 control-label" id="txttendexuatcn">Tên đề xuất</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" id="txtnoidungdexuatcn">Nội dung đề xuất</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Danh sách file đề án:</label>
-                                            <div class="col-md-12" id="dsfilecn">
+                                            <label class="col-md-12 control-label">Họ và tên</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txthovatencn" />
                                             </div>
                                         </div>
+                                        <div class="form-group">
+
+                                            <label class="col-md-12 control-label">Chức vụ</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtchucvucn" />
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -497,23 +399,22 @@
                             <div class="panel panel-blue">
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
+
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="txtlvnghiencuucn">Lĩnh vực nghiên cứu</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" id="txtlvnhiemvucn">Lĩnh vực nhiệm vụ</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label">Danh sách file phê duyệt:</label>
-                                            <div class="col-md-12" id="dsfilecnpd">
+                                            <label class="col-md-12 control-label">Số điện thoại</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtsdtcn" />
                                             </div>
                                         </div>
+
+
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label">File phê duyệt đính kèm</label>
                                             <div class="col-md-12">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile01" multiple />
-                                                    <label class="custom-file-label" for="inputGroupFile01">Chọn tập tin</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="chbttcn" value="">
+                                                    <label for="chbttcn">Trạng thái</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -522,7 +423,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile2" data-bs-dismiss="modal" onclick="sua();">Phê duyệt</button>
+                            <button class="btn btn-success waves-effect text-start text-white" data-bs-dismiss="modal" onclick="capnhattt();">Lưu</button>
                             <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
                         </div>
                     </div>
@@ -530,7 +431,10 @@
             </div>
         </div>
     </div>
-    <label id="lbtenfile" style="display:none"></label>
+
+
+
+
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -569,76 +473,8 @@
 
             ], "pageLength": 20
         });
-        $(document).ready(function () {
-            $(".custom-file-input").on("change", function () { var e = $(this).val(); $(this).next(".custom-file-label").html(e) })
-        });
-        function them() {
-            var files = $("#inputGroupFile01").get(0).files;
-            if (files.length > 0) {
-                var data = new FormData();
-                for (var i = 0; i < files.length; i++) {
-                    var file = files[i];
-                    data.append(file.name, file);
-                }
-
-                // Make Ajax request with the contentType = false, and procesDate = false
-                var ajaxRequest = $.ajax({
-                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
-                    url: "/api/fileupload/uploadfile",
-                    contentType: false,
-                    processData: false,
-                    data: data
-                });
-
-                ajaxRequest.done(function (responseData, textStatus) {
-                    if (textStatus == 'success') {
-                        if (responseData != null) {
-                            if (responseData.Key) {
-                                localStorage.setItem("newfiles", responseData.Value);
-                                themdmmoi();
-                            }
-                        }
-                    } else {
-                        alert(responseData.Value); return;
-                    }
-                });
-            }
-            else {
-                themdmmoi();
-            }
-        }
-
         window.onload = function () {
-            loadmenu();
-            //loadnghiencuu();
-            loaddanhsach(document.getElementById("txtlinhvuc").value);
-        }
-
-        function loadnghiencuu() {
-            $.ajax({
-                url: '/api/dm_linhvuc_nghiencuu',
-                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
-                contentType: 'application/json',
-                success: function (data) {
-                    $('#txtlinhvuc').html(""); 
-                    // On success, 'data' contains a list of products.
-                    $.each(data, function (key, item) {
-                        $('#txtlinhvuc').append("<option value='" + item.IDLinhvuc + "'>" + item.TenLinhvuc + "</option>");
-                    });
-                   /* }); loaddanhsach(document.getElementById("txtlinhvuc").value);*/
-                },
-                error: function (request, msg, error) {
-                    $.toast({
-                        heading: 'Thông báo',
-                        text: 'Dữ liệu đang được cập nhật!',
-                        position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'info',
-                        hideAfter: 3500,
-                        stack: 6
-                    });
-                }
-            }); 
+            loadmenu(); loaddanhsach();
         }
         function loadmenu() {
             $.ajax({
@@ -711,11 +547,11 @@
                 }
             });
         }
-        var uri = '/api/DEXUAT_DATHANG';
-        function loaddanhsach(id) {
+        var uri = '/api/DM_CHUNHIEM';
+        function loaddanhsach() {
             $.ajax({
-                url: '/api/lv?lv=' + id,
-                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                url: uri,
+                method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
                     $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
@@ -726,15 +562,14 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDDexuat + ")'>Phê duyệt đề xuất</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDDexuat + ")'>Xóa đề xuất</a></li></ul></div></td>" +
-                            "<td>" + item.Tendexuat + "</td>" +
-                            "<td>" + item.TenLinhVucNC + "</td><td>" + item.TenLinhVucNV + "</td>" +
-                            "<td>" + item.NamDeXuat + "</td>" +
-                            "<td>" + item.CapDeXuat + "</td>" +
-                            "<td style='text-align:center;'>" + (item.TrangthaiPD == true ? "<a class='btn btn-success btn-xs'>Đã phê duyệt</a>" : "<a class='btn btn-danger btn-xs'>Chờ duyệt</a>") + "</td>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.ChuNhiemID + ")'>Cập nhật thông tin</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.ChuNhiemID + ")'>Xóa chủ nhiệm</a></li></ul></div></td>" +
+                            "<td>" + item.HoTen + "</td>" +
+                            "<td>" + item.ChucVu + "</td>" +
+                            "<td>" + item.SoDienThoai + "</td>" +
+                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
                             "</tr> ";
-                        $("#danhsach").append(strhtml);
+                        $("#danhsach").append(strhtml); stt++;
                     });
                     $('#myTable').DataTable({
                         dom: 'Bfrtip',
@@ -1003,27 +838,17 @@
         }
         function xemdanhmuc(id) {
             $.ajax({
-                url: '/api/pheduyet?idv=' + id,
+                url: uri + '?id=' + id,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    $("#dsfilecn").html("");
-                    $("#dsfilecnpd").html("");
-                    document.getElementById("lbid").innerHTML = data[0].IDDexuat;
-                    document.getElementById("txttendexuatcn").innerHTML = "Tên đề xuất: <b>" + data[0].Tendexuat + "</b>";
-                    document.getElementById("txtnoidungdexuatcn").innerHTML = "Nội dung đề xuất: <b>" + data[0].Noidungdexuat + "</b>";
-                    document.getElementById("txtnamdexuatcn").innerHTML = "Năm đề xuất: <b>" + data[0].NamDeXuat + "</b>";
-                    document.getElementById("txtcapdexuatcn").innerHTML = "Cấp đề xuất: <b>" + data[0].CapDeXuat + "</b>";
-                    document.getElementById("txtlvnghiencuucn").innerHTML = "Lĩnh vực nghiên cứu: <b>" + data[0].TenLinhVucNC + "</b>";
-                    document.getElementById("txtlvnhiemvucn").innerHTML = "Lĩnh vực nhiệm vụ: <b>" + data[0].TenLinhVucNV + "</b>";
-                    localStorage.setItem("files", data[0].LinkTaiLieu);
-                    localStorage.setItem("filespd", data[0].Quyetdinhpduyet);
-                    for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
-                        $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
-                    }
-                    for (var i = 0; i < localStorage.getItem("filespd").split(';').length - 1; i++) {
-                        $("#dsfilecnpd").append("<a href='../uploads/" + localStorage.getItem("filespd").split(';')[i] + "' target='_blank'>" + localStorage.getItem("filespd").split(';')[i] + "</a><hr />");
-                    }
+                    document.getElementById("lbid").innerHTML = data.ChuNhiemID;
+                    document.getElementById("txthovatencn").value = data.HoTen;
+                    document.getElementById("txtchucvucn").value = data.ChucVu;
+                    document.getElementById("txtsdtcn").value = data.SoDienThoai;
+
+                    document.getElementById("chbttcn").checked = data.Trangthai;
+
                 },
                 error: function (request, msg, error) {
                     $.toast({
@@ -1038,68 +863,41 @@
                 }
             });
         }
-        function sua() {
-            var files = $("#inputGroupFile01").get(0).files;
-            if (files.length > 0) {
-                var data = new FormData();
-                for (var i = 0; i < files.length; i++) {
-                    var file = files[i];
-                    data.append(file.name, file);
-                }
-
-                // Make Ajax request with the contentType = false, and procesDate = false
-                var ajaxRequest = $.ajax({
-                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
-                    url: "/api/fileupload/uploadfile",
-                    contentType: false,
-                    processData: false,
-                    data: data
-                });
-
-                ajaxRequest.done(function (responseData, textStatus) {
-                    if (textStatus == 'success') {
-                        if (responseData != null) {
-                            if (responseData.Key) {
-                                //filehd = responseData.Value;
-                                localStorage.setItem("newfiles", responseData.Value); themdmmoi();
-                            }
-                        }
-                    } else {
-                        alert(responseData.Value); return;
-                    }
-                });
-            }
-            else { themdmmoi(); }
-        }
         function themdmmoi() {
             var datas = {
-                IDDexuat: document.getElementById("lbid").innerHTML,
-                Quyetdinhpduyet: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("filespd"))
+                HoTen: document.getElementById("txthovaten").value,
+                ChucVu: document.getElementById("txtchucvu").value,
+                SoDienThoai: document.getElementById("txtsdt").value,
+                Trangthai: document.getElementById("chbtt").checked,
+
             };
             $.ajax({
-                url: '/api/pheduyetda',
-                method: 'POST', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                url: uri,
+                method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(datas),
                 statusCode: {
-                    204: function () {
+                    201: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Phê duyệt đề xuất thành công!',
+                            text: 'Thêm thông tin chủ nhiệm thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("lbid").innerHTML = "";
-                        localStorage.removeItem("newfiles");
+                        document.getElementById("txthovaten").value = "";
+                        document.getElementById("txtchucvu").value = "";
+                        document.getElementById("txtsdt").value = "";
+                        document.getElementById("chbtt").checked = false;
+
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Phê duyệt đề xuất không thành công!',
+                        text: 'Thêm thông tin chủ nhiệm không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -1109,16 +907,105 @@
                 }
             });
         }
+        function capnhattt() {
+            var datas = {
+
+                ChuNhiemID: document.getElementById("lbid").innerHTML,
+                HoTen: document.getElementById("txthovatencn").value,
+                ChucVu: document.getElementById("txtchucvucn").value,
+                SoDienThoai: document.getElementById("txtsdtcn").value,
+                Trangthai: document.getElementById("chbttcn").checked,
+
+            };
+            $.ajax({
+                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin chủ nhiệm thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                        document.getElementById("txthovatencn").value = "";
+                        document.getElementById("txtchucvucn").value = "";
+                        document.getElementById("txtsdtcn").value = "";
+
+                        document.getElementById("chbttcn").checked = false;
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin chủ nhiệm không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'warning',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+        function capnhattrangthai(strtx) {
+            $.ajax({
+                url: uri + '?email=' + strtx.innerHTML,
+                method: 'PUT',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data == true) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin thành viên thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                    }
+                    else {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật thông tin thành viên không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin thành viên không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
         function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa đề xuất đã chọn?')) {
+            if (confirm('Bạn chắc chắn muốn xóa chủ nhiệm đã chọn?')) {
                 $.ajax({
                     url: uri + '/' + id,
-                    method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    method: 'DELETE',
                     contentType: 'application/json',
                     success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin danh sách đề xuất thành công!',
+                            text: 'Xóa thông tin chủ nhiệm thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
@@ -1129,13 +1016,13 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin danh sách đề xuất không thành công!',
+                            text: 'Xóa thông tin chủ nhiệm không thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
-                        });
+                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
                     }
                 });
             }
