@@ -207,6 +207,7 @@
           <Property Name="SoTien" Type="decimal" Precision="18" Scale="0" />
           <Property Name="NgayLap" Type="date" />
           <Property Name="NguoiLap" Type="varchar" MaxLength="500" />
+          <Property Name="NoiDung" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="THANHLY_HOPDONG_KHCN">
           <Key>
@@ -321,6 +322,10 @@
         <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_LvucNC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Chon" Type="int" Mode="In" />
+        </Function>
         <Function Name="Proc_DEXUAT_DATHANG_Select_Nam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
           <Parameter Name="Nam" Type="int" Mode="In" />
@@ -364,21 +369,23 @@
         <Function Name="Proc_HOPDONG_KHCN_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="Proc_HOPDONG_KHCN_SelectPK_HD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="Proc_HOPDONG_KHCN_SelectPK2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_HOPDONG_KHCN_SelectPK3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_HOPDONG_KHCN_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
-          <Parameter Name="IdHoSoDK" Type="int" Mode="In" />
-          <Parameter Name="DonVi" Type="nvarchar" Mode="In" />
-          <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
           <Parameter Name="TenHD" Type="nvarchar" Mode="In" />
           <Parameter Name="FileHD" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="TongKinhPhi" Type="decimal" Mode="In" />
           <Parameter Name="NgayLap" Type="date" Mode="In" />
           <Parameter Name="NgayKetThuc" Type="date" Mode="In" />
-          <Parameter Name="TrangThai" Type="bit" Mode="In" />
-          <Parameter Name="NguoiLap" Type="varchar" Mode="In" />
+          <Parameter Name="SoHD" Type="varchar" Mode="In" />
         </Function>
         <Function Name="Proc_HOSODANGKY_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -404,6 +411,9 @@
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_HOSODANGKY_SelectPK2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_HOSODANGKY_SelectPK3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_HOSODANGKY_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -461,9 +471,19 @@
           <Parameter Name="SoTien" Type="decimal" Mode="In" />
           <Parameter Name="NgayLap" Type="date" Mode="In" />
           <Parameter Name="NguoiLap" Type="varchar" Mode="In" />
+          <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdHD" Type="int" Mode="In" />
+        </Function>
         <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -473,6 +493,7 @@
           <Parameter Name="SoTien" Type="decimal" Mode="In" />
           <Parameter Name="NgayLap" Type="date" Mode="In" />
           <Parameter Name="NguoiLap" Type="varchar" Mode="In" />
+          <Parameter Name="NoiDung" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="Proc_THANHLY_HOPDONG_KHCN_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -809,16 +830,12 @@
           </FunctionImport>
           <FunctionImport Name="Proc_HOPDONG_KHCN_Update">
             <Parameter Name="Id" Mode="In" Type="Int32" />
-            <Parameter Name="IdHoSoDK" Mode="In" Type="Int32" />
-            <Parameter Name="DonVi" Mode="In" Type="String" />
-            <Parameter Name="DiaChi" Mode="In" Type="String" />
             <Parameter Name="TenHD" Mode="In" Type="String" />
             <Parameter Name="FileHD" Mode="In" Type="String" />
             <Parameter Name="TongKinhPhi" Mode="In" Type="Decimal" />
             <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
             <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
-            <Parameter Name="TrangThai" Mode="In" Type="Boolean" />
-            <Parameter Name="NguoiLap" Mode="In" Type="String" />
+            <Parameter Name="SoHD" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Delete">
           <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -829,6 +846,7 @@
             <Parameter Name="SoTien" Mode="In" Type="Decimal" />
             <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
             <Parameter Name="NguoiLap" Mode="In" Type="String" />
+            <Parameter Name="NoiDung" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_Result)" />
           <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK_Result)">
@@ -841,6 +859,7 @@
             <Parameter Name="SoTien" Mode="In" Type="Decimal" />
             <Parameter Name="NgayLap" Mode="In" Type="DateTime" />
             <Parameter Name="NguoiLap" Mode="In" Type="String" />
+            <Parameter Name="NoiDung" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_THANHLY_HOPDONG_KHCN_Delete">
           <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -897,6 +916,28 @@
           <FunctionImport Name="Proc_HOSODANGKY_Select_HSDat" ReturnType="Collection(QL_NCKHQBModel.Proc_HOSODANGKY_Select_HSDat_Result)" />
           <FunctionImport Name="Proc_HOPDONG_KHCN_Select_2" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_Select_2_Result)" />
           <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK2" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK2_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_LvucNC" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_LvucNC_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Chon" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK_HD" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK_HD_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_HOSODANGKY_SelectPK3" ReturnType="Collection(QL_NCKHQBModel.Proc_HOSODANGKY_SelectPK3_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_HOPDONG_KHCN_SelectPK3" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK3_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD" ReturnType="Collection(Decimal)">
+          <Parameter Name="IdHD" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1274,6 +1315,7 @@
           <Property Name="SoTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NgayLap" Type="DateTime" Precision="0" />
           <Property Name="NguoiLap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="THANHLY_HOPDONG_KHCN">
           <Key>
@@ -1594,6 +1636,96 @@
           <Property Type="Boolean" Name="TrangThai" Nullable="true" />
           <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_LvucNC_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_HOPDONG_KHCN_SelectPK_HD_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_HOSODANGKY_SelectPK3_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdNV" Nullable="true" />
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DanhMucTaiLieu" Nullable="true" />
+          <Property Type="String" Name="FileHS" Nullable="true" />
+          <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+          <Property Type="String" Name="TenHoSo" Nullable="true" />
+          <Property Type="String" Name="SoHoSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="PDHoSo" Nullable="true" />
+          <Property Type="Int32" Name="IDHD" Nullable="false" />
+          <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+          <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_HOPDONG_KHCN_SelectPK3_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdNV" Nullable="true" />
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DanhMucTaiLieu" Nullable="true" />
+          <Property Type="String" Name="FileHS" Nullable="true" />
+          <Property Type="Boolean" Name="Trangthai" Nullable="true" />
+          <Property Type="String" Name="TenHoSo" Nullable="true" />
+          <Property Type="String" Name="SoHoSo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="PDHoSo" Nullable="true" />
+          <Property Type="Int32" Name="IDHD" Nullable="false" />
+          <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+          <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdHDKHCN" Nullable="true" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="SoTien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NoiDung" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdHDKHCN" Nullable="true" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="SoTien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NoiDung" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2082,6 +2214,7 @@
           <EntitySetMapping Name="TAMUNGKINHPHI_HOPDONG_KHCN">
             <EntityTypeMapping TypeName="QL_NCKHQBModel.TAMUNGKINHPHI_HOPDONG_KHCN">
               <MappingFragment StoreEntitySet="TAMUNGKINHPHI_HOPDONG_KHCN">
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
                 <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
                 <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
                 <ScalarProperty Name="SoTien" ColumnName="SoTien" />
@@ -2505,6 +2638,121 @@
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
                 <ScalarProperty Name="SoHD" ColumnName="SoHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_LvucNC" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_LvucNC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_LvucNC_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_SelectPK_HD" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_SelectPK_HD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK_HD_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="SoHD" ColumnName="SoHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_SelectPK3" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_SelectPK3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOSODANGKY_SelectPK3_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+                <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+                <ScalarProperty Name="SoHoSo" ColumnName="SoHoSo" />
+                <ScalarProperty Name="PDHoSo" ColumnName="PDHoSo" />
+                <ScalarProperty Name="IDHD" ColumnName="IDHD" />
+                <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+                <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="SoHD" ColumnName="SoHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_HOPDONG_KHCN_SelectPK3" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONG_KHCN_SelectPK3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONG_KHCN_SelectPK3_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+                <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+                <ScalarProperty Name="SoHoSo" ColumnName="SoHoSo" />
+                <ScalarProperty Name="PDHoSo" ColumnName="PDHoSo" />
+                <ScalarProperty Name="IDHD" ColumnName="IDHD" />
+                <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+                <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="SoHD" ColumnName="SoHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD" />
+          <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD" FunctionName="QL_NCKHQBModel.Store.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdHDKHCN" ColumnName="IdHDKHCN" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -20,5 +20,6 @@ namespace QLDANCKH.Models
         public Nullable<decimal> SoTien { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
         public string NguoiLap { get; set; }
+        public string NoiDung { get; set; }
     }
 }

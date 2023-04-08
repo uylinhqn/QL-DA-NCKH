@@ -33,9 +33,9 @@ namespace QLDANCKH.Controllers
 
         // GET: api/HOSODANGKies/5
         [ResponseType(typeof(HOSODANGKY))]
-        public ObjectResult<Proc_HOSODANGKY_SelectPK2_Result> GetHOSODANGKY(int id)
+        public ObjectResult<Proc_HOSODANGKY_SelectPK3_Result> GetHOSODANGKY(int id)
         {
-            return db.Proc_HOSODANGKY_SelectPK2(id);
+            return db.Proc_HOSODANGKY_SelectPK3(id);
         }
         public ObjectResult<Proc_HOSODANGKY_SelectPK_ChamDiem_Result> GetHOSODANGKYcd(int idcd)
         {

@@ -451,7 +451,7 @@
         <!-- ============================================================== -->
     </div>
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="themdanhmuc" class="modal bs-example-modal-lg">
-        <div class="modal-dialog modal-xl" style="z-index:9999">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Lập hợp đồng</h4>
@@ -555,7 +555,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="themdmmoi();">Lưu</button>
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="them();">Lưu</button>
                             <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
                         </div>
                     </form>
@@ -564,7 +564,7 @@
         </div>
     </div>
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="xemdiemcham" class="modal bs-example-modal-lg">
-        <div class="modal-dialog modal-xl" style="z-index:9999">
+        <div class="modal-dialog modal-xl" style="z-index:2000">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Xem thông tin hợp đồng</h4>
@@ -606,57 +606,100 @@
                                 </div>
                             </div>
                         </div><hr class="m-b-20" />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Số HĐ</th>
+                                    <th>Tên HĐ</th>
+                                    <th>Ngày lập</th>
+                                    <th>Tổng kinh phí</th>
+                                    <th>Ngày kết thúc</th>
+                                </tr>
+                            </thead>
+                            <tbody id="danhsachhopdong">
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="capnhatdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thông tin hợp đồng</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+
                         <div class="col-lg-6">
                             <div class="panel panel-blue">
                                 <div class="panel-body pan">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="lbngaylap">Ngày lập:</label>
+                                            <label class="col-md-12 control-label" id="lbidhd" style="display:none"></label>
+                                            <label class="col-md-12 control-label" id="lbidhshd" style="display:none"></label>
+                                            <label class="col-md-12 control-label">Ngày lập</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngaylapcn" />
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="lbtenhd">Tên hợp đồng:</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="panel panel-blue">
-                                <div class="panel-body pan">
-                                    <div class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-md-12 control-label" id="lbsohd">Số hợp đồng:</label>
+                                            <label class="col-md-12 control-label">Số hợp đồng</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txtsohopdongcn" />
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="lbkinhphi">Tổng kinh phí:</label>
+                                            <label class="col-md-12 control-label">Tên hợp đồng</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttenhopdongcn" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="panel panel-blue">
-                                <div class="panel-body pan">
-                                    <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label" id="lbngayketthuc">Ngày kết thúc:</label>
+                                            <label class="col-md-12 control-label">Tổng kinh phí</label>
+                                            <div class="col-md-12">
+                                                <input type="number" class="form-control" id="txtkinhphicn" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="panel panel-blue">
-                                <div class="panel-body pan">
-                                    <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="col-md-12 control-label">File hợp đồng kèm theo:</label>
-                                            <div class="col-md-12" id="dsfilev">
+                                            <label class="col-md-12 control-label">Ngày kết thúc hợp đồng</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngayketthuccn" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File hợp đồng đính kèm</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile02" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile02">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file:</label>
+                                            <div class="col-md-12" id="dsfilecn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="sua();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
                         </div>
                     </form>
                 </div>
@@ -706,7 +749,7 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loadmenu(); loaddanhsach(); 
+            loadmenu(); loaddanhsach();
         }
         function enforceMinMax(el) {
             if (el.value != "") {
@@ -792,7 +835,7 @@
         var uri = '/api/hosodangkies';
         function loaddanhsach() {
             $.ajax({
-                url: uri +'?loai=1',
+                url: uri + '?loai=1',
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -833,6 +876,328 @@
                     });
                 }
             });
+        }
+        function laphopdong(id) {
+            $.ajax({
+                url: uri + '?idcd=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhs").innerHTML = data[0].ID;
+                    document.getElementById("lbtennv").innerHTML = "Tên nhiệm vụ: <b>" + data[0].Tendexuat + "</b>";
+                    document.getElementById("lbsohoso").innerHTML = "Số hồ sơ: <b>" + data[0].SoHoSo + "</b>";
+                    document.getElementById("lbtenhoso").innerHTML = "Tên hồ sơ: <b>" + data[0].TenHoSo + "</b>";
+                    document.getElementById("lbdonvi").innerHTML = "Đơn vị/Cá nhân: <b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachi").innerHTML = "Địa chỉ: <b>" + data[0].DiaChi + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+        function xemhopdong(id) {
+            $.ajax({
+                url: uri + '?idcd=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhsx").innerHTML = data[0].ID;
+                    document.getElementById("lbidhshd").innerHTML = data[0].ID;
+                    document.getElementById("lbtennvx").innerHTML = "Tên nhiệm vụ: <b>" + data[0].Tendexuat + "</b>";
+                    document.getElementById("lbsohosox").innerHTML = "Số hồ sơ: <b>" + data[0].SoHoSo + "</b>";
+                    document.getElementById("lbtenhosox").innerHTML = "Tên hồ sơ: <b>" + data[0].TenHoSo + "</b>";
+                    document.getElementById("lbdonvix").innerHTML = "Đơn vị/Cá nhân: <b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachix").innerHTML = "Địa chỉ: <b>" + data[0].DiaChi + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemchitiet(id);
+        }
+
+        function stringToDate(_date) {
+            _date = new Date(_date);
+            year = _date.getFullYear();
+            month = _date.getMonth() + 1;
+            dt = _date.getDate();
+
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            return (dt + '/' + month + '/' + year);
+        }
+        function formatThousands(n, dp) {
+            var s = '' + (Math.floor(n)), d = n % 1, i = s.length, r = '';
+            while ((i -= 3) > 0) { r = ',' + s.substr(i, 3) + r; }
+            return s.substr(0, i + 3) + r + (d ? '.' + Math.round(d * Math.pow(10, dp || 2)) : '');
+        }
+        function xemchitiet(id) {
+            $.ajax({
+                url: '/api/HOPDONG_KHCN' + '?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $("#danhsachhopdong").html("");
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + "<div class='dropdown'>" +
+                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='suahopdong(" + item.IDHD + ")'>Cập nhật hợp đồng</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-target='#xemdiemcham' data-bs-toggle='modal' onclick='xoa(" + item.IDHD + ")'>Xóa thông tin hợp đồng</a></li></ul></div></td>" +
+                            "<td>" + item.SoHD + "</td>" +
+                            "<td>" + item.TenHD + "</td>" +
+                            "<td>" + stringToDate(item.NgayLap) + "</td>" +
+                            "<td>" + formatThousands(item.TongKinhPhi) + "</td><td>" + stringToDate(item.NgayKetThuc) + "</td></tr> ";
+                        $("#danhsachhopdong").append(strhtml);
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function suahopdong(id) {
+            $.ajax({
+                url: '/api/HOPDONG_KHCN?idsu=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhd").innerHTML = data[0].ID;
+                    document.getElementById("txtngaylapcn").value = data[0].NgayLap.split('T')[0];
+                    document.getElementById("txtsohopdongcn").value = data[0].SoHD;
+                    document.getElementById("txttenhopdongcn").value = data[0].TenHD;
+                    document.getElementById("txtkinhphicn").value = data[0].TongKinhPhi;
+                    document.getElementById("txtngayketthuccn").value = data[0].NgayKetThuc.split('T')[0]; $("#dsfilecn").html("");
+                    localStorage.setItem("files", data[0].FileHD);
+                    for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                        $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function them() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                localStorage.setItem("newfiles", responseData.Value);
+                                themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else {
+                themdmmoi();
+            }
+        }
+        function sua() {
+            var files = $("#inputGroupFile02").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                //filehd = responseData.Value;
+                                localStorage.setItem("newfiles", responseData.Value); capnhattt();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else { capnhattt(); }
+        }
+        function themdmmoi() {
+            var datas = {
+                IdHoSoDK: document.getElementById("lbidhs").innerHTML,
+                DonVi: document.getElementById("lbdonvi").innerHTML,
+                DiaChi: document.getElementById("lbdiachi").innerHTML,
+                TenHD: document.getElementById("txttenhopdong").value,
+                FileHD: localStorage.getItem("newfiles"),
+                TongKinhPhi: document.getElementById("txtkinhphi").value,
+                NgayLap: document.getElementById("txtngaylap").value,
+                NgayKetThuc: document.getElementById("txtngayketthuc").value,
+                SoHD: document.getElementById("txtsohopdong").value,
+            };
+            $.ajax({
+                url: '/api/HOPDONG_KHCN',
+                method: 'POST', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Lập hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Lập hợp đồng không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function capnhattt() {
+            var datas = {
+                ID: document.getElementById("lbidhd").innerHTML,
+                TenHD: document.getElementById("txttenhopdongcn").value,
+                FileHD: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("files")),
+                TongKinhPhi: document.getElementById("txtkinhphicn").value,
+                NgayLap: document.getElementById("txtngaylapcn").value,
+                NgayKetThuc: document.getElementById("txtngayketthuccn").value,
+                SoHD: document.getElementById("txtsohopdongcn").value,
+            };
+            $.ajax({
+                url: '/api/HOPDONG_KHCN?id=' + document.getElementById("lbidhd").innerHTML,
+                method: 'PUT', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập thông tin hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); xemchitiet(document.getElementById("lbidhshd").innerHTML);
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin hợp đồng không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'warning',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function xoa(id) {
+            if (confirm('Bạn chắc chắn muốn xóa thông tin hợp đồng đã chọn?')) {
+                $.ajax({
+                    url: '/api/HOPDONG_KHCN' + '/' + id,
+                    method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                    },
+                    error: function (request, msg, error) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin hợp đồng không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'warning',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                });
+            }
         }
     </script>
 </body>
