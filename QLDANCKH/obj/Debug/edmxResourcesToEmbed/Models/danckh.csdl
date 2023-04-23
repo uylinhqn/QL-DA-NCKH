@@ -355,6 +355,7 @@
     <FunctionImport Name="Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD" ReturnType="Collection(QL_NCKHQBModel.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result)">
       <Parameter Name="Id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" ReturnType="Collection(QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result)" />
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -1141,5 +1142,18 @@
     <Property Type="DateTime" Name="NgayLap" Nullable="true" />
     <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
     <Property Type="String" Name="NoiDung" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="String" Name="TieuDeThanhLy" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienDaTU" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SoTienCanTT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SoTienCanThuHoi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="ThoiHanThanhLy" Nullable="true" />
   </ComplexType>
 </Schema>

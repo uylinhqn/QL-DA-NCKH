@@ -1149,5 +1149,10 @@ namespace QLDANCKH.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD_Result>("Proc_TAMUNGKINHPHI_HOPDONG_KHCN_SeletePK2_HD", idParameter);
         }
+    
+        public virtual ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result> Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result>("Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL");
+        }
     }
 }

@@ -45,6 +45,10 @@ namespace QLDANCKH.Controllers
             }
             return dt;
         }
+        public decimal? GetTAMUNGKINHPHI_HOPDONG_KHCNTA(int idhdtl)
+        {           
+            return db.Proc_TAMUNGKINHPHI_HOPDONG_KHCN_Selete_HD(idhdtl).ToList()[0]; 
+        }
 
         // GET: api/TAMUNGKINHPHI_HOPDONG_KHCN/5
         [ResponseType(typeof(TAMUNGKINHPHI_HOPDONG_KHCN))]

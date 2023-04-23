@@ -36084,7 +36084,7 @@ textarea {
 }
 .form-control {
     color: #212529;
-    display: initial;
+    display: block;
 }
 .form-control-sm {
     min-height: 20px;

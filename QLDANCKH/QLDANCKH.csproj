@@ -168,6 +168,7 @@
     <Content Include="hoi-nghi-hoi-thao\thong-tin-hoi-thao.html" />
     <Content Include="hop-dong-kinh-phi\danh-sach-ho-so.html" />
     <Content Include="hop-dong-kinh-phi\tam-ung-kinh-phi.html" />
+    <Content Include="hop-dong-kinh-phi\thong-tin-hop-dong.html" />
     <Content Include="hop-dong-kinh-phi\thong-tin-ho-so-thanh-ly.html" />
     <Content Include="images\2.jpg" />
     <Content Include="images\favicon.png" />
@@ -452,6 +453,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_THANHLY_HOPDONG_KHCN_Selete_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_ThanhVien_CheckLogIn_2_Result.cs">

@@ -1,0 +1,1163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
+    <title>THÔNG TIN HỢP ĐỒNG</title>
+    <!-- This page CSS -->
+    <!--Toaster Popup message CSS -->
+    <link href="../css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.min.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/select2.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .input-group-append,
+        .input-group-append .btn + .btn,
+        .input-group-append .btn + .input-group-text,
+        .input-group-append .input-group-text + .btn,
+        .input-group-append .input-group-text + .input-group-text,
+        .input-group-prepend .btn + .btn,
+        .input-group-prepend .btn + .input-group-text,
+        .input-group-prepend .input-group-text + .btn,
+        .input-group-prepend .input-group-text + .input-group-text,
+        .input-group > .custom-file + .custom-file,
+        .input-group > .custom-file + .custom-select,
+        .input-group > .custom-file + .form-control,
+        .input-group > .custom-select + .custom-file,
+        .input-group > .custom-select + .custom-select,
+        .input-group > .custom-select + .form-control,
+        .input-group > .form-control + .custom-file,
+        .input-group > .form-control + .custom-select,
+        .input-group > .form-control + .form-control,
+        .input-group > .form-control-plaintext + .custom-file,
+        .input-group > .form-control-plaintext + .custom-select,
+        .input-group > .form-control-plaintext + .form-control {
+            margin-left: -1px
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%
+        }
+
+            .input-group > .custom-file,
+            .input-group > .custom-select,
+            .input-group > .form-control,
+            .input-group > .form-control-plaintext {
+                position: relative;
+                flex: 1 1 auto;
+                width: 1%;
+                margin-bottom: 0
+            }
+
+                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
+                .input-group > .custom-select:focus,
+                .input-group > .form-control:focus {
+                    z-index: 3
+                }
+
+                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
+                    z-index: 4
+                }
+
+            .input-group > .custom-file {
+                display: flex;
+                align-items: center
+            }
+
+        .input-group-append,
+        .input-group-prepend {
+            display: flex
+        }
+
+            .input-group-append .btn,
+            .input-group-prepend .btn {
+                position: relative;
+                z-index: 2
+            }
+
+                .input-group-append .btn:focus,
+                .input-group-prepend .btn:focus {
+                    z-index: 3
+                }
+
+        .input-group-prepend {
+            margin-right: -1px
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: .375rem .75rem;
+            font-size: .875rem;
+            line-height: 1.5;
+            color: #4F5467;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+        .custom-file,
+        .custom-file-input,
+        .custom-file-input2,
+        .custom-file-label, .custom-file-label2 {
+            height: calc(1.5em + .75rem + 2px)
+        }
+
+        .custom-file {
+            position: relative;
+            display: inline-block;
+            width: 100%
+        }
+
+        .custom-file-input {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0;
+            opacity: 0
+        }
+
+        .custom-file-label,
+        .custom-file-label::after, .custom-file-label2,
+        .custom-file-label2::after {
+            position: absolute;
+            padding: .375rem .75rem;
+            line-height: 1.5;
+            color: #4F5467;
+            top: 0;
+            right: 0
+        }
+
+        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
+            content: ""
+        }
+
+        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
+            content: attr(data-browse)
+        }
+
+        .custom-file-label, .custom-file-label2 {
+            left: 0;
+            z-index: 1;
+            font-weight: 400;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+            .custom-file-label::after, .custom-file-label2::after {
+                bottom: 0;
+                z-index: 3;
+                display: block;
+                height: calc(1.5em + .75rem);
+                content: "Browse";
+                background-color: #f8f9fa;
+                border-left: inherit;
+                border-radius: 0 .25rem .25rem 0
+            }
+    </style>
+</head>
+
+<body class="skin-green-dark fixed-layout mini-sidebar">
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../images/khcnqb.jpg" alt="homepage" class="dark-logo" style="width:30px;height:30px" />
+                            <!-- Light Logo icon -->
+                            <img src="../images/khcn.png" alt="homepage" class="light-logo" style="width:30px;height:30px" />
+                            <span class="logo-text secondary-text">KHOA HỌC & CÔNG NGHỆ</span>
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                            <!-- dark Logo text -->
+                            <!--<img src="../images/logo-text.png" alt="homepage" class="dark-logo" />-->
+                            <!-- Light Logo text -->
+                            <!--<img src="../images/logo-light-text.png" class="light-logo" alt="homepage" />-->
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-user"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-end animated bounceInDown" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Khoa Học & Công Nghệ</div>
+                                    </li>
+                                    <li>
+                                        <!-- text-->
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <i class="ti-user"></i> Thông tin cá nhân
+                                        </a>
+                                        <a href="../login.html" class="dropdown-item">
+                                            <i class="fa fa-power-off"></i> Thoát
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-list" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Đề xuất đặt hàng
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom1">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-grid2" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white">Nhiệm vụ phê duyệt</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom2">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check-box" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tuyển chọn, giao trực tiếp</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom3">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-bookmark-alt" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hợp đồng, kinh phí
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom4">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-briefcase" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Tổ chức chủ trì</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom5">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-accordion-merged" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Thực hiện nhiệm vụ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom6">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-check" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Kiểm tra tiến độ</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom7">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-gallery" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hội nghị, hội thảo</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom8">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">
+                                    Hội đồng nghiệm thu cơ sở
+                                </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom9">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hợp đồng nghiệm thu cấp tỉnh</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom10">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-light-bulb" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Đăng ký lưu trữ, công nhận</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom11"></ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-archive" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý chuyển giao ứng dụng</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom12">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-align-left" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Quản lý gia hạn</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom13">
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="fa fa-cogs" style="color:white !important"></i>
+                                <span class="hide-menu" style="color:white !important">Hệ thống</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse" id="nhom14">
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Thông tin hợp đồng</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb justify-content-end">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Thông tin hợp đồng</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="myTable" class="table table-striped border">
+                                        <thead>
+                                            <tr>
+                                                <th>Thao tác</th>
+                                                <th>Số HĐ</th>
+                                                <th>Tên HĐ</th>
+                                                <th>File HĐ</th>
+                                                <th>Ngày lập</th>
+                                                <th>Tổng kinh phí</th>
+                                                <th>Ngày kết thúc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="danhsach"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <label id="lbtenfile" style="display:none"></label>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer" style="background-color:#1565c0;color:white">
+            <!--© 2023 QUẢN LÝ HOẠT ĐỘNG KH&CN.-->
+            <h3 style="text-align: center;font-weight: bolder;">SỞ KHOA HỌC VÀ CÔNG NGHỆ QUẢNG BÌNH</h3>
+            <h3 style="text-align: center;font-weight: bolder;">HỆ THỐNG QUẢN LÝ NHIỆM VỤ KHOA HỌC VÀ CÔNG NGHỆ</h3>
+            <h4 style="text-align: center;">Địa chỉ: 17A Quang Trung - TP.Đồng Hới - Quảng Bình</h4>
+            <h4 style="text-align: center;">Điện thoại: 0232.3824347, FAX: 0232.3822808 Email: skhcn@quangbinh.gov.vn</h4>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="themdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thanh lý hợp đồng</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbidhd" style="display:none"></label>
+                                            <label class="col-md-12 control-label" id="lbngaylap"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohd"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhd"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdonvi"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdiachi"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbngayketthuc"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-b-20" />
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Ngày lập</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngaylap" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Thông tin thanh lý</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttieude" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Nội dung thanh lý</label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" id="txtnoidung" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File đính kèm</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile01" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile01">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file:</label>
+                                            <div class="col-md-12" id="dsfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Tổng kinh phí</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtkinhphi" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Đã tạm ứng</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtdatu" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cần thanh toán</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtcantt" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cần thu hồi</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtcanth" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Thời hạn thanh lý</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngayketthuc" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="them();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="capnhatdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thông tin thanh lý hợp đồng</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbidtl" style="display:none"></label>
+                                            <label class="col-md-12 control-label" id="lbidhdtl" style="display:none"></label>
+                                            <label class="col-md-12 control-label">Ngày lập</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngaylapcn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Thông tin thanh lý</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="txttieudecn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Nội dung thanh lý</label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" id="txtnoidungcn" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File đính kèm</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile02" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile02">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file:</label>
+                                            <div class="col-md-12" id="dsfilecn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Tổng kinh phí</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtkinhphicn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Đã tạm ứng</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtdatucn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cần thanh toán</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtcanttcn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Cần thu hồi</label>
+                                            <div class="col-md-12">
+                                                <input type="number" value="0" disabled class="form-control" id="txtcanthcn" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Thời hạn thanh lý</label>
+                                            <div class="col-md-12">
+                                                <input type="date" class="form-control" id="txtngayketthuccn" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="sua();">Cập nhật</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" id="idclose" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="../js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Popup message jquery -->
+    <script src="../js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.buttons.min.js"></script>
+    <script src="../js/buttons.flash.min.js"></script>
+    <script src="../js/jszip.min.js"></script>
+    <script src="../js/pdfmake.min.js"></script>
+    <script src="../js/vfs_fonts.js"></script>
+    <script src="../js/buttons.html5.min.js"></script>
+    <script src="../js/buttons.print.min.js"></script>
+    <script src="../js/select2.min.js"></script>
+    <script>
+        let today = new Date().toISOString().substr(0, 10);
+        document.querySelector("#txtngaylap").value = today;
+        document.querySelector("#txtngayketthuc").value = today;
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+
+            ], "pageLength": 20
+        });
+        window.onload = function () {
+            loadmenu(); loaddanhsach();
+        }
+        function enforceMinMax(el) {
+            if (el.value != "") {
+                if (parseInt(el.value) < parseInt(el.min)) {
+                    el.value = el.min;
+                }
+                if (parseInt(el.value) > parseInt(el.max)) {
+                    el.value = el.max;
+                }
+            }
+        }
+        function loadmenu() {
+            $.ajax({
+                url: '/api/menu',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data.length > 1) {
+                        $('#nhom1').html(""); $('#nhom2').html(""); $('#nhom3').html(""); $('#nhom4').html(""); $('#nhom5').html(""); $('#nhom6').html(""); $('#nhom7').html("");
+                        $('#nhom8').html(""); $('#nhom9').html(""); $('#nhom10').html(""); $('#nhom11').html(""); $('#nhom12').html(""); $('#nhom13').html(""); $('#nhom14').html("");
+                        $.each(data, function (key, item) {
+                            switch (item.nhom) {
+                                case 1:
+                                    $('#nhom1').html(item.link);
+                                    break;
+                                case 2:
+                                    $('#nhom2').html(item.link);
+                                    break;
+                                case 3:
+                                    $('#nhom3').html(item.link);
+                                    break;
+                                case 4:
+                                    $('#nhom4').html(item.link);
+                                    break;
+                                case 5:
+                                    $('#nhom5').html(item.link);
+                                    break;
+                                case 6:
+                                    $('#nhom6').html(item.link);
+                                    break;
+                                case 7:
+                                    $('#nhom7').html(item.link);
+                                    break;
+                                case 8:
+                                    $('#nhom8').html(item.link);
+                                    break;
+                                case 9:
+                                    $('#nhom9').html(item.link);
+                                    break;
+                                case 10:
+                                    $('#nhom10').html(item.link);
+                                    break;
+                                case 11:
+                                    $('#nhom11').html(item.link);
+                                    break;
+                                case 12:
+                                    $('#nhom12').html(item.link);
+                                    break;
+                                case 13:
+                                    $('#nhom13').html(item.link);
+                                    break;
+                                case 14:
+                                    $('#nhom14').html(item.link);
+                                    break;
+                            }
+                        });
+                    }
+                    else { window.open("index.html", "_self"); }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        var uri = '/api/HOPDONG_KHCN';
+        function loaddanhsach() {
+            $.ajax({
+                url: uri,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
+                    // On success, 'data' contains a list of products.
+                    var stt = 1;
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + "<div class='dropdown'>" +
+                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#themdanhmuc' onclick='thanhly(" + item.ID + ")'>Thanh lý hợp đồng</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-target='#capnhatdanhmuc' data-bs-toggle='modal' onclick='suahopdong(" + item.ID + ")'>Xem thông tin thanh lý</a></li><li><a style='cursor: pointer;' class='dropdown-item'  onclick='xoa(" + item.ID + ")'>Xóa thông tin thanh lý</a></li></ul></div></td>" +
+                            "<td>" + item.SoHD + "</td>" +
+                            "<td>" + item.TenHD + "</td><td>";
+                        localStorage.setItem("files", item.FileHD);
+                        for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                            strhtml += "<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><br />";
+                        }
+                        strhtml += "</td><td>" + stringToDate(item.NgayLap) + "</td>" +
+                            "<td>" + formatThousands(item.TongKinhPhi) + "</td><td>" + stringToDate(item.NgayKetThuc) + "</td></tr> ";
+                        $("#danhsach").append(strhtml); stt++; localStorage.removeItem("files");
+                    });
+                    $('#myTable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+
+                        ]
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function thanhly(id) {
+            $.ajax({
+                url: uri + '?idsu=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhd").innerHTML = data[0].ID;
+                    document.getElementById("lbngaylap").innerHTML = "<b>Ngày lập: " + stringToDate(data[0].NgayLap) + "</b>";
+                    document.getElementById("lbtenhd").innerHTML = "<b>Tên hợp đồng: " + data[0].TenHD + "</b>";
+                    document.getElementById("lbsohd").innerHTML = "<b>Số hợp đồng: " + data[0].SoHD + "</b>";
+                    document.getElementById("lbdonvi").innerHTML = "<b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachi").innerHTML = "<b>" + data[0].DiaChi + "</b>";
+                    document.getElementById("txtkinhphi").value = data[0].TongKinhPhi;
+                    document.getElementById("lbngayketthuc").innerHTML = "<b>Ngày kết thúc: " + stringToDate(data[0].NgayKetThuc) + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemtamung(id);
+        }
+        function xemtamung(id) {
+            $.ajax({
+                url: '/api/TAMUNGKINHPHI_HOPDONG_KHCN?idhdtl=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("txtdatu").value = data;
+                    if (document.getElementById("txtkinhphi").value - data > 0) { document.getElementById("txtcantt").value = document.getElementById("txtkinhphi").value - data; document.getElementById("txtcanth").value = 0;}
+                    else { document.getElementById("txtcanth").value = document.getElementById("txtkinhphi").value - data; document.getElementById("txtcantt").value =0 }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); 
+        }
+
+        function stringToDate(_date) {
+            _date = new Date(_date);
+            year = _date.getFullYear();
+            month = _date.getMonth() + 1;
+            dt = _date.getDate();
+
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            return (dt + '/' + month + '/' + year);
+        }
+        function formatThousands(n, dp) {
+            var s = '' + (Math.floor(n)), d = n % 1, i = s.length, r = '';
+            while ((i -= 3) > 0) { r = ',' + s.substr(i, 3) + r; }
+            return s.substr(0, i + 3) + r + (d ? '.' + Math.round(d * Math.pow(10, dp || 2)) : '');
+        }
+        function suahopdong(id) {
+            $.ajax({
+                url: '/api/THANHLY_HOPDONG_KHCN?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data.length>0) {
+                        document.getElementById("lbidtl").innerHTML = data[0].ID;
+                        document.getElementById("lbidhdtl").innerHTML = data[0].IdHDKHCN;
+                        document.getElementById("txtngaylapcn").value = data[0].NgayLap.split('T')[0];
+                        document.getElementById("txttieudecn").value = data[0].TieuDeThanhLy;
+                        document.getElementById("txtnoidungcn").value = data[0].NoiDung;
+                        document.getElementById("txtkinhphicn").value = (data[0].SoTienCanTT == 0 ? data[0].SoTienDaTU - data[0].SoTienCanThuHoi : data[0].SoTienDaTU + data[0].SoTienCanTT);
+                        document.getElementById("txtdatucn").value = data[0].SoTienDaTU;
+                        document.getElementById("txtcanttcn").value = data[0].SoTienCanTT;
+                        document.getElementById("txtcanthcn").value = data[0].SoTienCanThuHoi;
+                        document.getElementById("txtngayketthuccn").value = data[0].ThoiHanThanhLy.split('T')[0]; $("#dsfilecn").html("");
+                        localStorage.setItem("files", data[0].FileHSTLHD);
+                        for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                            $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+                        }
+                    }
+                    else {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Chưa có thông tin thanh lý hợp đồng. Vui lòng tạo mới!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'info',
+                            hideAfter: 3500,
+                            stack: 6
+                        });$('#idclose').click();}
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function them() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                localStorage.setItem("newfiles", responseData.Value);
+                                themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else {
+                themdmmoi();
+            }
+        }
+        function sua() {
+            var files = $("#inputGroupFile02").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                //filehd = responseData.Value;
+                                localStorage.setItem("newfiles", responseData.Value); capnhattt();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else { capnhattt(); }
+        }
+        function themdmmoi() {
+            var datas = {
+                IdHDKHCN: document.getElementById("lbidhd").innerHTML,
+                TieuDeThanhLy: document.getElementById("txttieude").value,
+                NoiDung: document.getElementById("txtnoidung").value,
+                SoTienDaTU: document.getElementById("txtdatu").value,
+                SoTienCanTT: document.getElementById("txtcantt").value,
+                SoTienCanThuHoi: document.getElementById("txtcanth").value,
+                FileHSTLHD: localStorage.getItem("newfiles"),
+                NgayLap: document.getElementById("txtngaylap").value,
+                ThoiHanThanhLy: document.getElementById("txtngayketthuc").value,
+            };
+            $.ajax({
+                url: '/api/THANHLY_HOPDONG_KHCN',
+                method: 'POST', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Lập hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Lập hợp đồng không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function capnhattt() {
+            var datas = {
+                IdHDKHCN: document.getElementById("lbidhdtl").innerHTML,
+                TieuDeThanhLy: document.getElementById("txttieudecn").value,
+                NoiDung: document.getElementById("txtnoidungcn").value,
+                SoTienDaTU: document.getElementById("txtdatucn").value,
+                SoTienCanTT: document.getElementById("txtcanttcn").value,
+                SoTienCanThuHoi: document.getElementById("txtcanthcn").value,
+                FileHSTLHD: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("files")),
+                NgayLap: document.getElementById("txtngaylapcn").value,
+                ThoiHanThanhLy: document.getElementById("txtngayketthuccn").value,
+            };
+            $.ajax({
+                url: '/api/THANHLY_HOPDONG_KHCN?id=' + document.getElementById("lbidtl").innerHTML,
+                method: 'PUT', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập thông tin hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); 
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật thông tin hợp đồng không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'warning',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+        function xoa(id) {
+            if (confirm('Bạn chắc chắn muốn xóa thông tin thanh lý hợp đồng đã chọn?')) {
+                $.ajax({
+                    url: '/api/THANHLY_HOPDONG_KHCN' + '/' + id,
+                    method: 'DELETE', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin thanh lý hợp đồng thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        }); loaddanhsach();
+                    },
+                    error: function (request, msg, error) {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Xóa thông tin thanh lý hợp đồng không thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'warning',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

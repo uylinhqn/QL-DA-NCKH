@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Description;
 using QLDANCKH.Models;
@@ -22,6 +23,11 @@ namespace QLDANCKH.Controllers
         {
             return db.Proc_THANHLY_HOPDONG_KHCN_Selete();
         }
+          // GET: api/THANHLY_HOPDONG_KHCN
+        public ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result> GetTHANHLY_HOPDONG_KHCN(string xtl)
+        {
+            return db.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL();
+        }
 
         // GET: api/THANHLY_HOPDONG_KHCN/5
         [ResponseType(typeof(THANHLY_HOPDONG_KHCN))]
@@ -34,7 +40,8 @@ namespace QLDANCKH.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTHANHLY_HOPDONG_KHCN(int id, THANHLY_HOPDONG_KHCN tHANHLY_HOPDONG_KHCN)
         {
-            db.Proc_THANHLY_HOPDONG_KHCN_Update(id, tHANHLY_HOPDONG_KHCN.IdHDKHCN, tHANHLY_HOPDONG_KHCN.TieuDeThanhLy, tHANHLY_HOPDONG_KHCN.NoiDung, tHANHLY_HOPDONG_KHCN.SoTienDaTU, tHANHLY_HOPDONG_KHCN.SoTienCanTT, tHANHLY_HOPDONG_KHCN.SoTienCanThuHoi, tHANHLY_HOPDONG_KHCN.FileHSTLHD, tHANHLY_HOPDONG_KHCN.NgayLap, tHANHLY_HOPDONG_KHCN.NguoiLap, tHANHLY_HOPDONG_KHCN.ThoiHanThanhLy); 
+            var identity = (ClaimsIdentity)User.Identity;
+            db.Proc_THANHLY_HOPDONG_KHCN_Update(id, tHANHLY_HOPDONG_KHCN.IdHDKHCN, tHANHLY_HOPDONG_KHCN.TieuDeThanhLy, tHANHLY_HOPDONG_KHCN.NoiDung, tHANHLY_HOPDONG_KHCN.SoTienDaTU, tHANHLY_HOPDONG_KHCN.SoTienCanTT, tHANHLY_HOPDONG_KHCN.SoTienCanThuHoi, tHANHLY_HOPDONG_KHCN.FileHSTLHD, tHANHLY_HOPDONG_KHCN.NgayLap, identity.Name, tHANHLY_HOPDONG_KHCN.ThoiHanThanhLy); 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -42,7 +49,8 @@ namespace QLDANCKH.Controllers
         [ResponseType(typeof(THANHLY_HOPDONG_KHCN))]
         public IHttpActionResult PostTHANHLY_HOPDONG_KHCN(THANHLY_HOPDONG_KHCN tHANHLY_HOPDONG_KHCN)
         {
-            db.Proc_THANHLY_HOPDONG_KHCN_Insert(tHANHLY_HOPDONG_KHCN.IdHDKHCN, tHANHLY_HOPDONG_KHCN.TieuDeThanhLy, tHANHLY_HOPDONG_KHCN.NoiDung, tHANHLY_HOPDONG_KHCN.SoTienDaTU, tHANHLY_HOPDONG_KHCN.SoTienCanTT, tHANHLY_HOPDONG_KHCN.SoTienCanThuHoi, tHANHLY_HOPDONG_KHCN.FileHSTLHD, tHANHLY_HOPDONG_KHCN.NgayLap, tHANHLY_HOPDONG_KHCN.NguoiLap, tHANHLY_HOPDONG_KHCN.ThoiHanThanhLy);
+            var identity = (ClaimsIdentity)User.Identity;
+            db.Proc_THANHLY_HOPDONG_KHCN_Insert(tHANHLY_HOPDONG_KHCN.IdHDKHCN, tHANHLY_HOPDONG_KHCN.TieuDeThanhLy, tHANHLY_HOPDONG_KHCN.NoiDung, tHANHLY_HOPDONG_KHCN.SoTienDaTU, tHANHLY_HOPDONG_KHCN.SoTienCanTT, tHANHLY_HOPDONG_KHCN.SoTienCanThuHoi, tHANHLY_HOPDONG_KHCN.FileHSTLHD, tHANHLY_HOPDONG_KHCN.NgayLap, identity.Name, tHANHLY_HOPDONG_KHCN.ThoiHanThanhLy);
             return StatusCode(HttpStatusCode.NoContent);
         }
 

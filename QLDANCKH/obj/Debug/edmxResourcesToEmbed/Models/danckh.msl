@@ -1024,5 +1024,22 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TieuDeThanhLy" ColumnName="TieuDeThanhLy" />
+          <ScalarProperty Name="SoTienDaTU" ColumnName="SoTienDaTU" />
+          <ScalarProperty Name="SoTienCanTT" ColumnName="SoTienCanTT" />
+          <ScalarProperty Name="SoTienCanThuHoi" ColumnName="SoTienCanThuHoi" />
+          <ScalarProperty Name="ThoiHanThanhLy" ColumnName="ThoiHanThanhLy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

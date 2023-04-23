@@ -506,6 +506,7 @@
     <Parameter Name="ThoiHanThanhLy" Type="date" Mode="In" />
   </Function>
   <Function Name="Proc_THANHLY_HOPDONG_KHCN_Selete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_THANHLY_HOPDONG_KHCN_SeletePK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
