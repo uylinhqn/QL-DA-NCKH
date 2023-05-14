@@ -225,6 +225,18 @@
           <Property Name="NguoiLap" Type="varchar" MaxLength="500" />
           <Property Name="ThoiHanThanhLy" Type="date" />
         </EntityType>
+        <EntityType Name="THEODOITIENDONV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDexuat" Type="int" />
+          <Property Name="Ngay" Type="datetime" />
+          <Property Name="NoiDungBaoCao" Type="nvarchar(max)" />
+          <Property Name="FileBaoCao" Type="nvarchar(max)" />
+          <Property Name="NoiDungKiemTra" Type="nvarchar(max)" />
+          <Property Name="FileKiemTra" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="TIEUCHI_DANHGIA">
           <Key>
             <PropertyRef Name="IDTieuchi" />
@@ -559,6 +571,26 @@
         <Function Name="Proc_ThanhVien_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="Proc_THEODOITIENDONV_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_THEODOITIENDONV_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDDexuat" Type="int" Mode="In" />
+          <Parameter Name="Ngay" Type="datetime" Mode="In" />
+          <Parameter Name="NoiDungBaoCao" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FileBaoCao" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Proc_THEODOITIENDONV_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDeXuat" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_THEODOITIENDONV_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_THEODOITIENDONV_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NoiDungKiemTra" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FileKiemTra" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <EntityContainer Name="QL_NCKHQBModelStoreContainer">
           <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONGNHANKETQUA_HOPDONG_KHCN" EntityType="Self.CONGNHANKETQUA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
@@ -579,6 +611,7 @@
           <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAMUNGKINHPHI_HOPDONG_KHCN" EntityType="Self.TAMUNGKINHPHI_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THANHLY_HOPDONG_KHCN" EntityType="Self.THANHLY_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THEODOITIENDONV" EntityType="Self.THEODOITIENDONV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -942,6 +975,27 @@
           <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" ReturnType="Collection(QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result)" />
+          <EntitySet Name="THEODOITIENDONVs" EntityType="QL_NCKHQBModel.THEODOITIENDONV" />
+          <FunctionImport Name="Proc_THEODOITIENDONV_Delete">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_THEODOITIENDONV_Insert">
+            <Parameter Name="IDDexuat" Mode="In" Type="Int32" />
+            <Parameter Name="Ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="NoiDungBaoCao" Mode="In" Type="String" />
+            <Parameter Name="FileBaoCao" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_THEODOITIENDONV_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_THEODOITIENDONV_Select_Result)">
+            <Parameter Name="IdDeXuat" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_THEODOITIENDONV_SelectPK" ReturnType="Collection(QL_NCKHQBModel.Proc_THEODOITIENDONV_SelectPK_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_THEODOITIENDONV_Update">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NoiDungKiemTra" Mode="In" Type="String" />
+            <Parameter Name="FileKiemTra" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="DM_DONVI">
           <Key>
@@ -1741,6 +1795,36 @@
           <Property Type="Decimal" Name="SoTienCanTT" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="SoTienCanThuHoi" Nullable="true" Precision="18" Scale="0" />
           <Property Type="DateTime" Name="ThoiHanThanhLy" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="THEODOITIENDONV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDexuat" Type="Int32" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <Property Name="NoiDungBaoCao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileBaoCao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDungKiemTra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileKiemTra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Proc_THEODOITIENDONV_Select_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDDexuat" Nullable="true" />
+          <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NoiDungBaoCao" Nullable="true" />
+          <Property Type="String" Name="FileBaoCao" Nullable="true" />
+          <Property Type="String" Name="NoiDungKiemTra" Nullable="true" />
+          <Property Type="String" Name="FileKiemTra" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_THEODOITIENDONV_SelectPK_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IDDexuat" Nullable="true" />
+          <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NoiDungBaoCao" Nullable="true" />
+          <Property Type="String" Name="FileBaoCao" Nullable="true" />
+          <Property Type="String" Name="NoiDungKiemTra" Nullable="true" />
+          <Property Type="String" Name="FileKiemTra" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2788,6 +2872,48 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="THEODOITIENDONVs">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.THEODOITIENDONV">
+              <MappingFragment StoreEntitySet="THEODOITIENDONV">
+                <ScalarProperty Name="FileKiemTra" ColumnName="FileKiemTra" />
+                <ScalarProperty Name="NoiDungKiemTra" ColumnName="NoiDungKiemTra" />
+                <ScalarProperty Name="FileBaoCao" ColumnName="FileBaoCao" />
+                <ScalarProperty Name="NoiDungBaoCao" ColumnName="NoiDungBaoCao" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_Delete" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_Delete" />
+          <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_Insert" />
+          <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_Select" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THEODOITIENDONV_Select_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="NoiDungBaoCao" ColumnName="NoiDungBaoCao" />
+                <ScalarProperty Name="FileBaoCao" ColumnName="FileBaoCao" />
+                <ScalarProperty Name="NoiDungKiemTra" ColumnName="NoiDungKiemTra" />
+                <ScalarProperty Name="FileKiemTra" ColumnName="FileKiemTra" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_SelectPK" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_SelectPK">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THEODOITIENDONV_SelectPK_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="NoiDungBaoCao" ColumnName="NoiDungBaoCao" />
+                <ScalarProperty Name="FileBaoCao" ColumnName="FileBaoCao" />
+                <ScalarProperty Name="NoiDungKiemTra" ColumnName="NoiDungKiemTra" />
+                <ScalarProperty Name="FileKiemTra" ColumnName="FileKiemTra" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_Update" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_Update" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>KẾ HOẠCH KIỂM TRA</title>
+    <title>KIỂM TRA TIẾN ĐỘ NHIỆM VỤ</title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -19,6 +19,157 @@
     <!-- Dashboard 1 Page CSS -->
     <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
     <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .input-group-append,
+        .input-group-append .btn + .btn,
+        .input-group-append .btn + .input-group-text,
+        .input-group-append .input-group-text + .btn,
+        .input-group-append .input-group-text + .input-group-text,
+        .input-group-prepend .btn + .btn,
+        .input-group-prepend .btn + .input-group-text,
+        .input-group-prepend .input-group-text + .btn,
+        .input-group-prepend .input-group-text + .input-group-text,
+        .input-group > .custom-file + .custom-file,
+        .input-group > .custom-file + .custom-select,
+        .input-group > .custom-file + .form-control,
+        .input-group > .custom-select + .custom-file,
+        .input-group > .custom-select + .custom-select,
+        .input-group > .custom-select + .form-control,
+        .input-group > .form-control + .custom-file,
+        .input-group > .form-control + .custom-select,
+        .input-group > .form-control + .form-control,
+        .input-group > .form-control-plaintext + .custom-file,
+        .input-group > .form-control-plaintext + .custom-select,
+        .input-group > .form-control-plaintext + .form-control {
+            margin-left: -1px
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%
+        }
+
+            .input-group > .custom-file,
+            .input-group > .custom-select,
+            .input-group > .form-control,
+            .input-group > .form-control-plaintext {
+                position: relative;
+                flex: 1 1 auto;
+                width: 1%;
+                margin-bottom: 0
+            }
+
+                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
+                .input-group > .custom-select:focus,
+                .input-group > .form-control:focus {
+                    z-index: 3
+                }
+
+                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
+                    z-index: 4
+                }
+
+            .input-group > .custom-file {
+                display: flex;
+                align-items: center
+            }
+
+        .input-group-append,
+        .input-group-prepend {
+            display: flex
+        }
+
+            .input-group-append .btn,
+            .input-group-prepend .btn {
+                position: relative;
+                z-index: 2
+            }
+
+                .input-group-append .btn:focus,
+                .input-group-prepend .btn:focus {
+                    z-index: 3
+                }
+
+        .input-group-prepend {
+            margin-right: -1px
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: .375rem .75rem;
+            font-size: .875rem;
+            line-height: 1.5;
+            color: #4F5467;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+        .custom-file,
+        .custom-file-input,
+        .custom-file-input2,
+        .custom-file-label, .custom-file-label2 {
+            height: calc(1.5em + .75rem + 2px)
+        }
+
+        .custom-file {
+            position: relative;
+            display: inline-block;
+            width: 100%
+        }
+
+        .custom-file-input {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0;
+            opacity: 0
+        }
+
+        .custom-file-label,
+        .custom-file-label::after, .custom-file-label2,
+        .custom-file-label2::after {
+            position: absolute;
+            padding: .375rem .75rem;
+            line-height: 1.5;
+            color: #4F5467;
+            top: 0;
+            right: 0
+        }
+
+        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
+            content: ""
+        }
+
+        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
+            content: attr(data-browse)
+        }
+
+        .custom-file-label, .custom-file-label2 {
+            left: 0;
+            z-index: 1;
+            font-weight: 400;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+            .custom-file-label::after, .custom-file-label2::after {
+                bottom: 0;
+                z-index: 3;
+                display: block;
+                height: calc(1.5em + .75rem);
+                content: "Browse";
+                background-color: #f8f9fa;
+                border-left: inherit;
+                border-radius: 0 .25rem .25rem 0
+            }
+    </style>
 </head>
 
 <body class="skin-green-dark fixed-layout mini-sidebar">
@@ -120,7 +271,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom2">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-check-box" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">Tuyển chọn, giao trực tiếp</span>
@@ -138,7 +289,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom4">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-briefcase" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">Tổ chức chủ trì</span>
@@ -146,7 +297,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom5">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-layout-accordion-merged" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">Thực hiện nhiệm vụ</span>
@@ -162,7 +313,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom7">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-gallery" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">Hội nghị, hội thảo</span>
@@ -170,7 +321,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom8">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-files" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">
@@ -180,7 +331,7 @@
                             <ul aria-expanded="false" class="collapse" id="nhom9">
                             </ul>
                         </li>
-                        <li>
+                        <li style="display:none">
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="ti-files" style="color:white !important"></i>
                                 <span class="hide-menu" style="color:white !important">Hợp đồng nghiệm thu cấp tỉnh</span>
@@ -238,20 +389,19 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Kế hoạch kiểm tra</h4>
+                        <h4 class="text-themecolor">Kiểm tra tiến độ nhiệm vụ</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Kế hoạch kiểm tra</li>
+                                <li class="breadcrumb-item active">Kiểm tra tiến độ nhiệm vụ</li>
                             </ol>
-                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
                     </div>
                 </div>
                 <!-- /row -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -260,10 +410,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên học vị</th>
-                                               
-                                                <th>Trạng thái</th>
-
+                                                <th>Tên đề xuất</th>
+                                                <th>Lĩnh vực nghiên cứu</th>
+                                                <th>Nhiệm vụ</th>
+                                                <th>Năm đề xuất</th>
+                                                <th>Cấp đề xuất</th>
                                             </tr>
                                         </thead>
                                         <tbody id="danhsach"></tbody>
@@ -272,7 +423,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- /.row -->
                 <label id="lbtenfile" style="display:none"></label>
             </div>
@@ -297,8 +448,96 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
-
-    
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="xemdiemcham" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:2000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Xem lịch sử kiểm tra</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" id="lbtennvx">Tên nhiệm vụ:</label>
+                            </div>
+                        </div><hr class="m-b-20" />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Ngày</th>
+                                    <th>Nội dung báo cáo</th>
+                                    <th>File báo cáo</th>
+                                    <th>Kết quả kiểm tra</th>
+                                    <th>File kiểm tra</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dstheodoi">
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capnhatdanhmuc" class="modal fade">
+        <div class="modal-dialog modal-lg" style="z-index:9999">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Kết quả kiểm tra tiến độ thực hiện nhiệm vụ</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="form-layouts" class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbiddx" style="display:none"></label>
+                                            <label class="col-md-12 control-label" id="lbiddx2" style="display:none"></label>
+                                            <label class="col-md-12 control-label">Nội dung kết quả kiểm tra</label>
+                                            <div class="col-md-12">
+                                                <textarea rows="5" class="form-control" id="txtnoidungbc"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File kiểm tra đính kèm</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile01" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile01">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file:</label>
+                                            <div class="col-md-12" id="dsfilecn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="them();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label id="lbtenfile" style="display:none"></label>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -337,8 +576,48 @@
 
             ], "pageLength": 20
         });
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () { var e = $(this).val(); $(this).next(".custom-file-label").html(e) })
+        });
+        function them() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
+
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                localStorage.setItem("newfiles", responseData.Value);
+                                themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
+                    }
+                });
+            }
+            else {
+                themdmmoi();
+            }
+        }
+
         window.onload = function () {
-            loadmenu();loaddanhsach();
+            loadmenu();
+            loaddanhsach();
         }
         function loadmenu() {
             $.ajax({
@@ -411,33 +690,279 @@
                 }
             });
         }
-        var uri = '';
+        var uri = '/api/DEXUAT_DATHANG';
         function loaddanhsach() {
             $.ajax({
-                url: uri,
-                method: 'GET',
+                url: '/api/dsdathang',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 success: function (data) {
                     $('#myTable').dataTable().fnDestroy(); $("#danhsach").html("");
                     // On success, 'data' contains a list of products.
                     var stt = 1;
                     $.each(data, function (key, item) {
-                        var strhtml = "";
-                        strhtml += "<tr>" +
-                            "<td>" + "<div class='dropdown'>" +
-                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
-                            "<td>" + item.TenHocvi + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
-                             "</tr> ";
-                        $("#danhsach").append(strhtml); stt++;
+                        if (item.TrangthaiPD == true) {
+                            var strhtml = "";
+                            strhtml += "<tr>" +
+                                "<td>" + "<div class='dropdown'>" +
+                                "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                                "<ul class='dropdown-menu' role='menu'>" +
+                                "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#xemdiemcham' onclick='xemdanhmuc2(" + item.IDDexuat + ")'>Lịch sử tiến độ thực hiện</a></li></ul></div></td>" +
+                                "<td>" + item.Tendexuat + "</td>" +
+                                "<td>" + item.TenLinhVucNC + "</td><td>" + item.TenLinhVucNV + "</td>" +
+                                "<td>" + item.NamDeXuat + "</td>" +
+                                "<td>" + item.CapDeXuat + "</td>" +
+                                "</tr> ";
+                            $("#danhsach").append(strhtml);
+                        }
                     });
                     $('#myTable').DataTable({
                         dom: 'Bfrtip',
                         buttons: [
+                            'excel', 'pdf', 'print'
+                        ],
+                        "language": {
 
-                        ]
+                            "processing": "Đang xử lý...",
+                            "aria": {
+                                "sortAscending": ": Sắp xếp thứ tự tăng dần",
+                                "sortDescending": ": Sắp xếp thứ tự giảm dần"
+                            },
+                            "autoFill": {
+                                "cancel": "Hủy",
+                                "fill": "Điền tất cả ô với <i>%d<\/i>",
+                                "fillHorizontal": "Điền theo hàng ngang",
+                                "fillVertical": "Điền theo hàng dọc"
+                            },
+                            "buttons": {
+                                "collection": "Chọn lọc <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
+                                "colvis": "Hiển thị theo cột",
+                                "colvisRestore": "Khôi phục hiển thị",
+                                "copy": "Sao chép",
+                                "copyKeys": "Nhấn Ctrl hoặc u2318 + C để sao chép bảng dữ liệu vào clipboard.<br \/><br \/>Để hủy, click vào thông báo này hoặc nhấn ESC",
+                                "copySuccess": {
+                                    "1": "Đã sao chép 1 dòng dữ liệu vào clipboard",
+                                    "_": "Đã sao chép %d dòng vào clipboard"
+                                },
+                                "copyTitle": "Sao chép vào clipboard",
+                                "pageLength": {
+                                    "-1": "Xem tất cả các dòng",
+                                    "_": "Hiển thị %d dòng",
+                                    "1": "Hiển thị 1 dòng"
+                                },
+                                "print": "In ấn",
+                                "createState": "Tạo trạng thái",
+                                "csv": "CSV",
+                                "excel": "Excel",
+                                "pdf": "PDF",
+                                "removeAllStates": "Xóa hết trạng thái",
+                                "removeState": "Xóa",
+                                "renameState": "Đổi tên",
+                                "savedStates": "Trạng thái đã lưu",
+                                "stateRestore": "Trạng thái %d",
+                                "updateState": "Cập nhật"
+                            },
+                            "select": {
+                                "cells": {
+                                    "1": "1 ô đang được chọn",
+                                    "_": "%d ô đang được chọn"
+                                },
+                                "columns": {
+                                    "1": "1 cột đang được chọn",
+                                    "_": "%d cột đang được được chọn"
+                                },
+                                "rows": {
+                                    "1": "1 dòng đang được chọn",
+                                    "_": "%d dòng đang được chọn"
+                                }
+                            },
+                            "searchBuilder": {
+                                "title": {
+                                    "_": "Thiết lập tìm kiếm (%d)",
+                                    "0": "Thiết lập tìm kiếm"
+                                },
+                                "button": {
+                                    "0": "Thiết lập tìm kiếm",
+                                    "_": "Thiết lập tìm kiếm (%d)"
+                                },
+                                "value": "Giá trị",
+                                "clearAll": "Xóa hết",
+                                "condition": "Điều kiện",
+                                "conditions": {
+                                    "date": {
+                                        "after": "Sau",
+                                        "before": "Trước",
+                                        "between": "Nằm giữa",
+                                        "empty": "Rỗng",
+                                        "equals": "Bằng với",
+                                        "not": "Không phải",
+                                        "notBetween": "Không nằm giữa",
+                                        "notEmpty": "Không rỗng"
+                                    },
+                                    "number": {
+                                        "between": "Nằm giữa",
+                                        "empty": "Rỗng",
+                                        "equals": "Bằng với",
+                                        "gt": "Lớn hơn",
+                                        "gte": "Lớn hơn hoặc bằng",
+                                        "lt": "Nhỏ hơn",
+                                        "lte": "Nhỏ hơn hoặc bằng",
+                                        "not": "Không phải",
+                                        "notBetween": "Không nằm giữa",
+                                        "notEmpty": "Không rỗng"
+                                    },
+                                    "string": {
+                                        "contains": "Chứa",
+                                        "empty": "Rỗng",
+                                        "endsWith": "Kết thúc bằng",
+                                        "equals": "Bằng",
+                                        "not": "Không phải",
+                                        "notEmpty": "Không rỗng",
+                                        "startsWith": "Bắt đầu với",
+                                        "notContains": "Không chứa",
+                                        "notEndsWith": "Không kết thúc với",
+                                        "notStartsWith": "Không bắt đầu với"
+                                    },
+                                    "array": {
+                                        "equals": "Bằng",
+                                        "empty": "Trống",
+                                        "contains": "Chứa",
+                                        "not": "Không",
+                                        "notEmpty": "Không được rỗng",
+                                        "without": "không chứa"
+                                    }
+                                },
+                                "logicAnd": "Và",
+                                "logicOr": "Hoặc",
+                                "add": "Thêm điều kiện",
+                                "data": "Dữ liệu",
+                                "deleteTitle": "Xóa quy tắc lọc",
+                                "leftTitle": "Giảm thụt lề",
+                                "rightTitle": "Tăng thụt lề"
+                            },
+                            "searchPanes": {
+                                "countFiltered": "{shown} ({total})",
+                                "emptyPanes": "Không có phần tìm kiếm",
+                                "clearMessage": "Xóa hết",
+                                "loadMessage": "Đang load phần tìm kiếm",
+                                "collapse": {
+                                    "0": "Phần tìm kiếm",
+                                    "_": "Phần tìm kiếm (%d)"
+                                },
+                                "title": "Bộ lọc đang hoạt động - %d",
+                                "count": "{total}",
+                                "collapseMessage": "Thu gọn tất cả",
+                                "showMessage": "Hiện tất cả"
+                            },
+                            "datetime": {
+                                "hours": "Giờ",
+                                "minutes": "Phút",
+                                "next": "Sau",
+                                "previous": "Trước",
+                                "seconds": "Giây",
+                                "amPm": [
+                                    "am",
+                                    "pm"
+                                ],
+                                "unknown": "-",
+                                "weekdays": [
+                                    "Chủ nhật"
+                                ],
+                                "months": [
+                                    "Tháng Một",
+                                    "Tháng Hai",
+                                    "Tháng Ba",
+                                    "Tháng Tư",
+                                    "Tháng Năm",
+                                    "Tháng Sáu",
+                                    "Tháng Bảy",
+                                    "Tháng Tám",
+                                    "Tháng Chín",
+                                    "Tháng Mười",
+                                    "Tháng Mười Một",
+                                    "Tháng Mười Hai"
+                                ]
+                            },
+                            "emptyTable": "Không có dữ liệu",
+                            "info": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+                            "infoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+                            "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+                            "loadingRecords": "Đang tải...",
+                            "paginate": {
+                                "first": "Đầu tiên",
+                                "last": "Cuối cùng",
+                                "next": "Sau",
+                                "previous": "Trước"
+                            },
+                            "search": "Tìm kiếm:",
+                            "zeroRecords": "Không tìm thấy kết quả",
+                            "decimal": ",",
+                            "editor": {
+                                "close": "Đóng",
+                                "create": {
+                                    "button": "Thêm",
+                                    "submit": "Thêm",
+                                    "title": "Thêm mục mới"
+                                },
+                                "edit": {
+                                    "button": "Sửa",
+                                    "submit": "Cập nhật",
+                                    "title": "Sửa mục"
+                                },
+                                "error": {
+                                    "system": "Đã xảy ra lỗi hệ thống (&lt;a target=\"\\\" rel=\"nofollow\" href=\"\\\"&gt;Thêm thông tin&lt;\/a&gt;)."
+                                },
+                                "multi": {
+                                    "info": "Các mục đã chọn chứa các giá trị khác nhau cho đầu vào này. Để chỉnh sửa và đặt tất cả các mục cho đầu vào này thành cùng một giá trị, hãy nhấp hoặc nhấn vào đây, nếu không chúng sẽ giữ lại các giá trị riêng lẻ của chúng.",
+                                    "noMulti": "Đầu vào này có thể được chỉnh sửa riêng lẻ, nhưng không phải là một phần của một nhóm.",
+                                    "restore": "Hoàn tác thay đổi",
+                                    "title": "Nhiều giá trị"
+                                },
+                                "remove": {
+                                    "button": "Xóa",
+                                    "confirm": {
+                                        "_": "Bạn có chắc chắn muốn xóa %d hàng không?",
+                                        "1": "Bạn có chắc chắn muốn xóa 1 hàng không?"
+                                    },
+                                    "submit": "Xóa",
+                                    "title": "Xóa"
+                                }
+                            },
+                            "infoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+                            "searchPlaceholder": "Nhập tìm kiếm...",
+                            "stateRestore": {
+                                "creationModal": {
+                                    "button": "Thêm",
+                                    "columns": {
+                                        "search": "Tìm kiếm cột",
+                                        "visible": "Khả năng hiển thị cột"
+                                    },
+                                    "name": "Tên:",
+                                    "order": "Sắp xếp",
+                                    "paging": "Phân trang",
+                                    "scroller": "Cuộn vị trí",
+                                    "search": "Tìm kiếm",
+                                    "searchBuilder": "Trình tạo tìm kiếm",
+                                    "select": "Chọn",
+                                    "title": "Thêm trạng thái",
+                                    "toggleLabel": "Bao gồm:"
+                                },
+                                "duplicateError": "Trạng thái có tên này đã tồn tại.",
+                                "emptyError": "Tên không được để trống.",
+                                "emptyStates": "Không có trạng thái đã lưu",
+                                "removeConfirm": "Bạn có chắc chắn muốn xóa %s không?",
+                                "removeError": "Không xóa được trạng thái.",
+                                "removeJoiner": "và",
+                                "removeSubmit": "Xóa",
+                                "removeTitle": "Xóa trạng thái",
+                                "renameButton": "Đổi tên",
+                                "renameLabel": "Tên mới cho %s:",
+                                "renameTitle": "Đổi tên trạng thái"
+                            },
+                            "infoThousands": ".",
+                            "thousands": "."
+
+                        }
                     });
                 },
                 error: function (request, msg, error) {
@@ -454,18 +979,82 @@
             });
         }
         function loaddanhsachls(id) {
-            document.getElementById("idpas").innerHTML = id; }
-        function xemdanhmuc(id) {
+            document.getElementById("idpas").innerHTML = id;
+        }
+        function xemdanhmuc(id,iddx) {
+           document.getElementById("lbiddx").innerHTML = id;
+            document.getElementById("lbiddx2").innerHTML = iddx;
+        }
+        function xemdanhmuc2(id) {
             $.ajax({
-                url: uri + '?id=' + id,
+                url: '/api/DEXUAT_DATHANG?id=' + id,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDHocvi;
-                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
-                       
-                        document.getElementById("chbttcn").checked = data.Trangthai;
-                    
+                    document.getElementById("lbiddx").innerHTML = data.IDDexuat;
+                    document.getElementById("lbtennvx").innerHTML = "Tên nhiệm vụ: <b>" + data.Tendexuat + "</b>";
+                    loaddanhsachbc(id);
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+        function stringToDate(_date) {
+            _date = new Date(_date);
+            year = _date.getFullYear();
+            month = _date.getMonth() + 1;
+            dt = _date.getDate();
+
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            return (dt + '/' + month + '/' + year);
+        }
+        function loaddanhsachbc(id) {
+            $.ajax({
+                url: '/api/theodoitiendonvs' + '?iddx=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $("#dstheodoi").html("");
+                    $.each(data, function (key, item) {
+                        var strhtml = "";
+                        strhtml += "<tr>" +
+                            "<td>" + "<div class='dropdown'>" +
+                            "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.ID + "," + item.IDDexuat +")'>Nhập kết quả kiểm tra tiến độ</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-target='#xemdiemcham' data-bs-toggle='modal' onclick='xoa(" + item.ID + ")'>Xóa thông tin báo cáo</a></li></ul></div></td>" +
+                            "<td>" + stringToDate(item.Ngay) + "</td>" + "<td>" + item.NoiDungBaoCao + "</td><td>";
+                        localStorage.setItem("fileshs", item.FileBaoCao);
+                        if (localStorage.getItem("fileshs").split(';').length - 1 > 0) {
+                            for (var i = 0; i < localStorage.getItem("fileshs").split(';').length - 1; i++) {
+                                strhtml += "<a href='../uploads/" + localStorage.getItem("fileshs").split(';')[i] + "' target='_blank'>" + localStorage.getItem("fileshs").split(';')[i] + "</a><br />";
+                            }
+                        } localStorage.removeItem("fileshs");
+                        strhtml += "</td><td>" + item.NoiDungKiemTra + "</td><td>";
+                        localStorage.setItem("fileshs", item.FileKiemTra);
+                        if (localStorage.getItem("fileshs").split(';').length - 1 > 0) {
+                            for (var i = 0; i < localStorage.getItem("fileshs").split(';').length - 1; i++) {
+                                strhtml += "<a href='../uploads/" + localStorage.getItem("fileshs").split(';')[i] + "' target='_blank'>" + localStorage.getItem("fileshs").split(';')[i] + "</a><br />";
+                            }
+                        }
+                        "</td></tr>";
+                        $("#dstheodoi").append(strhtml);
+                    });
                 },
                 error: function (request, msg, error) {
                     $.toast({
@@ -482,37 +1071,33 @@
         }
         function themdmmoi() {
             var datas = {
-                TenHocvi: document.getElementById("txttenhocvi").value,
-
-                Trangthai: document.getElementById("chbtt").checked,
-              
+                NoiDungKiemTra: document.getElementById("txtnoidungbc").value,
+                FileKiemTra: (localStorage.getItem("newfiles") != "" ? localStorage.getItem("newfiles") : localStorage.getItem("filespd"))
             };
             $.ajax({
-                url: uri ,
-                method: 'POST',
+                url: '/api/theodoitiendonvs?id=' + document.getElementById("lbiddx").innerHTML,
+                method: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(datas),
                 statusCode: {
-                    201: function () {
+                    204: function () {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Thêm thông tin Học vị thành công!',
+                            text: 'Nhập kết quả kiểm tra tiến độ nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
                             icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
-                        document.getElementById("txttenhocvi").value = "";
-                    
-                        document.getElementById("chbtt").checked = false;
-
+                        document.getElementById("lbiddx").innerHTML = "";
+                        localStorage.removeItem("newfiles"); loaddanhsachbc(document.getElementById("lbiddx2").innerHTML);
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin Học vị không thành công!',
+                        text: 'Nhập kết quả kiểm tra tiến độ nhiệm vụ không thành công!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'warning',
@@ -522,67 +1107,19 @@
                 }
             });
         }
-        function capnhattt() {
-            var datas = {
-               
-                IDHocvi: document.getElementById("lbid").innerHTML,
-                TenHocvi: document.getElementById("txttenhocvicn").value,
-                
-                Trangthai: document.getElementById("chbttcn").checked,
-               
-            };
-            $.ajax({
-                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(datas),
-                statusCode: {
-                    204: function () {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Cập nhật thông tin Học vị thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'success',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); loaddanhsach();
-                        document.getElementById("txttenhocvicn").value = "";
-                       
-                        document.getElementById("chbttcn").checked = false;
-                    }
-                },
-                error: function (request, msg, error) {
-                    $.toast({
-                        heading: 'Thông báo',
-                        text: 'Cập nhật thông tin Học vị không thành công!',
-                        position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'info',
-                        hideAfter: 3500,
-                        stack: 6
-                    });
-                }
-            });
-        }
-
-      
-
-
-       
-        function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
+        function xoa(id) {
+            if (confirm('Bạn chắc chắn muốn xóa báo cáo tiến độ nhiệm vụ đã chọn?')) {
                 $.ajax({
-                    url: uri + '/' + id,
+                    url: '/api/theodoitiendonvs' + '/' + id,
                     method: 'DELETE',
                     contentType: 'application/json',
                     success: function (data) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin Học vị thành công!',
+                            text: 'Xóa thông tin  báo cáo tiến độ nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'success',
                             hideAfter: 3500,
                             stack: 6
                         }); loaddanhsach();
@@ -590,13 +1127,13 @@
                     error: function (request, msg, error) {
                         $.toast({
                             heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
+                            text: 'Xóa thông tin  báo cáo tiến độ không nhiệm vụ thành công!',
                             position: 'top-right',
                             loaderBg: '#ff6849',
-                            icon: 'info',
+                            icon: 'warning',
                             hideAfter: 3500,
                             stack: 6
-                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                        });
                     }
                 });
             }

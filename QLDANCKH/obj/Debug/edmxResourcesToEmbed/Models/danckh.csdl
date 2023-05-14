@@ -356,6 +356,27 @@
       <Parameter Name="Id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" ReturnType="Collection(QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result)" />
+    <EntitySet Name="THEODOITIENDONVs" EntityType="QL_NCKHQBModel.THEODOITIENDONV" />
+    <FunctionImport Name="Proc_THEODOITIENDONV_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_THEODOITIENDONV_Insert">
+      <Parameter Name="IDDexuat" Mode="In" Type="Int32" />
+      <Parameter Name="Ngay" Mode="In" Type="DateTime" />
+      <Parameter Name="NoiDungBaoCao" Mode="In" Type="String" />
+      <Parameter Name="FileBaoCao" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_THEODOITIENDONV_Select" ReturnType="Collection(QL_NCKHQBModel.Proc_THEODOITIENDONV_Select_Result)">
+      <Parameter Name="IdDeXuat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_THEODOITIENDONV_SelectPK" ReturnType="Collection(QL_NCKHQBModel.Proc_THEODOITIENDONV_SelectPK_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_THEODOITIENDONV_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="NoiDungKiemTra" Mode="In" Type="String" />
+      <Parameter Name="FileKiemTra" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -1155,5 +1176,35 @@
     <Property Type="Decimal" Name="SoTienCanTT" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="SoTienCanThuHoi" Nullable="true" Precision="18" Scale="0" />
     <Property Type="DateTime" Name="ThoiHanThanhLy" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="THEODOITIENDONV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDDexuat" Type="Int32" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <Property Name="NoiDungBaoCao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileBaoCao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungKiemTra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileKiemTra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="Proc_THEODOITIENDONV_Select_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDDexuat" Nullable="true" />
+    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NoiDungBaoCao" Nullable="true" />
+    <Property Type="String" Name="FileBaoCao" Nullable="true" />
+    <Property Type="String" Name="NoiDungKiemTra" Nullable="true" />
+    <Property Type="String" Name="FileKiemTra" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_THEODOITIENDONV_SelectPK_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IDDexuat" Nullable="true" />
+    <Property Type="DateTime" Name="Ngay" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NoiDungBaoCao" Nullable="true" />
+    <Property Type="String" Name="FileBaoCao" Nullable="true" />
+    <Property Type="String" Name="NoiDungKiemTra" Nullable="true" />
+    <Property Type="String" Name="FileKiemTra" Nullable="true" />
   </ComplexType>
 </Schema>

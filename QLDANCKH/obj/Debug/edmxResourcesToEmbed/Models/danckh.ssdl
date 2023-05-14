@@ -220,6 +220,18 @@
     <Property Name="NguoiLap" Type="varchar" MaxLength="500" />
     <Property Name="ThoiHanThanhLy" Type="date" />
   </EntityType>
+  <EntityType Name="THEODOITIENDONV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDexuat" Type="int" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="NoiDungBaoCao" Type="nvarchar(max)" />
+    <Property Name="FileBaoCao" Type="nvarchar(max)" />
+    <Property Name="NoiDungKiemTra" Type="nvarchar(max)" />
+    <Property Name="FileKiemTra" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="TIEUCHI_DANHGIA">
     <Key>
       <PropertyRef Name="IDTieuchi" />
@@ -554,6 +566,26 @@
   <Function Name="Proc_ThanhVien_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="Proc_THEODOITIENDONV_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_THEODOITIENDONV_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDexuat" Type="int" Mode="In" />
+    <Parameter Name="Ngay" Type="datetime" Mode="In" />
+    <Parameter Name="NoiDungBaoCao" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FileBaoCao" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Proc_THEODOITIENDONV_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDeXuat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_THEODOITIENDONV_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_THEODOITIENDONV_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NoiDungKiemTra" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FileKiemTra" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <EntityContainer Name="QL_NCKHQBModelStoreContainer">
     <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CONGNHANKETQUA_HOPDONG_KHCN" EntityType="Self.CONGNHANKETQUA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
@@ -574,6 +606,7 @@
     <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAMUNGKINHPHI_HOPDONG_KHCN" EntityType="Self.TAMUNGKINHPHI_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THANHLY_HOPDONG_KHCN" EntityType="Self.THANHLY_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THEODOITIENDONV" EntityType="Self.THEODOITIENDONV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

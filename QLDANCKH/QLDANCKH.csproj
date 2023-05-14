@@ -274,6 +274,7 @@
     <Compile Include="Controllers\QuyenHeThongsController.cs" />
     <Compile Include="Controllers\TAMUNGKINHPHI_HOPDONG_KHCNController.cs" />
     <Compile Include="Controllers\THANHLY_HOPDONG_KHCNController.cs" />
+    <Compile Include="Controllers\THEODOITIENDONVsController.cs" />
     <Compile Include="Controllers\TIEUCHI_DANHGIAController.cs" />
     <Compile Include="Controllers\TINTUC_THONGBAOController.cs" />
     <Compile Include="Global.asax.cs">
@@ -473,6 +474,12 @@
     <Compile Include="Models\Proc_ThanhVien_Select_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_THEODOITIENDONV_SelectPK_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_THEODOITIENDONV_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QuyenHeThong.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -480,6 +487,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THANHLY_HOPDONG_KHCN.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THEODOITIENDONV.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TIEUCHI_DANHGIA.cs">

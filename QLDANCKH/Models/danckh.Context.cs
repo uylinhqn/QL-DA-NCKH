@@ -48,6 +48,7 @@ namespace QLDANCKH.Models
         public virtual DbSet<DM_HOCHAM> DM_HOCHAM { get; set; }
         public virtual DbSet<DM_CHUCDANH> DM_CHUCDANH { get; set; }
         public virtual DbSet<DM_CHUCVU> DM_CHUCVU { get; set; }
+        public virtual DbSet<THEODOITIENDONV> THEODOITIENDONVs { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -1153,6 +1154,71 @@ namespace QLDANCKH.Models
         public virtual ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result> Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result>("Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL");
+        }
+    
+        public virtual int Proc_THEODOITIENDONV_Delete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THEODOITIENDONV_Delete", iDParameter);
+        }
+    
+        public virtual int Proc_THEODOITIENDONV_Insert(Nullable<int> iDDexuat, Nullable<System.DateTime> ngay, string noiDungBaoCao, string fileBaoCao)
+        {
+            var iDDexuatParameter = iDDexuat.HasValue ?
+                new ObjectParameter("IDDexuat", iDDexuat) :
+                new ObjectParameter("IDDexuat", typeof(int));
+    
+            var ngayParameter = ngay.HasValue ?
+                new ObjectParameter("Ngay", ngay) :
+                new ObjectParameter("Ngay", typeof(System.DateTime));
+    
+            var noiDungBaoCaoParameter = noiDungBaoCao != null ?
+                new ObjectParameter("NoiDungBaoCao", noiDungBaoCao) :
+                new ObjectParameter("NoiDungBaoCao", typeof(string));
+    
+            var fileBaoCaoParameter = fileBaoCao != null ?
+                new ObjectParameter("FileBaoCao", fileBaoCao) :
+                new ObjectParameter("FileBaoCao", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THEODOITIENDONV_Insert", iDDexuatParameter, ngayParameter, noiDungBaoCaoParameter, fileBaoCaoParameter);
+        }
+    
+        public virtual ObjectResult<Proc_THEODOITIENDONV_Select_Result> Proc_THEODOITIENDONV_Select(Nullable<int> idDeXuat)
+        {
+            var idDeXuatParameter = idDeXuat.HasValue ?
+                new ObjectParameter("IdDeXuat", idDeXuat) :
+                new ObjectParameter("IdDeXuat", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THEODOITIENDONV_Select_Result>("Proc_THEODOITIENDONV_Select", idDeXuatParameter);
+        }
+    
+        public virtual ObjectResult<Proc_THEODOITIENDONV_SelectPK_Result> Proc_THEODOITIENDONV_SelectPK(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THEODOITIENDONV_SelectPK_Result>("Proc_THEODOITIENDONV_SelectPK", idParameter);
+        }
+    
+        public virtual int Proc_THEODOITIENDONV_Update(Nullable<int> iD, string noiDungKiemTra, string fileKiemTra)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var noiDungKiemTraParameter = noiDungKiemTra != null ?
+                new ObjectParameter("NoiDungKiemTra", noiDungKiemTra) :
+                new ObjectParameter("NoiDungKiemTra", typeof(string));
+    
+            var fileKiemTraParameter = fileKiemTra != null ?
+                new ObjectParameter("FileKiemTra", fileKiemTra) :
+                new ObjectParameter("FileKiemTra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THEODOITIENDONV_Update", iDParameter, noiDungKiemTraParameter, fileKiemTraParameter);
         }
     }
 }
