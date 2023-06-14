@@ -8,6 +8,18 @@
     <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="CONGNHANKETQUA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdHSDK" Type="int" />
+    <Property Name="HoSoCongNhan" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="datetime" />
+    <Property Name="NguoiDang" Type="varchar" MaxLength="500" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="HoSoPD" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="CONGNHANKETQUA_HOPDONG_KHCN">
     <Key>
       <PropertyRef Name="ID" />
@@ -147,6 +159,16 @@
     <Property Name="TenHoSo" Type="nvarchar(max)" />
     <Property Name="SoHoSo" Type="varchar" MaxLength="250" />
     <Property Name="PDHoSo" Type="int" />
+  </EntityType>
+  <EntityType Name="NGHIEMTHU_HOPDONG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdHD" Type="int" />
+    <Property Name="HoSoNghiemThu" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="datetime" />
+    <Property Name="NguoiDang" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="NHANVIEN">
     <Key>
@@ -291,6 +313,21 @@
     <Parameter Name="TieuDeGiayCNKQ" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="FileGiayCNKQ" Type="nvarchar(max)" Mode="In" />
   </Function>
+  <Function Name="Proc_CONGNHANKETQUA_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHSDK" Type="int" Mode="In" />
+    <Parameter Name="HoSoCongNhan" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NguoiDang" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_CONGNHANKETQUA_PDCN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="HoSoPD" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Proc_CONGNHANKETQUA_Select_CN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHSDK" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_CONGNHANKETQUA_Select_CNPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHSDK" Type="int" Mode="In" />
+  </Function>
   <Function Name="Proc_DANHGIA_HOPDONG_KHCN_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
@@ -409,6 +446,7 @@
   </Function>
   <Function Name="Proc_HOSODANGKY_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_HOSODANGKY_Select_HSDat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_HOSODANGKY_Select_HSDat_CongNhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_HOSODANGKY_Select2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_HOSODANGKY_Select3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_HOSODANGKY_SelectPK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -437,6 +475,14 @@
   <Function Name="Proc_HOSODANGKY_Update_PheDuyet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="PDHoSo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_NGHIEMTHU_HOPDONG_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHD" Type="int" Mode="In" />
+    <Parameter Name="HoSoNghiemThu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NguoiDang" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_NGHIEMTHU_HOPDONG_Select_NT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHD" Type="int" Mode="In" />
   </Function>
   <Function Name="Proc_PHEDUYET_DEXUAT_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDDexuat" Type="int" Mode="In" />
@@ -519,6 +565,7 @@
   </Function>
   <Function Name="Proc_THANHLY_HOPDONG_KHCN_Selete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Proc_THANHLY_HOPDONG_KHCN_SeletePK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
@@ -588,6 +635,7 @@
   </Function>
   <EntityContainer Name="QL_NCKHQBModelStoreContainer">
     <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONGNHANKETQUA" EntityType="Self.CONGNHANKETQUA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CONGNHANKETQUA_HOPDONG_KHCN" EntityType="Self.CONGNHANKETQUA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANHGIA_HOPDONG_KHCN" EntityType="Self.DANHGIA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
@@ -600,6 +648,7 @@
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOPDONG_KHCN" EntityType="Self.HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOSODANGKY" EntityType="Self.HOSODANGKY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGHIEMTHU_HOPDONG" EntityType="Self.NGHIEMTHU_HOPDONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHEDUYET_DEXUAT" EntityType="Self.PHEDUYET_DEXUAT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHIEU_DANHGIA_CHAMDIEM_HS" EntityType="Self.PHIEU_DANHGIA_CHAMDIEM_HS" Schema="dbo" store:Type="Tables" />

@@ -1083,5 +1083,116 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Proc_THEODOITIENDONV_Update" FunctionName="QL_NCKHQBModel.Store.Proc_THEODOITIENDONV_Update" />
+    <EntitySetMapping Name="NGHIEMTHU_HOPDONG">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.NGHIEMTHU_HOPDONG">
+        <MappingFragment StoreEntitySet="NGHIEMTHU_HOPDONG">
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="HoSoNghiemThu" ColumnName="HoSoNghiemThu" />
+          <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_NGHIEMTHU_HOPDONG_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_NGHIEMTHU_HOPDONG_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_NGHIEMTHU_HOPDONG_Select_NT" FunctionName="QL_NCKHQBModel.Store.Proc_NGHIEMTHU_HOPDONG_Select_NT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_NGHIEMTHU_HOPDONG_Select_NT_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+          <ScalarProperty Name="HoSoNghiemThu" ColumnName="HoSoNghiemThu" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2" FunctionName="QL_NCKHQBModel.Store.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TieuDeThanhLy" ColumnName="TieuDeThanhLy" />
+          <ScalarProperty Name="SoTienDaTU" ColumnName="SoTienDaTU" />
+          <ScalarProperty Name="SoTienCanTT" ColumnName="SoTienCanTT" />
+          <ScalarProperty Name="SoTienCanThuHoi" ColumnName="SoTienCanThuHoi" />
+          <ScalarProperty Name="ThoiHanThanhLy" ColumnName="ThoiHanThanhLy" />
+          <ScalarProperty Name="FileHSTLHD" ColumnName="FileHSTLHD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_HOSODANGKY_Select_HSDat_CongNhan" FunctionName="QL_NCKHQBModel.Store.Proc_HOSODANGKY_Select_HSDat_CongNhan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOSODANGKY_Select_HSDat_CongNhan_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DanhMucTaiLieu" ColumnName="DanhMucTaiLieu" />
+          <ScalarProperty Name="FileHS" ColumnName="FileHS" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="TenHoSo" ColumnName="TenHoSo" />
+          <ScalarProperty Name="SoHoSo" ColumnName="SoHoSo" />
+          <ScalarProperty Name="PDHoSo" ColumnName="PDHoSo" />
+          <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+          <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+          <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+          <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+          <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+          <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+          <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+          <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+          <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+          <ScalarProperty Name="IdLinhVucNC" ColumnName="IdLinhVucNC" />
+          <ScalarProperty Name="IdLinhVucNV" ColumnName="IdLinhVucNV" />
+          <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+          <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+          <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CONGNHANKETQUAs">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.CONGNHANKETQUA">
+        <MappingFragment StoreEntitySet="CONGNHANKETQUA">
+          <ScalarProperty Name="HoSoPD" ColumnName="HoSoPD" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="HoSoCongNhan" ColumnName="HoSoCongNhan" />
+          <ScalarProperty Name="IdHSDK" ColumnName="IdHSDK" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_Select_CN" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_Select_CN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_CONGNHANKETQUA_Select_CN_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdHSDK" ColumnName="IdHSDK" />
+          <ScalarProperty Name="HoSoCongNhan" ColumnName="HoSoCongNhan" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_PDCN" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_PDCN" />
+    <FunctionImportMapping FunctionImportName="Proc_CONGNHANKETQUA_Select_CNPD" FunctionName="QL_NCKHQBModel.Store.Proc_CONGNHANKETQUA_Select_CNPD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_CONGNHANKETQUA_Select_CNPD_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdHSDK" ColumnName="IdHSDK" />
+          <ScalarProperty Name="HoSoCongNhan" ColumnName="HoSoCongNhan" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="HoSoPD" ColumnName="HoSoPD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

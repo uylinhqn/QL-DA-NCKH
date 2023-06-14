@@ -24,9 +24,9 @@ namespace QLDANCKH.Controllers
             return db.Proc_THANHLY_HOPDONG_KHCN_Selete();
         }
           // GET: api/THANHLY_HOPDONG_KHCN
-        public ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result> GetTHANHLY_HOPDONG_KHCN(string xtl)
+        public ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2_Result> GetTHANHLY_HOPDONG_KHCN(string xtl)
         {
-            return db.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL();
+            return db.Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2();
         }
 
         // GET: api/THANHLY_HOPDONG_KHCN/5

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/khcnqb.jpg">
-    <title>QUYẾT ĐỊNH CÔNG NHẬN </title>
+    <title>QUYẾT ĐỊNH CÔNG NHẬN KẾT QUẢ</title>
     <!-- This page CSS -->
     <!--Toaster Popup message CSS -->
     <link href="../css/jquery.toast.css" rel="stylesheet">
@@ -19,6 +19,158 @@
     <!-- Dashboard 1 Page CSS -->
     <link href="../css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
     <link href="../css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/select2.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .input-group-append,
+        .input-group-append .btn + .btn,
+        .input-group-append .btn + .input-group-text,
+        .input-group-append .input-group-text + .btn,
+        .input-group-append .input-group-text + .input-group-text,
+        .input-group-prepend .btn + .btn,
+        .input-group-prepend .btn + .input-group-text,
+        .input-group-prepend .input-group-text + .btn,
+        .input-group-prepend .input-group-text + .input-group-text,
+        .input-group > .custom-file + .custom-file,
+        .input-group > .custom-file + .custom-select,
+        .input-group > .custom-file + .form-control,
+        .input-group > .custom-select + .custom-file,
+        .input-group > .custom-select + .custom-select,
+        .input-group > .custom-select + .form-control,
+        .input-group > .form-control + .custom-file,
+        .input-group > .form-control + .custom-select,
+        .input-group > .form-control + .form-control,
+        .input-group > .form-control-plaintext + .custom-file,
+        .input-group > .form-control-plaintext + .custom-select,
+        .input-group > .form-control-plaintext + .form-control {
+            margin-left: -1px
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%
+        }
+
+            .input-group > .custom-file,
+            .input-group > .custom-select,
+            .input-group > .form-control,
+            .input-group > .form-control-plaintext {
+                position: relative;
+                flex: 1 1 auto;
+                width: 1%;
+                margin-bottom: 0
+            }
+
+                .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-file .custom-file-input2:focus ~ .custom-file-label2,
+                .input-group > .custom-select:focus,
+                .input-group > .form-control:focus {
+                    z-index: 3
+                }
+
+                .input-group > .custom-file .custom-file-input:focus, .input-group > .custom-file .custom-file-input2:focus {
+                    z-index: 4
+                }
+
+            .input-group > .custom-file {
+                display: flex;
+                align-items: center
+            }
+
+        .input-group-append,
+        .input-group-prepend {
+            display: flex
+        }
+
+            .input-group-append .btn,
+            .input-group-prepend .btn {
+                position: relative;
+                z-index: 2
+            }
+
+                .input-group-append .btn:focus,
+                .input-group-prepend .btn:focus {
+                    z-index: 3
+                }
+
+        .input-group-prepend {
+            margin-right: -1px
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: .375rem .75rem;
+            font-size: .875rem;
+            line-height: 1.5;
+            color: #4F5467;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+        .custom-file,
+        .custom-file-input,
+        .custom-file-input2,
+        .custom-file-label, .custom-file-label2 {
+            height: calc(1.5em + .75rem + 2px)
+        }
+
+        .custom-file {
+            position: relative;
+            display: inline-block;
+            width: 100%
+        }
+
+        .custom-file-input {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0;
+            opacity: 0
+        }
+
+        .custom-file-label,
+        .custom-file-label::after, .custom-file-label2,
+        .custom-file-label2::after {
+            position: absolute;
+            padding: .375rem .75rem;
+            line-height: 1.5;
+            color: #4F5467;
+            top: 0;
+            right: 0
+        }
+
+        .custom-file-input:lang(en) ~ .custom-file-label::after, .custom-file-input2:lang(en) ~ .custom-file-label2::after {
+            content: ""
+        }
+
+        .custom-file-input ~ .custom-file-label[data-browse]::after, .custom-file-input2 ~ .custom-file-label2[data-browse]::after {
+            content: attr(data-browse)
+        }
+
+        .custom-file-label, .custom-file-label2 {
+            left: 0;
+            z-index: 1;
+            font-weight: 400;
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: .25rem
+        }
+
+            .custom-file-label::after, .custom-file-label2::after {
+                bottom: 0;
+                z-index: 3;
+                display: block;
+                height: calc(1.5em + .75rem);
+                content: "Browse";
+                background-color: #f8f9fa;
+                border-left: inherit;
+                border-radius: 0 .25rem .25rem 0
+            }
+    </style>
 </head>
 
 <body class="skin-green-dark fixed-layout mini-sidebar">
@@ -238,20 +390,19 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Quyết định công nhận</h4>
+                        <h4 class="text-themecolor">Quyết định công nhận kết quả</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Quyết định công nhận</li>
+                                <li class="breadcrumb-item active">Quyết định công nhận kết quả</li>
                             </ol>
-                            <a class="btn btn-info d-none d-lg-block m-l-15 text-white" data-bs-target='#themdanhmuc' data-bs-toggle='modal'><i class="fa fa-plus-circle"></i> Thêm mới</a>
                         </div>
                     </div>
                 </div>
                 <!-- /row -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -260,10 +411,13 @@
                                         <thead>
                                             <tr>
                                                 <th>Thao tác</th>
-                                                <th>Tên học vị</th>
-                                               
-                                                <th>Trạng thái</th>
-
+                                                <th>Số hồ sơ</th>
+                                                <th>Tên hồ sơ</th>
+                                                <th>Tên nhiệm vụ</th>
+                                                <th>Cấp đề xuất</th>
+                                                <th>Đơn vị / Cá nhân</th>
+                                                <th>Địa chỉ</th>
+                                                <th>File đính kèm</th>
                                             </tr>
                                         </thead>
                                         <tbody id="danhsach"></tbody>
@@ -272,7 +426,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- /.row -->
                 <label id="lbtenfile" style="display:none"></label>
             </div>
@@ -297,8 +451,206 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
-
-    
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="themdanhmuc" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cập nhật công nhận kết quả</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-12">
+                            <label class="col-md-12 control-label" id="lbidhs" style="display:none"></label>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" id="lbtennv">Tên nhiệm vụ:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohoso">Số hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdonvi">Tên đơn vị / cá nhân:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhoso">Tên hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdiachi">Địa chỉ:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-b-20" />
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <label class="col-md-12 control-label" id="lbidhdnt" style="display:none"></label>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbngaylaphd">Ngày lập HĐ</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhd">Tên hợp đồng</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbngaykthd">Ngày kết thúc HĐ</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">File quyết định</label>
+                                            <div class="col-md-12">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="inputGroupFile01" multiple />
+                                                    <label class="custom-file-label" for="inputGroupFile01">Chọn tập tin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohd">Số hợp đồng</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtongkp">Tổng kinh phí</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file hợp đồng:</label>
+                                            <div class="col-md-12" id="dsfile">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file công nhận kết quả:</label>
+                                            <div class="col-md-12" id="dsfilecn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect text-start text-white" id="btnUploadFile" onclick="them();">Lưu</button>
+                            <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="xemdiemcham" class="modal bs-example-modal-lg">
+        <div class="modal-dialog modal-xl" style="z-index:2000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Xem thông tin công nhận kết quả</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-layouts" class="row" onsubmit="return false">
+                        <div class="col-lg-12">
+                            <label class="col-md-12 control-label" id="lbidhsx" style="display:none"></label>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" id="lbtennvx">Tên nhiệm vụ:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohosox">Số hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdonvix">Tên đơn vị / cá nhân:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhosox">Tên hồ sơ:</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbdiachix">Địa chỉ:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-b-20" />
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <label class="col-md-12 control-label" id="lbidhdntx" style="display:none"></label>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbngaylaphdx">Ngày lập HĐ</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtenhdx">Tên hợp đồng</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbngaykthdx">Ngày kết thúc HĐ</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file quyết định:</label>
+                                            <div class="col-md-12" id="dsfileqdx">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-blue">
+                                <div class="panel-body pan">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbsohdx">Số hợp đồng</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" id="lbtongkpx">Tổng kinh phí</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file hợp đồng:</label>
+                                            <div class="col-md-12" id="dsfilex">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label">Danh sách file đăng ký lưu trữ công nhận:</label>
+                                            <div class="col-md-12" id="dsfilentx">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -330,15 +682,20 @@
     <script src="../js/vfs_fonts.js"></script>
     <script src="../js/buttons.html5.min.js"></script>
     <script src="../js/buttons.print.min.js"></script>
+    <script src="../js/select2.min.js"></script>
     <script>
-        $('#myTable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-
-            ], "pageLength": 20
-        });
         window.onload = function () {
-            loadmenu();loaddanhsach();
+            loadmenu(); loaddanhsach();
+        }
+        function enforceMinMax(el) {
+            if (el.value != "") {
+                if (parseInt(el.value) < parseInt(el.min)) {
+                    el.value = el.min;
+                }
+                if (parseInt(el.value) > parseInt(el.max)) {
+                    el.value = el.max;
+                }
+            }
         }
         function loadmenu() {
             $.ajax({
@@ -411,10 +768,10 @@
                 }
             });
         }
-        var uri = '';
+        var uri = '/api/hosodangkies';
         function loaddanhsach() {
             $.ajax({
-                url: uri,
+                url: uri + '?loaicn=1',
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
@@ -426,11 +783,20 @@
                         strhtml += "<tr>" +
                             "<td>" + "<div class='dropdown'>" +
                             "<a style='cursor: pointer;' class='dropdown-toggle' id='dropdownMenuButton' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Chọn</a>" +
-                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#capnhatdanhmuc' onclick='xemdanhmuc(" + item.IDHocvi + ")'>Cập nhật thông tin</a></li>" +
-                            "<li><a style='cursor: pointer;' class='dropdown-item' onclick='xoadanhmuc(" + item.IDHocvi + ")'>Xóa học vị</a></li></ul></div></td>" +
-                            "<td>" + item.TenHocvi + "</td>" +
-                            "<td style='text-align:center;'>" + (item.Trangthai == true ? "<a class='btn btn-success btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Hoạt động</a>" : "<a class='btn btn-danger btn-xs' onclick='capnhattrangthai(" + item.Id + ")'>Khóa</a>") + "</td>" +
-                             "</tr> ";
+                            "<ul class='dropdown-menu' role='menu'><li><a style='cursor: pointer;' class='dropdown-item' data-bs-toggle='modal' data-bs-target='#themdanhmuc' onclick='nhapnghiemthu(" + item.ID + ")'>Nhập thông tin công nhận kết quả</a></li>" +
+                            "<li><a style='cursor: pointer;' class='dropdown-item' data-bs-target='#xemdiemcham' data-bs-toggle='modal' onclick='xemnghiemthu(" + item.ID + ")'>Xem thông tin quyết định công nhận</a></li></ul></div></td>" +
+                            "<td>" + item.SoHoSo + "</td>" + "<td>" + item.TenHoSo + "</td>" +
+                            "<td>" + item.Tendexuat + "</td>" +
+                            "<td>" + item.CapDeXuat + "</td>" +
+                            "<td>" + item.DonVi + "</td>" +
+                            "<td>" + item.DiaChi + "</td><td>";
+                        localStorage.setItem("fileshs", item.FileHS);
+                        if (localStorage.getItem("fileshs").split(';').length - 1 > 0) {
+                            for (var i = 0; i < localStorage.getItem("fileshs").split(';').length - 1; i++) {
+                                strhtml += "<a href='../uploads/" + localStorage.getItem("fileshs").split(';')[i] + "' target='_blank'>" + localStorage.getItem("fileshs").split(';')[i] + "</a><br />";
+                            }
+                        }
+                        strhtml += "</td></tr> ";
                         $("#danhsach").append(strhtml); stt++;
                     });
                     $('#myTable').DataTable({
@@ -453,19 +819,106 @@
                 }
             });
         }
-        function loaddanhsachls(id) {
-            document.getElementById("idpas").innerHTML = id; }
-        function xemdanhmuc(id) {
+        function nhapnghiemthu(id) {
             $.ajax({
-                url: uri + '?id=' + id,
+                url: uri + '?idcd=' + id,
                 method: 'GET',
                 contentType: 'application/json',
                 success: function (data) {
-                    document.getElementById("lbid").innerHTML = data.IDHocvi;
-                    document.getElementById("txttenhocvicn").value = data.TenHocvi;
-                       
-                        document.getElementById("chbttcn").checked = data.Trangthai;
-                    
+                    document.getElementById("lbidhs").innerHTML = data[0].ID;
+                    document.getElementById("lbtennv").innerHTML = "Tên nhiệm vụ: <b>" + data[0].Tendexuat + "</b>";
+                    document.getElementById("lbsohoso").innerHTML = "Số hồ sơ: <b>" + data[0].SoHoSo + "</b>";
+                    document.getElementById("lbtenhoso").innerHTML = "Tên hồ sơ: <b>" + data[0].TenHoSo + "</b>";
+                    document.getElementById("lbdonvi").innerHTML = "Đơn vị/Cá nhân: <b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachi").innerHTML = "Địa chỉ: <b>" + data[0].DiaChi + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemchitiet(id);
+        }
+
+        function xemnghiemthu(id) {
+            $.ajax({
+                url: uri + '?idcd=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhsx").innerHTML = data[0].ID;
+                    document.getElementById("lbtennvx").innerHTML = "Tên nhiệm vụ: <b>" + data[0].Tendexuat + "</b>";
+                    document.getElementById("lbsohosox").innerHTML = "Số hồ sơ: <b>" + data[0].SoHoSo + "</b>";
+                    document.getElementById("lbtenhosox").innerHTML = "Tên hồ sơ: <b>" + data[0].TenHoSo + "</b>";
+                    document.getElementById("lbdonvix").innerHTML = "Đơn vị/Cá nhân: <b>" + data[0].DonVi + "</b>";
+                    document.getElementById("lbdiachix").innerHTML = "Địa chỉ: <b>" + data[0].DiaChi + "</b>";
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemchitiet2(id);
+        }
+        function xemchitiet2(id) {
+            $.ajax({
+                url: '/api/HOPDONG_KHCN' + '?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhdntx").innerHTML = "";
+                    document.getElementById("lbngaylaphdx").innerHTML = "Ngày lập HĐ:";
+                    document.getElementById("lbtenhdx").innerHTML = "Tên hợp đồng:";
+                    document.getElementById("lbngaykthdx").innerHTML = "Ngày kết thúc HĐ:";
+                    document.getElementById("lbsohdx").innerHTML = "Số hợp đồng:";
+                    document.getElementById("lbtongkpx").innerHTML = "Tổng kinh phí:"; $("#dsfilex").html("");
+                    document.getElementById("lbidhdntx").innerHTML = data[0].IDHD;
+                    document.getElementById("lbngaylaphdx").innerHTML = "Ngày lập HĐ: <b>" + stringToDate(data[0].NgayLap) + "</b>";
+                    document.getElementById("lbtenhdx").innerHTML = "Tên hợp đồng: <b>" + data[0].TenHD + "</b>";
+                    document.getElementById("lbngaykthdx").innerHTML = "Ngày kết thúc HĐ: <b>" + stringToDate(data[0].NgayKetThuc) + "</b>";
+                    document.getElementById("lbsohdx").innerHTML = "Số hợp đồng: <b>" + data[0].SoHD + "</b>";
+                    document.getElementById("lbtongkpx").innerHTML = "Tổng kinh phí: <b>" + formatThousands(data[0].TongKinhPhi) + "</b>";
+                    localStorage.setItem("files", data[0].FileHD);
+                    for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                        $("#dsfilex").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemcn2(id)
+        }
+        function xemcn(id) {
+            $.ajax({
+                url: uri + '?idx=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    $("#dsfilecn").html("");
+                    localStorage.setItem("files2", data[0].FileHSCN);
+                    for (var i = 0; i < localStorage.getItem("files2").split(';').length - 1; i++) {
+                        $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files2").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files2").split(';')[i] + "</a><hr />");
+                    }
                 },
                 error: function (request, msg, error) {
                     $.toast({
@@ -480,82 +933,25 @@
                 }
             });
         }
-        function themdmmoi() {
-            var datas = {
-                TenHocvi: document.getElementById("txttenhocvi").value,
-
-                Trangthai: document.getElementById("chbtt").checked,
-              
-            };
+        function xemcn2(id) {
             $.ajax({
-                url: uri ,
-                method: 'POST',
+                url: uri + '?idxpd=' + id,
+                method: 'GET',
                 contentType: 'application/json',
-                data: JSON.stringify(datas),
-                statusCode: {
-                    201: function () {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Thêm thông tin Học vị thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'success',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); loaddanhsach();
-                        document.getElementById("txttenhocvi").value = "";
-                    
-                        document.getElementById("chbtt").checked = false;
-
+                success: function (data) {
+                    $("#dsfilentx").html(""); $("#dsfileqdx").html(""); localStorage.removeItem("file2");
+                    localStorage.setItem("files2", data[0].FileHSCN);
+                    for (var i = 0; i < localStorage.getItem("files2").split(';').length - 1; i++) {
+                        $("#dsfilentx").append("<a href='../uploads/" + localStorage.getItem("files2").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files2").split(';')[i] + "</a><hr />");
+                    } localStorage.setItem("files3", data[0].FileQDCN);
+                    for (var i = 0; i < localStorage.getItem("files3").split(';').length - 1; i++) {
+                        $("#dsfileqdx").append("<a href='../uploads/" + localStorage.getItem("files3").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files3").split(';')[i] + "</a><hr />");
                     }
                 },
                 error: function (request, msg, error) {
                     $.toast({
                         heading: 'Thông báo',
-                        text: 'Thêm thông tin Học vị không thành công!',
-                        position: 'top-right',
-                        loaderBg: '#ff6849',
-                        icon: 'warning',
-                        hideAfter: 3500,
-                        stack: 6
-                    });
-                }
-            });
-        }
-        function capnhattt() {
-            var datas = {
-               
-                IDHocvi: document.getElementById("lbid").innerHTML,
-                TenHocvi: document.getElementById("txttenhocvicn").value,
-                
-                Trangthai: document.getElementById("chbttcn").checked,
-               
-            };
-            $.ajax({
-                url: uri + '?id=' + document.getElementById("lbid").innerHTML,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(datas),
-                statusCode: {
-                    204: function () {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Cập nhật thông tin Học vị thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'success',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); loaddanhsach();
-                        document.getElementById("txttenhocvicn").value = "";
-                       
-                        document.getElementById("chbttcn").checked = false;
-                    }
-                },
-                error: function (request, msg, error) {
-                    $.toast({
-                        heading: 'Thông báo',
-                        text: 'Cập nhật thông tin Học vị không thành công!',
+                        text: 'Dữ liệu đang được cập nhật!',
                         position: 'top-right',
                         loaderBg: '#ff6849',
                         icon: 'info',
@@ -565,41 +961,129 @@
                 }
             });
         }
+        function xemchitiet(id) {
+            $.ajax({
+                url: '/api/HOPDONG_KHCN' + '?id=' + id,
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    document.getElementById("lbidhdnt").innerHTML = "";
+                    document.getElementById("lbngaylaphd").innerHTML = "Ngày lập HĐ:";
+                    document.getElementById("lbtenhd").innerHTML = "Tên hợp đồng:";
+                    document.getElementById("lbngaykthd").innerHTML = "Ngày kết thúc HĐ:";
+                    document.getElementById("lbsohd").innerHTML = "Số hợp đồng:";
+                    document.getElementById("lbtongkp").innerHTML = "Tổng kinh phí:"; $("#dsfile").html("");
+                    document.getElementById("lbidhdnt").innerHTML = data[0].IDHD;
+                    document.getElementById("lbngaylaphd").innerHTML = "Ngày lập HĐ: <b>" + stringToDate(data[0].NgayLap) + "</b>";
+                    document.getElementById("lbtenhd").innerHTML = "Tên hợp đồng: <b>" + data[0].TenHD + "</b>";
+                    document.getElementById("lbngaykthd").innerHTML = "Ngày kết thúc HĐ: <b>" + stringToDate(data[0].NgayKetThuc) + "</b>";
+                    document.getElementById("lbsohd").innerHTML = "Số hợp đồng: <b>" + data[0].SoHD + "</b>";
+                    document.getElementById("lbtongkp").innerHTML = "Tổng kinh phí: <b>" + formatThousands(data[0].TongKinhPhi) + "</b>";
+                    localStorage.setItem("files", data[0].FileHD);
+                    for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+                        $("#dsfile").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            }); xemcn(id);
+        }
+        function stringToDate(_date) {
+            _date = new Date(_date);
+            year = _date.getFullYear();
+            month = _date.getMonth() + 1;
+            dt = _date.getDate();
 
-      
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
 
+            return (dt + '/' + month + '/' + year);
+        }
+        function formatThousands(n, dp) {
+            var s = '' + (Math.floor(n)), d = n % 1, i = s.length, r = '';
+            while ((i -= 3) > 0) { r = ',' + s.substr(i, 3) + r; }
+            return s.substr(0, i + 3) + r + (d ? '.' + Math.round(d * Math.pow(10, dp || 2)) : '');
+        }
+        function them() {
+            var files = $("#inputGroupFile01").get(0).files;
+            if (files.length > 0) {
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    data.append(file.name, file);
+                }
 
-       
-        function xoadanhmuc(id) {
-            if (confirm('Bạn chắc chắn muốn xóa Học vị đã chọn?')) {
-                $.ajax({
-                    url: uri + '/' + id,
-                    method: 'DELETE',
-                    contentType: 'application/json',
-                    success: function (data) {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Xóa thông tin Học vị thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'info',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); loaddanhsach();
-                    },
-                    error: function (request, msg, error) {
-                        $.toast({
-                            heading: 'Thông báo',
-                            text: 'Xóa thông tin học vị không thành công!',
-                            position: 'top-right',
-                            loaderBg: '#ff6849',
-                            icon: 'info',
-                            hideAfter: 3500,
-                            stack: 6
-                        }); document.getElementById("lbiddanhmucxoa").innerHTML = "";
+                // Make Ajax request with the contentType = false, and procesDate = false
+                var ajaxRequest = $.ajax({
+                    type: "POST", headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                    url: "/api/fileupload/uploadfile",
+                    contentType: false,
+                    processData: false,
+                    data: data
+                });
+
+                ajaxRequest.done(function (responseData, textStatus) {
+                    if (textStatus == 'success') {
+                        if (responseData != null) {
+                            if (responseData.Key) {
+                                localStorage.setItem("newfiles", responseData.Value);
+                                themdmmoi();
+                            }
+                        }
+                    } else {
+                        alert(responseData.Value); return;
                     }
                 });
             }
+        }
+        function themdmmoi() {
+            var datas = {
+                Id: document.getElementById("lbidhs").innerHTML,
+                HoSoPD: localStorage.getItem("newfiles")
+            };
+            $.ajax({
+                url: '/api/congnhankq',
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(datas),
+                statusCode: {
+                    204: function () {
+                        $.toast({
+                            heading: 'Thông báo',
+                            text: 'Cập nhật quyết định công nhận kết quả thành công!',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    }
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Cập nhật quyết định công nhận kết quả không thành công!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
         }
     </script>
 </body>

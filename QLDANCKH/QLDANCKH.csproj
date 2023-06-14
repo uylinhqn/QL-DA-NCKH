@@ -167,6 +167,8 @@
     <Content Include="hoi-nghi-hoi-thao\thanh-phan-tham-gia.html" />
     <Content Include="hoi-nghi-hoi-thao\thong-tin-hoi-thao.html" />
     <Content Include="hop-dong-kinh-phi\danh-sach-ho-so.html" />
+    <Content Include="hop-dong-kinh-phi\nghiem-thu-cap-tinh.html" />
+    <Content Include="hop-dong-kinh-phi\nghiem-thu-co-so.html" />
     <Content Include="hop-dong-kinh-phi\tam-ung-kinh-phi.html" />
     <Content Include="hop-dong-kinh-phi\thong-tin-hop-dong.html" />
     <Content Include="hop-dong-kinh-phi\thong-tin-ho-so-thanh-ly.html" />
@@ -254,6 +256,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChiTietQuyenHTsController.cs" />
+    <Compile Include="Controllers\CONGNHANKETQUAsController.cs" />
     <Compile Include="Controllers\CONGNHANKETQUA_HOPDONG_KHCNController.cs" />
     <Compile Include="Controllers\DANHGIA_HOPDONG_KHCNController.cs" />
     <Compile Include="Controllers\DEXUAT_DATHANGController.cs" />
@@ -268,6 +271,7 @@
     <Compile Include="Controllers\HOPDONG_KHCNController.cs" />
     <Compile Include="Controllers\HOSODANGKiesController.cs" />
     <Compile Include="Controllers\menuController.cs" />
+    <Compile Include="Controllers\NGHIEMTHU_HOPDONGController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
     <Compile Include="Controllers\PHEDUYET_DEXUATController.cs" />
     <Compile Include="Controllers\PHIEU_DANHGIA_CHAMDIEM_HSController.cs" />
@@ -281,6 +285,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietQuyenHT.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CONGNHANKETQUA.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CONGNHANKETQUA_HOPDONG_KHCN.cs">
@@ -336,6 +343,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyAuthorizationServerProvider.cs" />
+    <Compile Include="Models\NGHIEMTHU_HOPDONG.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -355,6 +365,12 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_CONGNHANKETQUA_HOPDONG_KHCN_select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_CONGNHANKETQUA_Select_CNPD_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_CONGNHANKETQUA_Select_CN_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_DANHGIA_HOPDONG_KHCN_SelectPK_Result.cs">
@@ -417,10 +433,16 @@
     <Compile Include="Models\Proc_HOSODANGKY_SelectPK_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_HOSODANGKY_Select_HSDat_CongNhan_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_Select_HSDat_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_HOSODANGKY_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_NGHIEMTHU_HOPDONG_Select_NT_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_PHEDUYET_DEXUAT_Select_DX_Result.cs">
@@ -454,6 +476,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_THANHLY_HOPDONG_KHCN_Selete_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL_Result.cs">

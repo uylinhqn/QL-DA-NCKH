@@ -49,6 +49,8 @@ namespace QLDANCKH.Models
         public virtual DbSet<DM_CHUCDANH> DM_CHUCDANH { get; set; }
         public virtual DbSet<DM_CHUCVU> DM_CHUCVU { get; set; }
         public virtual DbSet<THEODOITIENDONV> THEODOITIENDONVs { get; set; }
+        public virtual DbSet<NGHIEMTHU_HOPDONG> NGHIEMTHU_HOPDONG { get; set; }
+        public virtual DbSet<CONGNHANKETQUA> CONGNHANKETQUAs { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -1219,6 +1221,90 @@ namespace QLDANCKH.Models
                 new ObjectParameter("FileKiemTra", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_THEODOITIENDONV_Update", iDParameter, noiDungKiemTraParameter, fileKiemTraParameter);
+        }
+    
+        public virtual int Proc_NGHIEMTHU_HOPDONG_Insert(Nullable<int> idHD, string hoSoNghiemThu, string nguoiDang)
+        {
+            var idHDParameter = idHD.HasValue ?
+                new ObjectParameter("IdHD", idHD) :
+                new ObjectParameter("IdHD", typeof(int));
+    
+            var hoSoNghiemThuParameter = hoSoNghiemThu != null ?
+                new ObjectParameter("HoSoNghiemThu", hoSoNghiemThu) :
+                new ObjectParameter("HoSoNghiemThu", typeof(string));
+    
+            var nguoiDangParameter = nguoiDang != null ?
+                new ObjectParameter("NguoiDang", nguoiDang) :
+                new ObjectParameter("NguoiDang", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_NGHIEMTHU_HOPDONG_Insert", idHDParameter, hoSoNghiemThuParameter, nguoiDangParameter);
+        }
+    
+        public virtual ObjectResult<Proc_NGHIEMTHU_HOPDONG_Select_NT_Result> Proc_NGHIEMTHU_HOPDONG_Select_NT(Nullable<int> idHD)
+        {
+            var idHDParameter = idHD.HasValue ?
+                new ObjectParameter("IdHD", idHD) :
+                new ObjectParameter("IdHD", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_NGHIEMTHU_HOPDONG_Select_NT_Result>("Proc_NGHIEMTHU_HOPDONG_Select_NT", idHDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2_Result> Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2_Result>("Proc_THANHLY_HOPDONG_KHCN_Selete_XemTL2");
+        }
+    
+        public virtual ObjectResult<Proc_HOSODANGKY_Select_HSDat_CongNhan_Result> Proc_HOSODANGKY_Select_HSDat_CongNhan()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_Select_HSDat_CongNhan_Result>("Proc_HOSODANGKY_Select_HSDat_CongNhan");
+        }
+    
+        public virtual int Proc_CONGNHANKETQUA_Insert(Nullable<int> idHSDK, string hoSoCongNhan, string nguoiDang)
+        {
+            var idHSDKParameter = idHSDK.HasValue ?
+                new ObjectParameter("IdHSDK", idHSDK) :
+                new ObjectParameter("IdHSDK", typeof(int));
+    
+            var hoSoCongNhanParameter = hoSoCongNhan != null ?
+                new ObjectParameter("HoSoCongNhan", hoSoCongNhan) :
+                new ObjectParameter("HoSoCongNhan", typeof(string));
+    
+            var nguoiDangParameter = nguoiDang != null ?
+                new ObjectParameter("NguoiDang", nguoiDang) :
+                new ObjectParameter("NguoiDang", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_CONGNHANKETQUA_Insert", idHSDKParameter, hoSoCongNhanParameter, nguoiDangParameter);
+        }
+    
+        public virtual ObjectResult<Proc_CONGNHANKETQUA_Select_CN_Result> Proc_CONGNHANKETQUA_Select_CN(Nullable<int> idHSDK)
+        {
+            var idHSDKParameter = idHSDK.HasValue ?
+                new ObjectParameter("IdHSDK", idHSDK) :
+                new ObjectParameter("IdHSDK", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_CONGNHANKETQUA_Select_CN_Result>("Proc_CONGNHANKETQUA_Select_CN", idHSDKParameter);
+        }
+    
+        public virtual int Proc_CONGNHANKETQUA_PDCN(Nullable<int> id, string hoSoPD)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var hoSoPDParameter = hoSoPD != null ?
+                new ObjectParameter("HoSoPD", hoSoPD) :
+                new ObjectParameter("HoSoPD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_CONGNHANKETQUA_PDCN", idParameter, hoSoPDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_CONGNHANKETQUA_Select_CNPD_Result> Proc_CONGNHANKETQUA_Select_CNPD(Nullable<int> idHSDK)
+        {
+            var idHSDKParameter = idHSDK.HasValue ?
+                new ObjectParameter("IdHSDK", idHSDK) :
+                new ObjectParameter("IdHSDK", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_CONGNHANKETQUA_Select_CNPD_Result>("Proc_CONGNHANKETQUA_Select_CNPD", idHSDKParameter);
         }
     }
 }
