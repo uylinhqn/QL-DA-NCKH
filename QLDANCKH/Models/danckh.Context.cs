@@ -51,6 +51,7 @@ namespace QLDANCKH.Models
         public virtual DbSet<THEODOITIENDONV> THEODOITIENDONVs { get; set; }
         public virtual DbSet<NGHIEMTHU_HOPDONG> NGHIEMTHU_HOPDONG { get; set; }
         public virtual DbSet<CONGNHANKETQUA> CONGNHANKETQUAs { get; set; }
+        public virtual DbSet<GIAHAN_HOPDONG> GIAHAN_HOPDONG { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -1305,6 +1306,49 @@ namespace QLDANCKH.Models
                 new ObjectParameter("IdHSDK", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_CONGNHANKETQUA_Select_CNPD_Result>("Proc_CONGNHANKETQUA_Select_CNPD", idHSDKParameter);
+        }
+    
+        public virtual int Proc_GIAHAN_HOPDONG_Insert(Nullable<int> idHD, string donGiaHan, Nullable<System.DateTime> ngayKetThuc, string nguoiDang)
+        {
+            var idHDParameter = idHD.HasValue ?
+                new ObjectParameter("IdHD", idHD) :
+                new ObjectParameter("IdHD", typeof(int));
+    
+            var donGiaHanParameter = donGiaHan != null ?
+                new ObjectParameter("DonGiaHan", donGiaHan) :
+                new ObjectParameter("DonGiaHan", typeof(string));
+    
+            var ngayKetThucParameter = ngayKetThuc.HasValue ?
+                new ObjectParameter("NgayKetThuc", ngayKetThuc) :
+                new ObjectParameter("NgayKetThuc", typeof(System.DateTime));
+    
+            var nguoiDangParameter = nguoiDang != null ?
+                new ObjectParameter("NguoiDang", nguoiDang) :
+                new ObjectParameter("NguoiDang", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_GIAHAN_HOPDONG_Insert", idHDParameter, donGiaHanParameter, ngayKetThucParameter, nguoiDangParameter);
+        }
+    
+        public virtual ObjectResult<Proc_GIAHAN_HOPDONG_Select_NT_Result> Proc_GIAHAN_HOPDONG_Select_NT(Nullable<int> idHD)
+        {
+            var idHDParameter = idHD.HasValue ?
+                new ObjectParameter("IdHD", idHD) :
+                new ObjectParameter("IdHD", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_GIAHAN_HOPDONG_Select_NT_Result>("Proc_GIAHAN_HOPDONG_Select_NT", idHDParameter);
+        }
+    
+        public virtual int Proc_GIAHAN_HOPDONG_Update(Nullable<int> id, string filePheduyet)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var filePheduyetParameter = filePheduyet != null ?
+                new ObjectParameter("FilePheduyet", filePheduyet) :
+                new ObjectParameter("FilePheduyet", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_GIAHAN_HOPDONG_Update", idParameter, filePheduyetParameter);
         }
     }
 }

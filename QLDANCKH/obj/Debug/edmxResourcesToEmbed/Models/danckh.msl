@@ -1194,5 +1194,33 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="GIAHAN_HOPDONG">
+      <EntityTypeMapping TypeName="QL_NCKHQBModel.GIAHAN_HOPDONG">
+        <MappingFragment StoreEntitySet="GIAHAN_HOPDONG">
+          <ScalarProperty Name="FilePheduyet" ColumnName="FilePheduyet" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="DonGiaHan" ColumnName="DonGiaHan" />
+          <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Insert" />
+    <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Select_NT" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Select_NT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_GIAHAN_HOPDONG_Select_NT_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+          <ScalarProperty Name="DonGiaHan" ColumnName="DonGiaHan" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+          <ScalarProperty Name="FilePheduyet" ColumnName="FilePheduyet" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Update" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Update" />
   </EntityContainerMapping>
 </Mapping>

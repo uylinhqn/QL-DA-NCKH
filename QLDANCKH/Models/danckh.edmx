@@ -133,6 +133,18 @@
           <Property Name="TenLinhvuc" Type="nvarchar" MaxLength="100" />
           <Property Name="Trangthai" Type="bit" />
         </EntityType>
+        <EntityType Name="GIAHAN_HOPDONG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHD" Type="int" />
+          <Property Name="DonGiaHan" Type="nvarchar(max)" />
+          <Property Name="NgayDang" Type="datetime" />
+          <Property Name="NgayKetThuc" Type="datetime" />
+          <Property Name="NguoiDang" Type="varchar" MaxLength="500" />
+          <Property Name="FilePheduyet" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="HOPDONG_KHCN">
           <Key>
             <PropertyRef Name="ID" />
@@ -397,6 +409,19 @@
           <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
           <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
         </Function>
+        <Function Name="Proc_GIAHAN_HOPDONG_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdHD" Type="int" Mode="In" />
+          <Parameter Name="DonGiaHan" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="NgayKetThuc" Type="datetime" Mode="In" />
+          <Parameter Name="NguoiDang" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_GIAHAN_HOPDONG_Select_NT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdHD" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_GIAHAN_HOPDONG_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="FilePheduyet" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="Proc_HOPDONG_KHCN_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
@@ -651,6 +676,7 @@
           <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIAHAN_HOPDONG" EntityType="Self.GIAHAN_HOPDONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOPDONG_KHCN" EntityType="Self.HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOSODANGKY" EntityType="Self.HOSODANGKY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGHIEMTHU_HOPDONG" EntityType="Self.NGHIEMTHU_HOPDONG" Schema="dbo" store:Type="Tables" />
@@ -1070,7 +1096,21 @@
             <Parameter Name="HoSoPD" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_CONGNHANKETQUA_Select_CNPD" ReturnType="Collection(QL_NCKHQBModel.Proc_CONGNHANKETQUA_Select_CNPD_Result)">
-            <Parameter Name="IdHSDK" Mode="In" Type="Int32" />
+          <Parameter Name="IdHSDK" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="GIAHAN_HOPDONG" EntityType="QL_NCKHQBModel.GIAHAN_HOPDONG" />
+          <FunctionImport Name="Proc_GIAHAN_HOPDONG_Insert">
+            <Parameter Name="IdHD" Mode="In" Type="Int32" />
+            <Parameter Name="DonGiaHan" Mode="In" Type="String" />
+            <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
+            <Parameter Name="NguoiDang" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_GIAHAN_HOPDONG_Select_NT" ReturnType="Collection(QL_NCKHQBModel.Proc_GIAHAN_HOPDONG_Select_NT_Result)">
+            <Parameter Name="IdHD" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_GIAHAN_HOPDONG_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="FilePheduyet" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="DM_DONVI">
@@ -1987,6 +2027,27 @@
           <Property Type="String" Name="NguoiDang" Nullable="true" MaxLength="500" />
           <Property Type="Boolean" Name="TrangThai" Nullable="true" />
           <Property Type="String" Name="HoSoPD" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="GIAHAN_HOPDONG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHD" Type="Int32" />
+          <Property Name="DonGiaHan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDang" Type="DateTime" Precision="3" />
+          <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+          <Property Name="NguoiDang" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FilePheduyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Proc_GIAHAN_HOPDONG_Select_NT_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdHD" Nullable="true" />
+          <Property Type="String" Name="DonGiaHan" Nullable="true" />
+          <Property Type="DateTime" Name="NgayDang" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NguoiDang" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FilePheduyet" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3187,6 +3248,34 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="GIAHAN_HOPDONG">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.GIAHAN_HOPDONG">
+              <MappingFragment StoreEntitySet="GIAHAN_HOPDONG">
+                <ScalarProperty Name="FilePheduyet" ColumnName="FilePheduyet" />
+                <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+                <ScalarProperty Name="DonGiaHan" ColumnName="DonGiaHan" />
+                <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Insert" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Insert" />
+          <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Select_NT" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Select_NT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_GIAHAN_HOPDONG_Select_NT_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdHD" ColumnName="IdHD" />
+                <ScalarProperty Name="DonGiaHan" ColumnName="DonGiaHan" />
+                <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NguoiDang" ColumnName="NguoiDang" />
+                <ScalarProperty Name="FilePheduyet" ColumnName="FilePheduyet" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Update" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Update" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

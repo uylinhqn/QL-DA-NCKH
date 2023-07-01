@@ -268,6 +268,7 @@
     <Compile Include="Controllers\DM_LINHVUC_NGHIENCUUController.cs" />
     <Compile Include="Controllers\DM_LINHVUC_NHIEMVUController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\GIAHAN_HOPDONGController.cs" />
     <Compile Include="Controllers\HOPDONG_KHCNController.cs" />
     <Compile Include="Controllers\HOSODANGKiesController.cs" />
     <Compile Include="Controllers\menuController.cs" />
@@ -336,6 +337,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\encrypts.cs" />
+    <Compile Include="Models\GIAHAN_HOPDONG.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HOPDONG_KHCN.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -395,6 +399,9 @@
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_GIAHAN_HOPDONG_Select_NT_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proc_HOPDONG_KHCN_SelectPK2_Result.cs">

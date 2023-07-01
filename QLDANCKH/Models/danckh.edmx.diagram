@@ -30,6 +30,7 @@
         <EntityTypeShape EntityType="QL_NCKHQBModel.THEODOITIENDONV" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.NGHIEMTHU_HOPDONG" Width="1.5" PointX="13.375" PointY="4.75" />
         <EntityTypeShape EntityType="QL_NCKHQBModel.CONGNHANKETQUA" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="QL_NCKHQBModel.GIAHAN_HOPDONG" Width="1.5" PointX="13.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

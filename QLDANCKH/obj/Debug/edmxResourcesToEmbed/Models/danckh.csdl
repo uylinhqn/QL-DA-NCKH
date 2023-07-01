@@ -404,6 +404,20 @@
     <FunctionImport Name="Proc_CONGNHANKETQUA_Select_CNPD" ReturnType="Collection(QL_NCKHQBModel.Proc_CONGNHANKETQUA_Select_CNPD_Result)">
       <Parameter Name="IdHSDK" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="GIAHAN_HOPDONG" EntityType="QL_NCKHQBModel.GIAHAN_HOPDONG" />
+    <FunctionImport Name="Proc_GIAHAN_HOPDONG_Insert">
+      <Parameter Name="IdHD" Mode="In" Type="Int32" />
+      <Parameter Name="DonGiaHan" Mode="In" Type="String" />
+      <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
+      <Parameter Name="NguoiDang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GIAHAN_HOPDONG_Select_NT" ReturnType="Collection(QL_NCKHQBModel.Proc_GIAHAN_HOPDONG_Select_NT_Result)">
+      <Parameter Name="IdHD" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GIAHAN_HOPDONG_Update">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FilePheduyet" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -1319,5 +1333,26 @@
     <Property Type="String" Name="NguoiDang" Nullable="true" MaxLength="500" />
     <Property Type="Boolean" Name="TrangThai" Nullable="true" />
     <Property Type="String" Name="HoSoPD" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="GIAHAN_HOPDONG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdHD" Type="Int32" />
+    <Property Name="DonGiaHan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDang" Type="DateTime" Precision="3" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="NguoiDang" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FilePheduyet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="Proc_GIAHAN_HOPDONG_Select_NT_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdHD" Nullable="true" />
+    <Property Type="String" Name="DonGiaHan" Nullable="true" />
+    <Property Type="DateTime" Name="NgayDang" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NguoiDang" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="FilePheduyet" Nullable="true" />
   </ComplexType>
 </Schema>

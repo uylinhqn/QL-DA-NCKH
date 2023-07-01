@@ -128,6 +128,18 @@
     <Property Name="TenLinhvuc" Type="nvarchar" MaxLength="100" />
     <Property Name="Trangthai" Type="bit" />
   </EntityType>
+  <EntityType Name="GIAHAN_HOPDONG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdHD" Type="int" />
+    <Property Name="DonGiaHan" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="datetime" />
+    <Property Name="NgayKetThuc" Type="datetime" />
+    <Property Name="NguoiDang" Type="varchar" MaxLength="500" />
+    <Property Name="FilePheduyet" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="HOPDONG_KHCN">
     <Key>
       <PropertyRef Name="ID" />
@@ -392,6 +404,19 @@
     <Parameter Name="IdLinhVucNC" Type="int" Mode="In" />
     <Parameter Name="IdLinhVucNV" Type="int" Mode="In" />
   </Function>
+  <Function Name="Proc_GIAHAN_HOPDONG_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHD" Type="int" Mode="In" />
+    <Parameter Name="DonGiaHan" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NgayKetThuc" Type="datetime" Mode="In" />
+    <Parameter Name="NguoiDang" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GIAHAN_HOPDONG_Select_NT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHD" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_GIAHAN_HOPDONG_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FilePheduyet" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="Proc_HOPDONG_KHCN_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
@@ -646,6 +671,7 @@
     <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAHAN_HOPDONG" EntityType="Self.GIAHAN_HOPDONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOPDONG_KHCN" EntityType="Self.HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOSODANGKY" EntityType="Self.HOSODANGKY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NGHIEMTHU_HOPDONG" EntityType="Self.NGHIEMTHU_HOPDONG" Schema="dbo" store:Type="Tables" />
