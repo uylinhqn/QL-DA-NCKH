@@ -64,6 +64,27 @@ namespace QLDANCKH.Controllers
             return db.Proc_DEXUAT_DATHANG_Select_Nam(identity.Name, nam);
         }
 
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
+        [Route("api/tinh")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByTinh_Result> GetDEXUAT_DATHANGBYTINH(string tinh)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_ByTinh(identity.Name, tinh);
+        }
+
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
+        [Route("api/nhanuoc")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result> GetDEXUAT_DATHANGBYNHANUOC(string nhanuoc)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_ByNhaNuoc(identity.Name, nhanuoc);
+        }
+
+
         [HttpGet]
         [Route("api/DATHANGBYTINH")]
         public IQueryable<DEXUAT_DATHANG> GetDEXUAT_DATHANGBYTINH()
@@ -73,7 +94,7 @@ namespace QLDANCKH.Controllers
 
 
         }
-
+       
         // GET: api/DEXUAT_DATHANG/5
         [ResponseType(typeof(DEXUAT_DATHANG))]
         public IHttpActionResult GetDEXUAT_DATHANG(int id)
@@ -209,5 +230,7 @@ namespace QLDANCKH.Controllers
         {
             return db.DEXUAT_DATHANG.Count(e => e.IDDexuat == id) > 0;
         }
+
+     
     }
 }

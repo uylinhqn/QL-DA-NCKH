@@ -386,6 +386,12 @@
     <Compile Include="Models\Proc_DEXUAT_DATHANG_SelectForHSDK_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_ByTinh_Result.cs">
+      <DependentUpon>danckh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Proc_DEXUAT_DATHANG_Select_LvucNC_Result.cs">
       <DependentUpon>danckh.tt</DependentUpon>
     </Compile>
@@ -598,7 +604,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58730</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44338/</IISUrl>
+          <IISUrl>http://localhost:58730/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

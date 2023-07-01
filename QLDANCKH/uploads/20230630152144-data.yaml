@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 49
+names: ['cbtong_ct']
+
+roboflow:
+  workspace: quangbinhpc1-gzdh2
+  project: quangbinhai1-cphel
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/quangbinhpc1-gzdh2/quangbinhai1-cphel/dataset/2

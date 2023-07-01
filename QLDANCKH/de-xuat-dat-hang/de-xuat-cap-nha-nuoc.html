@@ -884,7 +884,7 @@
         var uri = '/api/DEXUAT_DATHANG';
         function loaddanhsach() {
             $.ajax({
-                url: '/api/opt?op=2002',
+                url: '/api/nhanuoc?nhanuoc=Nhà nước',
                 method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
                 contentType: 'application/json',
                 success: function (data) {

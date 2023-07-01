@@ -5,14 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="QL_NCKHQBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ChiTietQuyenHT">
-          <Key>
-            <PropertyRef Name="TenDangNhap" />
-            <PropertyRef Name="IdQuyenHeThong" />
-          </Key>
-          <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="CONGNHANKETQUA">
           <Key>
             <PropertyRef Name="Id" />
@@ -38,6 +30,14 @@
           <Property Name="NguoiLap" Type="varchar" MaxLength="500" />
           <Property Name="TieuDeGiayCNKQ" Type="nvarchar(max)" />
           <Property Name="FileGiayCNKQ" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ChiTietQuyenHT">
+          <Key>
+            <PropertyRef Name="TenDangNhap" />
+            <PropertyRef Name="IdQuyenHeThong" />
+          </Key>
+          <Property Name="TenDangNhap" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IdQuyenHeThong" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DANHGIA_HOPDONG_KHCN">
           <Key>
@@ -99,15 +99,6 @@
           <Property Name="Phone" Type="int" />
           <Property Name="Trangthai" Type="bit" />
         </EntityType>
-        <EntityType Name="DM_HOCHAM">
-          <Key>
-            <PropertyRef Name="IDHocHam" />
-          </Key>
-          <Property Name="IDHocHam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenHocHam" Type="nvarchar" MaxLength="50" />
-          <Property Name="TenVietTat" Type="nvarchar" MaxLength="20" />
-          <Property Name="Trangthai" Type="bit" />
-        </EntityType>
         <EntityType Name="DM_HOCVI">
           <Key>
             <PropertyRef Name="IDHocvi" />
@@ -116,6 +107,15 @@
           <Property Name="TenHocvi" Type="nvarchar" MaxLength="100" />
           <Property Name="TenVietTat" Type="nvarchar" MaxLength="50" />
           <Property Name="Trangthai" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_HOCHAM">
+          <Key>
+            <PropertyRef Name="IDHocHam" />
+          </Key>
+          <Property Name="IDHocHam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHocHam" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenVietTat" Type="nvarchar" MaxLength="20" />
+          <Property Name="Trangthai" Type="bit" />
         </EntityType>
         <EntityType Name="DM_LINHVUC_NGHIENCUU">
           <Key>
@@ -243,6 +243,24 @@
           <Property Name="NguoiLap" Type="varchar" MaxLength="500" />
           <Property Name="NoiDung" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="TIEUCHI_DANHGIA">
+          <Key>
+            <PropertyRef Name="IDTieuchi" />
+          </Key>
+          <Property Name="IDTieuchi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTieuchi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Diemdanhgia" Type="int" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
+        <EntityType Name="TINTUC_THONGBAO">
+          <Key>
+            <PropertyRef Name="IDTintuc" />
+          </Key>
+          <Property Name="IDTintuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTintuc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Noidungtintuc" Type="nvarchar(max)" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
         <EntityType Name="THANHLY_HOPDONG_KHCN">
           <Key>
             <PropertyRef Name="ID" />
@@ -270,24 +288,6 @@
           <Property Name="FileBaoCao" Type="nvarchar(max)" />
           <Property Name="NoiDungKiemTra" Type="nvarchar(max)" />
           <Property Name="FileKiemTra" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="TIEUCHI_DANHGIA">
-          <Key>
-            <PropertyRef Name="IDTieuchi" />
-          </Key>
-          <Property Name="IDTieuchi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenTieuchi" Type="nvarchar" MaxLength="100" />
-          <Property Name="Diemdanhgia" Type="int" />
-          <Property Name="Trangthai" Type="bit" />
-        </EntityType>
-        <EntityType Name="TINTUC_THONGBAO">
-          <Key>
-            <PropertyRef Name="IDTintuc" />
-          </Key>
-          <Property Name="IDTintuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenTintuc" Type="nvarchar" MaxLength="100" />
-          <Property Name="Noidungtintuc" Type="nvarchar(max)" />
-          <Property Name="Trangthai" Type="bit" />
         </EntityType>
         <Function Name="Proc_ChiTietQuyenHT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
@@ -382,6 +382,14 @@
         </Function>
         <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Nhanuoc" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_ByTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Tinh" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Proc_DEXUAT_DATHANG_Select_LvucNC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
@@ -501,6 +509,7 @@
           <Parameter Name="Trangthai" Type="bit" Mode="In" />
           <Parameter Name="TenHoSo" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="SoHoSo" Type="varchar" Mode="In" />
+          <Parameter Name="PDHoSo" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_HOSODANGKY_Update_PheDuyet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -664,16 +673,16 @@
           <Parameter Name="FileKiemTra" Type="nvarchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="QL_NCKHQBModelStoreContainer">
-          <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONGNHANKETQUA" EntityType="Self.CONGNHANKETQUA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONGNHANKETQUA_HOPDONG_KHCN" EntityType="Self.CONGNHANKETQUA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChiTietQuyenHT" EntityType="Self.ChiTietQuyenHT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANHGIA_HOPDONG_KHCN" EntityType="Self.DANHGIA_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCDANH" EntityType="Self.DM_CHUCDANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCVU" EntityType="Self.DM_CHUCVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_HOCHAM" EntityType="Self.DM_HOCHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_HOCHAM" EntityType="Self.DM_HOCHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NGHIENCUU" EntityType="Self.DM_LINHVUC_NGHIENCUU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LINHVUC_NHIEMVU" EntityType="Self.DM_LINHVUC_NHIEMVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GIAHAN_HOPDONG" EntityType="Self.GIAHAN_HOPDONG" Schema="dbo" store:Type="Tables" />
@@ -685,10 +694,10 @@
           <EntitySet Name="PHIEU_DANHGIA_CHAMDIEM_HS" EntityType="Self.PHIEU_DANHGIA_CHAMDIEM_HS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuyenHeThong" EntityType="Self.QuyenHeThong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAMUNGKINHPHI_HOPDONG_KHCN" EntityType="Self.TAMUNGKINHPHI_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THANHLY_HOPDONG_KHCN" EntityType="Self.THANHLY_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THEODOITIENDONV" EntityType="Self.THEODOITIENDONV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIEUCHI_DANHGIA" EntityType="Self.TIEUCHI_DANHGIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINTUC_THONGBAO" EntityType="Self.TINTUC_THONGBAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THANHLY_HOPDONG_KHCN" EntityType="Self.THANHLY_HOPDONG_KHCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THEODOITIENDONV" EntityType="Self.THEODOITIENDONV" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -840,6 +849,7 @@
             <Parameter Name="Trangthai" Mode="In" Type="Boolean" />
             <Parameter Name="TenHoSo" Mode="In" Type="String" />
             <Parameter Name="SoHoSo" Mode="In" Type="String" />
+            <Parameter Name="PDHoSo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete">
           <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1106,11 +1116,19 @@
             <Parameter Name="NguoiDang" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Proc_GIAHAN_HOPDONG_Select_NT" ReturnType="Collection(QL_NCKHQBModel.Proc_GIAHAN_HOPDONG_Select_NT_Result)">
-            <Parameter Name="IdHD" Mode="In" Type="Int32" />
+          <Parameter Name="IdHD" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Proc_GIAHAN_HOPDONG_Update">
             <Parameter Name="Id" Mode="In" Type="Int32" />
             <Parameter Name="FilePheduyet" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByTinh" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByTinh_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Tinh" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Nhanuoc" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="DM_DONVI">
@@ -2048,6 +2066,38 @@
           <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" Precision="23" />
           <Property Type="String" Name="NguoiDang" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="FilePheduyet" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByTinh_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3276,6 +3326,46 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Proc_GIAHAN_HOPDONG_Update" FunctionName="QL_NCKHQBModel.Store.Proc_GIAHAN_HOPDONG_Update" />
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_ByTinh" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_ByTinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByTinh_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_ByNhaNuoc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -414,7 +414,7 @@ namespace QLDANCKH.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOSODANGKY_SelectPK_Result>("Proc_HOSODANGKY_SelectPK", iDParameter);
         }
     
-        public virtual int Proc_HOSODANGKY_Update(Nullable<int> iD, Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo, string soHoSo)
+        public virtual int Proc_HOSODANGKY_Update(Nullable<int> iD, Nullable<int> idNV, string donVi, string diaChi, string danhMucTaiLieu, string fileHS, Nullable<bool> trangthai, string tenHoSo, string soHoSo, Nullable<int> pDHoSo)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -452,7 +452,11 @@ namespace QLDANCKH.Models
                 new ObjectParameter("SoHoSo", soHoSo) :
                 new ObjectParameter("SoHoSo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update", iDParameter, idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter, soHoSoParameter);
+            var pDHoSoParameter = pDHoSo.HasValue ?
+                new ObjectParameter("PDHoSo", pDHoSo) :
+                new ObjectParameter("PDHoSo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_HOSODANGKY_Update", iDParameter, idNVParameter, donViParameter, diaChiParameter, danhMucTaiLieuParameter, fileHSParameter, trangthaiParameter, tenHoSoParameter, soHoSoParameter, pDHoSoParameter);
         }
     
         public virtual int Proc_PHIEU_DANHGIA_CHAMDIEM_HS_Delete(Nullable<int> iD)
@@ -1349,6 +1353,32 @@ namespace QLDANCKH.Models
                 new ObjectParameter("FilePheduyet", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_GIAHAN_HOPDONG_Update", idParameter, filePheduyetParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_ByTinh_Result> Proc_DEXUAT_DATHANG_Select_ByTinh(string nguoiDeXuat, string tinh)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var tinhParameter = tinh != null ?
+                new ObjectParameter("Tinh", tinh) :
+                new ObjectParameter("Tinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByTinh_Result>("Proc_DEXUAT_DATHANG_Select_ByTinh", nguoiDeXuatParameter, tinhParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result> Proc_DEXUAT_DATHANG_Select_ByNhaNuoc(string nguoiDeXuat, string nhanuoc)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var nhanuocParameter = nhanuoc != null ?
+                new ObjectParameter("Nhanuoc", nhanuoc) :
+                new ObjectParameter("Nhanuoc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result>("Proc_DEXUAT_DATHANG_Select_ByNhaNuoc", nguoiDeXuatParameter, nhanuocParameter);
         }
     }
 }

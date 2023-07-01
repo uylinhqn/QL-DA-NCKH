@@ -789,6 +789,7 @@
                 }
             });
         }
+        var uri = '/api/HOSODANGKies';
         function capnhattt() {
             var datas = {
                 IdNV: document.getElementById("txtnhiemvucn").value,
@@ -839,7 +840,7 @@
                 }
             });
         }
-
+        var uri = 'api/HOSODANGKies';
         function xemdanhmuc(id) {
             $.ajax({
                 url: uri + '?id=' + id,
@@ -847,15 +848,15 @@
                 contentType: 'application/json',
                 success: function (data) {
                     $("#dsfilecn").html("");
-                    document.getElementById("lbid").innerHTML = data[0].ID;
-                    document.getElementById("txtnhiemvucn").value = data[0].IdNV;
-                    document.getElementById("txtdonvicn").value = data[0].DonVi;
-                    document.getElementById("txtdiachicn").value = data[0].DiaChi;
-                    document.getElementById("txtnoidungdexuatcn").value = data[0].DanhMucTaiLieu;
-                    document.getElementById("txttenhosocn").value = data[0].TenHoSo;
-                    document.getElementById("txtsohosocn").value = data[0].SoHoSo;
-                    document.getElementById("txtnhiemvucn").value = data[0].IdNV; $("#txtnhiemvucn").select2();
-                    localStorage.setItem("files", data[0].FileHS);
+                    document.getElementById("lbid").innerHTML = data.ID;
+                    $("#txtnhiemvucn").select2() = data.IdNV;
+                    document.getElementById("txtdonvicn").value = data.DonVi;
+                    document.getElementById("txtdiachicn").value = data.DiaChi;
+                    document.getElementById("txtnoidungdexuatcn").value = data.DanhMucTaiLieu;
+                    document.getElementById("txttenhosocn").value = data.TenHoSo;
+                    document.getElementById("txtsohosocn").value = data.SoHoSo;
+                    document.getElementById("txtnhiemvucn").value = data.IdNV;
+                    localStorage.setItem("files", data.FileHS);
                     for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
                         $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
                     } 
@@ -873,6 +874,42 @@
                 }
             });
         }
+
+        //function xemdanhmuc(id) {
+        //    $.ajax({
+        //        url: uri + '?id=' + id,
+        //        method: 'GET',
+        //        contentType: 'application/json',
+        //        success: function (data) {
+        //            $("#dsfilecn").html("");
+        //            document.getElementById("lbid").innerHTML = data[0].ID;
+        //            document.getElementById("txtnhiemvucn").value = data[0].IdNV;
+        //            document.getElementById("txtdonvicn").value = data[0].DonVi;
+        //            document.getElementById("txtdiachicn").value = data[0].DiaChi;
+        //            document.getElementById("txtnoidungdexuatcn").value = data[0].DanhMucTaiLieu;
+        //            document.getElementById("txttenhosocn").value = data[0].TenHoSo;
+        //            document.getElementById("txtsohosocn").value = data[0].SoHoSo;
+        //            document.getElementById("txtnhiemvucn").value = data[0].IdNV; $("#txtnhiemvucn").select2();
+        //            localStorage.setItem("files", data[0].FileHS);
+        //            for (var i = 0; i < localStorage.getItem("files").split(';').length - 1; i++) {
+        //                $("#dsfilecn").append("<a href='../uploads/" + localStorage.getItem("files").split(';')[i] + "' target='_blank'>" + localStorage.getItem("files").split(';')[i] + "</a><hr />");
+        //            }
+        //        },
+        //        error: function (request, msg, error) {
+        //            $.toast({
+        //                heading: 'Thông báo',
+        //                text: 'Dữ liệu đang được cập nhật!',
+        //                position: 'top-right',
+        //                loaderBg: '#ff6849',
+        //                icon: 'info',
+        //                hideAfter: 3500,
+        //                stack: 6
+        //            });
+        //        }
+        //    });
+        //}
+
+
         function xoadanhmuc(id) {
             if (confirm('Bạn chắc chắn muốn xóa hồ sơ đăng ký đã chọn?')) {
                 $.ajax({
