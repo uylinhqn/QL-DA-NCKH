@@ -318,12 +318,21 @@
                                                 <input type="text" class="form-control" id="txthovaten" />
                                             </div>
                                         </div>
+                                        <!--<div class="form-group">
+                                          <label class="col-md-12 control-label">Chức vụ</label>
+                                        <div class="col-md-12">
+                                         <input type="text" class="form-control" id="txtchucvu" />
+                                            </div>
+                                        </div>-->
+
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">Chức vụ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txtchucvu" />
+                                                <select class="form-control form-select" id="txtchucvu">
+                                                </select>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -355,7 +364,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success waves-effect text-start text-white" onclick="themdmmoi();">Lưu</button>
+                            <button class="btn btn-success waves-effect text-start text-white" onclick="themmmoi();">Lưu</button>
                             <button class="btn btn-primary waves-effect text-start text-white" data-bs-dismiss="modal">Đóng</button>
                         </div>
                     </form>
@@ -384,10 +393,10 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-
                                             <label class="col-md-12 control-label">Chức vụ</label>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" id="txtchucvucn" />
+                                                <select class="form-control form-select" id="txtchucvucn">
+                                                </select>
                                             </div>
                                         </div>
 
@@ -474,7 +483,7 @@
             ], "pageLength": 20
         });
         window.onload = function () {
-            loadmenu(); loaddanhsach();
+            loadmenu(); loaddanhsach(); loadchucvu();
         }
         function loadmenu() {
             $.ajax({
@@ -836,6 +845,68 @@
         function loaddanhsachls(id) {
             document.getElementById("idpas").innerHTML = id;
         }
+        //window.onload = function () {
+        //    loadmenu(); loadchucvu(); loadnhiemvu();
+        //    loaddanhsach();
+        //}
+
+        function loadchucvu() {
+            $.ajax({
+                url: '/api/DM_CHUCVU',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#txtchucvu').html(""); $('#txtchucvucn').html("");
+                    $('#txtchucvu').append("<option value=''>Chọn</option>"); $('#txtchucvucn').append("<option value=''>Chọn</option>");
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        $('#txtchucvu').append("<option value='" + item.TenChucVu + "'>" + item.TenChucVu + "</option>");
+                        $('#txtchucvucn').append("<option value='" + item.TenChucVu + "'>" + item.TenChucVu + "</option>");
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+        function loadnhiemvu() {
+            $.ajax({
+                url: '/api/dm_linhvuc_nhiemvu',
+                method: 'GET', headers: { "authorization": "Bearer " + localStorage.getItem("name") },
+                contentType: 'application/json',
+                success: function (data) {
+                    $('#txtlvnhiemvu').html(""); $('#txtlvnhiemvucn').html("");
+                    $('#txtlvnhiemvu').append("<option value=''>Chọn</option>"); $('#txtlvnhiemvucn').append("<option value=''>Chọn</option>");
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        $('#txtlvnhiemvu').append("<option value='" + item.IDLinhvucNhiemvu + "'>" + item.TenLinhvuc + "</option>");
+                        $('#txtlvnhiemvucn').append("<option value='" + item.IDLinhvucNhiemvu + "'>" + item.TenLinhvuc + "</option>");
+                    });
+                },
+                error: function (request, msg, error) {
+                    $.toast({
+                        heading: 'Thông báo',
+                        text: 'Dữ liệu đang được cập nhật!',
+                        position: 'top-right',
+                        loaderBg: '#ff6849',
+                        icon: 'info',
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        }
+
+
         function xemdanhmuc(id) {
             $.ajax({
                 url: uri + '?id=' + id,
@@ -863,7 +934,7 @@
                 }
             });
         }
-        function themdmmoi() {
+        function themmmoi() {
             var datas = {
                 HoTen: document.getElementById("txthovaten").value,
                 ChucVu: document.getElementById("txtchucvu").value,
@@ -907,6 +978,54 @@
                 }
             });
         }
+
+
+        //function themdmmoi() {
+        //    var datas = {
+        //        TenHocvi: document.getElementById("txttenhocvi").value,
+        //        TenVietTat: document.getElementById("txttenviettat").value,
+
+        //        Trangthai: document.getElementById("chbtt").checked,
+
+        //    };
+        //    $.ajax({
+        //        url: uri,
+        //        method: 'POST',
+        //        contentType: 'application/json',
+        //        data: JSON.stringify(datas),
+        //        statusCode: {
+        //            201: function () {
+        //                $.toast({
+        //                    heading: 'Thông báo',
+        //                    text: 'Thêm thông tin Học vị thành công!',
+        //                    position: 'top-right',
+        //                    loaderBg: '#ff6849',
+        //                    icon: 'success',
+        //                    hideAfter: 3500,
+        //                    stack: 6
+        //                }); loaddanhsach();
+        //                document.getElementById("txttenhocvi").value = "";
+        //                document.getElementById("txttenviettat").value = "";
+
+        //                document.getElementById("chbtt").checked = false;
+
+        //            }
+        //        },
+        //        error: function (request, msg, error) {
+        //            $.toast({
+        //                heading: 'Thông báo',
+        //                text: 'Thêm thông tin Học vị không thành công!',
+        //                position: 'top-right',
+        //                loaderBg: '#ff6849',
+        //                icon: 'warning',
+        //                hideAfter: 3500,
+        //                stack: 6
+        //            });
+        //        }
+        //    });
+        //}
+
+
         function capnhattt() {
             var datas = {
 

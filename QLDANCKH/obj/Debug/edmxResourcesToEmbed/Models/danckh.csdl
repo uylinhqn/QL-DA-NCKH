@@ -427,6 +427,27 @@
       <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
       <Parameter Name="Nhanuoc" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByBo" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByBo_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Bo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByCoso" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByCoso_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Coso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByQuocgia" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Quocgia" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="DM_CHUNHIEM" EntityType="QL_NCKHQBModel.DM_CHUNHIEM" />
+    <FunctionImport Name="Proc_HOPDONGKHCN_BYNAM" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONGKHCN_BYNAM_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Nam" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_HOPDONGKHCNBYNAM" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONGKHCNBYNAM_Result)">
+      <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+      <Parameter Name="Nam" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DM_DONVI">
     <Key>
@@ -1395,5 +1416,90 @@
     <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
     <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
     <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByBo_Result">
+    <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+    <Property Type="String" Name="Tendexuat" Nullable="true" />
+    <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+    <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+    <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+    <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+    <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+    <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+    <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByCoso_Result">
+    <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+    <Property Type="String" Name="Tendexuat" Nullable="true" />
+    <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+    <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+    <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+    <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+    <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+    <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+    <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result">
+    <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+    <Property Type="String" Name="Tendexuat" Nullable="true" />
+    <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+    <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+    <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+    <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+    <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+    <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+    <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="DM_CHUNHIEM">
+    <Key>
+      <PropertyRef Name="ChuNhiemID" />
+    </Key>
+    <Property Name="ChuNhiemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Trangthai" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="Proc_HOPDONGKHCN_BYNAM_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Proc_HOPDONGKHCNBYNAM_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+    <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="FileHD" Nullable="true" />
+    <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+    <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+    <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

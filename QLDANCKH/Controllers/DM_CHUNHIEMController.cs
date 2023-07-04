@@ -23,7 +23,7 @@ namespace QLDANCKH.Controllers
         }
 
         // GET: api/DM_CHUNHIEM/5
-        [ResponseType(typeof(DM_CHUNHIEM))]
+        [ResponseType(typeof(DM_CHUCVU))]
         public IHttpActionResult GetDM_CHUNHIEM(int id)
         {
             DM_CHUNHIEM dM_CHUNHIEM = db.DM_CHUNHIEM.Find(id);
@@ -57,7 +57,7 @@ namespace QLDANCKH.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DM_CHUNHIEMExists(id))
+                if (!DM_CHUCVUExists(id))
                 {
                     return NotFound();
                 }
@@ -86,7 +86,7 @@ namespace QLDANCKH.Controllers
         }
 
         // DELETE: api/DM_CHUNHIEM/5
-        [ResponseType(typeof(DM_CHUNHIEM))]
+        [ResponseType(typeof(DM_CHUCVU))]
         public IHttpActionResult DeleteDM_CHUNHIEM(int id)
         {
             DM_CHUNHIEM dM_CHUNHIEM = db.DM_CHUNHIEM.Find(id);
@@ -110,9 +110,9 @@ namespace QLDANCKH.Controllers
             base.Dispose(disposing);
         }
 
-        private bool DM_CHUNHIEMExists(int id)
+        private bool DM_CHUCVUExists(int id)
         {
-            return db.DM_CHUNHIEM.Count(e => e.ChuNhiemID == id) > 0;
+            return db.DM_CHUCVU.Count(e => e.IDChucVu == id) > 0;
         }
     }
 }

@@ -285,14 +285,30 @@ namespace QLDANCKH.Controllers
             return db.Proc_HOSODANGKY_SelectPK_ChamDiem(idcd);
         }
 
-        // PUT: api/HOSODANGKies/5
-     
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutHOSODANGKY(int id, HOSODANGKY hOSODANGKY)
+
+        // GET: api/HOSODANGKY/5
+        [ResponseType(typeof(HOSODANGKY))]
+        public IHttpActionResult GetHOSODANGKies(int id)
         {
-            db.Proc_HOSODANGKY_Update(id, hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo, hOSODANGKY.SoHoSo,hOSODANGKY.PDHoSo);
-            return StatusCode(HttpStatusCode.NoContent);
+            HOSODANGKY HhSODANGKY = db.HOSODANGKies.Find(id);
+            if (HhSODANGKY == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(HhSODANGKY);
         }
+
+
+
+        //// PUT: api/HOSODANGKies/5
+
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutHOSODANGKY(int id, HOSODANGKY hOSODANGKY)
+        //{
+        //    db.Proc_HOSODANGKY_Update(id, hOSODANGKY.IdNV, hOSODANGKY.DonVi, hOSODANGKY.DiaChi, hOSODANGKY.DanhMucTaiLieu, hOSODANGKY.FileHS, hOSODANGKY.Trangthai, hOSODANGKY.TenHoSo, hOSODANGKY.SoHoSo,hOSODANGKY.PDHoSo);
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
         public IHttpActionResult PutHOSODANGKYpheduyet(int hscd, int pdhs)
         {
             db.Proc_HOSODANGKY_Update_PheDuyet(hscd, pdhs);

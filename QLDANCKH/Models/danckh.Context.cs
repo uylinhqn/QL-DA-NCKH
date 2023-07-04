@@ -52,6 +52,7 @@ namespace QLDANCKH.Models
         public virtual DbSet<NGHIEMTHU_HOPDONG> NGHIEMTHU_HOPDONG { get; set; }
         public virtual DbSet<CONGNHANKETQUA> CONGNHANKETQUAs { get; set; }
         public virtual DbSet<GIAHAN_HOPDONG> GIAHAN_HOPDONG { get; set; }
+        public virtual DbSet<DM_CHUNHIEM> DM_CHUNHIEM { get; set; }
     
         public virtual int Proc_ChiTietQuyenHT_Delete(string tenDangNhap)
         {
@@ -1379,6 +1380,71 @@ namespace QLDANCKH.Models
                 new ObjectParameter("Nhanuoc", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result>("Proc_DEXUAT_DATHANG_Select_ByNhaNuoc", nguoiDeXuatParameter, nhanuocParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_ByBo_Result> Proc_DEXUAT_DATHANG_Select_ByBo(string nguoiDeXuat, string bo)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var boParameter = bo != null ?
+                new ObjectParameter("Bo", bo) :
+                new ObjectParameter("Bo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByBo_Result>("Proc_DEXUAT_DATHANG_Select_ByBo", nguoiDeXuatParameter, boParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_ByCoso_Result> Proc_DEXUAT_DATHANG_Select_ByCoso(string nguoiDeXuat, string coso)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var cosoParameter = coso != null ?
+                new ObjectParameter("Coso", coso) :
+                new ObjectParameter("Coso", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByCoso_Result>("Proc_DEXUAT_DATHANG_Select_ByCoso", nguoiDeXuatParameter, cosoParameter);
+        }
+    
+        public virtual ObjectResult<Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result> Proc_DEXUAT_DATHANG_Select_ByQuocgia(string nguoiDeXuat, string quocgia)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var quocgiaParameter = quocgia != null ?
+                new ObjectParameter("Quocgia", quocgia) :
+                new ObjectParameter("Quocgia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result>("Proc_DEXUAT_DATHANG_Select_ByQuocgia", nguoiDeXuatParameter, quocgiaParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONGKHCN_BYNAM_Result> Proc_HOPDONGKHCN_BYNAM(string nguoiDeXuat, Nullable<int> nam)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("Nam", nam) :
+                new ObjectParameter("Nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONGKHCN_BYNAM_Result>("Proc_HOPDONGKHCN_BYNAM", nguoiDeXuatParameter, namParameter);
+        }
+    
+        public virtual ObjectResult<Proc_HOPDONGKHCNBYNAM_Result> Proc_HOPDONGKHCNBYNAM(string nguoiDeXuat, Nullable<int> nam)
+        {
+            var nguoiDeXuatParameter = nguoiDeXuat != null ?
+                new ObjectParameter("NguoiDeXuat", nguoiDeXuat) :
+                new ObjectParameter("NguoiDeXuat", typeof(string));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("Nam", nam) :
+                new ObjectParameter("Nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_HOPDONGKHCNBYNAM_Result>("Proc_HOPDONGKHCNBYNAM", nguoiDeXuatParameter, namParameter);
         }
     }
 }

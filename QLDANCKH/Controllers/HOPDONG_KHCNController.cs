@@ -272,6 +272,16 @@ namespace QLDANCKH.Controllers
             return db.Proc_HOPDONG_KHCN_SelectPK_HD(idsu);
         }
 
+        //[HttpGet]
+        //[Route("api/DATHANGBYTINH")]
+        //public IQueryable<HDNT> GetHOPDONGKHOAHOCBYNAM()
+        //{
+            
+        //    return db.HOPDONG_KHCN.Where(p => p.NgayLap == "Tỉnh");
+
+
+        //}
+
         // PUT: api/HOPDONG_KHCN/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutHOPDONG_KHCN(int id, HOPDONG_KHCN HOPDONG_KHCN)
@@ -295,6 +305,16 @@ namespace QLDANCKH.Controllers
         {
             db.Proc_HOPDONG_KHCN_Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // GET: api/HOPDONG_KHCN
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
+        [Route("api/hopdongkhcnbynam")]
+        public ObjectResult<Proc_HOPDONGKHCNBYNAM_Result> GetHOPDONGKHCNBYNAM(int nam)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_HOPDONGKHCNBYNAM(identity.Name, nam);
         }
 
         protected override void Dispose(bool disposing)

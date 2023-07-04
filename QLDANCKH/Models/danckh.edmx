@@ -89,6 +89,16 @@
           <Property Name="KyhieuCV" Type="nvarchar" MaxLength="20" />
           <Property Name="Trangthai" Type="bit" />
         </EntityType>
+        <EntityType Name="DM_CHUNHIEM">
+          <Key>
+            <PropertyRef Name="ChuNhiemID" />
+          </Key>
+          <Property Name="ChuNhiemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="char" MaxLength="11" />
+          <Property Name="Trangthai" Type="bit" />
+        </EntityType>
         <EntityType Name="DM_DONVI">
           <Key>
             <PropertyRef Name="IDDonvi" />
@@ -383,9 +393,21 @@
         <Function Name="Proc_DEXUAT_DATHANG_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_ByBo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Bo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_ByCoso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Coso" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
           <Parameter Name="Nhanuoc" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_DEXUAT_DATHANG_Select_ByQuocgia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Quocgia" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Proc_DEXUAT_DATHANG_Select_ByTinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
@@ -468,6 +490,14 @@
           <Parameter Name="NgayLap" Type="date" Mode="In" />
           <Parameter Name="NgayKetThuc" Type="date" Mode="In" />
           <Parameter Name="SoHD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_HOPDONGKHCN_BYNAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Nam" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_HOPDONGKHCNBYNAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NguoiDeXuat" Type="varchar" Mode="In" />
+          <Parameter Name="Nam" Type="int" Mode="In" />
         </Function>
         <Function Name="Proc_HOSODANGKY_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -680,6 +710,7 @@
           <EntitySet Name="DEXUAT_DATHANG" EntityType="Self.DEXUAT_DATHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCDANH" EntityType="Self.DM_CHUCDANH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCVU" EntityType="Self.DM_CHUCVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_CHUNHIEM" EntityType="Self.DM_CHUNHIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_DONVI" EntityType="Self.DM_DONVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HOCVI" EntityType="Self.DM_HOCVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HOCHAM" EntityType="Self.DM_HOCHAM" Schema="dbo" store:Type="Tables" />
@@ -1129,6 +1160,27 @@
           <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByNhaNuoc" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result)">
             <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
             <Parameter Name="Nhanuoc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByBo" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByBo_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Bo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByCoso" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByCoso_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Coso" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_DEXUAT_DATHANG_Select_ByQuocgia" ReturnType="Collection(QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Quocgia" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="DM_CHUNHIEM" EntityType="QL_NCKHQBModel.DM_CHUNHIEM" />
+          <FunctionImport Name="Proc_HOPDONGKHCN_BYNAM" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONGKHCN_BYNAM_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Nam" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_HOPDONGKHCNBYNAM" ReturnType="Collection(QL_NCKHQBModel.Proc_HOPDONGKHCNBYNAM_Result)">
+            <Parameter Name="NguoiDeXuat" Mode="In" Type="String" />
+            <Parameter Name="Nam" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="DM_DONVI">
@@ -2098,6 +2150,91 @@
           <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
           <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
           <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByBo_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByCoso_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result">
+          <Property Type="Int32" Name="IDDexuat" Nullable="false" />
+          <Property Type="String" Name="Tendexuat" Nullable="true" />
+          <Property Type="String" Name="Noidungdexuat" Nullable="true" />
+          <Property Type="Int32" Name="NamDeXuat" Nullable="true" />
+          <Property Type="String" Name="CapDeXuat" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="TrangthaiPD" Nullable="true" />
+          <Property Type="String" Name="LinkTaiLieu" Nullable="true" />
+          <Property Type="String" Name="NguoiDeXuat" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NguoiPheDuyet" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenLinhVucNC" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLinhVucNV" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="DonViThucHien" Nullable="true" />
+          <Property Type="Boolean" Name="ChuyenGiao" Nullable="true" />
+          <Property Type="Boolean" Name="NghiemThu" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="DM_CHUNHIEM">
+          <Key>
+            <PropertyRef Name="ChuNhiemID" />
+          </Key>
+          <Property Name="ChuNhiemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Trangthai" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="Proc_HOPDONGKHCN_BYNAM_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Proc_HOPDONGKHCNBYNAM_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="IdHoSoDK" Nullable="true" />
+          <Property Type="String" Name="DonVi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TenHD" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FileHD" Nullable="true" />
+          <Property Type="Decimal" Name="TongKinhPhi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NgayLap" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKetThuc" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="String" Name="NguoiLap" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SoHD" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3363,6 +3500,112 @@
                 <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
                 <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
                 <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_ByBo" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_ByBo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByBo_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_ByCoso" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_ByCoso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByCoso_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_DEXUAT_DATHANG_Select_ByQuocgia" FunctionName="QL_NCKHQBModel.Store.Proc_DEXUAT_DATHANG_Select_ByQuocgia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result">
+                <ScalarProperty Name="IDDexuat" ColumnName="IDDexuat" />
+                <ScalarProperty Name="Tendexuat" ColumnName="Tendexuat" />
+                <ScalarProperty Name="Noidungdexuat" ColumnName="Noidungdexuat" />
+                <ScalarProperty Name="NamDeXuat" ColumnName="NamDeXuat" />
+                <ScalarProperty Name="CapDeXuat" ColumnName="CapDeXuat" />
+                <ScalarProperty Name="TrangthaiPD" ColumnName="TrangthaiPD" />
+                <ScalarProperty Name="LinkTaiLieu" ColumnName="LinkTaiLieu" />
+                <ScalarProperty Name="NguoiDeXuat" ColumnName="NguoiDeXuat" />
+                <ScalarProperty Name="NguoiPheDuyet" ColumnName="NguoiPheDuyet" />
+                <ScalarProperty Name="TenLinhVucNC" ColumnName="TenLinhVucNC" />
+                <ScalarProperty Name="TenLinhVucNV" ColumnName="TenLinhVucNV" />
+                <ScalarProperty Name="DonViThucHien" ColumnName="DonViThucHien" />
+                <ScalarProperty Name="ChuyenGiao" ColumnName="ChuyenGiao" />
+                <ScalarProperty Name="NghiemThu" ColumnName="NghiemThu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DM_CHUNHIEM">
+            <EntityTypeMapping TypeName="QL_NCKHQBModel.DM_CHUNHIEM">
+              <MappingFragment StoreEntitySet="DM_CHUNHIEM">
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="ChuNhiemID" ColumnName="ChuNhiemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_HOPDONGKHCN_BYNAM" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONGKHCN_BYNAM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONGKHCN_BYNAM_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_HOPDONGKHCNBYNAM" FunctionName="QL_NCKHQBModel.Store.Proc_HOPDONGKHCNBYNAM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QL_NCKHQBModel.Proc_HOPDONGKHCNBYNAM_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IdHoSoDK" ColumnName="IdHoSoDK" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenHD" ColumnName="TenHD" />
+                <ScalarProperty Name="FileHD" ColumnName="FileHD" />
+                <ScalarProperty Name="TongKinhPhi" ColumnName="TongKinhPhi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiLap" ColumnName="NguoiLap" />
+                <ScalarProperty Name="SoHD" ColumnName="SoHD" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

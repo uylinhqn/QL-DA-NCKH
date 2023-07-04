@@ -77,6 +77,35 @@ namespace QLDANCKH.Controllers
         // GET: api/DEXUAT_DATHANG
         [Authorize(Roles = "admin, member, client")]
         [HttpGet]
+        [Route("api/bo")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByBo_Result> GetDEXUAT_DATHANGBYBO(string bo)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_ByBo(identity.Name, bo);
+        }
+
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
+        [Route("api/quocgia")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByQuocgia_Result> GetDEXUAT_DATHANGBYQUOCGIA(string quocgia)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_ByQuocgia(identity.Name, quocgia);
+        }
+
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
+        [Route("api/coso")]
+        public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByCoso_Result> GetDEXUAT_DATHANGBYCOSO(string coso)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return db.Proc_DEXUAT_DATHANG_Select_ByCoso(identity.Name, coso);
+        }
+        // GET: api/DEXUAT_DATHANG
+        [Authorize(Roles = "admin, member, client")]
+        [HttpGet]
         [Route("api/nhanuoc")]
         public ObjectResult<Proc_DEXUAT_DATHANG_Select_ByNhaNuoc_Result> GetDEXUAT_DATHANGBYNHANUOC(string nhanuoc)
         {
@@ -94,7 +123,9 @@ namespace QLDANCKH.Controllers
 
 
         }
-       
+
+        
+
         // GET: api/DEXUAT_DATHANG/5
         [ResponseType(typeof(DEXUAT_DATHANG))]
         public IHttpActionResult GetDEXUAT_DATHANG(int id)
